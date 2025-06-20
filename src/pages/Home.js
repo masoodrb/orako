@@ -6,7 +6,8 @@ import {
   AlertOutlined, 
   SettingOutlined,
   BlockOutlined,
-  CompassOutlined 
+  CompassOutlined,
+  CloudOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -57,6 +58,13 @@ const Home = () => {
       icon: <AlertOutlined style={{ fontSize: '32px', color: 'var(--oracle-error)' }} />,
       count: 10,
       path: '/feedback'
+    },
+    {
+      title: 'ERP Components',
+      description: 'Enterprise business modules and workflows',
+      icon: <CloudOutlined style={{ fontSize: '32px', color: 'var(--oracle-secondary)' }} />,
+      count: 25,
+      path: '/erp-components'
     }
   ];
 
@@ -75,7 +83,7 @@ const Home = () => {
           <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
             <Statistic
               title="Total Components"
-              value={60}
+              value={85}
               valueStyle={{ 
                 color: 'var(--oracle-primary)', 
                 fontSize: '24px',
@@ -89,7 +97,7 @@ const Home = () => {
           <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
             <Statistic
               title="Business Modules"
-              value={6}
+              value={7}
               valueStyle={{ 
                 color: 'var(--oracle-secondary)', 
                 fontSize: '24px',

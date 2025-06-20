@@ -9,6 +9,7 @@ import {
   SettingOutlined,
   BlockOutlined,
   CompassOutlined,
+  CloudOutlined,
 } from '@ant-design/icons';
 
 // Import page components
@@ -19,6 +20,7 @@ import NavigationPage from './pages/NavigationPage';
 import DataEntryPage from './pages/DataEntryPage';
 import DataDisplayPage from './pages/DataDisplayPage';
 import FeedbackPage from './pages/FeedbackPage';
+import ERPComponentsPage from './pages/ERPComponentsPage';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -63,6 +65,11 @@ const App = () => {
       key: '/feedback',
       icon: <AlertOutlined />,
       label: 'Feedback',
+    },
+    {
+      key: '/erp-components',
+      icon: <CloudOutlined />,
+      label: 'ERP Components',
     },
   ];
 
@@ -133,6 +140,7 @@ const App = () => {
             <Route path="/data-entry" element={<DataEntryPage />} />
             <Route path="/data-display" element={<DataDisplayPage />} />
             <Route path="/feedback" element={<FeedbackPage />} />
+            <Route path="/erp-components" element={<ERPComponentsPage />} />
           </Routes>
         </Content>
       </Layout>
