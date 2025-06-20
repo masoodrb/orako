@@ -182,7 +182,7 @@ body {
 .content-area {
   padding: 24px;
   background: var(--oracle-background);
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px - 48px);
 }
 
 .page-header {
@@ -273,6 +273,86 @@ body {
 .ant-select-focused .ant-select-selector {
   border-color: var(--oracle-secondary) !important;
   box-shadow: 0 0 0 2px rgba(5, 114, 206, 0.1) !important;
+}
+
+/* Top Navigation Bar Styling */
+.ant-menu-horizontal {
+  border-bottom: none !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item {
+  border-bottom: 2px solid transparent !important;
+  margin: 0 8px !important;
+  padding: 0 16px !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  color: var(--oracle-text-secondary) !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover {
+  color: var(--oracle-primary) !important;
+  border-bottom-color: var(--oracle-primary) !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected {
+  color: var(--oracle-primary) !important;
+  border-bottom-color: var(--oracle-primary) !important;
+  background-color: transparent !important;
+}
+
+/* Profile dropdown styling */
+.ant-dropdown-menu {
+  border-radius: var(--oracle-radius-md) !important;
+  box-shadow: var(--oracle-shadow-lg) !important;
+  border: 1px solid var(--oracle-border) !important;
+}
+
+.ant-dropdown-menu-item {
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: var(--oracle-surface-secondary) !important;
+}
+
+/* Search input in header */
+.ant-input-search {
+  border-radius: var(--oracle-radius-sm) !important;
+}
+
+.ant-input-search .ant-input {
+  border-color: var(--oracle-border) !important;
+  background-color: var(--oracle-surface-secondary) !important;
+}
+
+.ant-input-search .ant-input:focus {
+  border-color: var(--oracle-primary) !important;
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
+}
+
+/* Breadcrumb styling */
+.ant-breadcrumb {
+  font-size: 13px !important;
+}
+
+.ant-breadcrumb-link {
+  color: var(--oracle-text-secondary) !important;
+}
+
+.ant-breadcrumb-separator {
+  color: var(--oracle-neutral-400) !important;
+}
+
+/* Notification badge */
+.ant-badge-count {
+  background-color: var(--oracle-primary) !important;
+  border: 1px solid var(--oracle-surface) !important;
+  font-size: 11px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  line-height: 16px !important;
 }
 
 /* Oracle-style utility classes */
