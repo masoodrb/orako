@@ -1,82 +1,300 @@
+/* Oracle Cloud ERP Professional Theme */
+:root {
+  --oracle-primary: #ff0000;
+  --oracle-primary-dark: #cc0000;
+  --oracle-primary-light: #ff3333;
+  --oracle-secondary: #0572ce;
+  --oracle-secondary-dark: #043d73;
+  --oracle-secondary-light: #1976d2;
+  --oracle-neutral-900: #1c1e21;
+  --oracle-neutral-800: #2c2f33;
+  --oracle-neutral-700: #454a52;
+  --oracle-neutral-600: #5c6570;
+  --oracle-neutral-500: #73808e;
+  --oracle-neutral-400: #8a9aac;
+  --oracle-neutral-300: #a1b5ca;
+  --oracle-neutral-200: #b8cfe8;
+  --oracle-neutral-100: #d0e4ff;
+  --oracle-neutral-50: #e7f3ff;
+  --oracle-background: #f7f9fc;
+  --oracle-surface: #ffffff;
+  --oracle-surface-secondary: #f5f7fa;
+  --oracle-surface-tertiary: #eef2f7;
+  --oracle-border: #d6dbe7;
+  --oracle-border-light: #e2e8f0;
+  --oracle-text-primary: #1c1e21;
+  --oracle-text-secondary: #454a52;
+  --oracle-text-disabled: #8a9aac;
+  --oracle-success: #00875a;
+  --oracle-warning: #ff8b00;
+  --oracle-error: #de350b;
+  --oracle-info: #0065ff;
+  --oracle-shadow-xs: 0 1px 2px 0 rgba(28, 30, 33, 0.08);
+  --oracle-shadow-sm: 0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06);
+  --oracle-shadow-md: 0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06);
+  --oracle-shadow-lg: 0 10px 15px -3px rgba(28, 30, 33, 0.1), 0 4px 6px -2px rgba(28, 30, 33, 0.05);
+  --oracle-shadow-xl: 0 20px 25px -5px rgba(28, 30, 33, 0.1), 0 10px 10px -5px rgba(28, 30, 33, 0.04);
+  --oracle-radius-sm: 4px;
+  --oracle-radius-md: 6px;
+  --oracle-radius-lg: 8px;
+  --oracle-radius-xl: 12px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Oracle Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
+    'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 12px;
+  font-size: 14px;
+  background-color: var(--oracle-background);
+  color: var(--oracle-text-primary);
+  line-height: 1.5;
+}
+
+/* Global Ant Design overrides for Oracle theme */
+.ant-layout {
+  background-color: var(--oracle-background) !important;
+}
+
+.ant-layout-sider {
+  background-color: var(--oracle-surface) !important;
+  border-right: 1px solid var(--oracle-border) !important;
+  box-shadow: var(--oracle-shadow-sm) !important;
+}
+
+.ant-layout-header {
+  background-color: var(--oracle-surface) !important;
+  border-bottom: 1px solid var(--oracle-border) !important;
+  box-shadow: var(--oracle-shadow-sm) !important;
+}
+
+.ant-menu {
+  background-color: transparent !important;
+  border-right: none !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.ant-menu-item {
+  color: var(--oracle-text-secondary) !important;
+  padding-left: 24px !important;
+  margin: 4px 16px !important;
+  border-radius: var(--oracle-radius-sm) !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  transition: all 0.15s ease !important;
+}
+
+.ant-menu-item:hover {
+  background-color: var(--oracle-surface-secondary) !important;
+  color: var(--oracle-text-primary) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: var(--oracle-secondary) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.ant-menu-item-selected:hover {
+  background-color: var(--oracle-secondary-dark) !important;
+  color: white !important;
+}
+
+.ant-btn-primary {
+  background-color: var(--oracle-primary) !important;
+  border-color: var(--oracle-primary) !important;
+  border-radius: var(--oracle-radius-sm) !important;
+  font-weight: 500 !important;
+  box-shadow: var(--oracle-shadow-xs) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--oracle-primary-dark) !important;
+  border-color: var(--oracle-primary-dark) !important;
+  box-shadow: var(--oracle-shadow-sm) !important;
 }
 
 .demo-section {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .demo-section h2 {
-  margin-bottom: 12px;
-  font-size: 18px;
-  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--oracle-text-primary);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--oracle-primary);
 }
 
 .demo-section h3 {
-  margin: 16px 0 8px 0;
-  font-size: 14px;
-  font-weight: 500;
+  margin: 24px 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--oracle-text-secondary);
 }
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .demo-item {
-  padding: 12px;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  background: white;
+  padding: 20px;
+  border: 1px solid var(--oracle-border);
+  border-radius: var(--oracle-radius-md);
+  background: var(--oracle-surface);
+  box-shadow: var(--oracle-shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.demo-item:hover {
+  box-shadow: var(--oracle-shadow-md);
+  border-color: var(--oracle-secondary);
+  transform: translateY(-1px);
 }
 
 .demo-item h4 {
-  margin: 0 0 8px 0;
-  font-size: 13px;
-  font-weight: 500;
-  color: #1890ff;
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--oracle-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .component-showcase {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
   align-items: flex-start;
 }
 
 .sidebar-menu .ant-menu {
   border-right: none;
+  padding-top: 8px;
 }
 
 .content-area {
-  padding: 12px;
-  background: #f5f5f5;
-  min-height: calc(100vh - 48px);
+  padding: 24px;
+  background: var(--oracle-background);
+  min-height: calc(100vh - 64px);
 }
 
 .page-header {
-  margin-bottom: 16px;
-  padding: 12px;
-  background: white;
-  border-radius: 4px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: var(--oracle-surface);
+  border-radius: var(--oracle-radius-lg);
+  border: 1px solid var(--oracle-border);
+  box-shadow: var(--oracle-shadow-sm);
 }
 
 .page-header h1 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--oracle-text-primary);
 }
 
 .page-header p {
-  margin: 4px 0 0 0;
-  color: #666;
-  font-size: 12px;
+  margin: 0;
+  color: var(--oracle-text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
 }
+
+/* Oracle-style Card and Surface Styling */
+.ant-card {
+  border: 1px solid var(--oracle-border) !important;
+  border-radius: var(--oracle-radius-md) !important;
+  box-shadow: var(--oracle-shadow-sm) !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-card:hover {
+  box-shadow: var(--oracle-shadow-md) !important;
+}
+
+.ant-card-head {
+  background-color: var(--oracle-surface-secondary) !important;
+  border-bottom: 1px solid var(--oracle-border) !important;
+  border-radius: var(--oracle-radius-md) var(--oracle-radius-md) 0 0 !important;
+}
+
+.ant-card-head-title {
+  color: var(--oracle-text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+/* Professional Table Styling */
+.ant-table {
+  background-color: var(--oracle-surface) !important;
+  border-radius: var(--oracle-radius-md) !important;
+  overflow: hidden !important;
+}
+
+.ant-table-thead > tr > th {
+  background-color: var(--oracle-surface-secondary) !important;
+  color: var(--oracle-text-primary) !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--oracle-border) !important;
+  font-size: 14px !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background-color: var(--oracle-surface-tertiary) !important;
+}
+
+/* Enhanced Form Controls */
+.ant-input {
+  border-color: var(--oracle-border) !important;
+  border-radius: var(--oracle-radius-sm) !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-input:focus,
+.ant-input-focused {
+  border-color: var(--oracle-secondary) !important;
+  box-shadow: 0 0 0 2px rgba(5, 114, 206, 0.1) !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--oracle-secondary) !important;
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: var(--oracle-secondary) !important;
+  box-shadow: 0 0 0 2px rgba(5, 114, 206, 0.1) !important;
+}
+
+/* Oracle-style utility classes */
+.oracle-primary-bg { background-color: var(--oracle-primary); }
+.oracle-secondary-bg { background-color: var(--oracle-secondary); }
+.oracle-surface-bg { background-color: var(--oracle-surface); }
+
+.oracle-primary-text { color: var(--oracle-primary); }
+.oracle-secondary-text { color: var(--oracle-secondary); }
+
+.oracle-shadow-xs { box-shadow: var(--oracle-shadow-xs); }
+.oracle-shadow-sm { box-shadow: var(--oracle-shadow-sm); }
+.oracle-shadow-md { box-shadow: var(--oracle-shadow-md); }
+.oracle-shadow-lg { box-shadow: var(--oracle-shadow-lg); }
+
+.oracle-radius-sm { border-radius: var(--oracle-radius-sm); }
+.oracle-radius-md { border-radius: var(--oracle-radius-md); }
+.oracle-radius-lg { border-radius: var(--oracle-radius-lg); }
+
+/* Professional spacing utilities */
+.oracle-spacing-xs { margin: 8px; }
+.oracle-spacing-sm { margin: 12px; }
+.oracle-spacing-md { margin: 20px; }
+.oracle-spacing-lg { margin: 32px; }
+.oracle-spacing-xl { margin: 48px; }

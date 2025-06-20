@@ -19,42 +19,42 @@ const Home = () => {
     {
       title: 'General',
       description: 'Basic components like Button, Icon, Typography',
-      icon: <SettingOutlined style={{ fontSize: '24px', color: '#1890ff' }} />,
+      icon: <SettingOutlined style={{ fontSize: '32px', color: 'var(--oracle-primary)' }} />,
       count: 4,
       path: '/general'
     },
     {
       title: 'Layout',
       description: 'Components for page layout and structure',
-      icon: <BlockOutlined style={{ fontSize: '24px', color: '#52c41a' }} />,
+      icon: <BlockOutlined style={{ fontSize: '32px', color: 'var(--oracle-success)' }} />,
       count: 4,
       path: '/layout'
     },
     {
       title: 'Navigation',
       description: 'Navigation and menu components',
-      icon: <CompassOutlined style={{ fontSize: '24px', color: '#722ed1' }} />,
+      icon: <CompassOutlined style={{ fontSize: '32px', color: 'var(--oracle-secondary)' }} />,
       count: 8,
       path: '/navigation'
     },
     {
       title: 'Data Entry',
       description: 'Form controls and input components',
-      icon: <FormOutlined style={{ fontSize: '24px', color: '#fa8c16' }} />,
+      icon: <FormOutlined style={{ fontSize: '32px', color: 'var(--oracle-warning)' }} />,
       count: 17,
       path: '/data-entry'
     },
     {
       title: 'Data Display',
       description: 'Components for displaying data',
-      icon: <AppstoreOutlined style={{ fontSize: '24px', color: '#13c2c2' }} />,
+      icon: <AppstoreOutlined style={{ fontSize: '32px', color: 'var(--oracle-info)' }} />,
       count: 17,
       path: '/data-display'
     },
     {
       title: 'Feedback',
       description: 'User feedback and interaction components',
-      icon: <AlertOutlined style={{ fontSize: '24px', color: '#f5222d' }} />,
+      icon: <AlertOutlined style={{ fontSize: '32px', color: 'var(--oracle-error)' }} />,
       count: 10,
       path: '/feedback'
     }
@@ -63,73 +63,129 @@ const Home = () => {
   return (
     <div>
       <div className="page-header">
-        <Title level={1}>Ant Design Components Demo</Title>
+        <Title level={1}>Oracle Cloud ERP - Enterprise Business Suite</Title>
         <Paragraph>
-          Welcome to the comprehensive showcase of Ant Design components. This demo application 
-          demonstrates all the major components available in Ant Design 5.x with React 18.
+          Welcome to Oracle Cloud ERP, the world's most complete and integrated cloud business suite. 
+          This platform demonstrates our comprehensive component library and design system built for enterprise applications.
         </Paragraph>
       </div>
 
-      <Row gutter={[12, 12]} style={{ marginBottom: '20px' }}>
+      <Row gutter={[24, 24]} style={{ marginBottom: '40px' }}>
         <Col xs={24} sm={12} md={8}>
-          <Card size="small">
+          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
             <Statistic
               title="Total Components"
               value={60}
-              valueStyle={{ color: '#1890ff', fontSize: '18px' }}
+              valueStyle={{ 
+                color: 'var(--oracle-primary)', 
+                fontSize: '24px',
+                fontWeight: 700
+              }}
               suffix="+"
             />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card size="small">
+          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
             <Statistic
-              title="Categories"
+              title="Business Modules"
               value={6}
-              valueStyle={{ color: '#52c41a', fontSize: '18px' }}
+              valueStyle={{ 
+                color: 'var(--oracle-secondary)', 
+                fontSize: '24px',
+                fontWeight: 700
+              }}
             />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card size="small">
+          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
             <Statistic
-              title="React Version"
+              title="Platform Version"
               value="18.2"
-              valueStyle={{ color: '#722ed1', fontSize: '18px' }}
+              valueStyle={{ 
+                color: 'var(--oracle-success)', 
+                fontSize: '24px',
+                fontWeight: 700
+              }}
             />
           </Card>
         </Col>
       </Row>
 
-      <Title level={3} style={{ marginBottom: '16px', fontSize: '16px' }}>Component Categories</Title>
-      <Row gutter={[12, 12]}>
+      <Title level={2} className="oracle-primary-text" style={{ 
+        marginBottom: '32px', 
+        fontSize: '24px', 
+        fontWeight: 700,
+        textAlign: 'center',
+        letterSpacing: '0.3px'
+      }}>
+        Enterprise Business Module Categories
+      </Title>
+      <Row gutter={[24, 24]}>
         {categories.map((category, index) => (
           <Col xs={24} sm={12} lg={8} key={index}>
             <Card
               hoverable
-              size="small"
-              style={{ height: '100%' }}
+              className="oracle-shadow-sm"
+              style={{ 
+                height: '100%', 
+                borderRadius: 'var(--oracle-radius-md)',
+                transition: 'all 0.2s ease'
+              }}
               onClick={() => navigate(category.path)}
             >
-              <div style={{ textAlign: 'center', marginBottom: '8px' }}>
-                {React.cloneElement(category.icon, { style: { fontSize: '20px', color: category.icon.props.style.color } })}
+              <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                {React.cloneElement(category.icon, { 
+                  style: { 
+                    fontSize: '36px', 
+                    color: category.icon.props.style.color 
+                  } 
+                })}
               </div>
               <Card.Meta
                 title={
                   <div style={{ textAlign: 'center' }}>
-                    <Title level={5} style={{ margin: '4px 0', fontSize: '14px' }}>
+                    <Title level={4} style={{ 
+                      margin: '12px 0', 
+                      fontSize: '18px', 
+                      fontWeight: 600,
+                      color: 'var(--oracle-text-primary)'
+                    }}>
                       {category.title}
                     </Title>
-                    <Paragraph type="secondary" style={{ fontSize: '10px', margin: 0 }}>
+                    <Paragraph type="secondary" style={{ 
+                      fontSize: '14px', 
+                      margin: 0,
+                      color: 'var(--oracle-text-secondary)'
+                    }}>
                       {category.count} components
                     </Paragraph>
                   </div>
                 }
                 description={
                   <div style={{ textAlign: 'center' }}>
-                    <Paragraph style={{ fontSize: '11px', margin: '4px 0' }}>{category.description}</Paragraph>
-                    <Button type="primary" size="small" style={{ fontSize: '10px', height: '24px' }}>
-                      Explore
+                    <Paragraph style={{ 
+                      fontSize: '15px', 
+                      margin: '16px 0 20px 0',
+                      color: 'var(--oracle-text-secondary)',
+                      lineHeight: 1.5
+                    }}>
+                      {category.description}
+                    </Paragraph>
+                    <Button 
+                      type="primary" 
+                      className="oracle-shadow-xs"
+                      style={{ 
+                        fontSize: '14px', 
+                        height: '40px',
+                        borderRadius: 'var(--oracle-radius-sm)',
+                        fontWeight: 500,
+                        paddingLeft: '24px',
+                        paddingRight: '24px'
+                      }}
+                    >
+                      Access Module
                     </Button>
                   </div>
                 }
@@ -139,22 +195,72 @@ const Home = () => {
         ))}
       </Row>
 
-      <Card style={{ marginTop: '20px' }} size="small">
-        <Title level={4} style={{ fontSize: '14px' }}>About This Demo</Title>
-        <Paragraph style={{ fontSize: '12px', margin: '4px 0' }}>
-          This application showcases the complete set of Ant Design components organized by category. 
-          Each component includes interactive examples demonstrating different states, configurations, 
-          and use cases.
+      <Card 
+        className="oracle-shadow-md" 
+        style={{ 
+          marginTop: '40px',
+          borderRadius: 'var(--oracle-radius-lg)',
+          border: '1px solid var(--oracle-border)'
+        }}
+      >
+        <Title level={3} className="oracle-primary-text" style={{ 
+          fontSize: '20px', 
+          fontWeight: 700,
+          marginBottom: '20px'
+        }}>
+          About Oracle Cloud ERP Platform
+        </Title>
+        <Paragraph style={{ 
+          fontSize: '16px', 
+          margin: '12px 0 20px 0',
+          color: 'var(--oracle-text-secondary)',
+          lineHeight: 1.6
+        }}>
+          Oracle Cloud ERP is the world's most complete cloud business suite, delivering 
+          integrated applications for finance, procurement, project portfolio management, 
+          and more. This platform showcases our enterprise-grade component library and 
+          professional design system.
         </Paragraph>
-        <Paragraph style={{ fontSize: '12px', margin: '4px 0' }}>
-          <strong>Technologies used:</strong>
+        <Paragraph style={{ 
+          fontSize: '16px', 
+          margin: '12px 0 16px 0',
+          color: 'var(--oracle-text-primary)',
+          fontWeight: 600
+        }}>
+          Enterprise Technology Stack:
         </Paragraph>
-        <ul style={{ fontSize: '11px', margin: '4px 0', paddingLeft: '16px' }}>
-          <li>React 18.2.0</li>
-          <li>Ant Design 5.12.8</li>
-          <li>React Router DOM 6.20.1</li>
-          <li>Ant Design Icons 5.2.6</li>
-        </ul>
+        <Row gutter={[20, 16]}>
+          <Col xs={24} md={12}>
+            <ul style={{ 
+              fontSize: '15px', 
+              margin: '0', 
+              paddingLeft: '24px',
+              color: 'var(--oracle-text-secondary)'
+            }}>
+              <li style={{ marginBottom: '12px' }}>
+                <strong style={{ color: 'var(--oracle-primary)' }}>React 18.2.0</strong> - Enterprise UI Framework
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong style={{ color: 'var(--oracle-primary)' }}>Ant Design 5.12.8</strong> - Professional Component Suite
+              </li>
+            </ul>
+          </Col>
+          <Col xs={24} md={12}>
+            <ul style={{ 
+              fontSize: '15px', 
+              margin: '0', 
+              paddingLeft: '24px',
+              color: 'var(--oracle-text-secondary)'
+            }}>
+              <li style={{ marginBottom: '12px' }}>
+                <strong style={{ color: 'var(--oracle-primary)' }}>React Router 6.20.1</strong> - Application Navigation
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong style={{ color: 'var(--oracle-primary)' }}>Oracle Design System</strong> - Enterprise Standards
+              </li>
+            </ul>
+          </Col>
+        </Row>
       </Card>
     </div>
   );

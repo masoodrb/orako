@@ -77,11 +77,22 @@ const App = () => {
         collapsed={collapsed}
         onCollapse={setCollapsed}
         theme="light"
-        width={200}
+        width={260}
       >
-        <div style={{ padding: '8px', textAlign: 'center' }}>
-          <Title level={5} style={{ margin: 0, color: '#1890ff', fontSize: '14px' }}>
-            {collapsed ? 'AD' : 'Ant Design'}
+        <div style={{ 
+          padding: '20px 16px', 
+          textAlign: 'center', 
+          borderBottom: '1px solid var(--oracle-border)',
+          background: 'var(--oracle-surface)'
+        }}>
+          <Title level={4} style={{ 
+            margin: 0, 
+            color: 'var(--oracle-primary)',
+            fontSize: '18px', 
+            fontWeight: 700,
+            letterSpacing: '0.3px'
+          }}>
+            {collapsed ? 'ORACLE' : 'Oracle Cloud ERP'}
           </Title>
         </div>
         <Menu
@@ -90,13 +101,27 @@ const App = () => {
           items={menuItems}
           onClick={handleMenuClick}
           className="sidebar-menu"
-          style={{ fontSize: '12px' }}
+          style={{ fontSize: '14px', fontWeight: 500 }}
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: '0 16px', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.1)', height: '48px', lineHeight: '48px' }}>
-          <Title level={4} style={{ margin: '0', color: '#1890ff', fontSize: '16px' }}>
-            Ant Design React Components Demo
+        <Header style={{ 
+          padding: '0 32px', 
+          background: 'var(--oracle-surface)', 
+          borderBottom: '1px solid var(--oracle-border)',
+          boxShadow: 'var(--oracle-shadow-sm)', 
+          height: '64px', 
+          lineHeight: '64px',
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+          <Title level={3} style={{ 
+            margin: '0', 
+            color: 'var(--oracle-text-primary)',
+            fontSize: '20px',
+            fontWeight: 700
+          }}>
+            Oracle Cloud ERP - Enterprise Application Suite
           </Title>
         </Header>
         <Content className="content-area">
