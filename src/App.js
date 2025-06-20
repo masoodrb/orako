@@ -34,7 +34,11 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   DownOutlined,
-  MenuOutlined
+  MenuOutlined,
+  TeamOutlined,
+  DollarOutlined,
+  TrophyOutlined,
+  BankOutlined
 } from '@ant-design/icons';
 
 // Import page components
@@ -46,6 +50,10 @@ import DataEntryPage from './pages/DataEntryPage';
 import DataDisplayPage from './pages/DataDisplayPage';
 import FeedbackPage from './pages/FeedbackPage';
 import ERPComponentsPage from './pages/ERPComponentsPage';
+import CRMPage from './pages/CRMPage';
+import AccountingPage from './pages/AccountingPage';
+import HRMPage from './pages/HRMPage';
+import SalesMarketingPage from './pages/SalesMarketingPage';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -133,6 +141,50 @@ const App = () => {
       label: 'Administration',
       onClick: () => {
         message.info('Administration opened');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      type: 'divider'
+    },
+    {
+      key: 'business-modules',
+      label: 'Business Modules',
+      type: 'group'
+    },
+    {
+      key: 'nav-crm',
+      icon: <TeamOutlined />,
+      label: 'CRM',
+      onClick: () => {
+        navigate('/crm');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-accounting',
+      icon: <BankOutlined />,
+      label: 'Accounting',
+      onClick: () => {
+        navigate('/accounting');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-hrm',
+      icon: <UserOutlined />,
+      label: 'Human Resources',
+      onClick: () => {
+        navigate('/hrm');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-sales-marketing',
+      icon: <TrophyOutlined />,
+      label: 'Sales & Marketing',
+      onClick: () => {
+        navigate('/sales-marketing');
         setMobileMenuVisible(false);
       }
     },
@@ -229,6 +281,14 @@ const App = () => {
       label: 'Home',
     },
     {
+      type: 'divider',
+    },
+    {
+      key: 'ui-components',
+      label: 'UI Components',
+      type: 'group',
+    },
+    {
       key: '/general',
       icon: <SettingOutlined />,
       label: 'General',
@@ -262,6 +322,34 @@ const App = () => {
       key: '/erp-components',
       icon: <CloudOutlined />,
       label: 'ERP Components',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'business-modules',
+      label: 'Business Modules',
+      type: 'group',
+    },
+    {
+      key: '/crm',
+      icon: <TeamOutlined />,
+      label: 'CRM',
+    },
+    {
+      key: '/accounting',
+      icon: <BankOutlined />,
+      label: 'Accounting',
+    },
+    {
+      key: '/hrm',
+      icon: <UserOutlined />,
+      label: 'Human Resources',
+    },
+    {
+      key: '/sales-marketing',
+      icon: <TrophyOutlined />,
+      label: 'Sales & Marketing',
     },
   ];
 
@@ -528,6 +616,10 @@ const App = () => {
             <Route path="/data-display" element={<DataDisplayPage />} />
             <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/erp-components" element={<ERPComponentsPage />} />
+            <Route path="/crm" element={<CRMPage />} />
+            <Route path="/accounting" element={<AccountingPage />} />
+            <Route path="/hrm" element={<HRMPage />} />
+            <Route path="/sales-marketing" element={<SalesMarketingPage />} />
           </Routes>
         </Content>
 
