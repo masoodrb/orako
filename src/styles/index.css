@@ -105,18 +105,54 @@ body {
   color: white !important;
 }
 
+/* Fix Primary Button Text Color */
 .ant-btn-primary {
   background-color: var(--oracle-primary) !important;
   border-color: var(--oracle-primary) !important;
-  border-radius: var(--oracle-radius-sm) !important;
-  font-weight: 500 !important;
-  box-shadow: var(--oracle-shadow-xs) !important;
+  color: white !important;
 }
 
 .ant-btn-primary:hover {
   background-color: var(--oracle-primary-dark) !important;
   border-color: var(--oracle-primary-dark) !important;
-  box-shadow: var(--oracle-shadow-sm) !important;
+  color: white !important;
+}
+
+.ant-btn-primary:focus {
+  background-color: var(--oracle-primary) !important;
+  border-color: var(--oracle-primary) !important;
+  color: white !important;
+}
+
+.ant-btn-primary:active {
+  background-color: var(--oracle-primary-dark) !important;
+  border-color: var(--oracle-primary-dark) !important;
+  color: white !important;
+}
+
+.ant-btn-primary[disabled] {
+  background-color: var(--oracle-neutral-300) !important;
+  border-color: var(--oracle-neutral-300) !important;
+  color: var(--oracle-neutral-500) !important;
+}
+
+/* Fix primary button icon color */
+.ant-btn-primary .anticon {
+  color: white !important;
+}
+
+.ant-btn-primary[disabled] .anticon {
+  color: var(--oracle-neutral-500) !important;
+}
+
+/* Chat page specific send button fixes */
+.chat-send-button.ant-btn-primary {
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.chat-send-button.ant-btn-primary:hover {
+  color: white !important;
 }
 
 .demo-section {

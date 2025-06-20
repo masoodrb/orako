@@ -474,6 +474,8 @@ const ChatPage = () => {
                     icon={<SendOutlined />}
                     onClick={handleSendMessage}
                     disabled={!messageText.trim()}
+                    className="chat-send-button"
+                    style={{ color: 'white' }}
                   >
                     Send
                   </Button>
