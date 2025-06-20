@@ -15,7 +15,7 @@ import {
   Tag,
   Dropdown,
   Upload,
-  Emoji,
+  Popover,
   Tabs
 } from 'antd';
 import {
@@ -46,6 +46,48 @@ const ChatPage = () => {
   const [selectedChat, setSelectedChat] = useState('1');
   const [messageText, setMessageText] = useState('');
   const [activeTab, setActiveTab] = useState('chats');
+  const [emojiPickerVisible, setEmojiPickerVisible] = useState(false);
+
+  // Popular emojis for the picker
+  const popularEmojis = [
+    '😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣',
+    '😊', '😇', '🙂', '🙃', '😉', '😌', '😍', '🥰',
+    '😘', '😗', '😙', '😚', '😋', '😛', '😝', '😜',
+    '🤪', '🤨', '🧐', '🤓', '😎', '🤩', '🥳', '😏',
+    '😒', '😞', '😔', '😟', '😕', '🙁', '☹️', '😣',
+    '😖', '😫', '😩', '🥺', '😢', '😭', '😤', '😠',
+    '😡', '🤬', '🤯', '😳', '🥵', '🥶', '😱', '😨',
+    '😰', '😥', '😓', '🤗', '🤔', '🤭', '🤫', '🤥',
+    '😶', '😐', '😑', '😬', '🙄', '😯', '😦', '😧',
+    '👍', '👎', '👌', '🤞', '✌️', '🤟', '🤘', '👊',
+    '✊', '🤛', '🤜', '👏', '🙌', '👐', '🤲', '🤝',
+    '🙏', '✍️', '💪', '🦾', '🦿', '🦵', '🦶', '👂',
+    '🧠', '🫀', '🫁', '🦷', '🦴', '👀', '👁️', '👅',
+    '❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍',
+    '🤎', '💔', '❣️', '💕', '💞', '💓', '💗', '💖',
+    '💘', '💝', '💟', '☮️', '✝️', '☪️', '🕉️', '☸️'
+  ];
+
+  const handleEmojiClick = (emoji) => {
+    setMessageText(prev => prev + emoji);
+    setEmojiPickerVisible(false);
+  };
+
+  const EmojiPicker = () => (
+    <div className="emoji-picker-container">
+      <div className="emoji-grid">
+        {popularEmojis.map((emoji, index) => (
+          <button
+            key={index}
+            className="emoji-button"
+            onClick={() => handleEmojiClick(emoji)}
+          >
+            {emoji}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 
   // Sample chat data
   const chats = [
@@ -466,9 +508,19 @@ const ChatPage = () => {
                   <Tooltip title="Attach File">
                     <Button icon={<PaperClipOutlined />} type="text" />
                   </Tooltip>
-                  <Tooltip title="Emoji">
-                    <Button icon={<SmileOutlined />} type="text" />
-                  </Tooltip>
+                  <Popover
+                    content={<EmojiPicker />}
+                    title="Choose an emoji"
+                    trigger="click"
+                    open={emojiPickerVisible}
+                    onOpenChange={setEmojiPickerVisible}
+                    placement="topRight"
+                    overlayClassName="emoji-picker-popover"
+                  >
+                    <Tooltip title="Emoji">
+                      <Button icon={<SmileOutlined />} type="text" />
+                    </Tooltip>
+                  </Popover>
                   <Button 
                     type="primary" 
                     icon={<SendOutlined />}
