@@ -570,16 +570,19 @@ const App = () => {
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: isMobile ? '8px' : '16px',
-            flexShrink: 0
+            gap: isMobile ? '8px' : isTablet ? '12px' : '16px',
+            flexShrink: 0,
+            minWidth: 'fit-content'
           }}>
             {/* Global Search - Responsive width */}
             {!isMobile && (
               <Search
                 placeholder={isTablet ? "Search..." : "Search across all modules..."}
                 style={{ 
-                  width: isTablet ? 200 : 280,
-                  display: isMobile ? 'none' : 'block'
+                  width: isTablet ? 180 : 260,
+                  display: isMobile ? 'none' : 'block',
+                  marginRight: '8px',
+                  flexShrink: 0
                 }}
                 onSearch={(value) => message.info(`Searching for: ${value}`)}
               />

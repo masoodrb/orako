@@ -328,6 +328,24 @@ body {
 .ant-input-search .ant-input {
   border-color: var(--oracle-border) !important;
   background-color: var(--oracle-surface-secondary) !important;
+  height: 32px !important;
+  line-height: 32px !important;
+}
+
+.ant-input-search .ant-input-search-button {
+  height: 32px !important;
+  line-height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-color: var(--oracle-border) !important;
+  background-color: var(--oracle-surface) !important;
+}
+
+.ant-input-search .ant-input-search-button:hover {
+  background-color: var(--oracle-primary) !important;
+  border-color: var(--oracle-primary) !important;
+  color: white !important;
 }
 
 .ant-input-search .ant-input:focus {
@@ -335,428 +353,108 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
 }
 
-/* Breadcrumb styling */
-.ant-breadcrumb {
-  font-size: 13px !important;
+/* Global Search Input Fixes */
+.ant-input-search {
+  display: flex !important;
+  align-items: stretch !important;
 }
 
-.ant-breadcrumb-link {
-  color: var(--oracle-text-secondary) !important;
+.ant-input-search .ant-input-group {
+  display: flex !important;
+  align-items: stretch !important;
 }
 
-.ant-breadcrumb-separator {
-  color: var(--oracle-neutral-400) !important;
+.ant-input-search .ant-input-group-addon {
+  padding: 0 !important;
 }
 
-/* Notification badge */
-.ant-badge-count {
-  background-color: var(--oracle-primary) !important;
-  border: 1px solid var(--oracle-surface) !important;
-  font-size: 11px !important;
-  height: 18px !important;
-  min-width: 18px !important;
-  line-height: 16px !important;
+.ant-input-search .ant-input-search-button {
+  border-left: 0 !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Oracle-style utility classes */
-.oracle-primary-bg { background-color: var(--oracle-primary); }
-.oracle-secondary-bg { background-color: var(--oracle-secondary); }
-.oracle-surface-bg { background-color: var(--oracle-surface); }
+.ant-input-search .anticon {
+  font-size: 14px !important;
+}
 
-.oracle-primary-text { color: var(--oracle-primary); }
-.oracle-secondary-text { color: var(--oracle-secondary); }
+/* Fix search input sizing consistency */
+.ant-input-search-small .ant-input {
+  height: 24px !important;
+  line-height: 22px !important;
+}
 
-.oracle-shadow-xs { box-shadow: var(--oracle-shadow-xs); }
-.oracle-shadow-sm { box-shadow: var(--oracle-shadow-sm); }
-.oracle-shadow-md { box-shadow: var(--oracle-shadow-md); }
-.oracle-shadow-lg { box-shadow: var(--oracle-shadow-lg); }
+.ant-input-search-small .ant-input-search-button {
+  height: 24px !important;
+  line-height: 22px !important;
+  min-width: 24px !important;
+  padding: 0 8px !important;
+}
 
-.oracle-radius-sm { border-radius: var(--oracle-radius-sm); }
-.oracle-radius-md { border-radius: var(--oracle-radius-md); }
-.oracle-radius-lg { border-radius: var(--oracle-radius-lg); }
+/* Medium search input (default) */
+.ant-input-search:not(.ant-input-search-large):not(.ant-input-search-small) .ant-input {
+  height: 32px !important;
+  line-height: 30px !important;
+}
 
-/* Professional spacing utilities */
-.oracle-spacing-xs { margin: 8px; }
-.oracle-spacing-sm { margin: 12px; }
-.oracle-spacing-md { margin: 20px; }
-.oracle-spacing-lg { margin: 32px; }
-.oracle-spacing-xl { margin: 48px; }
+.ant-input-search:not(.ant-input-search-large):not(.ant-input-search-small) .ant-input-search-button {
+  height: 32px !important;
+  line-height: 30px !important;
+  min-width: 32px !important;
+}
 
-/* Enhanced Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .content-area {
-    padding: 16px !important;
+/* Header Layout Fixes - Prevent Overlapping */
+.ant-layout-header .ant-input-search {
+  margin-right: 12px !important;
+  flex-shrink: 0 !important;
+  min-width: 200px !important;
+}
+
+/* Ensure proper spacing between header elements */
+.ant-layout-header > div {
+  gap: 12px !important;
+}
+
+/* Fix header button spacing to prevent overlap with search */
+.ant-layout-header .ant-btn[data-icon="QuestionCircleOutlined"],
+.ant-layout-header .ant-btn:has(.anticon-question-circle) {
+  margin-left: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Responsive header spacing adjustments */
+@media (max-width: 1200px) {
+  .ant-layout-header .ant-input-search {
+    width: 180px !important;
+    margin-right: 8px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .ant-layout-header .ant-input-search {
+    width: 160px !important;
+    margin-right: 6px !important;
   }
   
-  .demo-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  .demo-item {
-    padding: 16px !important;
-  }
-  
-  .page-header {
-    padding: 16px !important;
-    margin-bottom: 24px !important;
-  }
-  
-  .page-header h1 {
-    font-size: 24px !important;
-  }
-  
-  .demo-section h2 {
-    font-size: 20px !important;
-  }
-  
-  .component-showcase {
-    gap: 12px !important;
+  .ant-layout-header > div {
+    gap: 8px !important;
   }
 }
 
-@media (max-width: 1200px) and (min-width: 769px) {
-  .demo-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  }
+/* Fix header right section layout */
+.ant-layout-header > div:last-child {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  min-width: fit-content !important;
 }
 
-/* Mobile Drawer Enhancements */
-.ant-drawer-header {
-  padding: 16px 24px !important;
-}
-
-.ant-drawer-header .ant-drawer-title {
-  font-weight: 600 !important;
-  color: var(--oracle-text-primary) !important;
-}
-
-.ant-drawer-body .ant-menu-item {
-  margin: 4px 12px !important;
-  border-radius: var(--oracle-radius-sm) !important;
-  padding-left: 20px !important;
-}
-
-/* Enhanced Header Responsiveness */
-@media (max-width: 576px) {
-  .ant-layout-header {
-    padding: 0 8px !important;
-  }
-  
-  .ant-breadcrumb {
-    font-size: 12px !important;
-  }
-  
-  .ant-avatar {
-    margin-right: 4px !important;
-  }
-}
-
-/* Improved Button Spacing in Header */
-.ant-layout-header .ant-btn {
-  margin: 0 2px !important;
-}
-
+/* Prevent search input from taking too much space */
 @media (min-width: 768px) {
-  .ant-layout-header .ant-btn {
-    margin: 0 4px !important;
-  }
-}
-
-/* Enhanced Search Styling */
-.ant-input-search-large .ant-input {
-  font-size: 16px !important;
-  padding: 12px 16px !important;
-  border-radius: var(--oracle-radius-md) !important;
-}
-
-.ant-input-search-large .ant-input-search-button {
-  border-radius: 0 var(--oracle-radius-md) var(--oracle-radius-md) 0 !important;
-  background-color: var(--oracle-primary) !important;
-  border-color: var(--oracle-primary) !important;
-}
-
-.ant-input-search-large .ant-input-search-button:hover {
-  background-color: var(--oracle-primary-dark) !important;
-  border-color: var(--oracle-primary-dark) !important;
-}
-
-/* Professional Loading and Transition Effects */
-.ant-layout-sider-trigger {
-  background-color: var(--oracle-surface-secondary) !important;
-  color: var(--oracle-text-primary) !important;
-  border-top: 1px solid var(--oracle-border) !important;
-  transition: all 0.2s ease !important;
-}
-
-.ant-layout-sider-trigger:hover {
-  background-color: var(--oracle-surface-tertiary) !important;
-}
-
-/* Enhanced Typography for Mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 13px !important;
-  }
-  
-  .ant-typography h1,
-  .ant-typography h2,
-  .ant-typography h3 {
-    line-height: 1.3 !important;
-  }
-}
-
-/* Improved Card Responsiveness */
-@media (max-width: 768px) {
-  .ant-card-head {
-    padding: 12px 16px !important;
-  }
-  
-  .ant-card-body {
-    padding: 16px !important;
-  }
-  
-  .ant-card-head-title {
-    font-size: 14px !important;
-  }
-}
-
-/* Enhanced Dropdown Menu for Mobile */
-.ant-dropdown {
-  z-index: 1050 !important;
-}
-
-@media (max-width: 768px) {
-  .ant-dropdown-menu {
-    max-width: calc(100vw - 32px) !important;
-    min-width: 200px !important;
-  }
-  
-  .ant-dropdown-menu-item {
-    padding: 16px !important;
-    font-size: 15px !important;
-  }
-}
-
-/* Kanban Board Styles */
-.task-card {
-  transition: all 0.3s ease !important;
-  cursor: pointer !important;
-}
-
-.task-card:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: var(--oracle-shadow-md) !important;
-}
-
-/* Email List Styles */
-.email-item {
-  transition: all 0.2s ease !important;
-}
-
-.email-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-}
-
-.email-item.selected {
-  background-color: var(--oracle-primary-light) !important;
-  border-left: 4px solid var(--oracle-primary) !important;
-}
-
-.email-item.unread {
-  background-color: var(--oracle-neutral-50) !important;
-  border-left: 4px solid var(--oracle-info) !important;
-}
-
-/* Timeline Styles */
-.timeline-card {
-  transition: all 0.3s ease !important;
-}
-
-.timeline-card:hover {
-  transform: translateX(5px) !important;
-  box-shadow: var(--oracle-shadow-md) !important;
-}
-
-/* Team Card Styles */
-.team-card {
-  transition: all 0.3s ease !important;
-}
-
-.team-card:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: var(--oracle-shadow-lg) !important;
-}
-
-/* Folder Item Styles */
-.folder-item {
-  transition: all 0.2s ease !important;
-  border-radius: var(--oracle-radius-sm) !important;
-  margin: 2px 8px !important;
-}
-
-.folder-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-}
-
-.folder-item.active {
-  background-color: var(--oracle-primary-light) !important;
-  color: white !important;
-  font-weight: 600 !important;
-}
-
-/* Animated Widget Styles */
-.animated-card {
-  overflow: hidden !important;
-  border-radius: 12px !important;
-}
-
-.animated-card:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: var(--oracle-shadow-lg) !important;
-}
-
-.notification-item {
-  transition: all 0.3s ease !important;
-  border-radius: var(--oracle-radius-sm) !important;
-  margin: 2px 0 !important;
-  padding: 8px 12px !important;
-}
-
-.notification-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-}
-
-/* Animation Keyframes */
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Chat Specific Styles */
-.chat-message {
-  transition: all 0.2s ease !important;
-  border-radius: 12px !important;
-}
-
-.chat-message:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-}
-
-.chat-message.own {
-  background-color: var(--oracle-primary) !important;
-  color: white !important;
-}
-
-.chat-sidebar {
-  border-right: 1px solid var(--oracle-border) !important;
-  background-color: var(--oracle-surface) !important;
-}
-
-.chat-contact {
-  transition: all 0.2s ease !important;
-  border-radius: var(--oracle-radius-sm) !important;
-  margin: 2px 8px !important;
-  padding: 12px !important;
-}
-
-.chat-contact:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-}
-
-.chat-contact.active {
-  background-color: var(--oracle-primary-light) !important;
-  color: white !important;
-}
-
-/* Responsive Design Improvements */
-@media (max-width: 768px) {
-  .kanban-column {
-    min-width: 280px !important;
-    margin-right: 12px !important;
-  }
-  
-  .email-list {
-    font-size: 13px !important;
-  }
-  
-  .timeline-card {
-    margin-bottom: 12px !important;
-  }
-  
-  .team-card {
-    margin-bottom: 16px !important;
-  }
-  
-  .animated-card {
-    margin-bottom: 16px !important;
-  }
-}
-
-/* Dark mode support (if needed) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --oracle-background: #1a1a1a;
-    --oracle-surface: #2d2d2d;
-    --oracle-surface-secondary: #3a3a3a;
-    --oracle-text-primary: #ffffff;
-    --oracle-text-secondary: #cccccc;
-    --oracle-border: #404040;
+  .ant-layout-header .ant-input-search {
+    max-width: 320px !important;
   }
 }
