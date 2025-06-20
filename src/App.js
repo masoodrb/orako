@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { 
   Layout, 
@@ -13,7 +13,8 @@ import {
   Input,
   Tooltip,
   Divider,
-  message
+  message,
+  Drawer
 } from 'antd';
 import {
   HomeOutlined,
@@ -32,7 +33,8 @@ import {
   GlobalOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  DownOutlined
+  DownOutlined,
+  MenuOutlined
 } from '@ant-design/icons';
 
 // Import page components
@@ -51,8 +53,30 @@ const { Search } = Input;
 
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const [mobileSearchVisible, setMobileSearchVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Handle responsive breakpoints
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1200);
+      
+      // Auto-collapse sidebar on mobile
+      if (width < 768) {
+        setCollapsed(true);
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // User profile data
   const userProfile = {
@@ -76,6 +100,63 @@ const App = () => {
     { key: 'analytics', label: 'Analytics' },
     { key: 'reports', label: 'Reports' },
     { key: 'administration', label: 'Administration' }
+  ];
+
+  // Mobile navigation menu for drawer
+  const mobileNavMenuItems = [
+    {
+      key: 'nav-dashboard',
+      label: 'Dashboard',
+      onClick: () => {
+        message.info('Dashboard opened');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-analytics',
+      label: 'Analytics',
+      onClick: () => {
+        message.info('Analytics opened');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-reports',
+      label: 'Reports',
+      onClick: () => {
+        message.info('Reports opened');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-administration',
+      label: 'Administration',
+      onClick: () => {
+        message.info('Administration opened');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      type: 'divider'
+    },
+    {
+      key: 'nav-help',
+      icon: <QuestionCircleOutlined />,
+      label: 'Help & Support',
+      onClick: () => {
+        message.info('Help center opened');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-language',
+      icon: <GlobalOutlined />,
+      label: 'Language Settings',
+      onClick: () => {
+        message.info('Language selector opened');
+        setMobileMenuVisible(false);
+      }
+    }
   ];
 
   // Profile dropdown menu
@@ -225,7 +306,7 @@ const App = () => {
       <Layout>
         {/* Top Header with Navigation */}
         <Header style={{ 
-          padding: '0 24px', 
+          padding: isMobile ? '0 12px' : '0 24px', 
           background: 'var(--oracle-surface)', 
           borderBottom: '1px solid var(--oracle-border)',
           boxShadow: 'var(--oracle-shadow-sm)', 
@@ -234,10 +315,16 @@ const App = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           position: 'relative',
-          zIndex: 1000
+          zIndex: 1000,
+          overflow: 'hidden'
         }}>
           {/* Left side - Brand and collapse toggle */}
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            flex: isMobile ? '1' : 'none',
+            minWidth: 0
+          }}>
             <Button
               type="text"
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -246,60 +333,105 @@ const App = () => {
                 fontSize: '16px',
                 width: 32,
                 height: 32,
-                marginRight: '16px'
+                marginRight: isMobile ? '8px' : '16px',
+                flexShrink: 0
               }}
             />
             <Title level={4} style={{ 
               margin: '0', 
               color: 'var(--oracle-text-primary)',
-              fontSize: '18px',
+              fontSize: isMobile ? '16px' : '18px',
               fontWeight: 700,
-              marginRight: '32px'
+              marginRight: isMobile ? '8px' : '32px',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}>
-              
+              {isMobile ? 'Oracle ERP' : 'Oracle Cloud ERP'}
             </Title>
             
-            {/* Top Navigation Menu */}
-            <Menu
-              mode="horizontal"
-              style={{
-                background: 'transparent',
-                border: 'none',
-                fontSize: '14px',
-                fontWeight: 500
-              }}
-              items={topNavItems}
-            />
+            {/* Top Navigation Menu - Hidden on mobile and tablet */}
+            {!isMobile && !isTablet && (
+              <Menu
+                mode="horizontal"
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  flex: 1
+                }}
+                items={topNavItems}
+              />
+            )}
           </div>
 
           {/* Right side - Search, Notifications, Profile */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            {/* Global Search */}
-            <Search
-              placeholder="Search across all modules..."
-              style={{ width: 280 }}
-              onSearch={(value) => message.info(`Searching for: ${value}`)}
-            />
-
-            {/* Help Icon */}
-            <Tooltip title="Help & Documentation">
-              <Button
-                type="text"
-                icon={<QuestionCircleOutlined />}
-                style={{ fontSize: '16px' }}
-                onClick={() => message.info('Help center opened')}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: isMobile ? '8px' : '16px',
+            flexShrink: 0
+          }}>
+            {/* Global Search - Responsive width */}
+            {!isMobile && (
+              <Search
+                placeholder={isTablet ? "Search..." : "Search across all modules..."}
+                style={{ 
+                  width: isTablet ? 200 : 280,
+                  display: isMobile ? 'none' : 'block'
+                }}
+                onSearch={(value) => message.info(`Searching for: ${value}`)}
               />
-            </Tooltip>
+            )}
 
-            {/* Language Selector */}
-            <Tooltip title="Language">
-              <Button
-                type="text"
-                icon={<GlobalOutlined />}
-                style={{ fontSize: '16px' }}
-                onClick={() => message.info('Language selector opened')}
-              />
-            </Tooltip>
+            {/* Mobile search icon */}
+            {isMobile && (
+              <Tooltip title="Search">
+                <Button
+                  type="text"
+                  icon={<SearchOutlined />}
+                  style={{ fontSize: '16px' }}
+                  onClick={() => setMobileSearchVisible(true)}
+                />
+              </Tooltip>
+            )}
+
+            {/* Mobile menu icon for top navigation */}
+            {(isMobile || isTablet) && (
+              <Tooltip title="Menu">
+                <Button
+                  type="text"
+                  icon={<MenuOutlined />}
+                  style={{ fontSize: '16px' }}
+                  onClick={() => setMobileMenuVisible(true)}
+                />
+              </Tooltip>
+            )}
+
+            {/* Help Icon - Hidden on mobile */}
+            {!isMobile && (
+              <Tooltip title="Help & Documentation">
+                <Button
+                  type="text"
+                  icon={<QuestionCircleOutlined />}
+                  style={{ fontSize: '16px' }}
+                  onClick={() => message.info('Help center opened')}
+                />
+              </Tooltip>
+            )}
+
+            {/* Language Selector - Hidden on mobile */}
+            {!isMobile && (
+              <Tooltip title="Language">
+                <Button
+                  type="text"
+                  icon={<GlobalOutlined />}
+                  style={{ fontSize: '16px' }}
+                  onClick={() => message.info('Language selector opened')}
+                />
+              </Tooltip>
+            )}
 
             {/* Notifications */}
             <Dropdown
@@ -317,9 +449,9 @@ const App = () => {
               </Button>
             </Dropdown>
 
-            <Divider type="vertical" style={{ height: '24px' }} />
+            {!isMobile && <Divider type="vertical" style={{ height: '24px' }} />}
 
-            {/* User Profile Dropdown */}
+            {/* User Profile Dropdown - Responsive */}
             <Dropdown
               menu={{ items: profileMenuItems }}
               trigger={['click']}
@@ -336,29 +468,34 @@ const App = () => {
               >
                 <Space>
                   <Avatar 
-                    size={32} 
+                    size={isMobile ? 28 : 32} 
                     icon={<UserOutlined />}
                     style={{ 
                       backgroundColor: 'var(--oracle-primary)',
-                      marginRight: '8px'
+                      marginRight: isMobile ? '4px' : '8px'
                     }}
                   />
-                  <div style={{ textAlign: 'left', lineHeight: 1.2 }}>
-                    <div style={{ 
-                      fontSize: '14px', 
-                      fontWeight: 600,
-                      color: 'var(--oracle-text-primary)'
-                    }}>
-                      {userProfile.name}
+                  {/* User info - Hidden on mobile */}
+                  {!isMobile && (
+                    <div style={{ textAlign: 'left', lineHeight: 1.2 }}>
+                      <div style={{ 
+                        fontSize: '14px', 
+                        fontWeight: 600,
+                        color: 'var(--oracle-text-primary)'
+                      }}>
+                        {isTablet ? 'J. Smith' : userProfile.name}
+                      </div>
+                      {!isTablet && (
+                        <div style={{ 
+                          fontSize: '12px',
+                          color: 'var(--oracle-text-secondary)'
+                        }}>
+                          {userProfile.role}
+                        </div>
+                      )}
                     </div>
-                    <div style={{ 
-                      fontSize: '12px',
-                      color: 'var(--oracle-text-secondary)'
-                    }}>
-                      {userProfile.role}
-                    </div>
-                  </div>
-                  <DownOutlined style={{ fontSize: '12px', marginLeft: '4px' }} />
+                  )}
+                  {!isMobile && <DownOutlined style={{ fontSize: '12px', marginLeft: '4px' }} />}
                 </Space>
               </Button>
             </Dropdown>
@@ -393,6 +530,74 @@ const App = () => {
             <Route path="/erp-components" element={<ERPComponentsPage />} />
           </Routes>
         </Content>
+
+        {/* Mobile Navigation Drawer */}
+        <Drawer
+          title={
+            <Space>
+              <CloudOutlined style={{ color: 'var(--oracle-primary)' }} />
+              <span style={{ color: 'var(--oracle-text-primary)', fontWeight: 600 }}>
+                Navigation Menu
+              </span>
+            </Space>
+          }
+          placement="right"
+          open={mobileMenuVisible}
+          onClose={() => setMobileMenuVisible(false)}
+          width={280}
+          headerStyle={{
+            background: 'var(--oracle-surface)',
+            borderBottom: '1px solid var(--oracle-border)'
+          }}
+          bodyStyle={{
+            padding: 0,
+            background: 'var(--oracle-surface)'
+          }}
+        >
+          <Menu
+            mode="inline"
+            style={{
+              border: 'none',
+              background: 'transparent'
+            }}
+            items={mobileNavMenuItems}
+          />
+        </Drawer>
+
+        {/* Mobile Search Drawer */}
+        <Drawer
+          title="Global Search"
+          placement="top"
+          open={mobileSearchVisible}
+          onClose={() => setMobileSearchVisible(false)}
+          height={200}
+          headerStyle={{
+            background: 'var(--oracle-surface)',
+            borderBottom: '1px solid var(--oracle-border)'
+          }}
+          bodyStyle={{
+            background: 'var(--oracle-surface)',
+            padding: '24px'
+          }}
+        >
+          <Search
+            placeholder="Search across all modules..."
+            size="large"
+            style={{ width: '100%' }}
+            onSearch={(value) => {
+              message.info(`Searching for: ${value}`);
+              setMobileSearchVisible(false);
+            }}
+            enterButton="Search"
+          />
+          <div style={{ 
+            marginTop: '16px', 
+            fontSize: '13px', 
+            color: 'var(--oracle-text-secondary)' 
+          }}>
+            Search across modules, reports, documents, and more...
+          </div>
+        </Drawer>
       </Layout>
     </Layout>
   );
