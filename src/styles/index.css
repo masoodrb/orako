@@ -458,3 +458,49 @@ body {
     max-width: 320px !important;
   }
 }
+
+/* MailboxPage Search Bar Fixes */
+.mailbox-sidebar .ant-input-search {
+  width: 100% !important;
+  max-width: calc(100% - 4px) !important;
+}
+
+.mailbox-sidebar .ant-input-search .ant-input {
+  border-right: 0 !important;
+}
+
+.mailbox-sidebar .ant-input-search .ant-input-search-button {
+  border-left: 1px solid var(--oracle-border) !important;
+  flex-shrink: 0 !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+}
+
+/* Fix search container padding to prevent overflow */
+.mailbox-search-container {
+  padding: 16px 14px !important;
+  box-sizing: border-box !important;
+}
+
+.mailbox-search-container .ant-input-search {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure proper search input group sizing */
+.mailbox-sidebar .ant-input-group {
+  display: flex !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.mailbox-sidebar .ant-input-group .ant-input {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.mailbox-sidebar .ant-input-group .ant-input-group-addon {
+  flex-shrink: 0 !important;
+  width: auto !important;
+}

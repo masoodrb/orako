@@ -581,7 +581,7 @@ IT Support Team`,
       {/* Main Content */}
       <div style={{ height: 'calc(100% - 80px)', display: 'flex', gap: 0 }}>
         {/* Sidebar */}
-        <div style={{ 
+        <div className="mailbox-sidebar" style={{ 
           width: 260, 
           borderRight: '1px solid var(--oracle-border)',
           backgroundColor: 'var(--oracle-surface)',
@@ -589,7 +589,7 @@ IT Support Team`,
           flexDirection: 'column'
         }}>
           {/* Search */}
-          <div style={{ padding: 16, borderBottom: '1px solid var(--oracle-border)' }}>
+          <div className="mailbox-search-container" style={{ padding: '16px 14px', borderBottom: '1px solid var(--oracle-border)' }}>
             <Search
               placeholder="Search emails..."
               value={searchTerm}
