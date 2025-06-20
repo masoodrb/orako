@@ -38,7 +38,13 @@ import {
   TeamOutlined,
   DollarOutlined,
   TrophyOutlined,
-  BankOutlined
+  BankOutlined,
+  MessageOutlined,
+  MailOutlined,
+  ProjectOutlined,
+  HistoryOutlined,
+  UsergroupAddOutlined,
+  RocketOutlined
 } from '@ant-design/icons';
 
 // Import page components
@@ -54,6 +60,12 @@ import CRMPage from './pages/CRMPage';
 import AccountingPage from './pages/AccountingPage';
 import HRMPage from './pages/HRMPage';
 import SalesMarketingPage from './pages/SalesMarketingPage';
+import ChatPage from './pages/ChatPage';
+import KanbanPage from './pages/KanbanPage';
+import MailboxPage from './pages/MailboxPage';
+import TimelinePage from './pages/TimelinePage';
+import TeamsPage from './pages/TeamsPage';
+import AnimatedWidgetsPage from './pages/AnimatedWidgetsPage';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -185,6 +197,68 @@ const App = () => {
       label: 'Sales & Marketing',
       onClick: () => {
         navigate('/sales-marketing');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      type: 'divider'
+    },
+    {
+      key: 'collaboration-tools-mobile',
+      label: 'Collaboration Tools',
+      type: 'group'
+    },
+    {
+      key: 'nav-chat',
+      icon: <MessageOutlined />,
+      label: 'Chat',
+      onClick: () => {
+        navigate('/chat');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-kanban',
+      icon: <ProjectOutlined />,
+      label: 'Kanban Board',
+      onClick: () => {
+        navigate('/kanban');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-mailbox',
+      icon: <MailOutlined />,
+      label: 'Mailbox',
+      onClick: () => {
+        navigate('/mailbox');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-timeline',
+      icon: <HistoryOutlined />,
+      label: 'Timeline',
+      onClick: () => {
+        navigate('/timeline');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-teams',
+      icon: <UsergroupAddOutlined />,
+      label: 'Teams',
+      onClick: () => {
+        navigate('/teams');
+        setMobileMenuVisible(false);
+      }
+    },
+    {
+      key: 'nav-animated-widgets',
+      icon: <RocketOutlined />,
+      label: 'Animated Widgets',
+      onClick: () => {
+        navigate('/animated-widgets');
         setMobileMenuVisible(false);
       }
     },
@@ -350,6 +424,44 @@ const App = () => {
       key: '/sales-marketing',
       icon: <TrophyOutlined />,
       label: 'Sales & Marketing',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'collaboration-tools',
+      label: 'Collaboration Tools',
+      type: 'group',
+    },
+    {
+      key: '/chat',
+      icon: <MessageOutlined />,
+      label: 'Chat',
+    },
+    {
+      key: '/kanban',
+      icon: <ProjectOutlined />,
+      label: 'Kanban Board',
+    },
+    {
+      key: '/mailbox',
+      icon: <MailOutlined />,
+      label: 'Mailbox',
+    },
+    {
+      key: '/timeline',
+      icon: <HistoryOutlined />,
+      label: 'Timeline',
+    },
+    {
+      key: '/teams',
+      icon: <UsergroupAddOutlined />,
+      label: 'Teams',
+    },
+    {
+      key: '/animated-widgets',
+      icon: <RocketOutlined />,
+      label: 'Animated Widgets',
     },
   ];
 
@@ -620,6 +732,12 @@ const App = () => {
             <Route path="/accounting" element={<AccountingPage />} />
             <Route path="/hrm" element={<HRMPage />} />
             <Route path="/sales-marketing" element={<SalesMarketingPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/kanban" element={<KanbanPage />} />
+            <Route path="/mailbox" element={<MailboxPage />} />
+            <Route path="/timeline" element={<TimelinePage />} />
+            <Route path="/teams" element={<TeamsPage />} />
+            <Route path="/animated-widgets" element={<AnimatedWidgetsPage />} />
           </Routes>
         </Content>
 
