@@ -304,7 +304,7 @@ IT Support Team`,
             padding: '16px 20px',
             cursor: 'pointer',
             borderBottom: '1px solid var(--oracle-border)',
-            backgroundColor: selectedEmail?.id === email.id ? 'var(--oracle-primary-light)' : 'transparent'
+            backgroundColor: selectedEmail?.id === email.id ? 'rgba(255, 77, 79, 0.08)' : 'transparent'
           }}
           onClick={() => handleEmailSelect(email)}
           actions={[
@@ -341,17 +341,29 @@ IT Support Team`,
             title={
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <Text strong={!email.isRead} style={{ fontSize: '14px' }}>
+                  <Text strong={!email.isRead} style={{ 
+                    fontSize: '14px',
+                    color: 'inherit'
+                  }}>
                     {email.from.name}
                   </Text>
                   {email.priority === 'high' && (
-                    <ExclamationCircleOutlined style={{ color: '#ff4d4f', fontSize: '12px' }} />
+                    <ExclamationCircleOutlined style={{ 
+                      color: '#ff4d4f', 
+                      fontSize: '12px' 
+                    }} />
                   )}
                   {email.attachments.length > 0 && (
-                    <PaperClipOutlined style={{ color: 'var(--oracle-text-secondary)', fontSize: '12px' }} />
+                    <PaperClipOutlined style={{ 
+                      color: 'var(--oracle-text-secondary)', 
+                      fontSize: '12px' 
+                    }} />
                   )}
                 </div>
-                <Text style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                <Text style={{ 
+                  fontSize: '12px', 
+                  color: 'var(--oracle-text-secondary)'
+                }}>
                   {dayjs(email.date).format('MMM DD')}
                 </Text>
               </div>
@@ -362,7 +374,8 @@ IT Support Team`,
                   display: 'block', 
                   marginBottom: 4,
                   fontSize: '13px',
-                  lineHeight: '18px'
+                  lineHeight: '18px',
+                  color: 'inherit'
                 }}>
                   {email.subject}
                 </Text>
@@ -376,12 +389,24 @@ IT Support Team`,
                 {email.tags && email.tags.length > 0 && (
                   <div style={{ marginTop: 6 }}>
                     {email.tags.slice(0, 2).map(tag => (
-                      <Tag key={tag} size="small" style={{ fontSize: '10px', margin: '0 4px 0 0' }}>
+                      <Tag 
+                        key={tag} 
+                        size="small" 
+                        style={{ 
+                          fontSize: '10px', 
+                          margin: '0 4px 0 0'
+                        }}
+                      >
                         {tag}
                       </Tag>
                     ))}
                     {email.tags.length > 2 && (
-                      <Tag size="small" style={{ fontSize: '10px' }}>
+                      <Tag 
+                        size="small" 
+                        style={{ 
+                          fontSize: '10px'
+                        }}
+                      >
                         +{email.tags.length - 2}
                       </Tag>
                     )}
@@ -617,8 +642,13 @@ IT Support Team`,
                   onClick={() => setSelectedFolder(folder.key)}
                 >
                   <Space>
-                    {folder.icon}
-                    <Text style={{ fontWeight: selectedFolder === folder.key ? 600 : 400 }}>
+                    <span style={{ color: selectedFolder === folder.key ? 'white' : 'inherit' }}>
+                      {folder.icon}
+                    </span>
+                    <Text style={{ 
+                      fontWeight: selectedFolder === folder.key ? 600 : 400,
+                      color: selectedFolder === folder.key ? 'white' : 'inherit'
+                    }}>
                       {folder.label}
                     </Text>
                   </Space>
