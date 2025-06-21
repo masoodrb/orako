@@ -760,20 +760,9 @@ const DataDisplayPage = () => {
               display: 'flex',
               alignItems: 'center'
             }}>
-              <Search
-                placeholder="Search employees..."
-                allowClear
-                enterButton="Search"
-                size="middle"
-                onSearch={handleSearch}
-                onChange={(e) => handleSearch(e.target.value)}
-                style={{ 
-                  width: '300px',
-                  maxWidth: '100%',
-                  height: 'auto'
-                }}
-                className="custom-search-input"
-              />
+              <Search placeholder="Search employees..."
+               style={{ width: 300, marginRight: 16 }}
+               />
             </div>
 
             <Table

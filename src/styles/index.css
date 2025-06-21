@@ -372,12 +372,12 @@ body {
 .ant-input-search .ant-input {
   border-color: var(--oracle-border) !important;
   background-color: var(--oracle-surface-secondary) !important;
-  height: 32px !important;
-  line-height: 32px !important;
+  height: 32px;
+  line-height: 32px;
 }
 
 .ant-input-search .ant-input-search-button {
-  height: 32px !important;
+  height: 32px;
   line-height: 30px !important;
   display: flex !important;
   align-items: center !important;
@@ -439,12 +439,12 @@ body {
 
 /* Medium search input (default) */
 .ant-input-search:not(.ant-input-search-large):not(.ant-input-search-small) .ant-input {
-  height: 32px !important;
+  height: 32px;
   line-height: 30px !important;
 }
 
 .ant-input-search:not(.ant-input-search-large):not(.ant-input-search-small) .ant-input-search-button {
-  height: 32px !important;
+  height: 32px;
   line-height: 30px !important;
   min-width: 32px !important;
 }
@@ -580,7 +580,7 @@ body {
   align-items: center !important;
   justify-content: center !important;
   width: 32px !important;
-  height: 32px !important;
+  height: 32px;
 }
 
 .emoji-button:hover {
@@ -715,13 +715,13 @@ body {
 }
 
 .custom-search-input .ant-input-search .ant-input {
-  height: 32px !important;
+  height: 32px;
   padding: 4px 11px !important;
   line-height: 1.5715 !important;
 }
 
 .custom-search-input .ant-input-search .ant-input-search-button {
-  height: 32px !important;
+  height: 32px;
   padding: 4px 15px !important;
   display: flex !important;
   align-items: center !important;
@@ -729,10 +729,10 @@ body {
 }
 
 .custom-search-input .ant-input-search-enter-button {
-  height: 32px !important;
+  height: 32px;
 }
 
 .custom-search-input .ant-input-affix-wrapper {
-  height: 32px !important;
+  height: 32px;
   padding: 4px 11px !important;
 }
