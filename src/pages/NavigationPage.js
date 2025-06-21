@@ -283,14 +283,10 @@ const NavigationPage = () => {
             transition: 'all 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#0572ce';
-            e.target.style.transform = 'translateY(-1px)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#d6dbe7';
-            e.target.style.transform = 'translateY(0)';
           }}>
             <Title level={4} style={{
               margin: '0 0 16px 0',
@@ -317,14 +313,10 @@ const NavigationPage = () => {
             transition: 'all 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#0572ce';
-            e.target.style.transform = 'translateY(-1px)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#d6dbe7';
-            e.target.style.transform = 'translateY(0)';
           }}>
             <Title level={4} style={{
               margin: '0 0 16px 0',
@@ -353,14 +345,10 @@ const NavigationPage = () => {
             transition: 'all 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#0572ce';
-            e.target.style.transform = 'translateY(-1px)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#d6dbe7';
-            e.target.style.transform = 'translateY(0)';
           }}>
             <Title level={4} style={{
               margin: '0 0 16px 0',
@@ -390,14 +378,10 @@ const NavigationPage = () => {
             transition: 'all 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#0572ce';
-            e.target.style.transform = 'translateY(-1px)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
             e.target.style.borderColor = '#d6dbe7';
-            e.target.style.transform = 'translateY(0)';
           }}>
             <Title level={4} style={{
               margin: '0 0 16px 0',
