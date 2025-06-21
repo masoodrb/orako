@@ -44,7 +44,11 @@ import {
   ProjectOutlined,
   HistoryOutlined,
   UsergroupAddOutlined,
-  RocketOutlined
+  RocketOutlined,
+  DashboardOutlined,
+  LineChartOutlined,
+  FileTextOutlined,
+  ControlOutlined
 } from '@ant-design/icons';
 
 // Import page components
@@ -66,6 +70,10 @@ import MailboxPage from './pages/MailboxPage';
 import TimelinePage from './pages/TimelinePage';
 import TeamsPage from './pages/TeamsPage';
 import AnimatedWidgetsPage from './pages/AnimatedWidgetsPage';
+import DashboardPage from './pages/DashboardPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import ReportsPage from './pages/ReportsPage';
+import AdministrationPage from './pages/AdministrationPage';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -353,6 +361,36 @@ const App = () => {
       key: '/',
       icon: <HomeOutlined />,
       label: 'Home',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'menu-dropdown',
+      icon: <MenuOutlined />,
+      label: 'Menu',
+      children: [
+        {
+          key: '/dashboard',
+          icon: <DashboardOutlined />,
+          label: 'Dashboard',
+        },
+        {
+          key: '/analytics',
+          icon: <LineChartOutlined />,
+          label: 'Analytics',
+        },
+        {
+          key: '/reports',
+          icon: <FileTextOutlined />,
+          label: 'Reports',
+        },
+        {
+          key: '/administration',
+          icon: <ControlOutlined />,
+          label: 'Administration',
+        },
+      ],
     },
     {
       type: 'divider',
@@ -724,6 +762,10 @@ const App = () => {
         <Content className="content-area">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
+            <Route path="/reports" element={<ReportsPage />} />
+            <Route path="/administration" element={<AdministrationPage />} />
             <Route path="/general" element={<GeneralPage />} />
             <Route path="/layout" element={<LayoutPage />} />
             <Route path="/navigation" element={<NavigationPage />} />
