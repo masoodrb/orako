@@ -23,6 +23,26 @@ import {
   Timeline
 } from 'antd';
 import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragOverlay,
+  useDroppable,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import {
+  useSortable,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import {
   PlusOutlined,
   MoreOutlined,
   UserOutlined,
@@ -54,6 +74,20 @@ const KanbanPage = () => {
   const [editingTask, setEditingTask] = useState(null);
   const [form] = Form.useForm();
   const [selectedBoard, setSelectedBoard] = useState('project-alpha');
+  const [activeId, setActiveId] = useState(null);
+  const [draggedTask, setDraggedTask] = useState(null);
+
+  // Drag and drop sensors
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
 
   // Sample board data
   const boards = [
@@ -283,6 +317,125 @@ const KanbanPage = () => {
     message.success(editingTask ? 'Task updated successfully' : 'Task created successfully');
   };
 
+  // Drag and drop handlers
+  const handleDragStart = (event) => {
+    const { active } = event;
+    setActiveId(active.id);
+    
+    // Find the dragged task
+    Object.values(kanbanData).forEach(column => {
+      const task = column.tasks.find(t => t.id === active.id);
+      if (task) {
+        setDraggedTask(task);
+      }
+    });
+  };
+
+  const handleDragOver = (event) => {
+    const { active, over } = event;
+    
+    if (!over) return;
+    
+    const activeId = active.id;
+    const overId = over.id;
+    
+    // Find the containers
+    const activeContainer = findContainer(activeId);
+    const overContainer = findContainer(overId) || overId;
+    
+    if (!activeContainer || !overContainer || activeContainer === overContainer) {
+      return;
+    }
+    
+    setKanbanData((prev) => {
+      const activeItems = prev[activeContainer].tasks;
+      const overItems = prev[overContainer].tasks;
+      
+      // Find the indexes for the items
+      const activeIndex = activeItems.findIndex(item => item.id === activeId);
+      const overIndex = overItems.findIndex(item => item.id === overId);
+      
+      let newIndex;
+      if (overId in prev) {
+        // We're at the root droppable of a container
+        newIndex = overItems.length + 1;
+      } else {
+        const isBelowOverItem = over && overIndex < overItems.length - 1;
+        const modifier = isBelowOverItem ? 1 : 0;
+        newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+      }
+      
+      return {
+        ...prev,
+        [activeContainer]: {
+          ...prev[activeContainer],
+          tasks: prev[activeContainer].tasks.filter(item => item.id !== activeId)
+        },
+        [overContainer]: {
+          ...prev[overContainer],
+          tasks: [
+            ...prev[overContainer].tasks.slice(0, newIndex),
+            activeItems[activeIndex],
+            ...prev[overContainer].tasks.slice(newIndex, prev[overContainer].tasks.length)
+          ]
+        }
+      };
+    });
+  };
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+    
+    if (!over) {
+      setActiveId(null);
+      setDraggedTask(null);
+      return;
+    }
+    
+    const activeId = active.id;
+    const overId = over.id;
+    
+    const activeContainer = findContainer(activeId);
+    const overContainer = findContainer(overId) || overId;
+    
+    if (!activeContainer || !overContainer) {
+      setActiveId(null);
+      setDraggedTask(null);
+      return;
+    }
+    
+    const activeIndex = kanbanData[activeContainer].tasks.findIndex(item => item.id === activeId);
+    const overIndex = kanbanData[overContainer].tasks.findIndex(item => item.id === overId);
+    
+    if (activeContainer === overContainer) {
+      setKanbanData((prev) => ({
+        ...prev,
+        [overContainer]: {
+          ...prev[overContainer],
+          tasks: arrayMove(prev[overContainer].tasks, activeIndex, overIndex)
+        }
+      }));
+    }
+    
+    setActiveId(null);
+    setDraggedTask(null);
+    
+    // Show success message if task moved to different column
+    if (activeContainer !== overContainer) {
+      message.success(`Task moved to ${kanbanData[overContainer].title}`);
+    }
+  };
+
+  const findContainer = (id) => {
+    if (id in kanbanData) {
+      return id;
+    }
+    
+    return Object.keys(kanbanData).find((key) =>
+      kanbanData[key].tasks.some(item => item.id === id)
+    );
+  };
+
   const getTaskCardActions = (task) => [
     {
       key: 'view',
@@ -482,6 +635,120 @@ const KanbanPage = () => {
     </Card>
   );
 
+  const SortableTaskCard = ({ task }) => {
+    const {
+      attributes,
+      listeners,
+      setNodeRef,
+      transform,
+      transition,
+      isDragging,
+    } = useSortable({ id: task.id });
+
+    const style = {
+      transform: CSS.Transform.toString(transform),
+      transition,
+      opacity: isDragging ? 0.5 : 1,
+      cursor: isDragging ? 'grabbing' : 'grab',
+    };
+
+    return (
+      <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+        <TaskCard task={task} />
+      </div>
+    );
+  };
+
+  const DroppableColumn = ({ columnKey, column }) => {
+    const { setNodeRef, isOver } = useDroppable({
+      id: columnKey,
+    });
+
+    return (
+      <div 
+        ref={setNodeRef}
+        style={{ 
+          flex: '0 0 300px',
+          backgroundColor: isOver ? 'rgba(24, 144, 255, 0.05)' : 'var(--oracle-background)',
+          borderRadius: 8,
+          padding: 16,
+          border: isOver ? '2px solid #1890ff' : '1px solid var(--oracle-border)',
+          minHeight: 500,
+          transition: 'all 0.2s ease',
+        }}
+      >
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center',
+          marginBottom: 16
+        }}>
+          <Space>
+            <div 
+              style={{ 
+                width: 12, 
+                height: 12, 
+                borderRadius: '50%', 
+                backgroundColor: column.color 
+              }} 
+            />
+            <Title level={5} style={{ margin: 0, fontWeight: 600 }}>
+              {column.title}
+            </Title>
+            <Badge 
+              count={column.tasks.length} 
+              style={{ backgroundColor: column.color }}
+            />
+          </Space>
+          
+          <Button 
+            type="text" 
+            size="small" 
+            icon={<PlusOutlined />}
+            onClick={handleAddTask}
+            style={{ color: 'var(--oracle-text-secondary)' }}
+          />
+        </div>
+
+        <SortableContext 
+          items={column.tasks.map(task => task.id)}
+          strategy={verticalListSortingStrategy}
+        >
+          <div style={{ minHeight: 400 }}>
+            {column.tasks.map(task => (
+              <SortableTaskCard key={task.id} task={task} />
+            ))}
+            
+            {column.tasks.length === 0 && (
+              <div style={{ 
+                textAlign: 'center', 
+                color: 'var(--oracle-text-secondary)',
+                padding: '40px 20px',
+                backgroundColor: 'var(--oracle-surface)',
+                borderRadius: 8,
+                border: '2px dashed var(--oracle-border)'
+              }}>
+                <Text>No tasks in this column</Text>
+                <br />
+                <Text style={{ fontSize: '12px' }}>
+                  Drag tasks here or{' '}
+                  <Button 
+                    type="link" 
+                    size="small" 
+                    onClick={handleAddTask}
+                    style={{ padding: 0, height: 'auto', fontSize: '12px' }}
+                  >
+                    add a new task
+                  </Button>
+                </Text>
+              </div>
+            )}
+          </div>
+        </SortableContext>
+      </div>
+    );
+  };
+
   return (
     <div className="page-container">
       {/* Page Header */}
@@ -491,7 +758,7 @@ const KanbanPage = () => {
             Kanban Board
           </Title>
           <Text style={{ color: 'var(--oracle-text-secondary)', fontSize: '16px' }}>
-            Manage your projects with visual task boards and workflows
+            Manage your projects with visual task boards and workflows - Drag and drop to organize tasks
           </Text>
         </div>
         
@@ -590,83 +857,29 @@ const KanbanPage = () => {
       </Row>
 
       {/* Kanban Board */}
-      <div style={{ overflowX: 'auto', paddingBottom: 20 }}>
-        <div style={{ display: 'flex', gap: 16, minWidth: 800 }}>
-          {Object.entries(kanbanData).map(([columnKey, column]) => (
-            <div 
-              key={columnKey} 
-              style={{ 
-                flex: '0 0 300px',
-                backgroundColor: 'var(--oracle-background)',
-                borderRadius: 8,
-                padding: 16,
-                border: '1px solid var(--oracle-border)'
-              }}
-            >
-              <div style={{ 
-                display: 'flex', 
-                justifyContent: 'space-between', 
-                alignItems: 'center',
-                marginBottom: 16
-              }}>
-                <Space>
-                  <div 
-                    style={{ 
-                      width: 12, 
-                      height: 12, 
-                      borderRadius: '50%', 
-                      backgroundColor: column.color 
-                    }} 
-                  />
-                  <Title level={5} style={{ margin: 0, fontWeight: 600 }}>
-                    {column.title}
-                  </Title>
-                  <Badge 
-                    count={column.tasks.length} 
-                    style={{ backgroundColor: column.color }}
-                  />
-                </Space>
-                
-                <Button 
-                  type="text" 
-                  size="small" 
-                  icon={<PlusOutlined />}
-                  onClick={handleAddTask}
-                  style={{ color: 'var(--oracle-text-secondary)' }}
-                />
-              </div>
-
-              <div style={{ minHeight: 400 }}>
-                {column.tasks.map(task => (
-                  <TaskCard key={task.id} task={task} />
-                ))}
-                
-                {column.tasks.length === 0 && (
-                  <div style={{ 
-                    textAlign: 'center', 
-                    color: 'var(--oracle-text-secondary)',
-                    padding: '40px 20px',
-                    backgroundColor: 'var(--oracle-surface)',
-                    borderRadius: 8,
-                    border: '2px dashed var(--oracle-border)'
-                  }}>
-                    <Text>No tasks in this column</Text>
-                    <br />
-                    <Button 
-                      type="link" 
-                      size="small" 
-                      onClick={handleAddTask}
-                      style={{ padding: 0, height: 'auto' }}
-                    >
-                      Add a task
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragOver={handleDragOver}
+        onDragEnd={handleDragEnd}
+      >
+        <div style={{ overflowX: 'auto', paddingBottom: 20 }}>
+          <div style={{ display: 'flex', gap: 16, minWidth: 800 }}>
+            {Object.entries(kanbanData).map(([columnKey, column]) => (
+              <DroppableColumn key={columnKey} columnKey={columnKey} column={column} />
+            ))}
+          </div>
         </div>
-      </div>
+
+        <DragOverlay>
+          {activeId && draggedTask ? (
+            <div style={{ transform: 'rotate(5deg)', opacity: 0.8 }}>
+              <TaskCard task={draggedTask} />
+            </div>
+          ) : null}
+        </DragOverlay>
+      </DndContext>
 
       {/* Task Modal */}
       <Modal
