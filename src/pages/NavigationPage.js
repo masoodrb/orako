@@ -443,22 +443,12 @@ const NavigationPage = () => {
       <Divider />
 
       <div className="demo-section">
-        <Title level={2}>Affix & BackTop</Title>
+        <Title level={2}>BackTop</Title>
         <Paragraph>
           Make elements stick during scrolling and provide quick navigation back to top.
         </Paragraph>
 
         <div className="demo-grid">
-          <div className="demo-item">
-            <Title level={4}>Affix</Title>
-            <Affix offsetTop={120}>
-              <Button type="primary">Affixed Button</Button>
-            </Affix>
-            <Paragraph style={{ marginTop: '16px' }}>
-              The button above will stick to the top when scrolling.
-            </Paragraph>
-          </div>
-
           <div className="demo-item">
             <Title level={4}>BackTop</Title>
             <BackTop style={{ right: 24, bottom: 24 }} />
