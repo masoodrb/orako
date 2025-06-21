@@ -708,3 +708,31 @@ body {
     grid-column: span 1;
   }
 }
+
+/* Custom search input styling for Comprehensive Employee Management Table */
+.custom-search-input .ant-input-search {
+  height: auto !important;
+}
+
+.custom-search-input .ant-input-search .ant-input {
+  height: 32px !important;
+  padding: 4px 11px !important;
+  line-height: 1.5715 !important;
+}
+
+.custom-search-input .ant-input-search .ant-input-search-button {
+  height: 32px !important;
+  padding: 4px 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.custom-search-input .ant-input-search-enter-button {
+  height: 32px !important;
+}
+
+.custom-search-input .ant-input-affix-wrapper {
+  height: 32px !important;
+  padding: 4px 11px !important;
+}

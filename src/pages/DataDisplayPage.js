@@ -739,11 +739,9 @@ const DataDisplayPage = () => {
                 display: "flex", 
                 justifyContent: "space-between", 
                 alignItems: "flex-start", 
-                marginBottom: 16,
-                flexWrap: "wrap",
-                gap: "16px"
+                marginBottom: 16
               }}>
-              <div style={{ flex: "1", minWidth: "250px" }}>
+              <div>
                 <Title level={4} style={{ margin: 0 }}>
                   Comprehensive Employee Management Table
                 </Title>
@@ -752,27 +750,30 @@ const DataDisplayPage = () => {
                   and modal actions.
                 </Paragraph>
               </div>
-              <div style={{ 
-                display: "flex", 
-                gap: "12px", 
-                alignItems: "flex-start",
-                flexWrap: "wrap"
-              }}>
-                <div style={{ minWidth: "250px", maxWidth: "350px" }}>
-                  <Search
-                    placeholder="Search employees..."
-                    allowClear
-                    enterButton="Search"
-                    size="middle"
-                    onSearch={handleSearch}
-                    onChange={(e) => handleSearch(e.target.value)}
-                    style={{ width: '100%' }}
-                  />
-                </div>
-                <Button type="primary" icon={<UserOutlined />}>
-                  Add Employee
-                </Button>
-              </div>
+              <Button type="primary" icon={<UserOutlined />}>
+                Add Employee
+              </Button>
+            </div>
+
+            <div style={{ 
+              marginBottom: 16,
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <Search
+                placeholder="Search employees..."
+                allowClear
+                enterButton="Search"
+                size="middle"
+                onSearch={handleSearch}
+                onChange={(e) => handleSearch(e.target.value)}
+                style={{ 
+                  width: '300px',
+                  maxWidth: '100%',
+                  height: 'auto'
+                }}
+                className="custom-search-input"
+              />
             </div>
 
             <Table

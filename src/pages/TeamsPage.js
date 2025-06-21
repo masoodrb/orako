@@ -506,10 +506,9 @@ const TeamsPage = () => {
         <Row gutter={[24, 24]}>
           <Col xs={24} lg={16}>
             <Card 
-              title="Team Members" 
-              size="small"
-              extra={
-                <Space>
+              title={
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <span>Team Members</span>
                   <Search
                     placeholder="Search members..."
                     value={searchTerm}
@@ -517,10 +516,13 @@ const TeamsPage = () => {
                     style={{ width: 200 }}
                     size="small"
                   />
-                  <Button type="primary" size="small" icon={<UserAddOutlined />} onClick={handleAddMember}>
-                    Add Member
-                  </Button>
-                </Space>
+                </div>
+              }
+              size="small"
+              extra={
+                <Button type="primary" size="small" icon={<UserAddOutlined />} onClick={handleAddMember}>
+                  Add Member
+                </Button>
               }
             >
               <Table

@@ -307,27 +307,67 @@ IT Support Team`,
             backgroundColor: selectedEmail?.id === email.id ? 'rgba(255, 77, 79, 0.08)' : 'transparent'
           }}
           onClick={() => handleEmailSelect(email)}
-          actions={[
-            <Checkbox
-              checked={selectedEmails.includes(email.id)}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setSelectedEmails([...selectedEmails, email.id]);
-                } else {
-                  setSelectedEmails(selectedEmails.filter(id => id !== email.id));
+          extra={
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              gap: '4px',
+              alignSelf: 'flex-start',
+              paddingTop: '2px',
+              paddingRight: '4px'
+            }}>
+              <Checkbox
+                checked={selectedEmails.includes(email.id)}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelectedEmails([...selectedEmails, email.id]);
+                  } else {
+                    setSelectedEmails(selectedEmails.filter(id => id !== email.id));
+                  }
+                }}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  transform: 'scale(0.9)'
+                }}
+              />
+              <Button
+                type="text"
+                size="small"
+                icon={email.isStarred ? 
+                  <StarFilled style={{ 
+                    color: '#fa8c16', 
+                    fontSize: '16px',
+                    transition: 'all 0.2s ease'
+                  }} /> : 
+                  <StarOutlined style={{ 
+                    color: '#8c8c8c', 
+                    fontSize: '16px',
+                    transition: 'all 0.2s ease'
+                  }} />
                 }
-              }}
-              onClick={(e) => e.stopPropagation()}
-            />,
-            <Button
-              type="text"
-              icon={email.isStarred ? <StarFilled style={{ color: '#fa8c16' }} /> : <StarOutlined />}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleStarToggle(email.id);
-              }}
-            />
-          ]}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleStarToggle(email.id);
+                }}
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  padding: '0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '50%'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.04)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'transparent';
+                }}
+              />
+            </div>
+          }
         >
           <List.Item.Meta
             avatar={
