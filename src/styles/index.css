@@ -619,3 +619,28 @@ body {
   grid-template-columns: repeat(8, 1fr) !important;
   gap: 4px !important;
 }
+
+/* Custom styles for Menu dropdown opacity in topbar */
+.ant-menu-submenu-popup,
+.ant-dropdown-menu,
+.topbar-menu .ant-dropdown-menu,
+.topbar-menu .ant-menu-submenu-popup {
+  background-color: var(--oracle-surface) !important;
+  opacity: 1 !important;
+}
+
+.ant-menu-submenu-popup .ant-menu-item,
+.ant-dropdown-menu .ant-menu-item,
+.topbar-menu .ant-dropdown-menu .ant-menu-item,
+.topbar-menu .ant-menu-submenu-popup .ant-menu-item {
+  background-color: var(--oracle-surface) !important;
+  opacity: 1 !important;
+}
+
+.ant-menu-submenu-popup .ant-menu-item:hover,
+.ant-dropdown-menu .ant-menu-item:hover,
+.topbar-menu .ant-dropdown-menu .ant-menu-item:hover,
+.topbar-menu .ant-menu-submenu-popup .ant-menu-item:hover {
+  background-color: var(--oracle-surface-secondary) !important;
+  opacity: 1 !important;
+}
