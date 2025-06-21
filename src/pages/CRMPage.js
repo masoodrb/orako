@@ -477,7 +477,7 @@ const CRMPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 New Opportunity
               </Button>
@@ -533,7 +533,7 @@ const CRMPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 New Customer
               </Button>

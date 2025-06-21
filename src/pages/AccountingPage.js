@@ -454,10 +454,19 @@ const AccountingPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
-              <Search placeholder="Search transactions..." enterButton />
+          {/* Search Row */}
+          <Row style={{ marginBottom: '16px' }}>
+            <Col span={8}>
+              <Search 
+                placeholder="Search transactions..." 
+                enterButton 
+                style={{ maxWidth: '400px', width: '100%' }} 
+              />
             </Col>
+          </Row>
+          
+          {/* Filters Row */}
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
             <Col span={4}>
               <Select placeholder="Account" style={{ width: '100%' }}>
                 <Option value="revenue">Revenue</Option>
@@ -517,10 +526,19 @@ const AccountingPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
-              <Search placeholder="Search customers..." enterButton />
+          {/* Search Row */}
+          <Row style={{ marginBottom: '16px' }}>
+            <Col span={8}>
+              <Search 
+                placeholder="Search customers..." 
+                enterButton 
+                style={{ maxWidth: '400px', width: '100%' }} 
+              />
             </Col>
+          </Row>
+          
+          {/* Filters Row */}
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
             <Col span={4}>
               <Select placeholder="Status" style={{ width: '100%' }}>
                 <Option value="outstanding">Outstanding</Option>
@@ -562,10 +580,19 @@ const AccountingPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
-              <Search placeholder="Search vendors..." enterButton />
+          {/* Search Row */}
+          <Row style={{ marginBottom: '16px' }}>
+            <Col span={8}>
+              <Search 
+                placeholder="Search vendors..." 
+                enterButton 
+                style={{ maxWidth: '400px', width: '100%' }} 
+              />
             </Col>
+          </Row>
+          
+          {/* Filters Row */}
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
             <Col span={4}>
               <Select placeholder="Status" style={{ width: '100%' }}>
                 <Option value="outstanding">Outstanding</Option>
