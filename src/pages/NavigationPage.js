@@ -318,7 +318,7 @@ const NavigationPage = () => {
         </Paragraph>
 
         <div className="demo-grid">
-          <div className="demo-item">
+          <div className="demo-item demo-item-wide">
             <Title level={4}>Basic Steps</Title>
             <Steps current={currentStep}>
               <Step title="Finished" description="This is a description." />

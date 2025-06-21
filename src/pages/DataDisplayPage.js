@@ -248,7 +248,7 @@ const DataDisplayPage = () => {
         </Paragraph>
 
         <div className="demo-grid">
-          <div className="demo-item">
+          <div className="demo-item demo-item-extra-wide">
             <Title level={4}>Basic List</Title>
             <List
               itemLayout="horizontal"
@@ -265,7 +265,7 @@ const DataDisplayPage = () => {
             />
           </div>
 
-          <div className="demo-item">
+          <div className="demo-item demo-item-extra-wide">
             <Title level={4}>List with Actions</Title>
             <List
               itemLayout="vertical"
@@ -635,7 +635,7 @@ const DataDisplayPage = () => {
             </Space>
           </div>
 
-          <div className="demo-item">
+          <div className="demo-item demo-item-extra-wide">
             <Title level={4}>Descriptions</Title>
             <Descriptions title="User Info" bordered>
               <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>

@@ -206,6 +206,14 @@ body {
   letter-spacing: 0.5px;
 }
 
+.demo-item-wide {
+  grid-column: span 2;
+}
+
+.demo-item-extra-wide {
+  grid-column: span 3;
+}
+
 .component-showcase {
   display: flex;
   flex-wrap: wrap;
