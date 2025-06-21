@@ -268,9 +268,38 @@ const NavigationPage = () => {
           A long list can be divided into several pages using pagination.
         </Paragraph>
 
-        <div className="demo-grid">
-          <div className="demo-item">
-            <Title level={4}>Basic Pagination</Title>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '20px',
+          marginBottom: '24px'
+        }}>
+          <div style={{ 
+            padding: '20px',
+            border: '1px solid #d6dbe7',
+            borderRadius: '6px',
+            background: '#ffffff',
+            boxShadow: '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#0572ce';
+            e.target.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#d6dbe7';
+            e.target.style.transform = 'translateY(0)';
+          }}>
+            <Title level={4} style={{
+              margin: '0 0 16px 0',
+              fontSize: '16px',
+              fontWeight: 700,
+              color: '#ff0000',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px'
+            }}>Basic Pagination</Title>
             <Pagination 
               current={currentPage}
               total={50} 
@@ -278,33 +307,114 @@ const NavigationPage = () => {
             />
           </div>
 
-          <div className="demo-item">
-            <Title level={4}>More Pages</Title>
-            <Pagination 
-              defaultCurrent={6} 
-              total={500} 
-              showSizeChanger={false}
-            />
+          <div style={{ 
+            overflow: 'visible',
+            padding: '20px',
+            border: '1px solid #d6dbe7',
+            borderRadius: '6px',
+            background: '#ffffff',
+            boxShadow: '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#0572ce';
+            e.target.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#d6dbe7';
+            e.target.style.transform = 'translateY(0)';
+          }}>
+            <Title level={4} style={{
+              margin: '0 0 16px 0',
+              fontSize: '16px',
+              fontWeight: 700,
+              color: '#ff0000',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px'
+            }}>More Pages</Title>
+            <div style={{ minHeight: '60px', paddingBottom: '10px' }}>
+              <Pagination 
+                defaultCurrent={6} 
+                total={500} 
+                showSizeChanger={false}
+              />
+            </div>
           </div>
 
-          <div className="demo-item">
-            <Title level={4}>Changer</Title>
-            <Pagination
-              showSizeChanger
-              defaultCurrent={3}
-              total={500}
-              pageSizeOptions={['10', '20', '50', '100']}
-            />
+          <div style={{ 
+            overflow: 'visible',
+            padding: '20px',
+            border: '1px solid #d6dbe7',
+            borderRadius: '6px',
+            background: '#ffffff',
+            boxShadow: '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#0572ce';
+            e.target.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#d6dbe7';
+            e.target.style.transform = 'translateY(0)';
+          }}>
+            <Title level={4} style={{
+              margin: '0 0 16px 0',
+              fontSize: '16px',
+              fontWeight: 700,
+              color: '#ff0000',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px'
+            }}>Changer</Title>
+            <div style={{ minHeight: '60px', paddingBottom: '10px' }}>
+              <Pagination
+                showSizeChanger
+                defaultCurrent={3}
+                total={500}
+                pageSizeOptions={['10', '20', '50', '100']}
+              />
+            </div>
           </div>
 
-          <div className="demo-item">
-            <Title level={4}>Jumper</Title>
-            <Pagination
-              showQuickJumper
-              defaultCurrent={2}
-              total={500}
-              showSizeChanger={false}
-            />
+          <div style={{ 
+            overflow: 'visible',
+            padding: '20px',
+            border: '1px solid #d6dbe7',
+            borderRadius: '6px',
+            background: '#ffffff',
+            boxShadow: '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.boxShadow = '0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#0572ce';
+            e.target.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.boxShadow = '0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06)';
+            e.target.style.borderColor = '#d6dbe7';
+            e.target.style.transform = 'translateY(0)';
+          }}>
+            <Title level={4} style={{
+              margin: '0 0 16px 0',
+              fontSize: '16px',
+              fontWeight: 700,
+              color: '#ff0000',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px'
+            }}>Jumper</Title>
+            <div style={{ minHeight: '60px', paddingBottom: '10px' }}>
+              <Pagination
+                showQuickJumper
+                defaultCurrent={2}
+                total={500}
+                showSizeChanger={false}
+              />
+            </div>
           </div>
         </div>
       </div>
