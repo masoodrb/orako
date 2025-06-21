@@ -186,20 +186,6 @@ const NavigationPage = () => {
           </div>
 
           <div className="demo-item">
-            <Title level={4}>Dark Theme Menu</Title>
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={[
-                { key: '1', icon: <MailOutlined />, label: 'Navigation One' },
-                { key: '2', icon: <AppstoreOutlined />, label: 'Navigation Two' },
-                { key: '3', icon: <SettingOutlined />, label: 'Navigation Three' },
-              ]}
-            />
-          </div>
-
-          <div className="demo-item">
             <Title level={4}>Collapsed Menu</Title>
             <Menu
               style={{ width: 80 }}
