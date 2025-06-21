@@ -396,10 +396,19 @@ const CRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
-              <Search placeholder="Search leads..." enterButton />
+          {/* Search Row */}
+          <Row style={{ marginBottom: '16px' }}>
+            <Col span={8}>
+              <Search 
+                placeholder="Search leads..." 
+                enterButton 
+                style={{ maxWidth: '400px', width: '100%' }} 
+              />
             </Col>
+          </Row>
+          
+          {/* Filters Row */}
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
             <Col span={4}>
               <Select placeholder="Stage" style={{ width: '100%' }}>
                 <Option value="new">New</Option>
@@ -444,10 +453,19 @@ const CRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
-              <Search placeholder="Search opportunities..." enterButton />
+          {/* Search Row */}
+          <Row style={{ marginBottom: '16px' }}>
+            <Col span={8}>
+              <Search 
+                placeholder="Search opportunities..." 
+                enterButton 
+                style={{ maxWidth: '400px', width: '100%' }} 
+              />
             </Col>
+          </Row>
+          
+          {/* Filters Row */}
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
             <Col span={4}>
               <Select placeholder="Stage" style={{ width: '100%' }}>
                 <Option value="qualification">Qualification</Option>
@@ -485,10 +503,19 @@ const CRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
-              <Search placeholder="Search customers..." enterButton />
+          {/* Search Row */}
+          <Row style={{ marginBottom: '16px' }}>
+            <Col span={8}>
+              <Search 
+                placeholder="Search customers..." 
+                enterButton 
+                style={{ maxWidth: '400px', width: '100%' }} 
+              />
             </Col>
+          </Row>
+          
+          {/* Filters Row */}
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
             <Col span={4}>
               <Select placeholder="Industry" style={{ width: '100%' }}>
                 <Option value="technology">Technology</Option>
