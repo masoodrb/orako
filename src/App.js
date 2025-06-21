@@ -122,13 +122,70 @@ const App = () => {
     { id: 3, title: 'System maintenance scheduled for tonight', type: 'info' }
   ];
 
-  // Top navigation items
-  const topNavItems = [
-    { key: 'dashboard', label: 'Dashboard' },
-    { key: 'analytics', label: 'Analytics' },
-    { key: 'reports', label: 'Reports' },
-    { key: 'administration', label: 'Administration' }
-  ];
+  // Top navigation items with conditional visibility
+  const getTopNavItems = () => {
+    const menuDropdown = {
+      key: 'menu-dropdown',
+      icon: <MenuOutlined />,
+      label: 'Menu',
+      children: [
+        {
+          key: 'dashboard',
+          icon: <DashboardOutlined />,
+          label: 'Dashboard',
+          onClick: () => navigate('/dashboard')
+        },
+        {
+          key: 'analytics', 
+          icon: <LineChartOutlined />,
+          label: 'Analytics',
+          onClick: () => navigate('/analytics')
+        },
+        {
+          key: 'reports',
+          icon: <FileTextOutlined />,
+          label: 'Reports', 
+          onClick: () => navigate('/reports')
+        },
+        {
+          key: 'administration',
+          icon: <ControlOutlined />,
+          label: 'Administration',
+          onClick: () => navigate('/administration')
+        }
+      ]
+    };
+
+    // Always show Menu dropdown in topbar when sidebar is expanded
+    // Hide individual items when sidebar is expanded to avoid duplication
+    if (!collapsed) {
+      return [menuDropdown];
+    } else {
+      // When sidebar is collapsed, show individual items in topbar
+      return [
+        { 
+          key: 'dashboard', 
+          label: 'Dashboard',
+          onClick: () => navigate('/dashboard')
+        },
+        { 
+          key: 'analytics', 
+          label: 'Analytics',
+          onClick: () => navigate('/analytics')
+        },
+        { 
+          key: 'reports', 
+          label: 'Reports',
+          onClick: () => navigate('/reports')
+        },
+        { 
+          key: 'administration', 
+          label: 'Administration',
+          onClick: () => navigate('/administration')
+        }
+      ];
+    }
+  };
 
   // Mobile navigation menu for drawer
   const mobileNavMenuItems = [
@@ -136,7 +193,7 @@ const App = () => {
       key: 'nav-dashboard',
       label: 'Dashboard',
       onClick: () => {
-        message.info('Dashboard opened');
+        navigate('/dashboard');
         setMobileMenuVisible(false);
       }
     },
@@ -144,7 +201,7 @@ const App = () => {
       key: 'nav-analytics',
       label: 'Analytics',
       onClick: () => {
-        message.info('Analytics opened');
+        navigate('/analytics');
         setMobileMenuVisible(false);
       }
     },
@@ -152,7 +209,7 @@ const App = () => {
       key: 'nav-reports',
       label: 'Reports',
       onClick: () => {
-        message.info('Reports opened');
+        navigate('/reports');
         setMobileMenuVisible(false);
       }
     },
@@ -160,7 +217,7 @@ const App = () => {
       key: 'nav-administration',
       label: 'Administration',
       onClick: () => {
-        message.info('Administration opened');
+        navigate('/administration');
         setMobileMenuVisible(false);
       }
     },
@@ -366,36 +423,6 @@ const App = () => {
       type: 'divider',
     },
     {
-      key: 'menu-dropdown',
-      icon: <MenuOutlined />,
-      label: 'Menu',
-      children: [
-        {
-          key: '/dashboard',
-          icon: <DashboardOutlined />,
-          label: 'Dashboard',
-        },
-        {
-          key: '/analytics',
-          icon: <LineChartOutlined />,
-          label: 'Analytics',
-        },
-        {
-          key: '/reports',
-          icon: <FileTextOutlined />,
-          label: 'Reports',
-        },
-        {
-          key: '/administration',
-          icon: <ControlOutlined />,
-          label: 'Administration',
-        },
-      ],
-    },
-    {
-      type: 'divider',
-    },
-    {
       key: 'ui-components',
       label: 'UI Components',
       type: 'group',
@@ -560,7 +587,7 @@ const App = () => {
           <div style={{ 
             display: 'flex', 
             alignItems: 'center',
-            flex: isMobile ? '1' : 'none',
+            flex: isMobile ? '1' : collapsed ? '2' : '1',
             minWidth: 0
           }}>
             <Button
@@ -580,12 +607,13 @@ const App = () => {
               color: 'var(--oracle-text-primary)',
               fontSize: isMobile ? '16px' : '18px',
               fontWeight: 700,
-              marginRight: isMobile ? '8px' : '32px',
+              marginRight: isMobile ? '8px' : collapsed ? '24px' : '32px',
               whiteSpace: 'nowrap',
               overflow: 'hidden',
-              textOverflow: 'ellipsis'
+              textOverflow: 'ellipsis',
+              flexShrink: collapsed ? 1 : 0
             }}>
-              {isMobile ? 'Oracle ERP' : 'Oracle Cloud ERP'}
+              {isMobile ? 'Oracle ERP' : collapsed ? 'Oracle ERP' : 'Oracle Cloud ERP'}
             </Title>
             
             {/* Top Navigation Menu - Hidden on mobile and tablet */}
@@ -597,9 +625,14 @@ const App = () => {
                   border: 'none',
                   fontSize: '14px',
                   fontWeight: 500,
-                  flex: 1
+                  flex: 1,
+                  minWidth: 0,
+                  justifyContent: collapsed ? 'flex-start' : 'flex-start'
                 }}
-                items={topNavItems}
+                items={getTopNavItems()}
+                selectedKeys={[]}
+                overflowedIndicator={collapsed ? null : undefined}
+                triggerSubMenuAction="click"
               />
             )}
           </div>
@@ -615,9 +648,9 @@ const App = () => {
             {/* Global Search - Responsive width */}
             {!isMobile && (
               <Search
-                placeholder={isTablet ? "Search..." : "Search across all modules..."}
+                placeholder={isTablet ? "Search..." : collapsed ? "Search..." : "Search across all modules..."}
                 style={{ 
-                  width: isTablet ? 180 : 260,
+                  width: isTablet ? 180 : collapsed ? 200 : 260,
                   display: isMobile ? 'none' : 'block',
                   marginRight: '8px',
                   flexShrink: 0
