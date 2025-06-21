@@ -792,7 +792,7 @@ const App = () => {
             ]}
           />
         </div>
-        <Content className="content-area">
+        <Content className="content-area main-content-area">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<DashboardPage />} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   Typography,
@@ -187,6 +187,24 @@ const DataDisplayPage = () => {
       performance: "Good",
     },
   ]);
+
+  const [containerWidth, setContainerWidth] = useState(1800);
+
+  // Handle container resize for responsive table
+  useEffect(() => {
+    const handleResize = () => {
+      // Calculate available width based on content area, not full viewport
+      const contentArea = document.querySelector('.main-content-area');
+      if (contentArea) {
+        const availableWidth = contentArea.offsetWidth - 80; // Account for padding
+        setContainerWidth(Math.max(800, availableWidth)); // Minimum 800px
+      }
+    };
+
+    handleResize(); // Initial calculation
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Handle search functionality
   const handleSearch = (value) => {
@@ -717,15 +735,15 @@ const DataDisplayPage = () => {
           </div>
 
           <div className="demo-item demo-item-extra-wide">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
+            <div style={{ 
+                display: "flex", 
+                justifyContent: "space-between", 
+                alignItems: "flex-start", 
                 marginBottom: 16,
-              }}
-            >
-              <div>
+                flexWrap: "wrap",
+                gap: "16px"
+              }}>
+              <div style={{ flex: "1", minWidth: "250px" }}>
                 <Title level={4} style={{ margin: 0 }}>
                   Comprehensive Employee Management Table
                 </Title>
@@ -734,21 +752,34 @@ const DataDisplayPage = () => {
                   and modal actions.
                 </Paragraph>
               </div>
-              <Button type="primary" icon={<UserOutlined />}>
-                Add Employee
-              </Button>
-            </div>
-            <div style={{ maxWidth: "400px", marginBottom: 16 }}>
-              <Search
-                placeholder="Search employees..."
-              />
+              <div style={{ 
+                display: "flex", 
+                gap: "12px", 
+                alignItems: "flex-start",
+                flexWrap: "wrap"
+              }}>
+                <div style={{ minWidth: "250px", maxWidth: "350px" }}>
+                  <Search
+                    placeholder="Search employees..."
+                    allowClear
+                    enterButton="Search"
+                    size="middle"
+                    onSearch={handleSearch}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    style={{ width: '100%' }}
+                  />
+                </div>
+                <Button type="primary" icon={<UserOutlined />}>
+                  Add Employee
+                </Button>
+              </div>
             </div>
 
             <Table
               columns={comprehensiveTableColumns}
               dataSource={filteredData}
               rowKey="key"
-              scroll={{ x: 1800, y: 400 }}
+              scroll={{ x: containerWidth, y: 400 }}
               pagination={{
                 pageSize: 10,
                 showSizeChanger: true,
