@@ -40,6 +40,7 @@ import {
 import dayjs from 'dayjs';
 
 const { TextArea } = Input;
+const { Search } = Input;
 const { Text, Title } = Typography;
 
 const ChatPage = () => {
@@ -47,6 +48,7 @@ const ChatPage = () => {
   const [messageText, setMessageText] = useState('');
   const [activeTab, setActiveTab] = useState('chats');
   const [emojiPickerVisible, setEmojiPickerVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Popular emojis for the picker
   const popularEmojis = [
@@ -417,14 +419,16 @@ const ChatPage = () => {
             style={{ height: '100%' }}
             bodyStyle={{ padding: 0 }}
             title={
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
                 <span>Messages</span>
-                <Input 
-                  placeholder="Search conversations..." 
-                  prefix={<SearchOutlined />}
-                  style={{ width: '200px' }}
-                  size="small"
-                />
+                <div style={{ marginLeft: '16px', minWidth: '180px' }}>
+                  <Search
+                    placeholder="Search conversations..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{ width: '100%' }}
+                  />
+                </div>
               </div>
             }
           >
