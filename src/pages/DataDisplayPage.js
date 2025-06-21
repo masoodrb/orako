@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { 
-  Card, 
-  Typography, 
-  Table, 
-  List, 
-  Avatar, 
-  Badge, 
-  Tag, 
-  Tooltip, 
-  Popover, 
-  Timeline, 
-  Tree, 
-  Collapse, 
-  Carousel, 
-  Tabs, 
-  Calendar, 
-  Image, 
-  Statistic, 
-  Descriptions, 
+import React, { useState } from "react";
+import {
+  Card,
+  Typography,
+  Table,
+  List,
+  Avatar,
+  Badge,
+  Tag,
+  Tooltip,
+  Popover,
+  Timeline,
+  Tree,
+  Collapse,
+  Carousel,
+  Tabs,
+  Calendar,
+  Image,
+  Statistic,
+  Descriptions,
   Empty,
   Space,
   Button,
@@ -27,8 +27,8 @@ import {
   Input,
   Select,
   Form,
-  message
-} from 'antd';
+  message,
+} from "antd";
 import {
   UserOutlined,
   LikeOutlined,
@@ -42,8 +42,8 @@ import {
   SearchOutlined,
   ArrowUpOutlined,
   ArrowDownOutlined,
-} from '@ant-design/icons';
-import dayjs from 'dayjs';
+} from "@ant-design/icons";
+import dayjs from "dayjs";
 
 const { Title, Paragraph, Text } = Typography;
 const { Meta } = Card;
@@ -53,138 +53,138 @@ const { Search } = Input;
 
 const DataDisplayPage = () => {
   const [form] = Form.useForm();
-  const [activeTab, setActiveTab] = useState('1');
-  const [searchText, setSearchText] = useState('');
+  const [activeTab, setActiveTab] = useState("1");
+  const [searchText, setSearchText] = useState("");
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [editingRecord, setEditingRecord] = useState(null);
   const [comprehensiveData, setComprehensiveData] = useState([
     {
-      key: '1',
-      id: 'EMP001',
-      name: 'John Brown',
-      email: 'john.brown@company.com',
+      key: "1",
+      id: "EMP001",
+      name: "John Brown",
+      email: "john.brown@company.com",
       age: 32,
-      department: 'Engineering',
-      position: 'Senior Developer',
+      department: "Engineering",
+      position: "Senior Developer",
       salary: 95000,
-      joinDate: '2020-03-15',
-      status: 'Active',
-      address: 'New York No. 1 Lake Park',
-      phone: '+1-234-567-8901',
-      skills: ['React', 'Node.js', 'TypeScript'],
-      performance: 'Excellent',
+      joinDate: "2020-03-15",
+      status: "Active",
+      address: "New York No. 1 Lake Park",
+      phone: "+1-234-567-8901",
+      skills: ["React", "Node.js", "TypeScript"],
+      performance: "Excellent",
     },
     {
-      key: '2',
-      id: 'EMP002',
-      name: 'Jim Green',
-      email: 'jim.green@company.com',
+      key: "2",
+      id: "EMP002",
+      name: "Jim Green",
+      email: "jim.green@company.com",
       age: 42,
-      department: 'Marketing',
-      position: 'Marketing Manager',
+      department: "Marketing",
+      position: "Marketing Manager",
       salary: 85000,
-      joinDate: '2019-07-22',
-      status: 'Active',
-      address: 'London No. 1 Lake Park',
-      phone: '+44-207-123-4567',
-      skills: ['SEO', 'Analytics', 'Strategy'],
-      performance: 'Good',
+      joinDate: "2019-07-22",
+      status: "Active",
+      address: "London No. 1 Lake Park",
+      phone: "+44-207-123-4567",
+      skills: ["SEO", "Analytics", "Strategy"],
+      performance: "Good",
     },
     {
-      key: '3',
-      id: 'EMP003',
-      name: 'Joe Black',
-      email: 'joe.black@company.com',
+      key: "3",
+      id: "EMP003",
+      name: "Joe Black",
+      email: "joe.black@company.com",
       age: 32,
-      department: 'Engineering',
-      position: 'Frontend Developer',
+      department: "Engineering",
+      position: "Frontend Developer",
       salary: 75000,
-      joinDate: '2021-01-10',
-      status: 'Active',
-      address: 'Sidney No. 1 Lake Park',
-      phone: '+61-2-9876-5432',
-      skills: ['Vue.js', 'CSS', 'JavaScript'],
-      performance: 'Good',
+      joinDate: "2021-01-10",
+      status: "Active",
+      address: "Sidney No. 1 Lake Park",
+      phone: "+61-2-9876-5432",
+      skills: ["Vue.js", "CSS", "JavaScript"],
+      performance: "Good",
     },
     {
-      key: '4',
-      id: 'EMP004',
-      name: 'Alice Johnson',
-      email: 'alice.johnson@company.com',
+      key: "4",
+      id: "EMP004",
+      name: "Alice Johnson",
+      email: "alice.johnson@company.com",
       age: 28,
-      department: 'HR',
-      position: 'HR Specialist',
+      department: "HR",
+      position: "HR Specialist",
       salary: 65000,
-      joinDate: '2022-05-18',
-      status: 'Active',
-      address: 'Paris No. 2 Lake Park',
-      phone: '+33-1-23-45-67-89',
-      skills: ['Recruitment', 'Training', 'Policy'],
-      performance: 'Excellent',
+      joinDate: "2022-05-18",
+      status: "Active",
+      address: "Paris No. 2 Lake Park",
+      phone: "+33-1-23-45-67-89",
+      skills: ["Recruitment", "Training", "Policy"],
+      performance: "Excellent",
     },
     {
-      key: '5',
-      id: 'EMP005',
-      name: 'Bob Wilson',
-      email: 'bob.wilson@company.com',
+      key: "5",
+      id: "EMP005",
+      name: "Bob Wilson",
+      email: "bob.wilson@company.com",
       age: 35,
-      department: 'Sales',
-      position: 'Sales Director',
+      department: "Sales",
+      position: "Sales Director",
       salary: 120000,
-      joinDate: '2018-11-30',
-      status: 'Active',
-      address: 'Tokyo No. 3 Lake Park',
-      phone: '+81-3-1234-5678',
-      skills: ['Negotiation', 'CRM', 'Leadership'],
-      performance: 'Excellent',
+      joinDate: "2018-11-30",
+      status: "Active",
+      address: "Tokyo No. 3 Lake Park",
+      phone: "+81-3-1234-5678",
+      skills: ["Negotiation", "CRM", "Leadership"],
+      performance: "Excellent",
     },
     {
-      key: '6',
-      id: 'EMP006',
-      name: 'Sarah Davis',
-      email: 'sarah.davis@company.com',
+      key: "6",
+      id: "EMP006",
+      name: "Sarah Davis",
+      email: "sarah.davis@company.com",
       age: 29,
-      department: 'Finance',
-      position: 'Financial Analyst',
+      department: "Finance",
+      position: "Financial Analyst",
       salary: 70000,
-      joinDate: '2021-09-12',
-      status: 'On Leave',
-      address: 'Berlin No. 4 Lake Park',
-      phone: '+49-30-12345678',
-      skills: ['Excel', 'SQL', 'Budgeting'],
-      performance: 'Good',
+      joinDate: "2021-09-12",
+      status: "On Leave",
+      address: "Berlin No. 4 Lake Park",
+      phone: "+49-30-12345678",
+      skills: ["Excel", "SQL", "Budgeting"],
+      performance: "Good",
     },
     {
-      key: '7',
-      id: 'EMP007',
-      name: 'Mike Chen',
-      email: 'mike.chen@company.com',
+      key: "7",
+      id: "EMP007",
+      name: "Mike Chen",
+      email: "mike.chen@company.com",
       age: 31,
-      department: 'Engineering',
-      position: 'DevOps Engineer',
+      department: "Engineering",
+      position: "DevOps Engineer",
       salary: 90000,
-      joinDate: '2020-08-25',
-      status: 'Active',
-      address: 'Singapore No. 5 Lake Park',
-      phone: '+65-6123-4567',
-      skills: ['Docker', 'Kubernetes', 'AWS'],
-      performance: 'Excellent',
+      joinDate: "2020-08-25",
+      status: "Active",
+      address: "Singapore No. 5 Lake Park",
+      phone: "+65-6123-4567",
+      skills: ["Docker", "Kubernetes", "AWS"],
+      performance: "Excellent",
     },
     {
-      key: '8',
-      id: 'EMP008',
-      name: 'Emma Taylor',
-      email: 'emma.taylor@company.com',
+      key: "8",
+      id: "EMP008",
+      name: "Emma Taylor",
+      email: "emma.taylor@company.com",
       age: 26,
-      department: 'Design',
-      position: 'UI/UX Designer',
+      department: "Design",
+      position: "UI/UX Designer",
       salary: 68000,
-      joinDate: '2022-02-14',
-      status: 'Active',
-      address: 'Melbourne No. 6 Lake Park',
-      phone: '+61-3-9876-5432',
-      skills: ['Figma', 'Sketch', 'Prototyping'],
-      performance: 'Good',
+      joinDate: "2022-02-14",
+      status: "Active",
+      address: "Melbourne No. 6 Lake Park",
+      phone: "+61-3-9876-5432",
+      skills: ["Figma", "Sketch", "Prototyping"],
+      performance: "Good",
     },
   ]);
 
@@ -194,8 +194,8 @@ const DataDisplayPage = () => {
   };
 
   // Filter data based on search
-  const filteredData = comprehensiveData.filter(item =>
-    Object.values(item).some(val =>
+  const filteredData = comprehensiveData.filter((item) =>
+    Object.values(item).some((val) =>
       val.toString().toLowerCase().includes(searchText.toLowerCase())
     )
   );
@@ -208,27 +208,30 @@ const DataDisplayPage = () => {
   };
 
   const handleDelete = (record) => {
-    setComprehensiveData(prev => prev.filter(item => item.key !== record.key));
+    setComprehensiveData((prev) =>
+      prev.filter((item) => item.key !== record.key)
+    );
     message.success(`Deleted ${record.name} successfully`);
   };
 
   const handleModalOk = () => {
-    form.validateFields().then(values => {
-      // Update the record in the data
-      setComprehensiveData(prev => 
-        prev.map(item => 
-          item.key === editingRecord.key 
-            ? { ...item, ...values }
-            : item
-        )
-      );
-      message.success('Employee updated successfully');
-      setEditModalVisible(false);
-      setEditingRecord(null);
-      form.resetFields();
-    }).catch(error => {
-      console.log('Validation failed:', error);
-    });
+    form
+      .validateFields()
+      .then((values) => {
+        // Update the record in the data
+        setComprehensiveData((prev) =>
+          prev.map((item) =>
+            item.key === editingRecord.key ? { ...item, ...values } : item
+          )
+        );
+        message.success("Employee updated successfully");
+        setEditModalVisible(false);
+        setEditingRecord(null);
+        form.resetFields();
+      })
+      .catch((error) => {
+        console.log("Validation failed:", error);
+      });
   };
 
   const handleModalCancel = () => {
@@ -239,31 +242,31 @@ const DataDisplayPage = () => {
 
   const tableColumns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
       render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: "Age",
+      dataIndex: "age",
+      key: "age",
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
     },
     {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
+      title: "Tags",
+      key: "tags",
+      dataIndex: "tags",
       render: (_, { tags }) => (
         <>
           {tags.map((tag) => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
+            let color = tag.length > 5 ? "geekblue" : "green";
+            if (tag === "loser") {
+              color = "volcano";
             }
             return (
               <Tag color={color} key={tag}>
@@ -275,8 +278,8 @@ const DataDisplayPage = () => {
       ),
     },
     {
-      title: 'Action',
-      key: 'action',
+      title: "Action",
+      key: "action",
       render: (_, record) => (
         <Space size="middle">
           <a onClick={() => handleEdit(record)}>Edit</a>
@@ -288,144 +291,150 @@ const DataDisplayPage = () => {
 
   const tableData = [
     {
-      key: '1',
-      name: 'John Brown',
+      key: "1",
+      name: "John Brown",
       age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
+      address: "New York No. 1 Lake Park",
+      tags: ["nice", "developer"],
     },
     {
-      key: '2',
-      name: 'Jim Green',
+      key: "2",
+      name: "Jim Green",
       age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
+      address: "London No. 1 Lake Park",
+      tags: ["loser"],
     },
     {
-      key: '3',
-      name: 'Joe Black',
+      key: "3",
+      name: "Joe Black",
       age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
+      address: "Sidney No. 1 Lake Park",
+      tags: ["cool", "teacher"],
     },
   ];
 
   const sortableTableColumns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
       sorter: (a, b) => a.name.localeCompare(b.name),
-      sortDirections: ['ascend', 'descend'],
+      sortDirections: ["ascend", "descend"],
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: "Age",
+      dataIndex: "age",
+      key: "age",
       sorter: (a, b) => a.age - b.age,
-      sortDirections: ['ascend', 'descend'],
+      sortDirections: ["ascend", "descend"],
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
       sorter: (a, b) => a.address.localeCompare(b.address),
-      sortDirections: ['ascend', 'descend'],
+      sortDirections: ["ascend", "descend"],
     },
     {
-      title: 'Score',
-      dataIndex: 'score',
-      key: 'score',
+      title: "Score",
+      dataIndex: "score",
+      key: "score",
       sorter: (a, b) => a.score - b.score,
-      sortDirections: ['ascend', 'descend'],
-      defaultSortOrder: 'descend',
+      sortDirections: ["ascend", "descend"],
+      defaultSortOrder: "descend",
     },
   ];
 
   const sortableTableData = [
     {
-      key: '1',
-      name: 'John Brown',
+      key: "1",
+      name: "John Brown",
       age: 32,
-      address: 'New York No. 1 Lake Park',
+      address: "New York No. 1 Lake Park",
       score: 98,
     },
     {
-      key: '2',
-      name: 'Jim Green',
+      key: "2",
+      name: "Jim Green",
       age: 42,
-      address: 'London No. 1 Lake Park',
+      address: "London No. 1 Lake Park",
       score: 85,
     },
     {
-      key: '3',
-      name: 'Joe Black',
+      key: "3",
+      name: "Joe Black",
       age: 32,
-      address: 'Sidney No. 1 Lake Park',
+      address: "Sidney No. 1 Lake Park",
       score: 92,
     },
     {
-      key: '4',
-      name: 'Alice Johnson',
+      key: "4",
+      name: "Alice Johnson",
       age: 28,
-      address: 'Paris No. 2 Lake Park',
+      address: "Paris No. 2 Lake Park",
       score: 96,
     },
     {
-      key: '5',
-      name: 'Bob Wilson',
+      key: "5",
+      name: "Bob Wilson",
       age: 35,
-      address: 'Tokyo No. 3 Lake Park',
+      address: "Tokyo No. 3 Lake Park",
       score: 88,
     },
   ];
 
   const listData = [
     {
-      title: 'Ant Design Title 1',
-      description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-      content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+      title: "Ant Design Title 1",
+      description:
+        "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      content:
+        "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
     },
     {
-      title: 'Ant Design Title 2',
-      description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-      content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+      title: "Ant Design Title 2",
+      description:
+        "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      content:
+        "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
     },
     {
-      title: 'Ant Design Title 3',
-      description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-      content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+      title: "Ant Design Title 3",
+      description:
+        "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      content:
+        "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
     },
   ];
 
   const treeData = [
     {
-      title: 'parent 1',
-      key: '0-0',
+      title: "parent 1",
+      key: "0-0",
       children: [
         {
-          title: 'parent 1-0',
-          key: '0-0-0',
+          title: "parent 1-0",
+          key: "0-0-0",
           disabled: true,
           children: [
             {
-              title: 'leaf',
-              key: '0-0-0-0',
+              title: "leaf",
+              key: "0-0-0-0",
               disableCheckbox: true,
             },
             {
-              title: 'leaf',
-              key: '0-0-0-1',
+              title: "leaf",
+              key: "0-0-0-1",
             },
           ],
         },
         {
-          title: 'parent 1-1',
-          key: '0-0-1',
+          title: "parent 1-1",
+          key: "0-0-1",
           children: [
             {
-              title: 'leaf',
-              key: '0-0-1-0',
+              title: "leaf",
+              key: "0-0-1-0",
             },
           ],
         },
@@ -434,11 +443,11 @@ const DataDisplayPage = () => {
   ];
 
   const onSelect = (selectedKeys, info) => {
-    console.log('selected', selectedKeys, info);
+    console.log("selected", selectedKeys, info);
   };
 
   const onCheck = (checkedKeys, info) => {
-    console.log('onCheck', checkedKeys, info);
+    console.log("onCheck", checkedKeys, info);
   };
 
   const content = (
@@ -451,130 +460,141 @@ const DataDisplayPage = () => {
   // Comprehensive table columns with all features
   const comprehensiveTableColumns = [
     {
-      title: 'Employee ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: "Employee ID",
+      dataIndex: "id",
+      key: "id",
       width: 100,
       sorter: (a, b) => a.id.localeCompare(b.id),
-      fixed: 'left',
+      fixed: "left",
     },
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
       width: 150,
       sorter: (a, b) => a.name.localeCompare(b.name),
-      fixed: 'left',
+      fixed: "left",
       render: (text) => <strong>{text}</strong>,
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
       width: 200,
       sorter: (a, b) => a.email.localeCompare(b.email),
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: "Age",
+      dataIndex: "age",
+      key: "age",
       width: 80,
       sorter: (a, b) => a.age - b.age,
-      align: 'center',
+      align: "center",
     },
     {
-      title: 'Department',
-      dataIndex: 'department',
-      key: 'department',
+      title: "Department",
+      dataIndex: "department",
+      key: "department",
       width: 120,
       sorter: (a, b) => a.department.localeCompare(b.department),
       filters: [
-        { text: 'Engineering', value: 'Engineering' },
-        { text: 'Marketing', value: 'Marketing' },
-        { text: 'HR', value: 'HR' },
-        { text: 'Sales', value: 'Sales' },
-        { text: 'Finance', value: 'Finance' },
-        { text: 'Design', value: 'Design' },
+        { text: "Engineering", value: "Engineering" },
+        { text: "Marketing", value: "Marketing" },
+        { text: "HR", value: "HR" },
+        { text: "Sales", value: "Sales" },
+        { text: "Finance", value: "Finance" },
+        { text: "Design", value: "Design" },
       ],
       onFilter: (value, record) => record.department === value,
       render: (text) => <Tag color="blue">{text}</Tag>,
     },
     {
-      title: 'Position',
-      dataIndex: 'position',
-      key: 'position',
+      title: "Position",
+      dataIndex: "position",
+      key: "position",
       width: 150,
       sorter: (a, b) => a.position.localeCompare(b.position),
     },
     {
-      title: 'Salary',
-      dataIndex: 'salary',
-      key: 'salary',
+      title: "Salary",
+      dataIndex: "salary",
+      key: "salary",
       width: 120,
       sorter: (a, b) => a.salary - b.salary,
-      align: 'right',
+      align: "right",
       render: (value) => `$${value.toLocaleString()}`,
     },
     {
-      title: 'Join Date',
-      dataIndex: 'joinDate',
-      key: 'joinDate',
+      title: "Join Date",
+      dataIndex: "joinDate",
+      key: "joinDate",
       width: 120,
       sorter: (a, b) => new Date(a.joinDate) - new Date(b.joinDate),
       render: (date) => new Date(date).toLocaleDateString(),
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
       width: 100,
       filters: [
-        { text: 'Active', value: 'Active' },
-        { text: 'On Leave', value: 'On Leave' },
-        { text: 'Inactive', value: 'Inactive' },
+        { text: "Active", value: "Active" },
+        { text: "On Leave", value: "On Leave" },
+        { text: "Inactive", value: "Inactive" },
       ],
       onFilter: (value, record) => record.status === value,
       render: (status) => (
-        <Badge 
-          status={status === 'Active' ? 'success' : status === 'On Leave' ? 'warning' : 'error'} 
-          text={status} 
+        <Badge
+          status={
+            status === "Active"
+              ? "success"
+              : status === "On Leave"
+              ? "warning"
+              : "error"
+          }
+          text={status}
         />
       ),
     },
     {
-      title: 'Performance',
-      dataIndex: 'performance',
-      key: 'performance',
+      title: "Performance",
+      dataIndex: "performance",
+      key: "performance",
       width: 120,
       sorter: (a, b) => a.performance.localeCompare(b.performance),
       filters: [
-        { text: 'Excellent', value: 'Excellent' },
-        { text: 'Good', value: 'Good' },
-        { text: 'Average', value: 'Average' },
-        { text: 'Poor', value: 'Poor' },
+        { text: "Excellent", value: "Excellent" },
+        { text: "Good", value: "Good" },
+        { text: "Average", value: "Average" },
+        { text: "Poor", value: "Poor" },
       ],
       onFilter: (value, record) => record.performance === value,
       render: (performance) => {
-        const color = performance === 'Excellent' ? 'green' : 
-                     performance === 'Good' ? 'blue' : 
-                     performance === 'Average' ? 'orange' : 'red';
+        const color =
+          performance === "Excellent"
+            ? "green"
+            : performance === "Good"
+            ? "blue"
+            : performance === "Average"
+            ? "orange"
+            : "red";
         return <Tag color={color}>{performance}</Tag>;
       },
     },
     {
-      title: 'Skills',
-      dataIndex: 'skills',
-      key: 'skills',
+      title: "Skills",
+      dataIndex: "skills",
+      key: "skills",
       width: 200,
       render: (skills) => (
         <div>
-          {skills.slice(0, 2).map(skill => (
+          {skills.slice(0, 2).map((skill) => (
             <Tag key={skill} color="purple" style={{ marginBottom: 2 }}>
               {skill}
             </Tag>
           ))}
           {skills.length > 2 && (
-            <Tooltip title={skills.slice(2).join(', ')}>
+            <Tooltip title={skills.slice(2).join(", ")}>
               <Tag color="default">+{skills.length - 2} more</Tag>
             </Tooltip>
           )}
@@ -582,33 +602,33 @@ const DataDisplayPage = () => {
       ),
     },
     {
-      title: 'Actions',
-      key: 'actions',
+      title: "Actions",
+      key: "actions",
       width: 200,
-      fixed: 'right',
+      fixed: "right",
       render: (_, record) => (
         <Space size="small">
-          <Button 
-            type="primary" 
+          <Button
+            type="primary"
             size="small"
             onClick={() => handleEdit(record)}
           >
             Edit
           </Button>
-          <Button 
-            type="default" 
+          <Button
+            type="default"
             size="small"
             onClick={() => message.info(`Viewing ${record.name}`)}
           >
             View
           </Button>
-          <Button 
-            type="default" 
-            danger 
+          <Button
+            type="default"
+            danger
             size="small"
             onClick={() => {
               Modal.confirm({
-                title: 'Are you sure?',
+                title: "Are you sure?",
                 content: `Do you want to delete ${record.name}?`,
                 onOk: () => handleDelete(record),
               });
@@ -626,51 +646,57 @@ const DataDisplayPage = () => {
       <div className="page-header">
         <Title level={1}>Data Display Components</Title>
         <Paragraph>
-          Components for displaying and organizing data including tables, lists, cards, 
-          and various visualization elements.
+          Components for displaying and organizing data including tables, lists,
+          cards, and various visualization elements.
         </Paragraph>
       </div>
 
       <div className="demo-section">
         <Title level={2}>Table</Title>
         <Paragraph>
-          A table displays rows of data with sorting, filtering, and pagination capabilities.
+          A table displays rows of data with sorting, filtering, and pagination
+          capabilities.
         </Paragraph>
 
         <div className="demo-grid">
-          <div className="demo-item" style={{ gridColumn: 'span 2' }}>
+          <div className="demo-item" style={{ gridColumn: "span 2" }}>
             <Title level={4}>Basic Table</Title>
             <Table columns={tableColumns} dataSource={tableData} />
           </div>
 
           <div className="demo-item">
             <Title level={4}>Bordered Table</Title>
-            <Table 
-              columns={tableColumns.slice(0, 3)} 
-              dataSource={tableData} 
-              bordered 
+            <Table
+              columns={tableColumns.slice(0, 3)}
+              dataSource={tableData}
+              bordered
               size="small"
             />
           </div>
 
           <div className="demo-item">
             <Title level={4}>Table with Selection</Title>
-            <Table 
+            <Table
               rowSelection={{
-                type: 'checkbox',
+                type: "checkbox",
                 onChange: (selectedRowKeys, selectedRows) => {
-                  console.log('selectedRowKeys: ', selectedRowKeys, 'selectedRows: ', selectedRows);
+                  console.log(
+                    "selectedRowKeys: ",
+                    selectedRowKeys,
+                    "selectedRows: ",
+                    selectedRows
+                  );
                 },
               }}
-              columns={tableColumns.slice(0, 3)} 
-              dataSource={tableData} 
+              columns={tableColumns.slice(0, 3)}
+              dataSource={tableData}
               size="small"
             />
           </div>
 
           <div className="demo-item demo-item-wide">
             <Title level={4}>Sortable Table</Title>
-            <Table 
+            <Table
               columns={sortableTableColumns}
               dataSource={sortableTableData}
               pagination={{
@@ -679,16 +705,44 @@ const DataDisplayPage = () => {
                 showQuickJumper: true,
               }}
               onChange={(pagination, filters, sorter, extra) => {
-                console.log('Table params: ', pagination, filters, sorter, extra);
+                console.log(
+                  "Table params: ",
+                  pagination,
+                  filters,
+                  sorter,
+                  extra
+                );
               }}
             />
           </div>
 
           <div className="demo-item demo-item-extra-wide">
-            <Title level={4}>Comprehensive Employee Management Table</Title>
-            <Paragraph>
-              Advanced table with search, sorting, filtering, pagination, and modal actions.
-            </Paragraph>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                marginBottom: 16,
+              }}
+            >
+              <div>
+                <Title level={4} style={{ margin: 0 }}>
+                  Comprehensive Employee Management Table
+                </Title>
+                <Paragraph style={{ margin: "8px 0 0 0" }}>
+                  Advanced table with search, sorting, filtering, pagination,
+                  and modal actions.
+                </Paragraph>
+              </div>
+              <Button type="primary" icon={<UserOutlined />}>
+                Add Employee
+              </Button>
+            </div>
+            <div style={{ maxWidth: "400px", marginBottom: 16 }}>
+              <Search
+                placeholder="Search employees..."
+              />
+            </div>
 
             <Table
               columns={comprehensiveTableColumns}
@@ -701,23 +755,28 @@ const DataDisplayPage = () => {
                 showQuickJumper: true,
                 showTotal: (total, range) =>
                   `${range[0]}-${range[1]} of ${total} employees`,
-                pageSizeOptions: ['5', '10', '20', '50'],
+                pageSizeOptions: ["5", "10", "20", "50"],
               }}
               onChange={(pagination, filters, sorter, extra) => {
-                console.log('Table change:', { pagination, filters, sorter, extra });
+                console.log("Table change:", {
+                  pagination,
+                  filters,
+                  sorter,
+                  extra,
+                });
               }}
               size="small"
               bordered
               rowSelection={{
-                type: 'checkbox',
+                type: "checkbox",
                 onChange: (selectedRowKeys, selectedRows) => {
-                  console.log('Selected:', selectedRowKeys, selectedRows);
+                  console.log("Selected:", selectedRowKeys, selectedRows);
                 },
               }}
             />
 
             <Modal
-              title={`Edit Employee: ${editingRecord?.name || ''}`}
+              title={`Edit Employee: ${editingRecord?.name || ""}`}
               open={editModalVisible}
               onOk={handleModalOk}
               onCancel={handleModalCancel}
@@ -731,16 +790,20 @@ const DataDisplayPage = () => {
                 </Button>,
               ]}
             >
-              <Form
-                form={form}
-                layout="vertical"
-                initialValues={editingRecord}
-              >
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <Form form={form} layout="vertical" initialValues={editingRecord}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "16px",
+                  }}
+                >
                   <Form.Item
                     label="Employee ID"
                     name="id"
-                    rules={[{ required: true, message: 'Please input employee ID!' }]}
+                    rules={[
+                      { required: true, message: "Please input employee ID!" },
+                    ]}
                   >
                     <Input disabled />
                   </Form.Item>
@@ -748,7 +811,7 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Name"
                     name="name"
-                    rules={[{ required: true, message: 'Please input name!' }]}
+                    rules={[{ required: true, message: "Please input name!" }]}
                   >
                     <Input />
                   </Form.Item>
@@ -757,10 +820,10 @@ const DataDisplayPage = () => {
                     label="Email"
                     name="email"
                     rules={[
-                      { required: true, message: 'Please input email!' },
-                      { type: 'email', message: 'Please enter a valid email!' }
+                      { required: true, message: "Please input email!" },
+                      { type: "email", message: "Please enter a valid email!" },
                     ]}
-                    style={{ gridColumn: 'span 2' }}
+                    style={{ gridColumn: "span 2" }}
                   >
                     <Input />
                   </Form.Item>
@@ -768,7 +831,7 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Age"
                     name="age"
-                    rules={[{ required: true, message: 'Please input age!' }]}
+                    rules={[{ required: true, message: "Please input age!" }]}
                   >
                     <Input type="number" min="18" max="100" />
                   </Form.Item>
@@ -776,10 +839,14 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Department"
                     name="department"
-                    rules={[{ required: true, message: 'Please select department!' }]}
+                    rules={[
+                      { required: true, message: "Please select department!" },
+                    ]}
                   >
                     <Select>
-                      <Select.Option value="Engineering">Engineering</Select.Option>
+                      <Select.Option value="Engineering">
+                        Engineering
+                      </Select.Option>
                       <Select.Option value="Marketing">Marketing</Select.Option>
                       <Select.Option value="HR">HR</Select.Option>
                       <Select.Option value="Sales">Sales</Select.Option>
@@ -791,7 +858,9 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Position"
                     name="position"
-                    rules={[{ required: true, message: 'Please input position!' }]}
+                    rules={[
+                      { required: true, message: "Please input position!" },
+                    ]}
                   >
                     <Input />
                   </Form.Item>
@@ -799,7 +868,9 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Salary"
                     name="salary"
-                    rules={[{ required: true, message: 'Please input salary!' }]}
+                    rules={[
+                      { required: true, message: "Please input salary!" },
+                    ]}
                   >
                     <Input type="number" min="0" prefix="$" />
                   </Form.Item>
@@ -807,7 +878,9 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Join Date"
                     name="joinDate"
-                    rules={[{ required: true, message: 'Please input join date!' }]}
+                    rules={[
+                      { required: true, message: "Please input join date!" },
+                    ]}
                   >
                     <Input type="date" />
                   </Form.Item>
@@ -815,7 +888,9 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Status"
                     name="status"
-                    rules={[{ required: true, message: 'Please select status!' }]}
+                    rules={[
+                      { required: true, message: "Please select status!" },
+                    ]}
                   >
                     <Select>
                       <Select.Option value="Active">Active</Select.Option>
@@ -827,7 +902,9 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Performance"
                     name="performance"
-                    rules={[{ required: true, message: 'Please select performance!' }]}
+                    rules={[
+                      { required: true, message: "Please select performance!" },
+                    ]}
                   >
                     <Select>
                       <Select.Option value="Excellent">Excellent</Select.Option>
@@ -840,7 +917,7 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Address"
                     name="address"
-                    style={{ gridColumn: 'span 2' }}
+                    style={{ gridColumn: "span 2" }}
                   >
                     <Input />
                   </Form.Item>
@@ -848,7 +925,7 @@ const DataDisplayPage = () => {
                   <Form.Item
                     label="Phone"
                     name="phone"
-                    style={{ gridColumn: 'span 2' }}
+                    style={{ gridColumn: "span 2" }}
                   >
                     <Input />
                   </Form.Item>
@@ -859,10 +936,10 @@ const DataDisplayPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Sortable Table</Title>
-            <Table 
-              columns={sortableTableColumns} 
-              dataSource={sortableTableData} 
-              pagination={false} 
+            <Table
+              columns={sortableTableColumns}
+              dataSource={sortableTableData}
+              pagination={false}
               rowKey="key"
             />
           </div>
@@ -886,7 +963,11 @@ const DataDisplayPage = () => {
               renderItem={(item, index) => (
                 <List.Item>
                   <List.Item.Meta
-                    avatar={<Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />}
+                    avatar={
+                      <Avatar
+                        src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`}
+                      />
+                    }
                     title={<a href="https://ant.design">{item.title}</a>}
                     description={item.description}
                   />
@@ -914,8 +995,7 @@ const DataDisplayPage = () => {
                       156
                     </Space>,
                     <Space key="list-vertical-message">
-                      <MessageOutlined />
-                      2
+                      <MessageOutlined />2
                     </Space>,
                   ]}
                   extra={
@@ -927,7 +1007,9 @@ const DataDisplayPage = () => {
                   }
                 >
                   <List.Item.Meta
-                    avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+                    avatar={
+                      <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
+                    }
                     title={<a href="https://ant.design">{item.title}</a>}
                     description={item.description}
                   />
@@ -950,7 +1032,11 @@ const DataDisplayPage = () => {
         <div className="demo-grid">
           <div className="demo-item">
             <Title level={4}>Basic Card</Title>
-            <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
+            <Card
+              title="Default size card"
+              extra={<a href="#">More</a>}
+              style={{ width: 300 }}
+            >
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
@@ -962,14 +1048,22 @@ const DataDisplayPage = () => {
             <Card
               hoverable
               style={{ width: 240 }}
-              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+              cover={
+                <img
+                  alt="example"
+                  src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+                />
+              }
               actions={[
                 <SettingOutlined key="setting" />,
                 <EditOutlined key="edit" />,
                 <EllipsisOutlined key="ellipsis" />,
               ]}
             >
-              <Meta title="Europe Street beat" description="www.instagram.com" />
+              <Meta
+                title="Europe Street beat"
+                description="www.instagram.com"
+              />
             </Card>
           </div>
 
@@ -977,7 +1071,9 @@ const DataDisplayPage = () => {
             <Title level={4}>Loading Card</Title>
             <Card style={{ width: 300, marginTop: 16 }} loading>
               <Meta
-                avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+                avatar={
+                  <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
+                }
                 title="Card title"
                 description="This is the description"
               />
@@ -987,12 +1083,21 @@ const DataDisplayPage = () => {
           <div className="demo-item">
             <Title level={4}>Grid Card</Title>
             <Card title="Card Title">
-              <Card.Grid style={{ width: '25%', textAlign: 'center' }}>Content</Card.Grid>
-              <Card.Grid hoverable={false} style={{ width: '25%', textAlign: 'center' }}>
+              <Card.Grid style={{ width: "25%", textAlign: "center" }}>
                 Content
               </Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center' }}>Content</Card.Grid>
+              <Card.Grid
+                hoverable={false}
+                style={{ width: "25%", textAlign: "center" }}
+              >
+                Content
+              </Card.Grid>
+              <Card.Grid style={{ width: "25%", textAlign: "center" }}>
+                Content
+              </Card.Grid>
+              <Card.Grid style={{ width: "25%", textAlign: "center" }}>
+                Content
+              </Card.Grid>
             </Card>
           </div>
         </div>
@@ -1012,9 +1117,11 @@ const DataDisplayPage = () => {
             <Space wrap>
               <Tag>Tag 1</Tag>
               <Tag>
-                <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+                <a href="https://github.com/ant-design/ant-design/issues/1862">
+                  Link
+                </a>
               </Tag>
-              <Tag closable onClose={() => console.log('Closing tag')}>
+              <Tag closable onClose={() => console.log("Closing tag")}>
                 Closeable
               </Tag>
               <Tag color="magenta">magenta</Tag>
@@ -1089,9 +1196,7 @@ const DataDisplayPage = () => {
 
       <div className="demo-section">
         <Title level={2}>Navigation Elements</Title>
-        <Paragraph>
-          Components for organizing and navigating content.
-        </Paragraph>
+        <Paragraph>Components for organizing and navigating content.</Paragraph>
 
         <div className="demo-grid">
           <div className="demo-item">
@@ -1111,7 +1216,7 @@ const DataDisplayPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Collapse</Title>
-            <Collapse defaultActiveKey={['1']}>
+            <Collapse defaultActiveKey={["1"]}>
               <Panel header="This is panel header 1" key="1">
                 <p>Panel content 1</p>
               </Panel>
@@ -1128,11 +1233,18 @@ const DataDisplayPage = () => {
             <Title level={4}>Timeline</Title>
             <Timeline>
               <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-              <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-              <Timeline.Item dot={<ClockCircleOutlined className="timeline-clock-icon" />} color="red">
+              <Timeline.Item>
+                Solve initial network problems 2015-09-01
+              </Timeline.Item>
+              <Timeline.Item
+                dot={<ClockCircleOutlined className="timeline-clock-icon" />}
+                color="red"
+              >
                 Technical testing 2015-09-01
               </Timeline.Item>
-              <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+              <Timeline.Item>
+                Network problems being solved 2015-09-01
+              </Timeline.Item>
             </Timeline>
           </div>
 
@@ -1140,9 +1252,9 @@ const DataDisplayPage = () => {
             <Title level={4}>Tree</Title>
             <Tree
               checkable
-              defaultExpandedKeys={['0-0-0', '0-0-1']}
-              defaultSelectedKeys={['0-0-0', '0-0-1']}
-              defaultCheckedKeys={['0-0-0', '0-0-1']}
+              defaultExpandedKeys={["0-0-0", "0-0-1"]}
+              defaultSelectedKeys={["0-0-0", "0-0-1"]}
+              defaultCheckedKeys={["0-0-0", "0-0-1"]}
               onSelect={onSelect}
               onCheck={onCheck}
               treeData={treeData}
@@ -1199,31 +1311,59 @@ const DataDisplayPage = () => {
               width={200}
               src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               preview={{
-                src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                src: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
               }}
             />
           </div>
 
           <div className="demo-item">
             <Title level={4}>Carousel</Title>
-            <Carousel autoplay style={{ textAlign: 'center' }}>
+            <Carousel autoplay style={{ textAlign: "center" }}>
               <div>
-                <div style={{ height: '160px', color: '#fff', lineHeight: '160px', background: '#364d79' }}>
+                <div
+                  style={{
+                    height: "160px",
+                    color: "#fff",
+                    lineHeight: "160px",
+                    background: "#364d79",
+                  }}
+                >
                   1
                 </div>
               </div>
               <div>
-                <div style={{ height: '160px', color: '#fff', lineHeight: '160px', background: '#364d79' }}>
+                <div
+                  style={{
+                    height: "160px",
+                    color: "#fff",
+                    lineHeight: "160px",
+                    background: "#364d79",
+                  }}
+                >
                   2
                 </div>
               </div>
               <div>
-                <div style={{ height: '160px', color: '#fff', lineHeight: '160px', background: '#364d79' }}>
+                <div
+                  style={{
+                    height: "160px",
+                    color: "#fff",
+                    lineHeight: "160px",
+                    background: "#364d79",
+                  }}
+                >
                   3
                 </div>
               </div>
               <div>
-                <div style={{ height: '160px', color: '#fff', lineHeight: '160px', background: '#364d79' }}>
+                <div
+                  style={{
+                    height: "160px",
+                    color: "#fff",
+                    lineHeight: "160px",
+                    background: "#364d79",
+                  }}
+                >
                   4
                 </div>
               </div>
@@ -1243,24 +1383,28 @@ const DataDisplayPage = () => {
         <div className="demo-grid">
           <div className="demo-item">
             <Title level={4}>Statistic</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Statistic title="Active Users" value={112893} />
-              <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
-              <Statistic 
-                title="Active Users" 
-                value={11.28} 
+              <Statistic
+                title="Account Balance (CNY)"
+                value={112893}
                 precision={2}
-                valueStyle={{ color: '#3f8600' }}
-                prefix={<ArrowUpOutlined />}
-                suffix="%" 
               />
-              <Statistic 
-                title="Idle Users" 
-                value={9.3} 
+              <Statistic
+                title="Active Users"
+                value={11.28}
                 precision={2}
-                valueStyle={{ color: '#cf1322' }}
+                valueStyle={{ color: "#3f8600" }}
+                prefix={<ArrowUpOutlined />}
+                suffix="%"
+              />
+              <Statistic
+                title="Idle Users"
+                value={9.3}
+                precision={2}
+                valueStyle={{ color: "#cf1322" }}
                 prefix={<ArrowDownOutlined />}
-                suffix="%" 
+                suffix="%"
               />
             </Space>
           </div>
@@ -1268,35 +1412,47 @@ const DataDisplayPage = () => {
           <div className="demo-item demo-item-extra-wide">
             <Title level={4}>Descriptions</Title>
             <Descriptions title="User Info" bordered>
-              <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-              <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
-              <Descriptions.Item label="Automatic Renewal">YES</Descriptions.Item>
-              <Descriptions.Item label="Order time">2018-04-24 18:00:00</Descriptions.Item>
+              <Descriptions.Item label="Product">
+                Cloud Database
+              </Descriptions.Item>
+              <Descriptions.Item label="Billing Mode">
+                Prepaid
+              </Descriptions.Item>
+              <Descriptions.Item label="Automatic Renewal">
+                YES
+              </Descriptions.Item>
+              <Descriptions.Item label="Order time">
+                2018-04-24 18:00:00
+              </Descriptions.Item>
               <Descriptions.Item label="Usage Time" span={2}>
                 2019-04-24 18:00:00
               </Descriptions.Item>
               <Descriptions.Item label="Status" span={3}>
                 <Badge status="processing" text="Running" />
               </Descriptions.Item>
-              <Descriptions.Item label="Negotiated Amount">$80.00</Descriptions.Item>
+              <Descriptions.Item label="Negotiated Amount">
+                $80.00
+              </Descriptions.Item>
               <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-              <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
+              <Descriptions.Item label="Official Receipts">
+                $60.00
+              </Descriptions.Item>
             </Descriptions>
           </div>
 
           <div className="demo-item">
             <Title level={4}>Calendar</Title>
-            <Calendar 
-              fullscreen={false} 
+            <Calendar
+              fullscreen={false}
               onPanelChange={(value, mode) => {
-                console.log(value.format('YYYY-MM-DD'), mode);
+                console.log(value.format("YYYY-MM-DD"), mode);
               }}
             />
           </div>
 
           <div className="demo-item">
             <Title level={4}>Empty</Title>
-            <Empty 
+            <Empty
               image={Empty.PRESENTED_IMAGE_SIMPLE}
               description={
                 <span>
