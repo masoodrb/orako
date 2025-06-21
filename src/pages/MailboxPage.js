@@ -23,6 +23,8 @@ import {
   Popover,
   Switch
 } from 'antd';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import {
   MailOutlined,
   InboxOutlined,
@@ -65,7 +67,34 @@ const MailboxPage = () => {
   const [selectedEmail, setSelectedEmail] = useState(null);
   const [composeVisible, setComposeVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [emailContent, setEmailContent] = useState('');
+  const [quillFocused, setQuillFocused] = useState(false);
   const [form] = Form.useForm();
+
+  // Quill modules configuration
+  const quillModules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],
+      [{ 'indent': '-1'}, { 'indent': '+1' }],
+      [{ 'direction': 'rtl' }],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+      ['link', 'image'],
+      ['clean']
+    ],
+  };
+
+  const quillFormats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'color', 'background',
+    'align', 'script'
+  ];
 
   // Sample email data
   const folders = [
@@ -263,13 +292,26 @@ IT Support Team`,
 
   const handleCompose = () => {
     form.resetFields();
+    setEmailContent('');
     setComposeVisible(true);
   };
 
   const handleSendEmail = (values) => {
-    console.log('Sending email:', values);
+    // Check if rich text content is not empty (excluding HTML tags)
+    const textContent = emailContent.replace(/<[^>]*>/g, '').trim();
+    if (!textContent) {
+      message.error('Please enter email message');
+      return;
+    }
+    
+    const emailData = {
+      ...values,
+      body: emailContent
+    };
+    console.log('Sending email:', emailData);
     message.success('Email sent successfully');
     setComposeVisible(false);
+    setEmailContent('');
   };
 
   const handleStarToggle = (emailId) => {
@@ -623,7 +665,7 @@ IT Support Team`,
   return (
     <div className="page-container" style={{ height: 'calc(100vh - 140px)' }}>
       {/* Page Header */}
-      <div className="page-header" style={{ marginBottom: 0 }}>
+      <div className="page-header" style={{ marginBottom: 24 }}>
         <div style={{ flex: 1 }}>
           <Title level={2} style={{ margin: 0, color: 'var(--oracle-text-primary)' }}>
             Mailbox
@@ -644,7 +686,7 @@ IT Support Team`,
       </div>
 
       {/* Main Content */}
-      <div style={{ height: 'calc(100% - 80px)', display: 'flex', gap: 0 }}>
+      <div style={{ height: 'calc(100% - 104px)', display: 'flex', gap: 0 }}>
         {/* Sidebar */}
         <div className="mailbox-sidebar" style={{ 
           width: 260, 
@@ -860,12 +902,28 @@ IT Support Team`,
           <Form.Item
             label="Message"
             name="body"
-            rules={[{ required: true, message: 'Please enter email message' }]}
           >
-            <TextArea 
-              rows={12} 
-              placeholder="Type your message here..."
-            />
+            <div 
+              style={{ background: 'white' }}
+              className={quillFocused ? 'react-quill-focused' : ''}
+            >
+              <ReactQuill
+                theme="snow"
+                value={emailContent}
+                onChange={setEmailContent}
+                onFocus={() => setQuillFocused(true)}
+                onBlur={() => setQuillFocused(false)}
+                modules={quillModules}
+                formats={quillFormats}
+                placeholder="Type your message here..."
+                style={{ 
+                  height: '200px', 
+                  marginBottom: '42px',
+                  border: '1px solid #d9d9d9',
+                  borderRadius: '6px'
+                }}
+              />
+            </div>
           </Form.Item>
 
           <Form.Item label="Attachments" name="attachments">

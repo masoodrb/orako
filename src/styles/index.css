@@ -628,6 +628,101 @@ body {
   gap: 4px !important;
 }
 
+/* ReactQuill Rich Text Editor Styling */
+.ql-toolbar {
+  border: 1px solid var(--oracle-border) !important;
+  border-bottom: none !important;
+  border-radius: var(--oracle-radius-sm) var(--oracle-radius-sm) 0 0 !important;
+  background-color: var(--oracle-surface-secondary) !important;
+  font-family: inherit !important;
+}
+
+.ql-container {
+  border: 1px solid var(--oracle-border) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--oracle-radius-sm) var(--oracle-radius-sm) !important;
+  background-color: var(--oracle-surface) !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+}
+
+.ql-editor {
+  color: var(--oracle-text-primary) !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  min-height: 180px !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: var(--oracle-text-disabled) !important;
+  font-style: normal !important;
+  font-family: inherit !important;
+}
+
+.ql-toolbar .ql-stroke {
+  stroke: var(--oracle-text-secondary) !important;
+}
+
+.ql-toolbar .ql-fill {
+  fill: var(--oracle-text-secondary) !important;
+}
+
+.ql-toolbar .ql-picker-label {
+  color: var(--oracle-text-secondary) !important;
+}
+
+.ql-toolbar button:hover .ql-stroke,
+.ql-toolbar button:focus .ql-stroke,
+.ql-toolbar button.ql-active .ql-stroke {
+  stroke: var(--oracle-primary) !important;
+}
+
+.ql-toolbar button:hover .ql-fill,
+.ql-toolbar button:focus .ql-fill,
+.ql-toolbar button.ql-active .ql-fill {
+  fill: var(--oracle-primary) !important;
+}
+
+.ql-toolbar button:hover,
+.ql-toolbar button:focus,
+.ql-toolbar button.ql-active {
+  background-color: var(--oracle-primary-light) !important;
+  border-radius: var(--oracle-radius-sm) !important;
+}
+
+.ql-picker-options {
+  background-color: var(--oracle-surface) !important;
+  border: 1px solid var(--oracle-border) !important;
+  border-radius: var(--oracle-radius-sm) !important;
+  box-shadow: var(--oracle-shadow-md) !important;
+}
+
+.ql-picker-item {
+  color: var(--oracle-text-primary) !important;
+}
+
+.ql-picker-item:hover {
+  background-color: var(--oracle-surface-secondary) !important;
+  color: var(--oracle-primary) !important;
+}
+
+/* Focus state for the entire editor */
+.ql-container.ql-snow {
+  border-color: var(--oracle-border) !important;
+}
+
+.ql-editor:focus {
+  outline: none !important;
+}
+
+/* Custom focus styling for the entire editor */
+.react-quill-focused .ql-toolbar,
+.react-quill-focused .ql-container {
+  border-color: var(--oracle-primary) !important;
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
+}
+
 /* Custom styles for Menu dropdown opacity in topbar */
 .ant-menu-submenu-popup,
 .ant-dropdown-menu,
@@ -640,7 +735,7 @@ body {
 .ant-menu-submenu-popup .ant-menu-item,
 .ant-dropdown-menu .ant-menu-item,
 .topbar-menu .ant-dropdown-menu .ant-menu-item,
-.topbar-menu .ant-menu-submenu-popup .ant-menu-item {
+topbar-menu .ant-menu-submenu-popup .ant-menu-item {
   background-color: var(--oracle-surface) !important;
   opacity: 1 !important;
 }
@@ -648,7 +743,7 @@ body {
 .ant-menu-submenu-popup .ant-menu-item:hover,
 .ant-dropdown-menu .ant-menu-item:hover,
 .topbar-menu .ant-dropdown-menu .ant-menu-item:hover,
-.topbar-menu .ant-menu-submenu-popup .ant-menu-item:hover {
+topbar-menu .ant-menu-submenu-popup .ant-menu-item:hover {
   background-color: var(--oracle-surface-secondary) !important;
   opacity: 1 !important;
 }
