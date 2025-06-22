@@ -74,6 +74,8 @@ import DashboardPage from './pages/DashboardPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import ReportsPage from './pages/ReportsPage';
 import AdministrationPage from './pages/AdministrationPage';
+import SettingsPage from './pages/SettingsPage';
+import MyProfilePage from './pages/MyProfilePage';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -356,13 +358,13 @@ const App = () => {
       key: 'profile',
       icon: <UserOutlined />,
       label: 'My Profile',
-      onClick: () => message.info('Profile settings opened')
+      onClick: () => navigate('/profile')
     },
     {
       key: 'settings',
       icon: <SettingOutlined />,
       label: 'Account Settings',
-      onClick: () => message.info('Account settings opened')
+      onClick: () => navigate('/settings')
     },
     {
       key: 'help',
@@ -816,6 +818,8 @@ const App = () => {
             <Route path="/timeline" element={<TimelinePage />} />
             <Route path="/teams" element={<TeamsPage />} />
             <Route path="/animated-widgets" element={<AnimatedWidgetsPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/profile" element={<MyProfilePage />} />
           </Routes>
         </Content>
 
