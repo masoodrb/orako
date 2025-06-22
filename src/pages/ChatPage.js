@@ -96,7 +96,7 @@ const ChatPage = () => {
     {
       id: '1',
       name: 'Sarah Johnson',
-      avatar: null,
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
       lastMessage: 'Hey, can we discuss the Q3 budget proposal?',
       time: '2 min ago',
       unread: 2,
@@ -117,7 +117,7 @@ const ChatPage = () => {
     {
       id: '3',
       name: 'Lisa Park',
-      avatar: null,
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
       lastMessage: 'Thanks for the meeting notes!',
       time: '1 hour ago',
       unread: 0,
@@ -138,7 +138,7 @@ const ChatPage = () => {
     {
       id: '5',
       name: 'Mike Wilson',
-      avatar: null,
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
       lastMessage: 'Can you review the design mockups?',
       time: 'Yesterday',
       unread: 0,
@@ -198,28 +198,28 @@ const ChatPage = () => {
       name: 'Sarah Johnson',
       role: 'Product Manager',
       online: true,
-      avatar: null
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face'
     },
     {
       id: '2',
       name: 'Mike Wilson',
       role: 'Senior Developer',
       online: true,
-      avatar: null
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
     },
     {
       id: '3',
       name: 'Lisa Park',
       role: 'UX Designer',
       online: false,
-      avatar: null
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face'
     },
     {
       id: '4',
       name: 'Robert Chen',
       role: 'DevOps Engineer',
       online: true,
-      avatar: null
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     }
   ];
 
@@ -231,15 +231,32 @@ const ChatPage = () => {
   };
 
   const renderMessage = (message) => {
+    const currentChat = chats.find(chat => chat.id === selectedChat);
+    
     return (
       <div
         key={message.id}
         style={{
           display: 'flex',
           justifyContent: message.isMine ? 'flex-end' : 'flex-start',
-          marginBottom: '16px'
+          marginBottom: '16px',
+          alignItems: 'flex-end'
         }}
       >
+        {!message.isMine && (
+          <Avatar 
+            src={currentChat?.avatar}
+            size="small"
+            style={{ 
+              backgroundColor: 'var(--oracle-primary)', 
+              marginRight: '8px',
+              marginBottom: '4px'
+            }}
+            icon={!currentChat?.avatar ? <UserOutlined /> : undefined}
+          >
+            {!currentChat?.avatar && currentChat?.name?.charAt(0)}
+          </Avatar>
+        )}
         <div
           style={{
             maxWidth: '70%',
@@ -328,9 +345,12 @@ const ChatPage = () => {
                 avatar={
                   <Badge dot={chat.online} color="green">
                     <Avatar 
+                      src={chat.type === 'direct' ? chat.avatar : undefined}
                       style={{ backgroundColor: 'var(--oracle-primary)' }}
-                      icon={chat.type === 'group' ? <TeamOutlined /> : <UserOutlined />}
-                    />
+                      icon={chat.type === 'group' ? <TeamOutlined /> : (!chat.avatar ? <UserOutlined /> : undefined)}
+                    >
+                      {chat.type === 'direct' && !chat.avatar && chat.name.charAt(0)}
+                    </Avatar>
                   </Badge>
                 }
                 title={
@@ -381,9 +401,12 @@ const ChatPage = () => {
                 avatar={
                   <Badge dot={member.online} color={member.online ? 'green' : 'default'}>
                     <Avatar 
+                      src={member.avatar}
                       style={{ backgroundColor: 'var(--oracle-secondary)' }}
-                      icon={<UserOutlined />}
-                    />
+                      icon={!member.avatar ? <UserOutlined /> : undefined}
+                    >
+                      {!member.avatar && member.name.charAt(0)}
+                    </Avatar>
                   </Badge>
                 }
                 title={<Text strong>{member.name}</Text>}
@@ -453,6 +476,7 @@ const ChatPage = () => {
                   <Space>
                     <Badge dot color="green">
                       <Avatar 
+                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face"
                         style={{ backgroundColor: 'var(--oracle-primary)' }}
                         icon={<UserOutlined />}
                       />

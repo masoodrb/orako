@@ -127,7 +127,7 @@ const App = () => {
     email: 'john.smith@oracle.com',
     role: 'Senior Manager',
     department: 'Finance',
-    avatar: null
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
   };
 
   // Notification data
@@ -792,12 +792,15 @@ const App = () => {
                 <Space>
                   <Avatar 
                     size={isMobile ? 28 : 32} 
-                    icon={<UserOutlined />}
+                    src={userProfile.avatar}
+                    icon={!userProfile.avatar ? <UserOutlined /> : undefined}
                     style={{ 
-                      backgroundColor: 'var(--oracle-primary)',
+                      backgroundColor: userProfile.avatar ? 'transparent' : 'var(--oracle-primary)',
                       marginRight: isMobile ? '4px' : '8px'
                     }}
-                  />
+                  >
+                    {!userProfile.avatar && userProfile.name.split(' ').map(n => n[0]).join('')}
+                  </Avatar>
                   {/* User info - Hidden on mobile */}
                   {!isMobile && (
                     <div style={{ textAlign: 'left', lineHeight: 1.2 }}>

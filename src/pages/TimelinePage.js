@@ -95,7 +95,7 @@ const TimelinePage = () => {
       type: 'milestone',
       title: 'Q4 2024 Goals Achieved',
       description: 'Successfully completed all quarterly objectives including 15% revenue growth and customer satisfaction improvements.',
-      user: { name: 'John Smith', role: 'Project Manager' },
+      user: { name: 'John Smith', role: 'Project Manager', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-08T16:30:00',
       priority: 'high',
       status: 'completed',
@@ -114,7 +114,7 @@ const TimelinePage = () => {
       type: 'meeting',
       title: 'Board Meeting - Strategic Planning',
       description: 'Quarterly board meeting to discuss strategic initiatives for 2024. Key decisions made on budget allocation and new market expansion.',
-      user: { name: 'Sarah Johnson', role: 'CEO' },
+      user: { name: 'Sarah Johnson', role: 'CEO', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-08T14:00:00',
       priority: 'high',
       status: 'completed',
@@ -133,7 +133,7 @@ const TimelinePage = () => {
       type: 'sale',
       title: 'Major Enterprise Deal Closed',
       description: 'Successfully closed $500K enterprise contract with TechCorp Industries. This represents our largest single deal this quarter.',
-      user: { name: 'Michael Brown', role: 'Sales Director' },
+      user: { name: 'Michael Brown', role: 'Sales Director', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-08T11:45:00',
       priority: 'high',
       status: 'completed',
@@ -152,7 +152,7 @@ const TimelinePage = () => {
       type: 'email',
       title: 'Security Audit Report Distributed',
       description: 'Comprehensive security audit report sent to all stakeholders. Report shows excellent security posture with 9.2/10 rating.',
-      user: { name: 'Emily Davis', role: 'Security Manager' },
+      user: { name: 'Emily Davis', role: 'Security Manager', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-08T10:15:00',
       priority: 'medium',
       status: 'completed',
@@ -171,7 +171,7 @@ const TimelinePage = () => {
       type: 'task',
       title: 'Database Migration Completed',
       description: 'Successfully migrated customer database to new infrastructure. Zero downtime achieved with improved performance metrics.',
-      user: { name: 'David Wilson', role: 'DevOps Engineer' },
+      user: { name: 'David Wilson', role: 'DevOps Engineer', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-07T22:30:00',
       priority: 'high',
       status: 'completed',
@@ -190,7 +190,7 @@ const TimelinePage = () => {
       type: 'feature',
       title: 'New Dashboard Analytics Released',
       description: 'Launched enhanced dashboard with real-time analytics and improved data visualization capabilities for better business insights.',
-      user: { name: 'Lisa Garcia', role: 'Product Manager' },
+      user: { name: 'Lisa Garcia', role: 'Product Manager', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-07T16:20:00',
       priority: 'medium',
       status: 'completed',
@@ -209,7 +209,7 @@ const TimelinePage = () => {
       type: 'call',
       title: 'Client Consultation - Growth Strategy',
       description: 'Strategic consultation call with MegaCorp to discuss their digital transformation roadmap and implementation timeline.',
-      user: { name: 'Robert Chen', role: 'Business Consultant' },
+      user: { name: 'Robert Chen', role: 'Business Consultant', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-07T14:00:00',
       priority: 'medium',
       status: 'completed',
@@ -228,7 +228,7 @@ const TimelinePage = () => {
       type: 'document',
       title: 'Q1 Budget Proposal Submitted',
       description: 'Comprehensive budget proposal for Q1 2024 submitted for approval. Includes detailed breakdowns for all departments.',
-      user: { name: 'Jennifer Lee', role: 'Finance Director' },
+      user: { name: 'Jennifer Lee', role: 'Finance Director', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face' },
       timestamp: '2024-02-07T12:45:00',
       priority: 'high',
       status: 'pending',
@@ -421,10 +421,11 @@ const TimelinePage = () => {
                 <Space>
                   <Avatar 
                     size={24} 
-                    icon={<UserOutlined />}
-                    style={{ backgroundColor: 'var(--oracle-primary)' }}
+                    src={activity.user.avatar}
+                    icon={!activity.user.avatar ? <UserOutlined /> : undefined}
+                    style={{ backgroundColor: activity.user.avatar ? 'transparent' : 'var(--oracle-primary)' }}
                   >
-                    {activity.user.name.charAt(0)}
+                    {!activity.user.avatar && activity.user.name.charAt(0)}
                   </Avatar>
                   <div>
                     <Text strong style={{ fontSize: '13px' }}>

@@ -25,7 +25,8 @@ import {
   Cascader,
   Alert,
   Progress,
-  Drawer
+  Drawer,
+  Avatar
 } from 'antd';
 import {
   FormOutlined,
@@ -98,11 +99,11 @@ const QuotationsFormPage = () => {
   ];
 
   const salesReps = [
-    { value: 'sarah-johnson', label: 'Sarah Johnson' },
-    { value: 'michael-chen', label: 'Michael Chen' },
-    { value: 'lisa-anderson', label: 'Lisa Anderson' },
-    { value: 'david-miller', label: 'David Miller' },
-    { value: 'maria-garcia', label: 'Maria Garcia' }
+    { value: 'sarah-johnson', label: 'Sarah Johnson', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
+    { value: 'michael-chen', label: 'Michael Chen', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
+    { value: 'lisa-anderson', label: 'Lisa Anderson', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face' },
+    { value: 'david-miller', label: 'David Miller', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' },
+    { value: 'maria-garcia', label: 'Maria Garcia', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face' }
   ];
 
   const templates = [
@@ -293,7 +294,18 @@ const QuotationsFormPage = () => {
           <Form.Item name="salesRep" label="Sales Representative">
             <Select placeholder="Select sales rep">
               {salesReps.map(rep => (
-                <Option key={rep.value} value={rep.value}>{rep.label}</Option>
+                <Option key={rep.value} value={rep.value}>
+                  <Space>
+                    <Avatar 
+                      size={20} 
+                      src={rep.avatar}
+                      icon={!rep.avatar ? <UserOutlined /> : undefined}
+                    >
+                      {!rep.avatar && rep.label.charAt(0)}
+                    </Avatar>
+                    {rep.label}
+                  </Space>
+                </Option>
               ))}
             </Select>
           </Form.Item>
