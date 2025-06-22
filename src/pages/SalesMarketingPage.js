@@ -55,6 +55,7 @@ const SalesMarketingPage = () => {
     {
       key: '1',
       salesperson: 'Sarah Johnson',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
       target: 150000,
       achieved: 135000,
       deals: 12,
@@ -66,6 +67,7 @@ const SalesMarketingPage = () => {
     {
       key: '2',
       salesperson: 'Mike Wilson',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
       target: 120000,
       achieved: 128000,
       deals: 16,
@@ -77,6 +79,7 @@ const SalesMarketingPage = () => {
     {
       key: '3',
       salesperson: 'Lisa Park',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
       target: 180000,
       achieved: 165000,
       deals: 10,
@@ -148,7 +151,8 @@ const SalesMarketingPage = () => {
       assignedTo: 'Sarah Johnson',
       created: '2025-06-20',
       lastTouch: '2025-06-21',
-      email: 'john.smith@oracle.com'
+      email: 'john.smith@oracle.com',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     },
     {
       key: '2',
@@ -160,7 +164,8 @@ const SalesMarketingPage = () => {
       assignedTo: 'Mike Wilson',
       created: '2025-06-19',
       lastTouch: '2025-06-20',
-      email: 'emily.davis@microsoft.com'
+      email: 'emily.davis@microsoft.com',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
     },
     {
       key: '3',
@@ -172,7 +177,8 @@ const SalesMarketingPage = () => {
       assignedTo: 'Lisa Park',
       created: '2025-06-18',
       lastTouch: '2025-06-21',
-      email: 'robert.chen@salesforce.com'
+      email: 'robert.chen@salesforce.com',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
     }
   ];
 
@@ -217,10 +223,14 @@ const SalesMarketingPage = () => {
       title: 'Salesperson',
       dataIndex: 'salesperson',
       key: 'salesperson',
-      render: (name) => (
+      render: (name, record) => (
         <Space>
-          <Avatar style={{ backgroundColor: 'var(--oracle-primary)' }}>
-            {name.split(' ').map(n => n[0]).join('')}
+          <Avatar 
+            src={record.avatar}
+            style={{ backgroundColor: 'var(--oracle-primary)' }}
+            icon={!record.avatar ? undefined : undefined}
+          >
+            {!record.avatar && name.split(' ').map(n => n[0]).join('')}
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{name}</div>
@@ -377,8 +387,12 @@ const SalesMarketingPage = () => {
       key: 'lead',
       render: (_, record) => (
         <Space>
-          <Avatar style={{ backgroundColor: 'var(--oracle-primary)' }}>
-            {record.name.split(' ').map(n => n[0]).join('')}
+          <Avatar 
+            src={record.avatar}
+            style={{ backgroundColor: 'var(--oracle-primary)' }}
+            icon={!record.avatar ? undefined : undefined}
+          >
+            {!record.avatar && record.name.split(' ').map(n => n[0]).join('')}
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{record.name}</div>

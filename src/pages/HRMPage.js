@@ -64,7 +64,8 @@ const HRMPage = () => {
       email: 'sarah.johnson@company.com',
       phone: '+1-555-0123',
       location: 'San Francisco, CA',
-      performance: 4.5
+      performance: 4.5,
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face'
     },
     {
       key: '2',
@@ -79,7 +80,8 @@ const HRMPage = () => {
       email: 'mike.wilson@company.com',
       phone: '+1-555-0456',
       location: 'New York, NY',
-      performance: 4.2
+      performance: 4.2,
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
     },
     {
       key: '3',
@@ -94,7 +96,8 @@ const HRMPage = () => {
       email: 'lisa.park@company.com',
       phone: '+1-555-0789',
       location: 'Austin, TX',
-      performance: 4.8
+      performance: 4.8,
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face'
     }
   ];
 
@@ -218,8 +221,12 @@ const HRMPage = () => {
       key: 'employee',
       render: (_, record) => (
         <Space>
-          <Avatar size="large" style={{ backgroundColor: 'var(--oracle-primary)' }}>
-            {record.name.split(' ').map(n => n[0]).join('')}
+          <Avatar 
+            size="large" 
+            src={record.avatar}
+            style={{ backgroundColor: record.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+          >
+            {!record.avatar && record.name.split(' ').map(n => n[0]).join('')}
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{record.name}</div>

@@ -68,7 +68,8 @@ const CRMPage = () => {
       stage: 'Qualification',
       owner: 'Sarah Johnson',
       lastActivity: '2025-06-20',
-      score: 85
+      score: 85,
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     },
     {
       key: '2',
@@ -80,7 +81,8 @@ const CRMPage = () => {
       stage: 'Proposal',
       owner: 'Mike Wilson',
       lastActivity: '2025-06-19',
-      score: 72
+      score: 72,
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
     },
     {
       key: '3',
@@ -92,7 +94,8 @@ const CRMPage = () => {
       stage: 'Negotiation',
       owner: 'Lisa Park',
       lastActivity: '2025-06-21',
-      score: 91
+      score: 91,
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
     }
   ]);
 
@@ -208,7 +211,12 @@ const CRMPage = () => {
       key: 'name',
       render: (text, record) => (
         <Space>
-          <Avatar icon={<UserOutlined />} />
+          <Avatar 
+            src={record.avatar}
+            icon={!record.avatar ? <UserOutlined /> : undefined}
+          >
+            {!record.avatar && text.charAt(0)}
+          </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{text}</div>
             <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>

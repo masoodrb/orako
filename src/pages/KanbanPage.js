@@ -98,12 +98,12 @@ const KanbanPage = () => {
   ];
 
   const teamMembers = [
-    { id: '1', name: 'John Smith', avatar: null, role: 'Project Manager' },
-    { id: '2', name: 'Sarah Johnson', avatar: null, role: 'Developer' },
-    { id: '3', name: 'Michael Brown', avatar: null, role: 'Designer' },
-    { id: '4', name: 'Emily Davis', avatar: null, role: 'QA Engineer' },
-    { id: '5', name: 'David Wilson', avatar: null, role: 'Business Analyst' },
-    { id: '6', name: 'Lisa Garcia', avatar: null, role: 'DevOps Engineer' }
+    { id: '1', name: 'John Smith', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face', role: 'Project Manager' },
+    { id: '2', name: 'Sarah Johnson', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face', role: 'Developer' },
+    { id: '3', name: 'Michael Brown', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face', role: 'Designer' },
+    { id: '4', name: 'Emily Davis', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face', role: 'QA Engineer' },
+    { id: '5', name: 'David Wilson', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face', role: 'Business Analyst' },
+    { id: '6', name: 'Lisa Garcia', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face', role: 'DevOps Engineer' }
   ];
 
   // Sample tag options for easy selection
@@ -127,7 +127,7 @@ const KanbanPage = () => {
           priority: 'high',
           type: 'feature',
           status: 'to-do',
-          assignee: { id: '1', name: 'John Smith', avatar: null },
+          assignee: { id: '1', name: 'John Smith', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-15',
           tags: ['architecture', 'design'],
           comments: 3,
@@ -143,7 +143,7 @@ const KanbanPage = () => {
           priority: 'medium',
           type: 'research',
           status: 'to-do',
-          assignee: { id: '3', name: 'Michael Brown', avatar: null },
+          assignee: { id: '3', name: 'Michael Brown', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-20',
           tags: ['research', 'ux'],
           comments: 1,
@@ -159,7 +159,7 @@ const KanbanPage = () => {
           priority: 'low',
           type: 'documentation',
           status: 'to-do',
-          assignee: { id: '2', name: 'Sarah Johnson', avatar: null },
+          assignee: { id: '2', name: 'Sarah Johnson', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-25',
           tags: ['documentation', 'api'],
           comments: 0,
@@ -175,7 +175,7 @@ const KanbanPage = () => {
           priority: 'medium',
           type: 'documentation',
           status: 'to-do',
-          assignee: { id: '1', name: 'John Smith', avatar: null },
+          assignee: { id: '1', name: 'John Smith', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-28',
           tags: [], // Empty tags array to test display
           comments: 0,
@@ -197,7 +197,7 @@ const KanbanPage = () => {
           priority: 'high',
           type: 'development',
           status: 'in-progress',
-          assignee: { id: '2', name: 'Sarah Johnson', avatar: null },
+          assignee: { id: '2', name: 'Sarah Johnson', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-12',
           tags: ['database', 'migration'],
           comments: 5,
@@ -213,7 +213,7 @@ const KanbanPage = () => {
           priority: 'medium',
           type: 'development',
           status: 'in-progress',
-          assignee: { id: '4', name: 'Emily Davis', avatar: null },
+          assignee: { id: '4', name: 'Emily Davis', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-18',
           tags: ['ui', 'components'],
           comments: 2,
@@ -235,7 +235,7 @@ const KanbanPage = () => {
           priority: 'high',
           type: 'security',
           status: 'review',
-          assignee: { id: '6', name: 'Lisa Garcia', avatar: null },
+          assignee: { id: '6', name: 'Lisa Garcia', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-10',
           tags: ['security', 'audit'],
           comments: 8,
@@ -257,7 +257,7 @@ const KanbanPage = () => {
           priority: 'high',
           type: 'feature',
           status: 'done',
-          assignee: { id: '5', name: 'David Wilson', avatar: null },
+          assignee: { id: '5', name: 'David Wilson', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-05',
           tags: ['authentication', 'security'],
           comments: 12,
@@ -274,7 +274,7 @@ const KanbanPage = () => {
           priority: 'medium',
           type: 'design',
           status: 'done',
-          assignee: { id: '3', name: 'Michael Brown', avatar: null },
+          assignee: { id: '3', name: 'Michael Brown', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
           dueDate: '2024-02-03',
           tags: ['branding', 'design'],
           comments: 6,
@@ -640,13 +640,14 @@ const KanbanPage = () => {
           <Tooltip title={task.assignee?.name}>
             <Avatar 
               size={24} 
-              icon={<UserOutlined />}
+              src={task.assignee?.avatar}
+              icon={!task.assignee?.avatar ? <UserOutlined /> : undefined}
               style={{ 
-                backgroundColor: 'var(--oracle-primary)',
+                backgroundColor: task.assignee?.avatar ? 'transparent' : 'var(--oracle-primary)',
                 fontSize: '12px'
               }}
             >
-              {task.assignee?.name?.charAt(0)}
+              {!task.assignee?.avatar && task.assignee?.name?.charAt(0)}
             </Avatar>
           </Tooltip>
           
@@ -1055,8 +1056,12 @@ const KanbanPage = () => {
                   {teamMembers.map(member => (
                     <Select.Option key={member.id} value={member.id}>
                       <Space>
-                        <Avatar size={20} icon={<UserOutlined />}>
-                          {member.name.charAt(0)}
+                        <Avatar 
+                          size={20} 
+                          src={member.avatar}
+                          icon={!member.avatar ? <UserOutlined /> : undefined}
+                        >
+                          {!member.avatar && member.name.charAt(0)}
                         </Avatar>
                         {member.name}
                       </Space>

@@ -87,6 +87,7 @@ const MyProfilePage = () => {
     hireDate: '2023-01-15',
     manager: 'John Smith',
     team: 'Frontend Development',
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612c0e4?w=400&h=400&fit=crop&crop=face',
     bio: 'Passionate software engineer with 8+ years of experience in building scalable web applications. Expert in React, Node.js, and cloud technologies. Love mentoring junior developers and contributing to open source projects.',
     skills: [
       { name: 'React', level: 95, category: 'Frontend' },
@@ -296,7 +297,7 @@ const MyProfilePage = () => {
               <div style={{ textAlign: 'center', marginBottom: '24px' }}>
                 <Avatar 
                   size={120} 
-                  src="https://images.unsplash.com/photo-1494790108755-2616b612c0e4?w=400&h=400&fit=crop&crop=face"
+                  src={profileData.avatar}
                   style={{ marginBottom: '16px' }}
                 />
                 <div>

@@ -87,7 +87,7 @@ const TeamsPage = () => {
       name: 'Engineering Team',
       description: 'Full-stack development and DevOps engineering team',
       department: 'Technology',
-      manager: { name: 'Sarah Johnson', email: 'sarah.johnson@oracle.com' },
+      manager: { name: 'Sarah Johnson', email: 'sarah.johnson@oracle.com', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
       color: '#1890ff',
       icon: <RocketOutlined />,
       stats: {
@@ -105,7 +105,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 123-4567',
           location: 'San Francisco, CA',
           status: 'online',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
           skills: ['Leadership', 'Architecture', 'Node.js', 'React'],
           performance: 95,
           projects: ['ERP Module', 'API Gateway'],
@@ -121,7 +121,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 234-5678',
           location: 'Seattle, WA',
           status: 'online',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
           skills: ['React', 'TypeScript', 'UI/UX', 'Redux'],
           performance: 92,
           projects: ['Dashboard UI', 'Component Library'],
@@ -136,7 +136,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 345-6789',
           location: 'Austin, TX',
           status: 'away',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
           skills: ['Python', 'Django', 'PostgreSQL', 'AWS'],
           performance: 88,
           projects: ['Authentication Service', 'Data Pipeline'],
@@ -151,7 +151,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 456-7890',
           location: 'Boston, MA',
           status: 'online',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
           skills: ['Docker', 'Kubernetes', 'CI/CD', 'AWS'],
           performance: 94,
           projects: ['Infrastructure', 'Deployment Pipeline'],
@@ -165,7 +165,7 @@ const TeamsPage = () => {
       name: 'Sales Team',
       description: 'Strategic sales and business development team',
       department: 'Sales',
-      manager: { name: 'Robert Chen', email: 'robert.chen@oracle.com' },
+      manager: { name: 'Robert Chen', email: 'robert.chen@oracle.com', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
       color: '#52c41a',
       icon: <TrophyOutlined />,
       stats: {
@@ -183,7 +183,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 567-8901',
           location: 'New York, NY',
           status: 'online',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
           skills: ['Enterprise Sales', 'Negotiation', 'CRM', 'Strategy'],
           performance: 96,
           projects: ['Q4 Campaign', 'Enterprise Deals'],
@@ -199,7 +199,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 678-9012',
           location: 'Los Angeles, CA',
           status: 'busy',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
           skills: ['Account Management', 'SaaS Sales', 'Presentations'],
           performance: 91,
           projects: ['West Coast Accounts', 'Product Demos'],
@@ -213,7 +213,7 @@ const TeamsPage = () => {
       name: 'Finance Team',
       description: 'Financial planning, analysis, and accounting team',
       department: 'Finance',
-      manager: { name: 'Jennifer Lee', email: 'jennifer.lee@oracle.com' },
+      manager: { name: 'Jennifer Lee', email: 'jennifer.lee@oracle.com', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face' },
       color: '#faad14',
       icon: <BankOutlined />,
       stats: {
@@ -231,7 +231,7 @@ const TeamsPage = () => {
           phone: '+1 (555) 789-0123',
           location: 'Chicago, IL',
           status: 'online',
-          avatar: null,
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
           skills: ['Financial Analysis', 'Budgeting', 'Excel', 'SAP'],
           performance: 97,
           projects: ['Q4 Budget', 'Cost Analysis'],
@@ -308,10 +308,11 @@ const TeamsPage = () => {
           <div style={{ position: 'relative' }}>
             <Avatar 
               size={40} 
-              icon={<UserOutlined />}
-              style={{ backgroundColor: 'var(--oracle-primary)' }}
+              src={member.avatar}
+              icon={!member.avatar ? <UserOutlined /> : undefined}
+              style={{ backgroundColor: member.avatar ? 'transparent' : 'var(--oracle-primary)' }}
             >
-              {member.name.charAt(0)}
+              {!member.avatar && member.name.charAt(0)}
             </Avatar>
             <Badge 
               color={statusConfig[member.status].color}
@@ -540,10 +541,11 @@ const TeamsPage = () => {
               <div style={{ textAlign: 'center' }}>
                 <Avatar 
                   size={64} 
-                  icon={<UserOutlined />}
-                  style={{ backgroundColor: 'var(--oracle-primary)', marginBottom: 12 }}
+                  src={team.manager.avatar}
+                  icon={!team.manager.avatar ? <UserOutlined /> : undefined}
+                  style={{ backgroundColor: team.manager.avatar ? 'transparent' : 'var(--oracle-primary)', marginBottom: 12 }}
                 >
-                  {team.manager.name.charAt(0)}
+                  {!team.manager.avatar && team.manager.name.charAt(0)}
                 </Avatar>
                 <Title level={5} style={{ margin: 0, marginBottom: 4 }}>
                   {team.manager.name}
@@ -797,6 +799,17 @@ const TeamsPage = () => {
               </Form.Item>
             </Col>
           </Row>
+
+          <Form.Item
+            label="Profile Picture URL"
+            name="avatar"
+            help="Optional: Enter a URL for the member's profile picture"
+          >
+            <Input 
+              placeholder="https://example.com/profile.jpg" 
+              type="url"
+            />
+          </Form.Item>
 
           <Row gutter={16}>
             <Col span={12}>

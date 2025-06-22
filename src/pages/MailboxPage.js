@@ -109,7 +109,7 @@ const MailboxPage = () => {
   const [emails] = useState([
     {
       id: '1',
-      from: { name: 'Sarah Johnson', email: 'sarah.johnson@oracle.com', avatar: null },
+      from: { name: 'Sarah Johnson', email: 'sarah.johnson@oracle.com', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
       to: [{ name: 'John Smith', email: 'john.smith@oracle.com' }],
       subject: 'Q4 Financial Report Review',
       preview: 'Hi John, I\'ve completed the initial review of the Q4 financial report. Please find my comments and suggestions attached...',
@@ -138,7 +138,7 @@ Sarah`,
     },
     {
       id: '2',
-      from: { name: 'Michael Brown', email: 'michael.brown@oracle.com', avatar: null },
+      from: { name: 'Michael Brown', email: 'michael.brown@oracle.com', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
       to: [{ name: 'John Smith', email: 'john.smith@oracle.com' }],
       subject: 'Project Alpha - Design System Update',
       preview: 'The new design system components are ready for review. I\'ve updated the figma file with the latest components...',
@@ -166,7 +166,7 @@ Michael`,
     },
     {
       id: '3',
-      from: { name: 'Emily Davis', email: 'emily.davis@oracle.com', avatar: null },
+      from: { name: 'Emily Davis', email: 'emily.davis@oracle.com', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face' },
       to: [{ name: 'John Smith', email: 'john.smith@oracle.com' }],
       subject: 'Security Audit Results',
       preview: 'The security audit has been completed. I\'m pleased to report that no critical vulnerabilities were found...',
@@ -200,7 +200,7 @@ Emily`,
     },
     {
       id: '4',
-      from: { name: 'David Wilson', email: 'david.wilson@oracle.com', avatar: null },
+      from: { name: 'David Wilson', email: 'david.wilson@oracle.com', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' },
       to: [{ name: 'John Smith', email: 'john.smith@oracle.com' }],
       subject: 'Team Meeting Minutes - Feb 7th',
       preview: 'Please find attached the meeting minutes from yesterday\'s team meeting. Key decisions and action items are highlighted...',
@@ -234,7 +234,7 @@ David`,
     },
     {
       id: '5',
-      from: { name: 'Lisa Garcia', email: 'lisa.garcia@oracle.com', avatar: null },
+      from: { name: 'Lisa Garcia', email: 'lisa.garcia@oracle.com', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face' },
       to: [{ name: 'John Smith', email: 'john.smith@oracle.com' }],
       subject: 'Server Maintenance Notification',
       preview: 'Scheduled maintenance window this weekend. All services will be temporarily unavailable...',
@@ -414,10 +414,11 @@ IT Support Team`,
           <List.Item.Meta
             avatar={
               <Avatar 
-                icon={<UserOutlined />}
-                style={{ backgroundColor: 'var(--oracle-primary)' }}
+                src={email.from.avatar}
+                icon={!email.from.avatar ? <UserOutlined /> : undefined}
+                style={{ backgroundColor: email.from.avatar ? 'transparent' : 'var(--oracle-primary)' }}
               >
-                {email.from.name.charAt(0)}
+                {!email.from.avatar && email.from.name.charAt(0)}
               </Avatar>
             }
             title={
@@ -536,8 +537,12 @@ IT Support Team`,
               </Title>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
                 <Space>
-                  <Avatar icon={<UserOutlined />} style={{ backgroundColor: 'var(--oracle-primary)' }}>
-                    {selectedEmail.from.name.charAt(0)}
+                  <Avatar 
+                    src={selectedEmail.from.avatar}
+                    icon={!selectedEmail.from.avatar ? <UserOutlined /> : undefined}
+                    style={{ backgroundColor: selectedEmail.from.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+                  >
+                    {!selectedEmail.from.avatar && selectedEmail.from.name.charAt(0)}
                   </Avatar>
                   <div>
                     <Text strong>{selectedEmail.from.name}</Text>
@@ -686,7 +691,7 @@ IT Support Team`,
       </div>
 
       {/* Main Content */}
-      <div style={{ height: 'calc(100% - 104px)', display: 'flex', gap: 0 }}>
+      <div style={{ height: '100%', display: 'flex', gap: 0 }}>
         {/* Sidebar */}
         <div className="mailbox-sidebar" style={{ 
           width: 260, 
