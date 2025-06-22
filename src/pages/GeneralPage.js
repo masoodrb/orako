@@ -237,44 +237,71 @@ const GeneralPage = () => {
         <div className="demo-grid">
           <div className="demo-item">
             <Title level={4}>Basic Float Button</Title>
-            <Space size="small">
+            <div style={{ 
+              position: 'relative', 
+              height: '120px', 
+              border: '1px dashed #d9d9d9', 
+              borderRadius: '6px',
+              background: '#fafafa',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#999',
+              fontSize: '12px'
+            }}>
+              Demo Container
               <FloatButton 
                 icon={<QuestionCircleOutlined />}
                 type="primary"
                 size="small"
-                style={{ position: 'relative', right: 'auto' }}
+                style={{ position: 'absolute', right: '16px', bottom: '16px' }}
                 onClick={() => handleButtonClick('Help')}
               />
               <FloatButton 
                 icon={<CustomerServiceOutlined />}
                 size="small"
-                style={{ position: 'relative', right: 'auto' }}
+                style={{ position: 'absolute', right: '16px', bottom: '64px' }}
                 onClick={() => handleButtonClick('Support')}
               />
-            </Space>
+            </div>
             <Paragraph type="secondary" style={{ marginTop: '8px', fontSize: '10px' }}>
-              Float buttons (simulation shown above)
+              Float buttons positioned in bottom-right corner
             </Paragraph>
           </div>
 
           <div className="demo-item">
             <Title level={4}>Float Button Shapes</Title>
-            <Space direction="vertical" size="small">
+            <div style={{ 
+              position: 'relative', 
+              height: '120px', 
+              border: '1px dashed #d9d9d9', 
+              borderRadius: '6px',
+              background: '#fafafa',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#999',
+              fontSize: '12px'
+            }}>
+              Different Shapes
               <FloatButton 
                 shape="circle"
                 type="primary"
                 icon={<QuestionCircleOutlined />}
                 size="small"
-                style={{ position: 'relative', right: 'auto' }}
+                style={{ position: 'absolute', left: '16px', bottom: '16px' }}
               />
               <FloatButton 
                 shape="square"
                 type="primary"
                 icon={<CustomerServiceOutlined />}
                 size="small"
-                style={{ position: 'relative', right: 'auto' }}
+                style={{ position: 'absolute', right: '16px', bottom: '16px' }}
               />
-            </Space>
+            </div>
+            <Paragraph type="secondary" style={{ marginTop: '8px', fontSize: '10px' }}>
+              Circle (left) and square (right) shapes
+            </Paragraph>
           </div>
         </div>
       </div>
