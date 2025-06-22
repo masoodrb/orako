@@ -126,6 +126,7 @@ const KanbanPage = () => {
           description: 'Create comprehensive system architecture for the new ERP module',
           priority: 'high',
           type: 'feature',
+          status: 'to-do',
           assignee: { id: '1', name: 'John Smith', avatar: null },
           dueDate: '2024-02-15',
           tags: ['architecture', 'design'],
@@ -141,6 +142,7 @@ const KanbanPage = () => {
           description: 'Conduct user interviews and usability testing',
           priority: 'medium',
           type: 'research',
+          status: 'to-do',
           assignee: { id: '3', name: 'Michael Brown', avatar: null },
           dueDate: '2024-02-20',
           tags: ['research', 'ux'],
@@ -156,6 +158,7 @@ const KanbanPage = () => {
           description: 'Update API documentation for v2.0 endpoints',
           priority: 'low',
           type: 'documentation',
+          status: 'to-do',
           assignee: { id: '2', name: 'Sarah Johnson', avatar: null },
           dueDate: '2024-02-25',
           tags: ['documentation', 'api'],
@@ -171,6 +174,7 @@ const KanbanPage = () => {
           description: 'Establish code review guidelines and best practices for the team',
           priority: 'medium',
           type: 'documentation',
+          status: 'to-do',
           assignee: { id: '1', name: 'John Smith', avatar: null },
           dueDate: '2024-02-28',
           tags: [], // Empty tags array to test display
@@ -192,6 +196,7 @@ const KanbanPage = () => {
           description: 'Develop migration scripts for customer data transfer',
           priority: 'high',
           type: 'development',
+          status: 'in-progress',
           assignee: { id: '2', name: 'Sarah Johnson', avatar: null },
           dueDate: '2024-02-12',
           tags: ['database', 'migration'],
@@ -207,6 +212,7 @@ const KanbanPage = () => {
           description: 'Build reusable UI components for the dashboard',
           priority: 'medium',
           type: 'development',
+          status: 'in-progress',
           assignee: { id: '4', name: 'Emily Davis', avatar: null },
           dueDate: '2024-02-18',
           tags: ['ui', 'components'],
@@ -228,6 +234,7 @@ const KanbanPage = () => {
           description: 'Complete security audit and vulnerability assessment',
           priority: 'high',
           type: 'security',
+          status: 'review',
           assignee: { id: '6', name: 'Lisa Garcia', avatar: null },
           dueDate: '2024-02-10',
           tags: ['security', 'audit'],
@@ -249,6 +256,7 @@ const KanbanPage = () => {
           description: 'Implement OAuth 2.0 authentication system',
           priority: 'high',
           type: 'feature',
+          status: 'done',
           assignee: { id: '5', name: 'David Wilson', avatar: null },
           dueDate: '2024-02-05',
           tags: ['authentication', 'security'],
@@ -265,6 +273,7 @@ const KanbanPage = () => {
           description: 'Finalize company logo and create branding guidelines',
           priority: 'medium',
           type: 'design',
+          status: 'done',
           assignee: { id: '3', name: 'Michael Brown', avatar: null },
           dueDate: '2024-02-03',
           tags: ['branding', 'design'],
@@ -329,15 +338,33 @@ const KanbanPage = () => {
       const newData = { ...prev };
       
       if (editingTask) {
-        // Remove from old column
+        // Find the current position and column of the task
+        let currentColumnKey = null;
+        let currentIndex = -1;
+        
         Object.keys(newData).forEach(columnKey => {
-          newData[columnKey].tasks = newData[columnKey].tasks.filter(task => task.id !== editingTask.id);
+          const taskIndex = newData[columnKey].tasks.findIndex(task => task.id === editingTask.id);
+          if (taskIndex !== -1) {
+            currentColumnKey = columnKey;
+            currentIndex = taskIndex;
+          }
         });
+        
+        const targetColumn = values.status || 'to-do';
+        
+        if (currentColumnKey === targetColumn) {
+          // Same column - update in place to preserve position
+          newData[targetColumn].tasks[currentIndex] = newTask;
+        } else {
+          // Different column - remove from old and add to new
+          newData[currentColumnKey].tasks = newData[currentColumnKey].tasks.filter(task => task.id !== editingTask.id);
+          newData[targetColumn].tasks.push(newTask);
+        }
+      } else {
+        // New task - add to target column
+        const targetColumn = values.status || 'to-do';
+        newData[targetColumn].tasks.push(newTask);
       }
-      
-      // Add to new column
-      const targetColumn = values.status || 'to-do';
-      newData[targetColumn].tasks.push(newTask);
       
       return newData;
     });
@@ -394,6 +421,12 @@ const KanbanPage = () => {
         newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
       }
       
+      // Update the task's status when moving to a different column
+      const updatedTask = {
+        ...activeItems[activeIndex],
+        status: overContainer
+      };
+      
       return {
         ...prev,
         [activeContainer]: {
@@ -404,7 +437,7 @@ const KanbanPage = () => {
           ...prev[overContainer],
           tasks: [
             ...prev[overContainer].tasks.slice(0, newIndex),
-            activeItems[activeIndex],
+            updatedTask,
             ...prev[overContainer].tasks.slice(newIndex, prev[overContainer].tasks.length)
           ]
         }
@@ -444,6 +477,28 @@ const KanbanPage = () => {
           tasks: arrayMove(prev[overContainer].tasks, activeIndex, overIndex)
         }
       }));
+    } else {
+      // Update the task status when moved to a different column
+      setKanbanData((prev) => {
+        const newData = { ...prev };
+        const taskToMove = newData[activeContainer].tasks[activeIndex];
+        const updatedTask = {
+          ...taskToMove,
+          status: overContainer
+        };
+        
+        // Remove from old column
+        newData[activeContainer].tasks = newData[activeContainer].tasks.filter(item => item.id !== activeId);
+        
+        // Add to new column with updated status
+        if (overIndex >= 0) {
+          newData[overContainer].tasks.splice(overIndex, 0, updatedTask);
+        } else {
+          newData[overContainer].tasks.push(updatedTask);
+        }
+        
+        return newData;
+      });
     }
     
     setActiveId(null);
