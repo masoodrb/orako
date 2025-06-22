@@ -68,8 +68,10 @@ const TimelinePage = () => {
   const [dateRange, setDateRange] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState(null);
   const [form] = Form.useForm();
+  const [addForm] = Form.useForm();
 
   // Sample timeline data
   const activityTypes = {
@@ -87,7 +89,7 @@ const TimelinePage = () => {
     system: { color: '#8c8c8c', icon: <SettingOutlined />, label: 'System' }
   };
 
-  const [activities] = useState([
+  const [activities, setActivities] = useState([
     {
       id: '1',
       type: 'milestone',
@@ -317,6 +319,29 @@ const TimelinePage = () => {
     setIsModalVisible(true);
   };
 
+  const handleAddActivity = (values) => {
+    const newActivity = {
+      id: Date.now().toString(),
+      type: values.type,
+      title: values.title,
+      description: values.description || '',
+      user: { name: values.userName || 'Current User', role: values.userRole || 'User' },
+      timestamp: values.timestamp ? values.timestamp.toISOString() : new Date().toISOString(),
+      priority: values.priority || 'medium',
+      status: values.status || 'pending',
+      tags: values.tags || [],
+      metadata: values.metadata || {},
+      attachments: values.attachments || 0,
+      comments: 0,
+      likes: 0
+    };
+
+    setActivities(prev => [newActivity, ...prev]);
+    setIsAddModalVisible(false);
+    addForm.resetFields();
+    message.success('Activity added successfully');
+  };
+
   const getTimelineItems = () => {
     const filteredActivities = getFilteredActivities();
     
@@ -536,7 +561,7 @@ const TimelinePage = () => {
           <Button icon={<DownloadOutlined />}>
             Export
           </Button>
-          <Button type="primary" icon={<PlusOutlined />} onClick={() => message.info('Add activity')}>
+          <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsAddModalVisible(true)}>
             Add Activity
           </Button>
         </Space>
@@ -839,6 +864,256 @@ const TimelinePage = () => {
             )}
           </div>
         )}
+      </Modal>
+
+      {/* Add Activity Modal */}
+      <Modal
+        title="Add New Activity"
+        open={isAddModalVisible}
+        onCancel={() => {
+          setIsAddModalVisible(false);
+          addForm.resetFields();
+        }}
+        footer={null}
+        width={700}
+      >
+        <Form
+          form={addForm}
+          layout="vertical"
+          onFinish={handleAddActivity}
+          style={{ marginTop: 20 }}
+        >
+          <Row gutter={16}>
+            {/* Required Fields */}
+            <Col span={24}>
+              <Form.Item
+                label="Activity Title"
+                name="title"
+                rules={[
+                  { required: true, message: 'Please enter activity title' },
+                  { min: 3, message: 'Title must be at least 3 characters' }
+                ]}
+              >
+                <Input placeholder="Enter a descriptive title for the activity" />
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="Activity Type"
+                name="type"
+                rules={[{ required: true, message: 'Please select activity type' }]}
+              >
+                <Select placeholder="Select activity type">
+                  {Object.entries(activityTypes).map(([key, config]) => (
+                    <Select.Option key={key} value={key}>
+                      <Space>
+                        {config.icon}
+                        {config.label}
+                      </Space>
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="Date & Time"
+                name="timestamp"
+                rules={[{ required: true, message: 'Please select date and time' }]}
+              >
+                <DatePicker 
+                  showTime 
+                  style={{ width: '100%' }}
+                  placeholder="Select date and time"
+                  defaultValue={dayjs()}
+                />
+              </Form.Item>
+            </Col>
+
+            <Col span={24}>
+              <Form.Item
+                label="Description"
+                name="description"
+                rules={[
+                  { required: true, message: 'Please enter activity description' },
+                  { min: 10, message: 'Description must be at least 10 characters' }
+                ]}
+              >
+                <TextArea 
+                  rows={4} 
+                  placeholder="Provide detailed description of the activity, outcomes, and any relevant information"
+                />
+              </Form.Item>
+            </Col>
+
+            {/* Optional Fields */}
+            <Col span={12}>
+              <Form.Item
+                label="Priority"
+                name="priority"
+                initialValue="medium"
+              >
+                <Select placeholder="Select priority level">
+                  {Object.entries(priorityConfig).map(([key, config]) => (
+                    <Select.Option key={key} value={key}>
+                      <Space>
+                        <div 
+                          style={{ 
+                            width: 8, 
+                            height: 8, 
+                            borderRadius: '50%', 
+                            backgroundColor: config.color 
+                          }} 
+                        />
+                        {config.label}
+                      </Space>
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="Status"
+                name="status"
+                initialValue="pending"
+              >
+                <Select placeholder="Select current status">
+                  {Object.entries(statusConfig).map(([key, config]) => (
+                    <Select.Option key={key} value={key}>
+                      <Space>
+                        {config.icon}
+                        {config.label}
+                      </Space>
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="User Name"
+                name="userName"
+              >
+                <Input placeholder="Enter user name (optional)" />
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="User Role"
+                name="userRole"
+              >
+                <Input placeholder="Enter user role (optional)" />
+              </Form.Item>
+            </Col>
+
+            <Col span={24}>
+              <Form.Item
+                label="Tags"
+                name="tags"
+              >
+                <Select
+                  mode="tags"
+                  placeholder="Add tags to categorize this activity"
+                  style={{ width: '100%' }}
+                  tokenSeparators={[',']}
+                >
+                  <Select.Option value="urgent">urgent</Select.Option>
+                  <Select.Option value="meeting">meeting</Select.Option>
+                  <Select.Option value="milestone">milestone</Select.Option>
+                  <Select.Option value="client">client</Select.Option>
+                  <Select.Option value="internal">internal</Select.Option>
+                  <Select.Option value="project">project</Select.Option>
+                  <Select.Option value="sales">sales</Select.Option>
+                  <Select.Option value="support">support</Select.Option>
+                  <Select.Option value="development">development</Select.Option>
+                  <Select.Option value="marketing">marketing</Select.Option>
+                </Select>
+              </Form.Item>
+            </Col>
+
+            {/* Metadata Fields */}
+            <Col span={24}>
+              <Divider orientation="left">Additional Information (Optional)</Divider>
+            </Col>
+
+            <Col span={8}>
+              <Form.Item
+                label="Duration"
+                name={['metadata', 'duration']}
+              >
+                <Input placeholder="e.g., 2 hours, 30 minutes" />
+              </Form.Item>
+            </Col>
+
+            <Col span={8}>
+              <Form.Item
+                label="Amount/Value"
+                name={['metadata', 'amount']}
+              >
+                <Input placeholder="e.g., $10,000, 50 units" />
+              </Form.Item>
+            </Col>
+
+            <Col span={8}>
+              <Form.Item
+                label="Participants/Count"
+                name={['metadata', 'participants']}
+              >
+                <Input placeholder="e.g., 10 attendees, 5 users" />
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="Location"
+                name={['metadata', 'location']}
+              >
+                <Input placeholder="Meeting room, office, remote" />
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                label="Contact/Client"
+                name={['metadata', 'contact']}
+              >
+                <Input placeholder="Client name or contact person" />
+              </Form.Item>
+            </Col>
+
+            <Col span={24}>
+              <Form.Item
+                label="Notes"
+                name={['metadata', 'notes']}
+              >
+                <TextArea 
+                  rows={2} 
+                  placeholder="Additional notes or comments"
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <div style={{ textAlign: 'right', marginTop: 20, paddingTop: 20, borderTop: '1px solid var(--oracle-border)' }}>
+            <Space>
+              <Button onClick={() => {
+                setIsAddModalVisible(false);
+                addForm.resetFields();
+              }}>
+                Cancel
+              </Button>
+              <Button type="primary" htmlType="submit">
+                Add Activity
+              </Button>
+            </Space>
+          </div>
+        </Form>
       </Modal>
     </div>
   );
