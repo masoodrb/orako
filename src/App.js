@@ -76,6 +76,19 @@ import ReportsPage from './pages/ReportsPage';
 import AdministrationPage from './pages/AdministrationPage';
 import SettingsPage from './pages/SettingsPage';
 import MyProfilePage from './pages/MyProfilePage';
+import InvoicePage from './pages/InvoicePage';
+import POSSalesPage from './pages/POSSalesPage';
+import EstimatesPage from './pages/EstimatesPage';
+import CreditNotePage from './pages/CreditNotePage';
+import RecurringInvoicePage from './pages/RecurringInvoicePage';
+import PaymentsReceivedPage from './pages/PaymentsReceivedPage';
+import ProposalsPage from './pages/ProposalsPage';
+import TaxRatesPage from './pages/TaxRatesPage';
+import QuotationsPage from './pages/QuotationsPage';
+import QuotationsListPage from './pages/QuotationsListPage';
+import QuotationsFormPage from './pages/QuotationsFormPage';
+import ClientAwardPointsPage from './pages/ClientAwardPointsPage';
+import BestSellingItemsPage from './pages/BestSellingItemsPage';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -491,6 +504,40 @@ const App = () => {
       key: '/sales-marketing',
       icon: <TrophyOutlined />,
       label: 'Sales & Marketing',
+      children: [
+        {
+          key: '/sales-marketing/overview',
+          label: 'Sales Overview',
+        },
+        {
+          key: '/proposals',
+          label: 'Proposals',
+        },
+        {
+          key: '/quotations',
+          label: 'Quotations',
+        },
+        {
+          key: '/quotations-list',
+          label: 'Quotations List',
+        },
+        {
+          key: '/quotations-form',
+          label: 'Quotations Form',
+        },
+        {
+          key: '/tax-rates',
+          label: 'Tax Rates',
+        },
+        {
+          key: '/client-award-points',
+          label: 'Client Award Points',
+        },
+        {
+          key: '/best-selling-items',
+          label: 'Best Selling Items',
+        },
+      ],
     },
     {
       type: 'divider',
@@ -812,6 +859,7 @@ const App = () => {
             <Route path="/accounting" element={<AccountingPage />} />
             <Route path="/hrm" element={<HRMPage />} />
             <Route path="/sales-marketing" element={<SalesMarketingPage />} />
+            <Route path="/sales-marketing/overview" element={<SalesMarketingPage />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/kanban" element={<KanbanPage />} />
             <Route path="/mailbox" element={<MailboxPage />} />
@@ -820,6 +868,19 @@ const App = () => {
             <Route path="/animated-widgets" element={<AnimatedWidgetsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/profile" element={<MyProfilePage />} />
+            <Route path="/invoice" element={<InvoicePage />} />
+            <Route path="/pos-sales" element={<POSSalesPage />} />
+            <Route path="/estimates" element={<EstimatesPage />} />
+            <Route path="/credit-note" element={<CreditNotePage />} />
+            <Route path="/recurring-invoice" element={<RecurringInvoicePage />} />
+            <Route path="/payments-received" element={<PaymentsReceivedPage />} />
+            <Route path="/proposals" element={<ProposalsPage />} />
+            <Route path="/tax-rates" element={<TaxRatesPage />} />
+            <Route path="/quotations" element={<QuotationsPage />} />
+            <Route path="/quotations-list" element={<QuotationsListPage />} />
+            <Route path="/quotations-form" element={<QuotationsFormPage />} />
+            <Route path="/client-award-points" element={<ClientAwardPointsPage />} />
+            <Route path="/best-selling-items" element={<BestSellingItemsPage />} />
           </Routes>
         </Content>
 
