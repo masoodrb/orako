@@ -533,11 +533,13 @@ const HRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search employees..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={6}>
               <Select placeholder="Department" style={{ width: '100%' }}>
                 <Option value="engineering">Engineering</Option>
                 <Option value="product">Product</Option>
@@ -545,7 +547,7 @@ const HRMPage = () => {
                 <Option value="sales">Sales</Option>
               </Select>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Select placeholder="Status" style={{ width: '100%' }}>
                 <Option value="active">Active</Option>
                 <Option value="inactive">Inactive</Option>
@@ -554,7 +556,7 @@ const HRMPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 Add Employee
               </Button>
@@ -580,11 +582,13 @@ const HRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search positions..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={6}>
               <Select placeholder="Department" style={{ width: '100%' }}>
                 <Option value="engineering">Engineering</Option>
                 <Option value="product">Product</Option>
@@ -592,7 +596,7 @@ const HRMPage = () => {
                 <Option value="sales">Sales</Option>
               </Select>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Select placeholder="Status" style={{ width: '100%' }}>
                 <Option value="active">Active</Option>
                 <Option value="closed">Closed</Option>
@@ -601,7 +605,7 @@ const HRMPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 New Position
               </Button>
@@ -626,26 +630,23 @@ const HRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search employees..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={8}>
               <Select placeholder="Department" style={{ width: '100%' }}>
                 <Option value="engineering">Engineering</Option>
                 <Option value="product">Product</Option>
                 <Option value="design">Design</Option>
               </Select>
             </Col>
-            <Col span={6}>
+            <Col span={8}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
-              <Button type="primary" icon={<CalendarOutlined />} block>
-                View Calendar
-              </Button>
-            </Col>
-            <Col span={4}>
+            <Col span={8}>
               <Button icon={<FileTextOutlined />} block>
                 Export Report
               </Button>
@@ -670,18 +671,20 @@ const HRMPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search employees..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={6}>
               <Select placeholder="Pay Period" style={{ width: '100%' }}>
                 <Option value="june-2025">June 2025</Option>
                 <Option value="may-2025">May 2025</Option>
                 <Option value="april-2025">April 2025</Option>
               </Select>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Select placeholder="Department" style={{ width: '100%' }}>
                 <Option value="engineering">Engineering</Option>
                 <Option value="product">Product</Option>
@@ -693,7 +696,7 @@ const HRMPage = () => {
                 Process Payroll
               </Button>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button icon={<FileTextOutlined />} block>
                 Export
               </Button>
