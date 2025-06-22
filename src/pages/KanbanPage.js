@@ -106,6 +106,15 @@ const KanbanPage = () => {
     { id: '6', name: 'Lisa Garcia', avatar: null, role: 'DevOps Engineer' }
   ];
 
+  // Sample tag options for easy selection
+  const tagOptions = [
+    'frontend', 'backend', 'database', 'api', 'ui', 'ux', 'design', 'testing',
+    'documentation', 'security', 'performance', 'mobile', 'web', 'analytics',
+    'integration', 'deployment', 'monitoring', 'maintenance', 'research',
+    'planning', 'review', 'urgent', 'enhancement', 'bugfix', 'feature',
+    'architecture', 'refactoring', 'optimization', 'automation', 'migration'
+  ];
+
   const [kanbanData, setKanbanData] = useState({
     'to-do': {
       title: 'To Do',
@@ -123,7 +132,8 @@ const KanbanPage = () => {
           comments: 3,
           attachments: 2,
           progress: 0,
-          estimatedHours: 40
+          estimatedHours: 40,
+          timeSpent: 0
         },
         {
           id: '2',
@@ -137,7 +147,8 @@ const KanbanPage = () => {
           comments: 1,
           attachments: 0,
           progress: 0,
-          estimatedHours: 24
+          estimatedHours: 24,
+          timeSpent: 0
         },
         {
           id: '3',
@@ -151,7 +162,23 @@ const KanbanPage = () => {
           comments: 0,
           attachments: 1,
           progress: 0,
-          estimatedHours: 16
+          estimatedHours: 16,
+          timeSpent: 0
+        },
+        {
+          id: '9',
+          title: 'Code Review Guidelines',
+          description: 'Establish code review guidelines and best practices for the team',
+          priority: 'medium',
+          type: 'documentation',
+          assignee: { id: '1', name: 'John Smith', avatar: null },
+          dueDate: '2024-02-28',
+          tags: [], // Empty tags array to test display
+          comments: 0,
+          attachments: 0,
+          progress: 0,
+          estimatedHours: 8,
+          timeSpent: 0
         }
       ]
     },
@@ -293,7 +320,9 @@ const KanbanPage = () => {
       comments: editingTask?.comments || 0,
       attachments: editingTask?.attachments || 0,
       progress: editingTask?.progress || 0,
-      timeSpent: editingTask?.timeSpent || 0
+      timeSpent: values.timeSpent || 0,
+      estimatedHours: values.estimatedHours || 0,
+      tags: values.tags || [] // Ensure tags is always an array
     };
 
     setKanbanData(prev => {
@@ -604,22 +633,27 @@ const KanbanPage = () => {
         </Space>
       </div>
 
-      {task.timeSpent && (
+      {(task.timeSpent > 0 || task.estimatedHours > 0) && (
         <div style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--oracle-border)' }}>
           <Space>
             <ClockCircleOutlined style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }} />
             <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
-              {task.timeSpent}h / {task.estimatedHours}h
+              {task.timeSpent || 0}h / {task.estimatedHours || 0}h
             </Text>
+            {task.estimatedHours > 0 && (
+              <Text style={{ fontSize: '10px', color: task.timeSpent > task.estimatedHours ? '#ff4d4f' : '#52c41a' }}>
+                ({task.timeSpent && task.estimatedHours ? Math.round((task.timeSpent / task.estimatedHours) * 100) : 0}%)
+              </Text>
+            )}
           </Space>
         </div>
       )}
 
-      {task.tags && task.tags.length > 0 && (
+      {task.tags && Array.isArray(task.tags) && task.tags.length > 0 && (
         <div style={{ marginTop: 8 }}>
-          {task.tags.map(tag => (
+          {task.tags.map((tag, index) => (
             <Tag 
-              key={tag} 
+              key={`${tag}-${index}`} 
               size="small" 
               style={{ 
                 fontSize: '10px', 
@@ -630,6 +664,7 @@ const KanbanPage = () => {
               {tag}
             </Tag>
           ))}
+          
         </div>
       )}
     </Card>
@@ -1024,6 +1059,20 @@ const KanbanPage = () => {
               </Form.Item>
             </Col>
 
+            <Col span={12}>
+              <Form.Item
+                label="Time Spent (Hours)"
+                name="timeSpent"
+              >
+                <Input 
+                  type="number" 
+                  placeholder="Enter time spent"
+                  min={0}
+                  step={0.5}
+                />
+              </Form.Item>
+            </Col>
+
             <Col span={24}>
               <Form.Item
                 label="Tags"
@@ -1031,9 +1080,14 @@ const KanbanPage = () => {
               >
                 <Select
                   mode="tags"
-                  placeholder="Add tags"
+                  placeholder="Add tags or select from suggestions"
                   style={{ width: '100%' }}
                   tokenSeparators={[',']}
+                  options={tagOptions.map(tag => ({ label: tag, value: tag }))}
+                  filterOption={(input, option) =>
+                    (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+                  }
+                  showSearch
                 />
               </Form.Item>
             </Col>
