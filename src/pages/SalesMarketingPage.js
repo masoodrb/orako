@@ -536,11 +536,13 @@ const SalesMarketingPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search salespeople..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={6}>
               <Select placeholder="Region" style={{ width: '100%' }}>
                 <Option value="west">West Coast</Option>
                 <Option value="east">East Coast</Option>
@@ -550,12 +552,12 @@ const SalesMarketingPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 Add Target
               </Button>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button icon={<LineChartOutlined />} block>
                 View Report
               </Button>
@@ -581,18 +583,20 @@ const SalesMarketingPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search campaigns..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={6}>
               <Select placeholder="Type" style={{ width: '100%' }}>
                 <Option value="product-launch">Product Launch</Option>
                 <Option value="lead-generation">Lead Generation</Option>
                 <Option value="email-marketing">Email Marketing</Option>
               </Select>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Select placeholder="Status" style={{ width: '100%' }}>
                 <Option value="active">Active</Option>
                 <Option value="paused">Paused</Option>
@@ -602,7 +606,7 @@ const SalesMarketingPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 New Campaign
               </Button>
@@ -628,11 +632,13 @@ const SalesMarketingPage = () => {
       ),
       children: (
         <div>
-          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-            <Col span={6}>
+          <Row gutter={[16, 16]} style={{ marginBottom: '16px' }}>
+            <Col span={8}>
               <Search placeholder="Search leads..." enterButton />
             </Col>
-            <Col span={4}>
+          </Row>
+          <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
+            <Col span={6}>
               <Select placeholder="Source" style={{ width: '100%' }}>
                 <Option value="linkedin">LinkedIn</Option>
                 <Option value="website">Website</Option>
@@ -640,7 +646,7 @@ const SalesMarketingPage = () => {
                 <Option value="referral">Referral</Option>
               </Select>
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Select placeholder="Stage" style={{ width: '100%' }}>
                 <Option value="mql">Marketing Qualified</Option>
                 <Option value="sql">Sales Qualified</Option>
@@ -650,7 +656,7 @@ const SalesMarketingPage = () => {
             <Col span={6}>
               <RangePicker style={{ width: '100%' }} />
             </Col>
-            <Col span={4}>
+            <Col span={6}>
               <Button type="primary" icon={<PlusOutlined />} block>
                 Import Leads
               </Button>
