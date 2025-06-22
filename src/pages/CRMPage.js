@@ -18,7 +18,9 @@ import {
   Space,
   Badge,
   Tooltip,
-  Divider
+  Divider,
+  Modal,
+  message
 } from 'antd';
 import {
   UserOutlined,
@@ -43,9 +45,19 @@ const { Search } = Input;
 
 const CRMPage = () => {
   const [selectedTab, setSelectedTab] = useState('leads');
+  
+  // Modal states
+  const [isLeadModalVisible, setIsLeadModalVisible] = useState(false);
+  const [isOpportunityModalVisible, setIsOpportunityModalVisible] = useState(false);
+  const [isCustomerModalVisible, setIsCustomerModalVisible] = useState(false);
+  
+  // Form instances
+  const [leadForm] = Form.useForm();
+  const [opportunityForm] = Form.useForm();
+  const [customerForm] = Form.useForm();
 
   // Sample data for leads
-  const leadsData = [
+  const [leadsData, setLeadsData] = useState([
     {
       key: '1',
       name: 'John Smith',
@@ -82,10 +94,10 @@ const CRMPage = () => {
       lastActivity: '2025-06-21',
       score: 91
     }
-  ];
+  ]);
 
   // Sample data for opportunities
-  const opportunitiesData = [
+  const [opportunitiesData, setOpportunitiesData] = useState([
     {
       key: '1',
       name: 'Cloud Infrastructure Upgrade',
@@ -106,10 +118,10 @@ const CRMPage = () => {
       closeDate: '2025-08-01',
       owner: 'Mike Wilson'
     }
-  ];
+  ]);
 
   // Sample data for customers
-  const customersData = [
+  const [customersData, setCustomersData] = useState([
     {
       key: '1',
       name: 'Oracle Corporation',
@@ -132,7 +144,62 @@ const CRMPage = () => {
       lastOrder: '2025-05-28',
       status: 'Active'
     }
-  ];
+  ]);
+
+  // Form submission handlers
+  const handleAddLead = (values) => {
+    const newLead = {
+      key: Date.now().toString(),
+      name: values.name,
+      company: values.company,
+      email: values.email,
+      phone: values.phone,
+      value: values.value || 0,
+      stage: values.stage || 'New',
+      owner: values.owner || 'Current User',
+      lastActivity: dayjs().format('YYYY-MM-DD'),
+      score: values.score || 50
+    };
+    setLeadsData(prev => [newLead, ...prev]);
+    setIsLeadModalVisible(false);
+    leadForm.resetFields();
+    message.success('Lead added successfully');
+  };
+
+  const handleAddOpportunity = (values) => {
+    const newOpportunity = {
+      key: Date.now().toString(),
+      name: values.name,
+      account: values.account,
+      amount: values.amount || 0,
+      stage: values.stage || 'Qualification',
+      probability: values.probability || 10,
+      closeDate: values.closeDate ? values.closeDate.format('YYYY-MM-DD') : '',
+      owner: values.owner || 'Current User'
+    };
+    setOpportunitiesData(prev => [newOpportunity, ...prev]);
+    setIsOpportunityModalVisible(false);
+    opportunityForm.resetFields();
+    message.success('Opportunity added successfully');
+  };
+
+  const handleAddCustomer = (values) => {
+    const newCustomer = {
+      key: Date.now().toString(),
+      name: values.name,
+      contact: values.contact,
+      email: values.email,
+      phone: values.phone,
+      industry: values.industry || 'Other',
+      value: values.value || 0,
+      lastOrder: values.lastOrder ? values.lastOrder.format('YYYY-MM-DD') : '',
+      status: values.status || 'Active'
+    };
+    setCustomersData(prev => [newCustomer, ...prev]);
+    setIsCustomerModalVisible(false);
+    customerForm.resetFields();
+    message.success('Customer added successfully');
+  };
 
   const leadsColumns = [
     {
@@ -428,7 +495,7 @@ const CRMPage = () => {
               <RangePicker style={{ width: '100%' }} />
             </Col>
             <Col span={4}>
-              <Button type="primary" icon={<PlusOutlined />} block>
+              <Button type="primary" icon={<PlusOutlined />} block onClick={() => setIsLeadModalVisible(true)}>
                 New Lead
               </Button>
             </Col>
@@ -478,7 +545,7 @@ const CRMPage = () => {
               <RangePicker style={{ width: '100%' }} />
             </Col>
             <Col span={6}>
-              <Button type="primary" icon={<PlusOutlined />} block>
+              <Button type="primary" icon={<PlusOutlined />} block onClick={() => setIsOpportunityModalVisible(true)}>
                 New Opportunity
               </Button>
             </Col>
@@ -534,7 +601,7 @@ const CRMPage = () => {
               <RangePicker style={{ width: '100%' }} />
             </Col>
             <Col span={6}>
-              <Button type="primary" icon={<PlusOutlined />} block>
+              <Button type="primary" icon={<PlusOutlined />} block onClick={() => setIsCustomerModalVisible(true)}>
                 New Customer
               </Button>
             </Col>
@@ -665,6 +732,324 @@ const CRMPage = () => {
           </Card>
         </Col>
       </Row>
+
+      {/* New Lead Modal */}
+      <Modal
+        title="Add New Lead"
+        open={isLeadModalVisible}
+        onCancel={() => setIsLeadModalVisible(false)}
+        footer={null}
+        width={600}
+      >
+        <Form
+          form={leadForm}
+          layout="vertical"
+          onFinish={handleAddLead}
+        >
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="name"
+                label="Lead Name"
+                rules={[{ required: true, message: 'Please enter lead name' }]}
+              >
+                <Input placeholder="Enter lead name" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="company"
+                label="Company"
+                rules={[{ required: true, message: 'Please enter company name' }]}
+              >
+                <Input placeholder="Enter company name" />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="email"
+                label="Email"
+                rules={[
+                  { required: true, message: 'Please enter email' },
+                  { type: 'email', message: 'Please enter a valid email' }
+                ]}
+              >
+                <Input placeholder="Enter email address" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="phone"
+                label="Phone"
+                rules={[{ required: true, message: 'Please enter phone number' }]}
+              >
+                <Input placeholder="Enter phone number" />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={8}>
+              <Form.Item
+                name="value"
+                label="Estimated Value ($)"
+              >
+                <Input type="number" placeholder="0" />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                name="stage"
+                label="Stage"
+              >
+                <Select placeholder="Select stage">
+                  <Option value="New">New</Option>
+                  <Option value="Qualification">Qualification</Option>
+                  <Option value="Proposal">Proposal</Option>
+                  <Option value="Negotiation">Negotiation</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                name="score"
+                label="Lead Score"
+              >
+                <Input type="number" placeholder="50" min={0} max={100} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item
+            name="owner"
+            label="Owner"
+          >
+            <Select placeholder="Select owner">
+              <Option value="Sarah Johnson">Sarah Johnson</Option>
+              <Option value="Mike Wilson">Mike Wilson</Option>
+              <Option value="Lisa Park">Lisa Park</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item>
+            <Space>
+              <Button type="primary" htmlType="submit">
+                Add Lead
+              </Button>
+              <Button onClick={() => setIsLeadModalVisible(false)}>
+                Cancel
+              </Button>
+            </Space>
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      {/* New Opportunity Modal */}
+      <Modal
+        title="Add New Opportunity"
+        open={isOpportunityModalVisible}
+        onCancel={() => setIsOpportunityModalVisible(false)}
+        footer={null}
+        width={600}
+      >
+        <Form
+          form={opportunityForm}
+          layout="vertical"
+          onFinish={handleAddOpportunity}
+        >
+          <Form.Item
+            name="name"
+            label="Opportunity Name"
+            rules={[{ required: true, message: 'Please enter opportunity name' }]}
+          >
+            <Input placeholder="Enter opportunity name" />
+          </Form.Item>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="account"
+                label="Account"
+                rules={[{ required: true, message: 'Please enter account name' }]}
+              >
+                <Input placeholder="Enter account name" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="amount"
+                label="Amount ($)"
+                rules={[{ required: true, message: 'Please enter amount' }]}
+              >
+                <Input type="number" placeholder="0" />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={8}>
+              <Form.Item
+                name="stage"
+                label="Stage"
+                rules={[{ required: true, message: 'Please select stage' }]}
+              >
+                <Select placeholder="Select stage">
+                  <Option value="Qualification">Qualification</Option>
+                  <Option value="Proposal">Proposal</Option>
+                  <Option value="Negotiation">Negotiation</Option>
+                  <Option value="Closed Won">Closed Won</Option>
+                  <Option value="Closed Lost">Closed Lost</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                name="probability"
+                label="Probability (%)"
+              >
+                <Input type="number" placeholder="10" min={0} max={100} />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                name="closeDate"
+                label="Expected Close Date"
+              >
+                <DatePicker style={{ width: '100%' }} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item
+            name="owner"
+            label="Owner"
+          >
+            <Select placeholder="Select owner">
+              <Option value="Sarah Johnson">Sarah Johnson</Option>
+              <Option value="Mike Wilson">Mike Wilson</Option>
+              <Option value="Lisa Park">Lisa Park</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item>
+            <Space>
+              <Button type="primary" htmlType="submit">
+                Add Opportunity
+              </Button>
+              <Button onClick={() => setIsOpportunityModalVisible(false)}>
+                Cancel
+              </Button>
+            </Space>
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      {/* New Customer Modal */}
+      <Modal
+        title="Add New Customer"
+        open={isCustomerModalVisible}
+        onCancel={() => setIsCustomerModalVisible(false)}
+        footer={null}
+        width={600}
+      >
+        <Form
+          form={customerForm}
+          layout="vertical"
+          onFinish={handleAddCustomer}
+        >
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="name"
+                label="Company Name"
+                rules={[{ required: true, message: 'Please enter company name' }]}
+              >
+                <Input placeholder="Enter company name" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="contact"
+                label="Primary Contact"
+                rules={[{ required: true, message: 'Please enter contact name' }]}
+              >
+                <Input placeholder="Enter contact name" />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="email"
+                label="Email"
+                rules={[
+                  { required: true, message: 'Please enter email' },
+                  { type: 'email', message: 'Please enter a valid email' }
+                ]}
+              >
+                <Input placeholder="Enter email address" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="phone"
+                label="Phone"
+                rules={[{ required: true, message: 'Please enter phone number' }]}
+              >
+                <Input placeholder="Enter phone number" />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={8}>
+              <Form.Item
+                name="industry"
+                label="Industry"
+              >
+                <Select placeholder="Select industry">
+                  <Option value="Technology">Technology</Option>
+                  <Option value="Healthcare">Healthcare</Option>
+                  <Option value="Finance">Finance</Option>
+                  <Option value="Manufacturing">Manufacturing</Option>
+                  <Option value="Retail">Retail</Option>
+                  <Option value="Education">Education</Option>
+                  <Option value="Other">Other</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                name="value"
+                label="Account Value ($)"
+              >
+                <Input type="number" placeholder="0" />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                name="status"
+                label="Status"
+              >
+                <Select placeholder="Select status">
+                  <Option value="Active">Active</Option>
+                  <Option value="Inactive">Inactive</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item
+            name="lastOrder"
+            label="Last Order Date"
+          >
+            <DatePicker style={{ width: '100%' }} />
+          </Form.Item>
+          <Form.Item>
+            <Space>
+              <Button type="primary" htmlType="submit">
+                Add Customer
+              </Button>
+              <Button onClick={() => setIsCustomerModalVisible(false)}>
+                Cancel
+              </Button>
+            </Space>
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 };
