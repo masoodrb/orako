@@ -22,7 +22,12 @@ import {
   Mentions,
   ColorPicker,
   Space,
-  Divider
+  Divider,
+  Row,
+  Col,
+  message,
+  Alert,
+  Tooltip
 } from 'antd';
 import {
   UploadOutlined,
@@ -32,6 +37,12 @@ import {
   LockOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
+  InfoCircleOutlined,
+  PhoneOutlined,
+  MailOutlined,
+  HomeOutlined,
+  BankOutlined,
+  DollarOutlined
 } from '@ant-design/icons';
 import dayjs from 'dayjs';
 
@@ -44,16 +55,51 @@ const { Dragger } = Upload;
 
 const DataEntryPage = () => {
   const [form] = Form.useForm();
+  const [advancedForm] = Form.useForm();
   const [inputValue, setInputValue] = useState('');
   const [autoCompleteOptions, setAutoCompleteOptions] = useState([]);
   const [targetKeys, setTargetKeys] = useState(['1', '3']);
   const [selectedKeys, setSelectedKeys] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // Mock data for components
+  // Enhanced mock data for components
   const selectOptions = [
     { value: 'jack', label: 'Jack' },
     { value: 'lucy', label: 'Lucy' },
     { value: 'tom', label: 'Tom' },
+  ];
+
+  const countryOptions = [
+    { value: 'us', label: 'United States' },
+    { value: 'uk', label: 'United Kingdom' },
+    { value: 'ca', label: 'Canada' },
+    { value: 'au', label: 'Australia' },
+    { value: 'de', label: 'Germany' },
+    { value: 'fr', label: 'France' },
+    { value: 'jp', label: 'Japan' },
+    { value: 'cn', label: 'China' },
+  ];
+
+  const departmentOptions = [
+    { value: 'engineering', label: 'Engineering' },
+    { value: 'sales', label: 'Sales' },
+    { value: 'marketing', label: 'Marketing' },
+    { value: 'hr', label: 'Human Resources' },
+    { value: 'finance', label: 'Finance' },
+    { value: 'operations', label: 'Operations' },
+  ];
+
+  const skillOptions = [
+    { value: 'javascript', label: 'JavaScript' },
+    { value: 'python', label: 'Python' },
+    { value: 'java', label: 'Java' },
+    { value: 'react', label: 'React' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'vue', label: 'Vue.js' },
+    { value: 'nodejs', label: 'Node.js' },
+    { value: 'docker', label: 'Docker' },
+    { value: 'kubernetes', label: 'Kubernetes' },
+    { value: 'aws', label: 'AWS' },
   ];
 
   const cascaderOptions = [
@@ -102,6 +148,74 @@ const DataEntryPage = () => {
     );
   };
 
+  // Custom validation functions
+  const validatePhone = (_, value) => {
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (!value) {
+      return Promise.resolve();
+    }
+    if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+      return Promise.reject(new Error('Please enter a valid phone number'));
+    }
+    return Promise.resolve();
+  };
+
+  const validatePassword = (_, value) => {
+    if (!value) {
+      return Promise.resolve();
+    }
+    const minLength = value.length >= 8;
+    const hasLower = /[a-z]/.test(value);
+    const hasUpper = /[A-Z]/.test(value);
+    const hasNumber = /\d/.test(value);
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+    
+    if (!minLength) {
+      return Promise.reject(new Error('Password must be at least 8 characters long'));
+    }
+    if (!hasLower || !hasUpper) {
+      return Promise.reject(new Error('Password must contain both uppercase and lowercase letters'));
+    }
+    if (!hasNumber) {
+      return Promise.reject(new Error('Password must contain at least one number'));
+    }
+    if (!hasSpecial) {
+      return Promise.reject(new Error('Password must contain at least one special character'));
+    }
+    return Promise.resolve();
+  };
+
+  const validateAge = (_, value) => {
+    if (!value) {
+      return Promise.resolve();
+    }
+    if (value < 16 || value > 100) {
+      return Promise.reject(new Error('Age must be between 16 and 100'));
+    }
+    return Promise.resolve();
+  };
+
+  const validateSalary = (_, value) => {
+    if (!value) {
+      return Promise.resolve();
+    }
+    if (value < 20000 || value > 1000000) {
+      return Promise.reject(new Error('Salary must be between $20,000 and $1,000,000'));
+    }
+    return Promise.resolve();
+  };
+
+  const validateWebsite = (_, value) => {
+    if (!value) {
+      return Promise.resolve();
+    }
+    const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    if (!urlRegex.test(value)) {
+      return Promise.reject(new Error('Please enter a valid website URL'));
+    }
+    return Promise.resolve();
+  };
+
   const uploadProps = {
     name: 'file',
     multiple: true,
@@ -109,15 +223,58 @@ const DataEntryPage = () => {
     onChange(info) {
       const { status } = info.file;
       if (status === 'done') {
-        console.log(`${info.file.name} file uploaded successfully.`);
+        message.success(`${info.file.name} file uploaded successfully.`);
       } else if (status === 'error') {
-        console.log(`${info.file.name} file upload failed.`);
+        message.error(`${info.file.name} file upload failed.`);
       }
+    },
+    beforeUpload: (file) => {
+      const isValidSize = file.size / 1024 / 1024 < 5;
+      if (!isValidSize) {
+        message.error('File must be smaller than 5MB!');
+      }
+      return isValidSize;
     },
   };
 
   const onFinish = (values) => {
-    console.log('Form values:', values);
+    console.log('Basic form values:', values);
+    message.success('Form submitted successfully!');
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+    message.error('Please fix the form errors before submitting.');
+  };
+
+  const onAdvancedFormFinish = async (values) => {
+    setLoading(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Advanced form values:', values);
+      message.success('Employee registration completed successfully!');
+      advancedForm.resetFields();
+    } catch (error) {
+      message.error('Failed to submit form. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onAdvancedFormFinishFailed = (errorInfo) => {
+    console.log('Advanced form failed:', errorInfo);
+    message.error('Please correct all validation errors before submitting.');
+  };
+
+  const onReset = () => {
+    form.resetFields();
+    message.info('Form has been reset.');
+  };
+
+  const onAdvancedReset = () => {
+    advancedForm.resetFields();
+    message.info('Advanced form has been reset.');
   };
 
   return (
@@ -198,104 +355,552 @@ const DataEntryPage = () => {
       <Divider />
 
       <div className="demo-section">
-        <Title level={3} style={{ fontSize: '16px' }}>Form</Title>
+        <Title level={3} style={{ fontSize: '16px' }}>Form Validation & Complex Forms</Title>
         <Paragraph style={{ fontSize: '12px', margin: '4px 0 12px 0' }}>
-          High performance subscription-based form state management for React.
+          High performance subscription-based form state management with comprehensive validation.
         </Paragraph>
 
-        <div className="demo-grid">
-          <div className="demo-item">
-            <Title level={4}>Basic Form</Title>
-            <Form
-              form={form}
-              name="basic"
-              size="small"
-              labelCol={{ span: 6 }}
-              wrapperCol={{ span: 18 }}
-              onFinish={onFinish}
-              autoComplete="off"
-            >
-              <Form.Item
-                label="Username"
-                name="username"
-                rules={[{ required: true, message: 'Please input your username!' }]}
+        <Row gutter={[24, 24]}>
+          <Col xs={24} lg={12}>
+            <Card title="Basic Form with Enhanced Validation" size="small">
+              <Form
+                form={form}
+                name="basic"
+                size="small"
+                labelCol={{ span: 8 }}
+                wrapperCol={{ span: 16 }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+                layout="horizontal"
               >
-                <Input />
-              </Form.Item>
+                <Form.Item
+                  label="Username"
+                  name="username"
+                  rules={[
+                    { required: true, message: 'Please input your username!' },
+                    { min: 3, message: 'Username must be at least 3 characters' },
+                    { max: 20, message: 'Username cannot exceed 20 characters' },
+                    { pattern: /^[a-zA-Z0-9_]+$/, message: 'Username can only contain letters, numbers, and underscores' }
+                  ]}
+                >
+                  <Input prefix={<UserOutlined />} placeholder="Enter username" />
+                </Form.Item>
 
-              <Form.Item
-                label="Password"
-                name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
+                <Form.Item
+                  label="Email"
+                  name="email"
+                  rules={[
+                    { required: true, message: 'Please input your email!' },
+                    { type: 'email', message: 'Please enter a valid email address!' }
+                  ]}
+                >
+                  <Input prefix={<MailOutlined />} placeholder="Enter email address" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Password"
+                  name="password"
+                  rules={[
+                    { required: true, message: 'Please input your password!' },
+                    { validator: validatePassword }
+                  ]}
+                >
+                  <Input.Password prefix={<LockOutlined />} placeholder="Enter password" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Confirm Password"
+                  name="confirmPassword"
+                  dependencies={['password']}
+                  rules={[
+                    { required: true, message: 'Please confirm your password!' },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue('password') === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(new Error('Passwords do not match!'));
+                      },
+                    }),
+                  ]}
+                >
+                  <Input.Password prefix={<LockOutlined />} placeholder="Confirm password" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Phone"
+                  name="phone"
+                  rules={[
+                    { required: true, message: 'Please input your phone number!' },
+                    { validator: validatePhone }
+                  ]}
+                >
+                  <Input prefix={<PhoneOutlined />} placeholder="Enter phone number" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Age"
+                  name="age"
+                  rules={[
+                    { required: true, message: 'Please input your age!' },
+                    { validator: validateAge }
+                  ]}
+                >
+                  <InputNumber 
+                    style={{ width: '100%' }} 
+                    placeholder="Enter age" 
+                    min={16} 
+                    max={100}
+                  />
+                </Form.Item>
+
+                <Form.Item 
+                  name="remember" 
+                  valuePropName="checked" 
+                  wrapperCol={{ offset: 8, span: 16 }}
+                >
+                  <Checkbox>I agree to the terms and conditions</Checkbox>
+                </Form.Item>
+
+                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                  <Space>
+                    <Button type="primary" htmlType="submit" size="small">
+                      Submit
+                    </Button>
+                    <Button htmlType="button" onClick={onReset} size="small">
+                      Reset
+                    </Button>
+                  </Space>
+                </Form.Item>
+              </Form>
+            </Card>
+          </Col>
+
+          <Col xs={24} lg={12}>
+            <Card title="Advanced Employee Registration Form" size="small">
+              <Alert
+                message="Comprehensive Validation"
+                description="This form demonstrates advanced validation patterns including conditional fields, custom validators, and real-time feedback."
+                type="info"
+                showIcon
+                style={{ marginBottom: 16 }}
+              />
+              
+              <Form
+                form={advancedForm}
+                name="advanced"
+                size="small"
+                layout="vertical"
+                onFinish={onAdvancedFormFinish}
+                onFinishFailed={onAdvancedFormFinishFailed}
+                autoComplete="off"
+                scrollToFirstError
               >
-                <Input.Password />
-              </Form.Item>
+                <Row gutter={16}>
+                  <Col span={12}>
+                    <Form.Item
+                      label="First Name"
+                      name="firstName"
+                      rules={[
+                        { required: true, message: 'Please input first name!' },
+                        { min: 2, message: 'First name must be at least 2 characters' },
+                        { pattern: /^[a-zA-Z\s]+$/, message: 'First name can only contain letters' }
+                      ]}
+                    >
+                      <Input placeholder="First name" />
+                    </Form.Item>
+                  </Col>
+                  <Col span={12}>
+                    <Form.Item
+                      label="Last Name"
+                      name="lastName"
+                      rules={[
+                        { required: true, message: 'Please input last name!' },
+                        { min: 2, message: 'Last name must be at least 2 characters' },
+                        { pattern: /^[a-zA-Z\s]+$/, message: 'Last name can only contain letters' }
+                      ]}
+                    >
+                      <Input placeholder="Last name" />
+                    </Form.Item>
+                  </Col>
+                </Row>
 
-              <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 6, span: 18 }}>
-                <Checkbox>Remember me</Checkbox>
-              </Form.Item>
+                <Form.Item
+                  label="Email Address"
+                  name="employeeEmail"
+                  rules={[
+                    { required: true, message: 'Please input email address!' },
+                    { type: 'email', message: 'Please enter a valid email address!' }
+                  ]}
+                >
+                  <Input 
+                    prefix={<MailOutlined />} 
+                    placeholder="employee@company.com"
+                    addonAfter=".com"
+                  />
+                </Form.Item>
 
-              <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
-                <Button type="primary" htmlType="submit" size="small">
-                  Submit
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
+                <Row gutter={16}>
+                  <Col span={12}>
+                    <Form.Item
+                      label="Department"
+                      name="department"
+                      rules={[{ required: true, message: 'Please select department!' }]}
+                    >
+                      <Select placeholder="Select department" options={departmentOptions} />
+                    </Form.Item>
+                  </Col>
+                  <Col span={12}>
+                    <Form.Item
+                      label="Job Title"
+                      name="jobTitle"
+                      rules={[
+                        { required: true, message: 'Please input job title!' },
+                        { min: 3, message: 'Job title must be at least 3 characters' }
+                      ]}
+                    >
+                      <Input placeholder="e.g. Senior Developer" />
+                    </Form.Item>
+                  </Col>
+                </Row>
 
-          <div className="demo-item">
-            <Title level={4}>Vertical Form</Title>
-            <Form layout="vertical" size="small">
-              <Form.Item label="Name">
-                <Input placeholder="Input your name" />
-              </Form.Item>
-              <Form.Item label="Email">
-                <Input placeholder="Input your email" />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" size="small">Submit</Button>
-              </Form.Item>
-            </Form>
-          </div>
+                <Row gutter={16}>
+                  <Col span={12}>
+                    <Form.Item
+                      label="Start Date"
+                      name="startDate"
+                      rules={[{ required: true, message: 'Please select start date!' }]}
+                    >
+                      <DatePicker 
+                        style={{ width: '100%' }} 
+                        placeholder="Select start date"
+                        disabledDate={(current) => current && current < dayjs().startOf('day')}
+                      />
+                    </Form.Item>
+                  </Col>
+                  <Col span={12}>
+                    <Form.Item
+                      label="Employment Type"
+                      name="employmentType"
+                      rules={[{ required: true, message: 'Please select employment type!' }]}
+                    >
+                      <Radio.Group>
+                        <Radio value="fulltime">Full-time</Radio>
+                        <Radio value="parttime">Part-time</Radio>
+                        <Radio value="contract">Contract</Radio>
+                      </Radio.Group>
+                    </Form.Item>
+                  </Col>
+                </Row>
 
-          <div className="demo-item">
-            <Title level={4}>Inline Form</Title>
-            <Form layout="inline" size="small">
-              <Form.Item>
-                <Input placeholder="Username" />
-              </Form.Item>
-              <Form.Item>
-                <Input placeholder="Password" type="password" />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" size="small">Log in</Button>
-              </Form.Item>
-            </Form>
-          </div>
+                <Form.Item
+                  label={
+                    <span>
+                      Annual Salary (USD)
+                      <Tooltip title="Base salary excluding bonuses and benefits">
+                        <InfoCircleOutlined style={{ marginLeft: 4 }} />
+                      </Tooltip>
+                    </span>
+                  }
+                  name="salary"
+                  rules={[
+                    { required: true, message: 'Please input salary!' },
+                    { validator: validateSalary }
+                  ]}
+                >
+                  <InputNumber
+                    style={{ width: '100%' }}
+                    formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                    placeholder="e.g. 75000"
+                    prefix={<DollarOutlined />}
+                  />
+                </Form.Item>
 
-          <div className="demo-item">
-            <Title level={4}>Form Validation</Title>
-            <Form size="small">
-              <Form.Item
-                label="Email"
-                name="email"
-                rules={[
-                  { required: true, message: 'Please input your email!' },
-                  { type: 'email', message: 'Please enter a valid email!' }
-                ]}
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                label="Age"
-                name="age"
-                rules={[{ type: 'number', min: 0, max: 99 }]}
-              >
-                <InputNumber style={{ width: '100%' }} />
-              </Form.Item>
-            </Form>
-          </div>
-        </div>
+                <Form.Item
+                  label="Skills & Technologies"
+                  name="skills"
+                  rules={[
+                    { required: true, message: 'Please select at least one skill!' },
+                    { type: 'array', min: 1, message: 'Please select at least one skill!' }
+                  ]}
+                >
+                  <Select
+                    mode="multiple"
+                    placeholder="Select relevant skills"
+                    options={skillOptions}
+                    maxTagCount={3}
+                    maxTagTextLength={10}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Office Location"
+                  name="location"
+                  rules={[{ required: true, message: 'Please select office location!' }]}
+                >
+                  <Cascader 
+                    options={cascaderOptions} 
+                    placeholder="Select location" 
+                    style={{ width: '100%' }}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Personal Website/Portfolio"
+                  name="website"
+                  rules={[{ validator: validateWebsite }]}
+                >
+                  <Input 
+                    placeholder="https://yourwebsite.com"
+                    prefix={<HomeOutlined />}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Resume/CV Upload"
+                  name="resume"
+                  valuePropName="fileList"
+                  getValueFromEvent={(e) => {
+                    if (Array.isArray(e)) {
+                      return e;
+                    }
+                    return e && e.fileList;
+                  }}
+                >
+                  <Upload
+                    {...uploadProps}
+                    listType="text"
+                    maxCount={1}
+                    accept=".pdf,.doc,.docx"
+                  >
+                    <Button icon={<UploadOutlined />} size="small">
+                      Upload Resume (PDF/DOC)
+                    </Button>
+                  </Upload>
+                </Form.Item>
+
+                <Form.Item
+                  label="Additional Notes"
+                  name="notes"
+                  rules={[{ max: 500, message: 'Notes cannot exceed 500 characters' }]}
+                >
+                  <Input.TextArea
+                    rows={3}
+                    placeholder="Any additional information or special requirements..."
+                    showCount
+                    maxLength={500}
+                  />
+                </Form.Item>
+
+                <Form.Item name="terms" valuePropName="checked" rules={[
+                  { validator: (_, value) =>
+                    value ? Promise.resolve() : Promise.reject(new Error('Please accept the terms and conditions'))
+                  }
+                ]}>
+                  <Checkbox>
+                    I acknowledge that all information provided is accurate and complete
+                  </Checkbox>
+                </Form.Item>
+
+                <Form.Item>
+                  <Space>
+                    <Button 
+                      type="primary" 
+                      htmlType="submit" 
+                      loading={loading}
+                      size="small"
+                    >
+                      Register Employee
+                    </Button>
+                    <Button 
+                      htmlType="button" 
+                      onClick={onAdvancedReset} 
+                      size="small"
+                    >
+                      Clear Form
+                    </Button>
+                  </Space>
+                </Form.Item>
+              </Form>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+
+      <Divider />
+
+      <div className="demo-section">
+        <Title level={3} style={{ fontSize: '16px' }}>Validation Patterns & Examples</Title>
+        <Paragraph style={{ fontSize: '12px', margin: '4px 0 12px 0' }}>
+          Common validation patterns and real-time feedback examples.
+        </Paragraph>
+
+        <Row gutter={[24, 24]}>
+          <Col xs={24} lg={8}>
+            <Card title="Input Validation Examples" size="small">
+              <Form layout="vertical" size="small">
+                <Form.Item
+                  label="Email Validation"
+                  name="emailDemo"
+                  rules={[
+                    { required: true, message: 'Email is required!' },
+                    { type: 'email', message: 'Invalid email format!' }
+                  ]}
+                  validateTrigger="onBlur"
+                >
+                  <Input placeholder="test@example.com" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Phone Number"
+                  name="phoneDemo"
+                  rules={[{ validator: validatePhone }]}
+                  validateTrigger="onBlur"
+                >
+                  <Input placeholder="+1 (555) 123-4567" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Website URL"
+                  name="websiteDemo"
+                  rules={[{ validator: validateWebsite }]}
+                  validateTrigger="onBlur"
+                >
+                  <Input placeholder="https://example.com" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Age (16-100)"
+                  name="ageDemo"
+                  rules={[{ validator: validateAge }]}
+                  validateTrigger="onBlur"
+                >
+                  <InputNumber 
+                    style={{ width: '100%' }} 
+                    placeholder="25" 
+                  />
+                </Form.Item>
+              </Form>
+            </Card>
+          </Col>
+
+          <Col xs={24} lg={8}>
+            <Card title="Password Strength Validation" size="small">
+              <Form layout="vertical" size="small">
+                <Form.Item
+                  label="Strong Password"
+                  name="passwordDemo"
+                  rules={[{ validator: validatePassword }]}
+                  validateTrigger="onChange"
+                  help="Must include: 8+ chars, uppercase, lowercase, number, special character"
+                >
+                  <Input.Password placeholder="Enter a strong password" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Confirm Password"
+                  name="confirmPasswordDemo"
+                  dependencies={['passwordDemo']}
+                  rules={[
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue('passwordDemo') === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(new Error('Passwords must match!'));
+                      },
+                    }),
+                  ]}
+                  validateTrigger="onChange"
+                >
+                  <Input.Password placeholder="Confirm password" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Salary Range"
+                  name="salaryDemo"
+                  rules={[{ validator: validateSalary }]}
+                  validateTrigger="onBlur"
+                  help="$20,000 - $1,000,000"
+                >
+                  <InputNumber
+                    style={{ width: '100%' }}
+                    formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                    placeholder="75000"
+                  />
+                </Form.Item>
+              </Form>
+            </Card>
+          </Col>
+
+          <Col xs={24} lg={8}>
+            <Card title="Conditional & Dynamic Validation" size="small">
+              <Form layout="vertical" size="small">
+                <Form.Item
+                  label="Country"
+                  name="countryDemo"
+                  rules={[{ required: true, message: 'Please select country!' }]}
+                >
+                  <Select placeholder="Select country" options={countryOptions} />
+                </Form.Item>
+
+                <Form.Item
+                  label="Required if US selected"
+                  name="ssnDemo"
+                  dependencies={['countryDemo']}
+                  rules={[
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        const country = getFieldValue('countryDemo');
+                        if (country === 'us' && !value) {
+                          return Promise.reject(new Error('SSN is required for US residents'));
+                        }
+                        if (value && !/^\d{3}-\d{2}-\d{4}$/.test(value)) {
+                          return Promise.reject(new Error('SSN format: XXX-XX-XXXX'));
+                        }
+                        return Promise.resolve();
+                      },
+                    }),
+                  ]}
+                >
+                  <Input placeholder="123-45-6789" disabled={false} />
+                </Form.Item>
+
+                <Form.Item
+                  label="Skills (min 2)"
+                  name="skillsDemo"
+                  rules={[
+                    { required: true, message: 'Please select skills!' },
+                    { type: 'array', min: 2, message: 'Select at least 2 skills!' }
+                  ]}
+                >
+                  <Select
+                    mode="multiple"
+                    placeholder="Select skills"
+                    options={skillOptions.slice(0, 5)}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Agreement"
+                  name="agreementDemo"
+                  valuePropName="checked"
+                  rules={[
+                    { 
+                      validator: (_, value) =>
+                        value ? Promise.resolve() : Promise.reject(new Error('Must agree to continue'))
+                    }
+                  ]}
+                >
+                  <Checkbox>I accept the terms and conditions</Checkbox>
+                </Form.Item>
+              </Form>
+            </Card>
+          </Col>
+        </Row>
       </div>
 
       <Divider />
@@ -311,21 +916,22 @@ const DataEntryPage = () => {
             <Title level={4}>Basic Select</Title>
             <Space direction="vertical" style={{ width: '100%' }}>
               <Select
-                defaultValue="lucy"
+                defaultValue="engineering"
                 style={{ width: '100%' }}
-                options={selectOptions}
+                options={departmentOptions}
+                placeholder="Select department"
               />
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="Please select"
-                options={selectOptions}
+                placeholder="Select multiple skills"
+                options={skillOptions}
               />
               <Select
                 mode="tags"
                 style={{ width: '100%' }}
                 placeholder="Tags Mode"
-                options={selectOptions}
+                options={countryOptions}
               />
             </Space>
           </div>
