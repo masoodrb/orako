@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Card, Typography, Button, Space, FloatButton, Divider, QRCode, Tour, Watermark, Segmented } from 'antd';
+import { Card, Typography, Button, Space, FloatButton, Divider, QRCode, Tour, Segmented } from 'antd';
 import {
   SearchOutlined,
   DownloadOutlined,
@@ -47,7 +47,7 @@ const GeneralPage = () => {
   };
 
   return (
-    <Watermark content="Ant Design Demo" style={{ minHeight: '100vh' }}>
+    <div style={{ minHeight: '100vh' }}>
       <div>
         <div className="page-header" ref={ref1}>
           <Title level={1}>General Components</Title>
@@ -376,7 +376,7 @@ const GeneralPage = () => {
           </div>
         </div>
       </div>
-    </Watermark>
+    </div>
   );
 };
 
