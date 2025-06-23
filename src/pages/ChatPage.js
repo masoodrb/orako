@@ -240,7 +240,7 @@ const ChatPage = () => {
           display: 'flex',
           justifyContent: message.isMine ? 'flex-end' : 'flex-start',
           marginBottom: '16px',
-          alignItems: 'flex-end'
+          alignItems: 'flex-start'
         }}
       >
         {!message.isMine && (
@@ -249,8 +249,9 @@ const ChatPage = () => {
             size="small"
             style={{ 
               backgroundColor: 'var(--oracle-primary)', 
-              marginRight: '8px',
-              marginBottom: '4px'
+              marginRight: '5px',
+              marginTop: '10px',
+              flexShrink: 0
             }}
             icon={!currentChat?.avatar ? <UserOutlined /> : undefined}
           >
@@ -260,11 +261,13 @@ const ChatPage = () => {
         <div
           style={{
             maxWidth: '70%',
-            padding: '12px 16px',
+            padding: '8px 8px',
             borderRadius: message.isMine ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
             backgroundColor: message.isMine ? 'var(--oracle-primary)' : 'var(--oracle-surface-secondary)',
             color: message.isMine ? 'white' : 'var(--oracle-text-primary)',
-            position: 'relative'
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column'
           }}
         >
           <div style={{ marginBottom: '4px' }}>{message.content}</div>
@@ -275,7 +278,8 @@ const ChatPage = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
-              gap: '4px'
+              gap: '4px',
+              marginTop: 'auto'
             }}
           >
             {message.time}
@@ -286,6 +290,20 @@ const ChatPage = () => {
             )}
           </div>
         </div>
+        {message.isMine && (
+          <Avatar 
+            size="small"
+            style={{ 
+              backgroundColor: 'var(--oracle-secondary)', 
+              marginLeft: '8px',
+              marginTop: '2px',
+              flexShrink: 0
+            }}
+            icon={<UserOutlined />}
+          >
+            You
+          </Avatar>
+        )}
       </div>
     );
   };
