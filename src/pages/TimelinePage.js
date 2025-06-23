@@ -371,8 +371,8 @@ const TimelinePage = () => {
           style={{ 
             marginBottom: 16,
             borderRadius: 8,
-            boxShadow: 'var(--oracle-shadow-sm)',
-            border: '1px solid var(--oracle-border)'
+            boxShadow: 'var(--orako-shadow-sm)',
+            border: '1px solid var(--orako-border)'
           }}
           bodyStyle={{ padding: '16px 20px' }}
         >
@@ -408,7 +408,7 @@ const TimelinePage = () => {
                 style={{ 
                   margin: 0, 
                   marginBottom: 12,
-                  color: 'var(--oracle-text-secondary)',
+                  color: 'var(--orako-text-secondary)',
                   fontSize: '14px',
                   lineHeight: '20px'
                 }}
@@ -423,7 +423,7 @@ const TimelinePage = () => {
                     size={24} 
                     src={activity.user.avatar}
                     icon={!activity.user.avatar ? <UserOutlined /> : undefined}
-                    style={{ backgroundColor: activity.user.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+                    style={{ backgroundColor: activity.user.avatar ? 'transparent' : 'var(--orako-primary)' }}
                   >
                     {!activity.user.avatar && activity.user.name.charAt(0)}
                   </Avatar>
@@ -432,25 +432,25 @@ const TimelinePage = () => {
                       {activity.user.name}
                     </Text>
                     <br />
-                    <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                    <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                       {activity.user.role}
                     </Text>
                   </div>
                 </Space>
 
-                <Text style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                <Text style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
                   {dayjs(activity.timestamp).format('MMM DD, YYYY [at] h:mm A')}
                 </Text>
               </div>
 
               {/* Metadata */}
               {activity.metadata && (
-                <div style={{ marginTop: 12, padding: '8px 0', borderTop: '1px solid var(--oracle-border)' }}>
+                <div style={{ marginTop: 12, padding: '8px 0', borderTop: '1px solid var(--orako-border)' }}>
                   <Row gutter={16}>
                     {Object.entries(activity.metadata).slice(0, 3).map(([key, value]) => (
                       <Col key={key} span={8}>
                         <div style={{ textAlign: 'center' }}>
-                          <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)', display: 'block' }}>
+                          <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)', display: 'block' }}>
                             {key.charAt(0).toUpperCase() + key.slice(1)}
                           </Text>
                           <Text strong style={{ fontSize: '13px' }}>
@@ -486,28 +486,28 @@ const TimelinePage = () => {
               <div style={{ 
                 marginTop: 12, 
                 paddingTop: 8, 
-                borderTop: '1px solid var(--oracle-border)',
+                borderTop: '1px solid var(--orako-border)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center'
               }}>
                 <Space size={16}>
                   <Space size={4}>
-                    <LikeOutlined style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }} />
-                    <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                    <LikeOutlined style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }} />
+                    <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                       {activity.likes}
                     </Text>
                   </Space>
                   <Space size={4}>
-                    <CommentOutlined style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }} />
-                    <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                    <CommentOutlined style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }} />
+                    <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                       {activity.comments}
                     </Text>
                   </Space>
                   {activity.attachments > 0 && (
                     <Space size={4}>
-                      <FileTextOutlined style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }} />
-                      <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                      <FileTextOutlined style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }} />
+                      <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                         {activity.attachments}
                       </Text>
                     </Space>
@@ -550,10 +550,10 @@ const TimelinePage = () => {
       {/* Page Header */}
       <div className="page-header">
         <div style={{ flex: 1 }}>
-          <Title level={2} style={{ margin: 0, color: 'var(--oracle-text-primary)' }}>
+          <Title level={2} style={{ margin: 0, color: 'var(--orako-text-primary)' }}>
             Activity Timeline
           </Title>
-          <Text style={{ color: 'var(--oracle-text-secondary)', fontSize: '16px' }}>
+          <Text style={{ color: 'var(--orako-text-secondary)', fontSize: '16px' }}>
             Track and monitor all business activities and events in chronological order
           </Text>
         </div>
@@ -718,7 +718,7 @@ const TimelinePage = () => {
                 <Space>
                   <HistoryOutlined />
                   <Text strong>Activity Timeline</Text>
-                  <Badge count={getFilteredActivities().length} style={{ backgroundColor: 'var(--oracle-primary)' }} />
+                  <Badge count={getFilteredActivities().length} style={{ backgroundColor: 'var(--orako-primary)' }} />
                 </Space>
                 <Button size="small" icon={<FilterOutlined />} onClick={() => message.info('Advanced filters')}>
                   More Filters
@@ -736,11 +736,11 @@ const TimelinePage = () => {
             ) : (
               <div style={{ 
                 textAlign: 'center', 
-                color: 'var(--oracle-text-secondary)',
+                color: 'var(--orako-text-secondary)',
                 padding: '60px 20px'
               }}>
                 <HistoryOutlined style={{ fontSize: 48, marginBottom: 16 }} />
-                <Title level={4} style={{ color: 'var(--oracle-text-secondary)' }}>
+                <Title level={4} style={{ color: 'var(--orako-text-secondary)' }}>
                   No activities found
                 </Title>
                 <Text>Try adjusting your filters or search criteria</Text>
@@ -1101,7 +1101,7 @@ const TimelinePage = () => {
             </Col>
           </Row>
 
-          <div style={{ textAlign: 'right', marginTop: 20, paddingTop: 20, borderTop: '1px solid var(--oracle-border)' }}>
+          <div style={{ textAlign: 'right', marginTop: 20, paddingTop: 20, borderTop: '1px solid var(--orako-border)' }}>
             <Space>
               <Button onClick={() => {
                 setIsAddModalVisible(false);

@@ -219,7 +219,7 @@ const CRMPage = () => {
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{text}</div>
-            <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
               {record.company}
             </div>
           </div>
@@ -270,7 +270,7 @@ const CRMPage = () => {
       dataIndex: 'score',
       key: 'score',
       render: (score) => (
-        <Progress percent={score} size="small" strokeColor="var(--oracle-primary)" />
+        <Progress percent={score} size="small" strokeColor="var(--orako-primary)" />
       ),
     },
     {
@@ -299,7 +299,7 @@ const CRMPage = () => {
       render: (text, record) => (
         <div>
           <div style={{ fontWeight: 600 }}>{text}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.account}
           </div>
         </div>
@@ -332,7 +332,7 @@ const CRMPage = () => {
         <Progress 
           percent={probability} 
           size="small" 
-          strokeColor="var(--oracle-secondary)"
+          strokeColor="var(--orako-secondary)"
           format={percent => `${percent}%`}
         />
       ),
@@ -367,12 +367,12 @@ const CRMPage = () => {
       key: 'name',
       render: (text, record) => (
         <Space>
-          <Avatar style={{ backgroundColor: 'var(--oracle-primary)' }}>
+          <Avatar style={{ backgroundColor: 'var(--orako-primary)' }}>
             {text.charAt(0)}
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{text}</div>
-            <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
               {record.industry}
             </div>
           </div>
@@ -642,11 +642,11 @@ const CRMPage = () => {
               value={1250000}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <RiseOutlined style={{ color: 'var(--oracle-success)' }} />
-              <span style={{ color: 'var(--oracle-success)', marginLeft: '4px' }}>
+              <RiseOutlined style={{ color: 'var(--orako-success)' }} />
+              <span style={{ color: 'var(--orako-success)', marginLeft: '4px' }}>
                 +12.5% from last month
               </span>
             </div>
@@ -658,10 +658,10 @@ const CRMPage = () => {
               title="Active Leads"
               value={156}
               prefix={<UserOutlined />}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 23 new this week
               </span>
             </div>
@@ -674,10 +674,10 @@ const CRMPage = () => {
               value={23.8}
               suffix="%"
               prefix={<TrophyOutlined />}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-success)' }}>
+              <span style={{ color: 'var(--orako-success)' }}>
                 +2.3% improvement
               </span>
             </div>
@@ -690,10 +690,10 @@ const CRMPage = () => {
               value={485000}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 Target: $500K
               </span>
             </div>
@@ -725,7 +725,7 @@ const CRMPage = () => {
                     </div>
                     <div style={{ 
                       fontSize: '12px', 
-                      color: 'var(--oracle-text-secondary)',
+                      color: 'var(--orako-text-secondary)',
                       marginTop: '4px'
                     }}>
                       {activity.user} • {activity.time}

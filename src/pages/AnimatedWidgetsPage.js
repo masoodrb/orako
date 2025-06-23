@@ -395,11 +395,11 @@ const AnimatedWidgetsPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <div style={{ flex: 1 }}>
-          <Title level={2} style={{ margin: 0, color: 'var(--oracle-text-primary)' }}>
+          <Title level={2} style={{ margin: 0, color: 'var(--orako-text-primary)' }}>
             <AnimatedIcon icon={<RocketOutlined />} animation="heartbeat" style={{ marginRight: 12 }} />
             Animated Widgets
           </Title>
-          <Text style={{ color: 'var(--oracle-text-secondary)', fontSize: '16px' }}>
+          <Text style={{ color: 'var(--orako-text-secondary)', fontSize: '16px' }}>
             Interactive and animated components with smooth transitions and engaging visuals
           </Text>
         </div>
@@ -618,7 +618,7 @@ const AnimatedWidgetsPage = () => {
               <Text 
                 style={{ 
                   fontSize: 16,
-                  color: 'var(--oracle-text-secondary)'
+                  color: 'var(--orako-text-secondary)'
                 }}
               >
                 {metrics[currentMetric].label}
@@ -661,7 +661,7 @@ const AnimatedWidgetsPage = () => {
                     }
                     title={<Text style={{ fontSize: '14px' }}>{item.message}</Text>}
                     description={
-                      <Text style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                      <Text style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
                         {item.time}
                       </Text>
                     }
@@ -692,7 +692,7 @@ const AnimatedWidgetsPage = () => {
                 >
                   <Avatar 
                     style={{ 
-                      backgroundColor: 'var(--oracle-primary)',
+                      backgroundColor: 'var(--orako-primary)',
                       marginRight: 12
                     }}
                   >
@@ -702,11 +702,11 @@ const AnimatedWidgetsPage = () => {
                     <Text strong style={{ fontSize: '13px' }}>
                       {activity.name}
                     </Text>
-                    <Text style={{ fontSize: '13px', color: 'var(--oracle-text-secondary)' }}>
+                    <Text style={{ fontSize: '13px', color: 'var(--orako-text-secondary)' }}>
                       {' '}{activity.action}
                     </Text>
                     <br />
-                    <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                    <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                       {activity.time}
                     </Text>
                   </div>
@@ -748,7 +748,7 @@ const AnimatedWidgetsPage = () => {
               <Title level={4} style={{ margin: 0, marginBottom: 8 }}>
                 Live Analytics
               </Title>
-              <Text style={{ color: 'var(--oracle-text-secondary)' }}>
+              <Text style={{ color: 'var(--orako-text-secondary)' }}>
                 Real-time data visualization
               </Text>
               

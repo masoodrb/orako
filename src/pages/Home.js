@@ -24,7 +24,7 @@ const Home = () => {
     {
       title: 'General',
       description: 'Basic components like Button, Icon, Typography',
-      icon: <SettingOutlined style={{ fontSize: '32px', color: 'var(--oracle-primary)' }} />,
+      icon: <SettingOutlined style={{ fontSize: '32px', color: 'var(--orako-primary)' }} />,
       count: 4,
       path: '/general',
       type: 'ui'
@@ -32,7 +32,7 @@ const Home = () => {
     {
       title: 'Layout',
       description: 'Components for page layout and structure',
-      icon: <BlockOutlined style={{ fontSize: '32px', color: 'var(--oracle-success)' }} />,
+      icon: <BlockOutlined style={{ fontSize: '32px', color: 'var(--orako-success)' }} />,
       count: 4,
       path: '/layout',
       type: 'ui'
@@ -40,7 +40,7 @@ const Home = () => {
     {
       title: 'Navigation',
       description: 'Navigation and menu components',
-      icon: <CompassOutlined style={{ fontSize: '32px', color: 'var(--oracle-secondary)' }} />,
+      icon: <CompassOutlined style={{ fontSize: '32px', color: 'var(--orako-secondary)' }} />,
       count: 8,
       path: '/navigation',
       type: 'ui'
@@ -48,7 +48,7 @@ const Home = () => {
     {
       title: 'Data Entry',
       description: 'Form controls and input components',
-      icon: <FormOutlined style={{ fontSize: '32px', color: 'var(--oracle-warning)' }} />,
+      icon: <FormOutlined style={{ fontSize: '32px', color: 'var(--orako-warning)' }} />,
       count: 17,
       path: '/data-entry',
       type: 'ui'
@@ -56,7 +56,7 @@ const Home = () => {
     {
       title: 'Data Display',
       description: 'Components for displaying data',
-      icon: <AppstoreOutlined style={{ fontSize: '32px', color: 'var(--oracle-info)' }} />,
+      icon: <AppstoreOutlined style={{ fontSize: '32px', color: 'var(--orako-info)' }} />,
       count: 17,
       path: '/data-display',
       type: 'ui'
@@ -64,7 +64,7 @@ const Home = () => {
     {
       title: 'Feedback',
       description: 'User feedback and interaction components',
-      icon: <AlertOutlined style={{ fontSize: '32px', color: 'var(--oracle-error)' }} />,
+      icon: <AlertOutlined style={{ fontSize: '32px', color: 'var(--orako-error)' }} />,
       count: 10,
       path: '/feedback',
       type: 'ui'
@@ -72,7 +72,7 @@ const Home = () => {
     {
       title: 'ERP Components',
       description: 'Enterprise business modules and workflows',
-      icon: <CloudOutlined style={{ fontSize: '32px', color: 'var(--oracle-secondary)' }} />,
+      icon: <CloudOutlined style={{ fontSize: '32px', color: 'var(--orako-secondary)' }} />,
       count: 25,
       path: '/erp-components',
       type: 'ui'
@@ -83,28 +83,28 @@ const Home = () => {
     {
       title: 'CRM',
       description: 'Customer Relationship Management - leads, opportunities, and customer data',
-      icon: <TeamOutlined style={{ fontSize: '32px', color: 'var(--oracle-primary)' }} />,
+      icon: <TeamOutlined style={{ fontSize: '32px', color: 'var(--orako-primary)' }} />,
       features: 'Leads, Opportunities, Customers',
       path: '/crm'
     },
     {
       title: 'Accounting',
       description: 'Financial management with double-entry bookkeeping and reporting',
-      icon: <BankOutlined style={{ fontSize: '32px', color: 'var(--oracle-success)' }} />,
+      icon: <BankOutlined style={{ fontSize: '32px', color: 'var(--orako-success)' }} />,
       features: 'General Ledger, A/R, A/P, P&L',
       path: '/accounting'
     },
     {
       title: 'Human Resources',
       description: 'Complete HR solution for employee and workforce management',
-      icon: <UserOutlined style={{ fontSize: '32px', color: 'var(--oracle-secondary)' }} />,
+      icon: <UserOutlined style={{ fontSize: '32px', color: 'var(--orako-secondary)' }} />,
       features: 'Employees, Payroll, Attendance',
       path: '/hrm'
     },
     {
       title: 'Sales & Marketing',
       description: 'Drive revenue growth with sales tracking and marketing campaigns',
-      icon: <TrophyOutlined style={{ fontSize: '32px', color: 'var(--oracle-warning)' }} />,
+      icon: <TrophyOutlined style={{ fontSize: '32px', color: 'var(--orako-warning)' }} />,
       features: 'Sales, Campaigns, Analytics',
       path: '/sales-marketing'
     }
@@ -122,12 +122,12 @@ const Home = () => {
 
       <Row gutter={[24, 24]} style={{ marginBottom: '40px' }}>
         <Col xs={24} sm={12} md={8}>
-          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
+          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
             <Statistic
               title="Total Components"
               value={85}
               valueStyle={{ 
-                color: 'var(--oracle-primary)', 
+                color: 'var(--orako-primary)', 
                 fontSize: '24px',
                 fontWeight: 700
               }}
@@ -136,12 +136,12 @@ const Home = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
+          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
             <Statistic
               title="Business Modules"
               value={11}
               valueStyle={{ 
-                color: 'var(--oracle-secondary)', 
+                color: 'var(--orako-secondary)', 
                 fontSize: '24px',
                 fontWeight: 700
               }}
@@ -149,12 +149,12 @@ const Home = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--oracle-radius-md)' }}>
+          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
             <Statistic
               title="Platform Version"
               value="18.2"
               valueStyle={{ 
-                color: 'var(--oracle-success)', 
+                color: 'var(--orako-success)', 
                 fontSize: '24px',
                 fontWeight: 700
               }}
@@ -180,7 +180,7 @@ const Home = () => {
               className="oracle-shadow-sm"
               style={{ 
                 height: '100%', 
-                borderRadius: 'var(--oracle-radius-md)',
+                borderRadius: 'var(--orako-radius-md)',
                 transition: 'all 0.2s ease'
               }}
               onClick={() => navigate(category.path)}
@@ -200,14 +200,14 @@ const Home = () => {
                       margin: '12px 0', 
                       fontSize: '18px', 
                       fontWeight: 600,
-                      color: 'var(--oracle-text-primary)'
+                      color: 'var(--orako-text-primary)'
                     }}>
                       {category.title}
                     </Title>
                     <Paragraph type="secondary" style={{ 
                       fontSize: '14px', 
                       margin: 0,
-                      color: 'var(--oracle-text-secondary)'
+                      color: 'var(--orako-text-secondary)'
                     }}>
                       {category.count} components
                     </Paragraph>
@@ -218,7 +218,7 @@ const Home = () => {
                     <Paragraph style={{ 
                       fontSize: '15px', 
                       margin: '16px 0 20px 0',
-                      color: 'var(--oracle-text-secondary)',
+                      color: 'var(--orako-text-secondary)',
                       lineHeight: 1.5
                     }}>
                       {category.description}
@@ -229,7 +229,7 @@ const Home = () => {
                       style={{ 
                         fontSize: '14px', 
                         height: '40px',
-                        borderRadius: 'var(--oracle-radius-sm)',
+                        borderRadius: 'var(--orako-radius-sm)',
                         fontWeight: 500,
                         paddingLeft: '24px',
                         paddingRight: '24px'
@@ -262,9 +262,9 @@ const Home = () => {
               className="oracle-shadow-sm"
               style={{ 
                 height: '100%', 
-                borderRadius: 'var(--oracle-radius-md)',
+                borderRadius: 'var(--orako-radius-md)',
                 transition: 'all 0.2s ease',
-                border: '1px solid var(--oracle-border)'
+                border: '1px solid var(--orako-border)'
               }}
               onClick={() => navigate(module.path)}
             >
@@ -283,14 +283,14 @@ const Home = () => {
                       margin: '12px 0', 
                       fontSize: '18px', 
                       fontWeight: 600,
-                      color: 'var(--oracle-text-primary)'
+                      color: 'var(--orako-text-primary)'
                     }}>
                       {module.title}
                     </Title>
                     <Paragraph type="secondary" style={{ 
                       fontSize: '13px', 
                       margin: 0,
-                      color: 'var(--oracle-secondary)',
+                      color: 'var(--orako-secondary)',
                       fontWeight: 500
                     }}>
                       {module.features}
@@ -302,7 +302,7 @@ const Home = () => {
                     <Paragraph style={{ 
                       fontSize: '14px', 
                       margin: '16px 0 20px 0',
-                      color: 'var(--oracle-text-secondary)',
+                      color: 'var(--orako-text-secondary)',
                       lineHeight: 1.5
                     }}>
                       {module.description}
@@ -313,7 +313,7 @@ const Home = () => {
                       style={{ 
                         fontSize: '14px', 
                         height: '40px',
-                        borderRadius: 'var(--oracle-radius-sm)',
+                        borderRadius: 'var(--orako-radius-sm)',
                         fontWeight: 500,
                         paddingLeft: '24px',
                         paddingRight: '24px'
@@ -333,8 +333,8 @@ const Home = () => {
         className="oracle-shadow-md" 
         style={{ 
           marginTop: '40px',
-          borderRadius: 'var(--oracle-radius-lg)',
-          border: '1px solid var(--oracle-border)'
+          borderRadius: 'var(--orako-radius-lg)',
+          border: '1px solid var(--orako-border)'
         }}
       >
         <Title level={3} className="oracle-primary-text" style={{ 
@@ -347,7 +347,7 @@ const Home = () => {
         <Paragraph style={{ 
           fontSize: '16px', 
           margin: '12px 0 20px 0',
-          color: 'var(--oracle-text-secondary)',
+          color: 'var(--orako-text-secondary)',
           lineHeight: 1.6
         }}>
           Oracle Cloud ERP is the world's most complete cloud business suite, delivering 
@@ -358,7 +358,7 @@ const Home = () => {
         <Paragraph style={{ 
           fontSize: '16px', 
           margin: '12px 0 16px 0',
-          color: 'var(--oracle-text-primary)',
+          color: 'var(--orako-text-primary)',
           fontWeight: 600
         }}>
           Enterprise Technology Stack:
@@ -369,13 +369,13 @@ const Home = () => {
               fontSize: '15px', 
               margin: '0', 
               paddingLeft: '24px',
-              color: 'var(--oracle-text-secondary)'
+              color: 'var(--orako-text-secondary)'
             }}>
               <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: 'var(--oracle-primary)' }}>React 18.2.0</strong> - Enterprise UI Framework
+                <strong style={{ color: 'var(--orako-primary)' }}>React 18.2.0</strong> - Enterprise UI Framework
               </li>
               <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: 'var(--oracle-primary)' }}>Ant Design 5.12.8</strong> - Professional Component Suite
+                <strong style={{ color: 'var(--orako-primary)' }}>Ant Design 5.12.8</strong> - Professional Component Suite
               </li>
             </ul>
           </Col>
@@ -384,13 +384,13 @@ const Home = () => {
               fontSize: '15px', 
               margin: '0', 
               paddingLeft: '24px',
-              color: 'var(--oracle-text-secondary)'
+              color: 'var(--orako-text-secondary)'
             }}>
               <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: 'var(--oracle-primary)' }}>React Router 6.20.1</strong> - Application Navigation
+                <strong style={{ color: 'var(--orako-primary)' }}>React Router 6.20.1</strong> - Application Navigation
               </li>
               <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: 'var(--oracle-primary)' }}>Oracle Design System</strong> - Enterprise Standards
+                <strong style={{ color: 'var(--orako-primary)' }}>Oracle Design System</strong> - Enterprise Standards
               </li>
             </ul>
           </Col>

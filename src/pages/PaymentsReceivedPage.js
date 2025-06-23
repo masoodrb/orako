@@ -220,7 +220,7 @@ const PaymentsReceivedPage = () => {
       key: 'amount',
       render: (amount, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-success)' }}>
+          <Text strong style={{ color: 'var(--orako-success)' }}>
             {record.currency} ${amount.toLocaleString()}
           </Text>
           {record.fees > 0 && (
@@ -364,7 +364,7 @@ const PaymentsReceivedPage = () => {
               value={totalReceived}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <Text type="secondary">Completed payments</Text>
           </Card>
@@ -376,7 +376,7 @@ const PaymentsReceivedPage = () => {
               value={pendingAmount}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <Text type="secondary">Processing payments</Text>
           </Card>
@@ -388,7 +388,7 @@ const PaymentsReceivedPage = () => {
               value={totalFees}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-error)' }}
+              valueStyle={{ color: 'var(--orako-error)' }}
             />
             <Text type="secondary">Transaction fees</Text>
           </Card>
@@ -398,7 +398,7 @@ const PaymentsReceivedPage = () => {
             <Statistic
               title="Failed Payments"
               value={failedPayments}
-              valueStyle={{ color: 'var(--oracle-error)' }}
+              valueStyle={{ color: 'var(--orako-error)' }}
             />
             <Text type="secondary">Requires attention</Text>
           </Card>

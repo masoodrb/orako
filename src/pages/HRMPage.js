@@ -224,13 +224,13 @@ const HRMPage = () => {
           <Avatar 
             size="large" 
             src={record.avatar}
-            style={{ backgroundColor: record.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+            style={{ backgroundColor: record.avatar ? 'transparent' : 'var(--orako-primary)' }}
           >
             {!record.avatar && record.name.split(' ').map(n => n[0]).join('')}
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{record.name}</div>
-            <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
               {record.employeeId}
             </div>
           </div>
@@ -243,7 +243,7 @@ const HRMPage = () => {
       render: (_, record) => (
         <div>
           <div style={{ fontWeight: 500 }}>{record.position}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.department}
           </div>
         </div>
@@ -315,7 +315,7 @@ const HRMPage = () => {
       render: (_, record) => (
         <div>
           <div style={{ fontWeight: 600 }}>{record.position}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.department}
           </div>
         </div>
@@ -333,7 +333,7 @@ const HRMPage = () => {
       title: 'Applicants',
       dataIndex: 'applicants',
       key: 'applicants',
-      render: (count) => <Badge count={count} style={{ backgroundColor: 'var(--oracle-secondary)' }} />,
+      render: (count) => <Badge count={count} style={{ backgroundColor: 'var(--orako-secondary)' }} />,
     },
     {
       title: 'Interviews',
@@ -349,7 +349,7 @@ const HRMPage = () => {
       title: 'Hired',
       dataIndex: 'hired',
       key: 'hired',
-      render: (count) => <span style={{ color: 'var(--oracle-success)' }}>{count}</span>,
+      render: (count) => <span style={{ color: 'var(--orako-success)' }}>{count}</span>,
     },
     {
       title: 'Recruiter',
@@ -381,7 +381,7 @@ const HRMPage = () => {
       render: (_, record) => (
         <div>
           <div style={{ fontWeight: 600 }}>{record.employee}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.department}
           </div>
         </div>
@@ -396,19 +396,19 @@ const HRMPage = () => {
       title: 'Present',
       dataIndex: 'present',
       key: 'present',
-      render: (days) => <span style={{ color: 'var(--oracle-success)' }}>{days}</span>,
+      render: (days) => <span style={{ color: 'var(--orako-success)' }}>{days}</span>,
     },
     {
       title: 'Absent',
       dataIndex: 'absent',
       key: 'absent',
-      render: (days) => days > 0 ? <span style={{ color: 'var(--oracle-error)' }}>{days}</span> : days,
+      render: (days) => days > 0 ? <span style={{ color: 'var(--orako-error)' }}>{days}</span> : days,
     },
     {
       title: 'Late',
       dataIndex: 'late',
       key: 'late',
-      render: (days) => days > 0 ? <span style={{ color: 'var(--oracle-warning)' }}>{days}</span> : days,
+      render: (days) => days > 0 ? <span style={{ color: 'var(--orako-warning)' }}>{days}</span> : days,
     },
     {
       title: 'Overtime (hrs)',
@@ -423,7 +423,7 @@ const HRMPage = () => {
         <Progress 
           percent={rate} 
           size="small" 
-          strokeColor={rate >= 95 ? 'var(--oracle-success)' : rate >= 90 ? 'var(--oracle-warning)' : 'var(--oracle-error)'}
+          strokeColor={rate >= 95 ? 'var(--orako-success)' : rate >= 90 ? 'var(--orako-warning)' : 'var(--orako-error)'}
           format={percent => `${percent}%`}
         />
       ),
@@ -479,14 +479,14 @@ const HRMPage = () => {
       title: 'Deductions',
       dataIndex: 'deductions',
       key: 'deductions',
-      render: (amount) => <span style={{ color: 'var(--oracle-error)' }}>`$${amount.toLocaleString()}`</span>,
+      render: (amount) => <span style={{ color: 'var(--orako-error)' }}>`$${amount.toLocaleString()}`</span>,
       align: 'right',
     },
     {
       title: 'Net Salary',
       dataIndex: 'netSalary',
       key: 'netSalary',
-      render: (amount) => <span style={{ color: 'var(--oracle-success)', fontWeight: 600 }}>`$${amount.toLocaleString()}`</span>,
+      render: (amount) => <span style={{ color: 'var(--orako-success)', fontWeight: 600 }}>`$${amount.toLocaleString()}`</span>,
       align: 'right',
     },
     {
@@ -584,7 +584,7 @@ const HRMPage = () => {
         <Space>
           <UserOutlined />
           <span>Recruitment</span>
-          <Badge count={recruitmentData.filter(r => r.status === 'Active').length} style={{ backgroundColor: 'var(--oracle-secondary)' }} />
+          <Badge count={recruitmentData.filter(r => r.status === 'Active').length} style={{ backgroundColor: 'var(--orako-secondary)' }} />
         </Space>
       ),
       children: (
@@ -764,10 +764,10 @@ const HRMPage = () => {
               title="Total Employees"
               value={156}
               prefix={<TeamOutlined />}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-success)' }}>
+              <span style={{ color: 'var(--orako-success)' }}>
                 +12 new hires this month
               </span>
             </div>
@@ -779,10 +779,10 @@ const HRMPage = () => {
               title="Open Positions"
               value={8}
               prefix={<UserOutlined />}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 125 total applicants
               </span>
             </div>
@@ -795,10 +795,10 @@ const HRMPage = () => {
               value={95.5}
               suffix="%"
               prefix={<ClockCircleOutlined />}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-success)' }}>
+              <span style={{ color: 'var(--orako-success)' }}>
                 +2.1% from last month
               </span>
             </div>
@@ -811,10 +811,10 @@ const HRMPage = () => {
               value={312010}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 3 employees
               </span>
             </div>
@@ -846,7 +846,7 @@ const HRMPage = () => {
                     </div>
                     <div style={{ 
                       fontSize: '12px', 
-                      color: 'var(--oracle-text-secondary)',
+                      color: 'var(--orako-text-secondary)',
                       marginTop: '4px'
                     }}>
                       {activity.user} • {activity.time}

@@ -237,7 +237,7 @@ const ERPComponentsPage = () => {
           value={amount} 
           prefix="$" 
           precision={0}
-          valueStyle={{ fontSize: '14px', color: 'var(--oracle-success)' }}
+          valueStyle={{ fontSize: '14px', color: 'var(--orako-success)' }}
         />
       )
     },
@@ -317,10 +317,10 @@ const ERPComponentsPage = () => {
             percent={percentage} 
             size="small" 
             showInfo={false}
-            strokeColor={record.trend === 'up' ? 'var(--oracle-success)' : 'var(--oracle-error)'}
+            strokeColor={record.trend === 'up' ? 'var(--orako-success)' : 'var(--orako-error)'}
           />
           <Text>{percentage}%</Text>
-          {record.trend === 'up' ? <RiseOutlined style={{ color: 'var(--oracle-success)' }} /> : <FallOutlined style={{ color: 'var(--oracle-error)' }} />}
+          {record.trend === 'up' ? <RiseOutlined style={{ color: 'var(--orako-success)' }} /> : <FallOutlined style={{ color: 'var(--orako-error)' }} />}
         </Space>
       )
     }
@@ -370,7 +370,7 @@ const ERPComponentsPage = () => {
         <Progress 
           percent={performance} 
           size="small"
-          strokeColor={performance >= 90 ? 'var(--oracle-success)' : performance >= 80 ? 'var(--oracle-warning)' : 'var(--oracle-error)'}
+          strokeColor={performance >= 90 ? 'var(--orako-success)' : performance >= 80 ? 'var(--orako-warning)' : 'var(--orako-error)'}
         />
       )
     },
@@ -523,11 +523,11 @@ const ERPComponentsPage = () => {
                   prefix={kpi.prefix}
                   suffix={kpi.suffix}
                   precision={kpi.precision}
-                  valueStyle={{ color: kpi.trend === 'up' ? 'var(--oracle-success)' : 'var(--oracle-error)' }}
+                  valueStyle={{ color: kpi.trend === 'up' ? 'var(--orako-success)' : 'var(--orako-error)' }}
                 />
                 <div style={{ marginTop: '8px' }}>
                   <Space>
-                    {kpi.trend === 'up' ? <RiseOutlined style={{ color: 'var(--oracle-success)' }} /> : <FallOutlined style={{ color: 'var(--oracle-error)' }} />}
+                    {kpi.trend === 'up' ? <RiseOutlined style={{ color: 'var(--orako-success)' }} /> : <FallOutlined style={{ color: 'var(--orako-error)' }} />}
                     <Text type={kpi.trend === 'up' ? 'success' : 'danger'}>
                       {Math.abs(kpi.percentage)}%
                     </Text>
@@ -660,7 +660,7 @@ const ERPComponentsPage = () => {
                   <Timeline
                     items={[
                       {
-                        dot: <CheckCircleOutlined style={{ color: 'var(--oracle-success)' }} />,
+                        dot: <CheckCircleOutlined style={{ color: 'var(--orako-success)' }} />,
                         children: (
                           <div>
                             <Text strong>Project Initiation</Text>
@@ -672,7 +672,7 @@ const ERPComponentsPage = () => {
                         )
                       },
                       {
-                        dot: <CheckCircleOutlined style={{ color: 'var(--oracle-success)' }} />,
+                        dot: <CheckCircleOutlined style={{ color: 'var(--orako-success)' }} />,
                         children: (
                           <div>
                             <Text strong>Requirements Analysis</Text>
@@ -684,19 +684,19 @@ const ERPComponentsPage = () => {
                         )
                       },
                       {
-                        dot: <ExclamationCircleOutlined style={{ color: 'var(--oracle-warning)' }} />,
+                        dot: <ExclamationCircleOutlined style={{ color: 'var(--orako-warning)' }} />,
                         children: (
                           <div>
                             <Text strong>Development Phase</Text>
                             <br />
                             <Text type="secondary">In Progress - Due 2025-07-30</Text>
                             <br />
-                            <Progress percent={65} size="small" strokeColor="var(--oracle-warning)" />
+                            <Progress percent={65} size="small" strokeColor="var(--orako-warning)" />
                           </div>
                         )
                       },
                       {
-                        dot: <CloseCircleOutlined style={{ color: 'var(--oracle-neutral-400)' }} />,
+                        dot: <CloseCircleOutlined style={{ color: 'var(--orako-neutral-400)' }} />,
                         children: (
                           <div>
                             <Text strong>Testing & QA</Text>
@@ -716,12 +716,12 @@ const ERPComponentsPage = () => {
                   <Space direction="vertical" style={{ width: '100%' }}>
                     <div>
                       <Text strong>Budget Utilization</Text>
-                      <Progress percent={68} strokeColor="var(--oracle-secondary)" />
+                      <Progress percent={68} strokeColor="var(--orako-secondary)" />
                       <Text type="secondary">$680K of $1M used</Text>
                     </div>
                     <div>
                       <Text strong>Time Utilization</Text>
-                      <Progress percent={72} strokeColor="var(--oracle-warning)" />
+                      <Progress percent={72} strokeColor="var(--orako-warning)" />
                       <Text type="secondary">18 of 25 weeks elapsed</Text>
                     </div>
                     <div>
@@ -925,17 +925,17 @@ const ERPComponentsPage = () => {
               <Space direction="vertical" style={{ width: '100%' }}>
                 <div>
                   <Text strong>Sales Trend</Text>
-                  <Progress percent={85} strokeColor="var(--oracle-success)" />
+                  <Progress percent={85} strokeColor="var(--orako-success)" />
                   <Text type="secondary">↗ 15% vs last quarter</Text>
                 </div>
                 <div>
                   <Text strong>Customer Satisfaction</Text>
-                  <Progress percent={92} strokeColor="var(--oracle-secondary)" />
+                  <Progress percent={92} strokeColor="var(--orako-secondary)" />
                   <Text type="secondary">4.6/5.0 rating</Text>
                 </div>
                 <div>
                   <Text strong>Operational Efficiency</Text>
-                  <Progress percent={78} strokeColor="var(--oracle-warning)" />
+                  <Progress percent={78} strokeColor="var(--orako-warning)" />
                   <Text type="secondary">Room for improvement</Text>
                 </div>
                 <Button type="primary" block icon={<BarChartOutlined />}>

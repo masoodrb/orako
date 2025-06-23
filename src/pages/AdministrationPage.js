@@ -153,7 +153,7 @@ const AdministrationPage = () => {
       render: (text, record) => (
         <div>
           <div style={{ fontWeight: 500 }}>{text}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.email}
           </div>
         </div>
@@ -204,7 +204,7 @@ const AdministrationPage = () => {
       render: (text, record) => (
         <div>
           <div style={{ fontWeight: 500 }}>{text}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.description}
           </div>
         </div>
@@ -397,27 +397,27 @@ const AdministrationPage = () => {
             <Col xs={24} md={8}>
               <Card title="Database Status" className="health-card">
                 <div style={{ textAlign: 'center' }}>
-                  <DatabaseOutlined style={{ fontSize: '48px', color: 'var(--oracle-success)', marginBottom: '16px' }} />
+                  <DatabaseOutlined style={{ fontSize: '48px', color: 'var(--orako-success)', marginBottom: '16px' }} />
                   <div style={{ fontSize: '18px', fontWeight: 500 }}>Healthy</div>
-                  <div style={{ color: 'var(--oracle-text-secondary)' }}>Last check: 2 minutes ago</div>
+                  <div style={{ color: 'var(--orako-text-secondary)' }}>Last check: 2 minutes ago</div>
                 </div>
               </Card>
             </Col>
             <Col xs={24} md={8}>
               <Card title="Security Status" className="health-card">
                 <div style={{ textAlign: 'center' }}>
-                  <SafetyOutlined style={{ fontSize: '48px', color: 'var(--oracle-success)', marginBottom: '16px' }} />
+                  <SafetyOutlined style={{ fontSize: '48px', color: 'var(--orako-success)', marginBottom: '16px' }} />
                   <div style={{ fontSize: '18px', fontWeight: 500 }}>Secure</div>
-                  <div style={{ color: 'var(--oracle-text-secondary)' }}>No threats detected</div>
+                  <div style={{ color: 'var(--orako-text-secondary)' }}>No threats detected</div>
                 </div>
               </Card>
             </Col>
             <Col xs={24} md={8}>
               <Card title="System Load" className="health-card">
                 <div style={{ textAlign: 'center' }}>
-                  <ControlOutlined style={{ fontSize: '48px', color: 'var(--oracle-warning)', marginBottom: '16px' }} />
+                  <ControlOutlined style={{ fontSize: '48px', color: 'var(--orako-warning)', marginBottom: '16px' }} />
                   <div style={{ fontSize: '18px', fontWeight: 500 }}>Normal</div>
-                  <div style={{ color: 'var(--oracle-text-secondary)' }}>CPU: 45%, Memory: 62%</div>
+                  <div style={{ color: 'var(--orako-text-secondary)' }}>CPU: 45%, Memory: 62%</div>
                 </div>
               </Card>
             </Col>
@@ -487,7 +487,7 @@ const AdministrationPage = () => {
             <Input.TextArea placeholder="Enter role description" rows={3} />
           </Form.Item>
           <Form.Item label="Permissions">
-            <div style={{ border: '1px solid var(--oracle-border)', borderRadius: '6px', padding: '16px' }}>
+            <div style={{ border: '1px solid var(--orako-border)', borderRadius: '6px', padding: '16px' }}>
               <div style={{ marginBottom: '12px', fontWeight: 500 }}>Select Permissions:</div>
               <Space direction="vertical" style={{ width: '100%' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>

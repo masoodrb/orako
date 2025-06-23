@@ -191,7 +191,7 @@ const CreditNotePage = () => {
       dataIndex: 'amount',
       key: 'amount',
       render: (amount, record) => (
-        <Text strong style={{ color: 'var(--oracle-error)' }}>
+        <Text strong style={{ color: 'var(--orako-error)' }}>
           -{record.currency} ${amount.toLocaleString()}
         </Text>
       ),
@@ -227,7 +227,7 @@ const CreditNotePage = () => {
       key: 'remainingAmount',
       render: (amount, record) => (
         <Text style={{ 
-          color: amount > 0 ? 'var(--oracle-warning)' : 'var(--oracle-text-secondary)' 
+          color: amount > 0 ? 'var(--orako-warning)' : 'var(--orako-text-secondary)' 
         }}>
           ${amount.toLocaleString()}
         </Text>
@@ -337,7 +337,7 @@ const CreditNotePage = () => {
               value={totalCreditAmount}
               prefix="-$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-error)' }}
+              valueStyle={{ color: 'var(--orako-error)' }}
             />
             <Text type="secondary">All credit notes</Text>
           </Card>
@@ -349,7 +349,7 @@ const CreditNotePage = () => {
               value={appliedAmount}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <Text type="secondary">Used credits</Text>
           </Card>
@@ -361,7 +361,7 @@ const CreditNotePage = () => {
               value={pendingAmount}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <Text type="secondary">Awaiting application</Text>
           </Card>
@@ -373,7 +373,7 @@ const CreditNotePage = () => {
               value={remainingAmount}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <Text type="secondary">Can be used</Text>
           </Card>

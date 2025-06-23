@@ -113,7 +113,7 @@ const MyProfilePage = () => {
       title: 'Completed Project Phoenix',
       description: 'Successfully delivered the new customer portal',
       timestamp: '2025-06-21 14:30',
-      icon: <CheckCircleOutlined style={{ color: 'var(--oracle-success)' }} />
+      icon: <CheckCircleOutlined style={{ color: 'var(--orako-success)' }} />
     },
     {
       key: '2',
@@ -121,7 +121,7 @@ const MyProfilePage = () => {
       title: 'Team Standup Meeting',
       description: 'Daily standup with the frontend team',
       timestamp: '2025-06-21 09:00',
-      icon: <TeamOutlined style={{ color: 'var(--oracle-secondary)' }} />
+      icon: <TeamOutlined style={{ color: 'var(--orako-secondary)' }} />
     },
     {
       key: '3',
@@ -129,7 +129,7 @@ const MyProfilePage = () => {
       title: 'Code Review Completed',
       description: 'Reviewed 5 pull requests for the authentication module',
       timestamp: '2025-06-20 16:45',
-      icon: <FileTextOutlined style={{ color: 'var(--oracle-primary)' }} />
+      icon: <FileTextOutlined style={{ color: 'var(--orako-primary)' }} />
     },
     {
       key: '4',
@@ -137,7 +137,7 @@ const MyProfilePage = () => {
       title: 'Employee of the Month',
       description: 'Recognized for outstanding contribution to the Q2 release',
       timestamp: '2025-06-01 12:00',
-      icon: <TrophyOutlined style={{ color: 'var(--oracle-warning)' }} />
+      icon: <TrophyOutlined style={{ color: 'var(--orako-warning)' }} />
     }
   ];
 
@@ -255,9 +255,9 @@ const MyProfilePage = () => {
           percent={completion} 
           size="small" 
           strokeColor={
-            completion >= 90 ? 'var(--oracle-success)' : 
-            completion >= 70 ? 'var(--oracle-secondary)' : 
-            'var(--oracle-warning)'
+            completion >= 90 ? 'var(--orako-success)' : 
+            completion >= 70 ? 'var(--orako-secondary)' : 
+            'var(--orako-warning)'
           }
         />
       ),
@@ -436,7 +436,7 @@ const MyProfilePage = () => {
                           percent={skill.level} 
                           size="small" 
                           showInfo={false}
-                          strokeColor="var(--oracle-primary)"
+                          strokeColor="var(--orako-primary)"
                         />
                         <Text type="secondary" style={{ fontSize: '12px' }}>{skill.category}</Text>
                       </div>
@@ -452,7 +452,7 @@ const MyProfilePage = () => {
                         title="Overall Rating"
                         value={4.8}
                         suffix="/ 5.0"
-                        valueStyle={{ color: 'var(--oracle-success)' }}
+                        valueStyle={{ color: 'var(--orako-success)' }}
                       />
                       <Rate disabled defaultValue={4.8} allowHalf />
                     </Col>
@@ -460,7 +460,7 @@ const MyProfilePage = () => {
                       <Statistic
                         title="Projects Completed"
                         value={23}
-                        valueStyle={{ color: 'var(--oracle-secondary)' }}
+                        valueStyle={{ color: 'var(--orako-secondary)' }}
                         prefix={<TrophyOutlined />}
                       />
                     </Col>
@@ -478,7 +478,7 @@ const MyProfilePage = () => {
                       renderItem={(item) => (
                         <List.Item>
                           <Space>
-                            <TrophyOutlined style={{ color: 'var(--oracle-warning)' }} />
+                            <TrophyOutlined style={{ color: 'var(--orako-warning)' }} />
                             <Text>{item}</Text>
                           </Space>
                         </List.Item>
@@ -512,10 +512,10 @@ const MyProfilePage = () => {
                       <div style={{ fontWeight: 600, marginBottom: '4px' }}>
                         {activity.title}
                       </div>
-                      <div style={{ color: 'var(--oracle-text-secondary)', marginBottom: '4px' }}>
+                      <div style={{ color: 'var(--orako-text-secondary)', marginBottom: '4px' }}>
                         {activity.description}
                       </div>
-                      <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                      <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
                         {dayjs(activity.timestamp).format('MMM DD, YYYY HH:mm')}
                       </div>
                     </div>
@@ -532,7 +532,7 @@ const MyProfilePage = () => {
                     title="This Week"
                     value={32}
                     suffix="hours"
-                    valueStyle={{ color: 'var(--oracle-primary)' }}
+                    valueStyle={{ color: 'var(--orako-primary)' }}
                     prefix={<ClockCircleOutlined />}
                   />
                 </Col>
@@ -540,7 +540,7 @@ const MyProfilePage = () => {
                   <Statistic
                     title="Tasks Completed"
                     value={15}
-                    valueStyle={{ color: 'var(--oracle-success)' }}
+                    valueStyle={{ color: 'var(--orako-success)' }}
                     prefix={<CheckCircleOutlined />}
                   />
                 </Col>
@@ -548,7 +548,7 @@ const MyProfilePage = () => {
                   <Statistic
                     title="Code Reviews"
                     value={8}
-                    valueStyle={{ color: 'var(--oracle-secondary)' }}
+                    valueStyle={{ color: 'var(--orako-secondary)' }}
                     prefix={<FileTextOutlined />}
                   />
                 </Col>
@@ -605,7 +605,7 @@ const MyProfilePage = () => {
                   avatar={
                     <Avatar 
                       icon={<SafetyCertificateOutlined />} 
-                      style={{ backgroundColor: 'var(--oracle-success)' }}
+                      style={{ backgroundColor: 'var(--orako-success)' }}
                     />
                   }
                   title={cert.name}

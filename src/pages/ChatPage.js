@@ -248,7 +248,7 @@ const ChatPage = () => {
             src={currentChat?.avatar}
             size="small"
             style={{ 
-              backgroundColor: 'var(--oracle-primary)', 
+              backgroundColor: 'var(--orako-primary)', 
               marginRight: '5px',
               marginTop: '10px',
               flexShrink: 0
@@ -263,8 +263,8 @@ const ChatPage = () => {
             maxWidth: '70%',
             padding: '8px 8px',
             borderRadius: message.isMine ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-            backgroundColor: message.isMine ? 'var(--oracle-primary)' : 'var(--oracle-surface-secondary)',
-            color: message.isMine ? 'white' : 'var(--oracle-text-primary)',
+            backgroundColor: message.isMine ? 'var(--orako-primary)' : 'var(--orako-surface-secondary)',
+            color: message.isMine ? 'white' : 'var(--orako-text-primary)',
             position: 'relative',
             display: 'flex',
             flexDirection: 'column'
@@ -294,7 +294,7 @@ const ChatPage = () => {
           <Avatar 
             size="small"
             style={{ 
-              backgroundColor: 'var(--oracle-secondary)', 
+              backgroundColor: 'var(--orako-secondary)', 
               marginLeft: '8px',
               marginTop: '2px',
               flexShrink: 0
@@ -353,8 +353,8 @@ const ChatPage = () => {
               style={{
                 padding: '12px 16px',
                 cursor: 'pointer',
-                backgroundColor: selectedChat === chat.id ? 'var(--oracle-surface-secondary)' : 'transparent',
-                borderRadius: 'var(--oracle-radius-sm)',
+                backgroundColor: selectedChat === chat.id ? 'var(--orako-surface-secondary)' : 'transparent',
+                borderRadius: 'var(--orako-radius-sm)',
                 margin: '4px 0'
               }}
               onClick={() => setSelectedChat(chat.id)}
@@ -364,7 +364,7 @@ const ChatPage = () => {
                   <Badge dot={chat.online} color="green">
                     <Avatar 
                       src={chat.type === 'direct' ? chat.avatar : undefined}
-                      style={{ backgroundColor: 'var(--oracle-primary)' }}
+                      style={{ backgroundColor: 'var(--orako-primary)' }}
                       icon={chat.type === 'group' ? <TeamOutlined /> : (!chat.avatar ? <UserOutlined /> : undefined)}
                     >
                       {chat.type === 'direct' && !chat.avatar && chat.name.charAt(0)}
@@ -381,14 +381,14 @@ const ChatPage = () => {
                         </Tag>
                       )}
                     </div>
-                    <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                    <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
                       {chat.time}
                     </div>
                   </div>
                 }
                 description={
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <Text ellipsis style={{ flex: 1, color: 'var(--oracle-text-secondary)' }}>
+                    <Text ellipsis style={{ flex: 1, color: 'var(--orako-text-secondary)' }}>
                       {chat.lastMessage}
                     </Text>
                     {chat.unread > 0 && (
@@ -420,7 +420,7 @@ const ChatPage = () => {
                   <Badge dot={member.online} color={member.online ? 'green' : 'default'}>
                     <Avatar 
                       src={member.avatar}
-                      style={{ backgroundColor: 'var(--oracle-secondary)' }}
+                      style={{ backgroundColor: 'var(--orako-secondary)' }}
                       icon={!member.avatar ? <UserOutlined /> : undefined}
                     >
                       {!member.avatar && member.name.charAt(0)}
@@ -495,7 +495,7 @@ const ChatPage = () => {
                     <Badge dot color="green">
                       <Avatar 
                         src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face"
-                        style={{ backgroundColor: 'var(--oracle-primary)' }}
+                        style={{ backgroundColor: 'var(--orako-primary)' }}
                         icon={<UserOutlined />}
                       />
                     </Badge>
@@ -528,14 +528,14 @@ const ChatPage = () => {
                 flex: 1, 
                 padding: '16px', 
                 overflowY: 'auto',
-                backgroundColor: 'var(--oracle-background)'
+                backgroundColor: 'var(--orako-background)'
               }}
             >
               {messages.map(renderMessage)}
             </div>
 
             {/* Message Input */}
-            <div style={{ padding: '16px', borderTop: '1px solid var(--oracle-border)' }}>
+            <div style={{ padding: '16px', borderTop: '1px solid var(--orako-border)' }}>
               <Space.Compact style={{ width: '100%' }}>
                 <TextArea
                   value={messageText}

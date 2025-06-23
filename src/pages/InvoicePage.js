@@ -177,7 +177,7 @@ const InvoicePage = () => {
       dataIndex: 'amount',
       key: 'amount',
       render: (amount, record) => (
-        <Text strong style={{ color: 'var(--oracle-success)' }}>
+        <Text strong style={{ color: 'var(--orako-success)' }}>
           {record.currency} ${amount.toLocaleString()}
         </Text>
       ),
@@ -208,7 +208,7 @@ const InvoicePage = () => {
       key: 'dueDate',
       render: (date) => (
         <span style={{ 
-          color: dayjs(date).isBefore(dayjs()) ? 'var(--oracle-error)' : 'inherit' 
+          color: dayjs(date).isBefore(dayjs()) ? 'var(--orako-error)' : 'inherit' 
         }}>
           {dayjs(date).format('MMM DD, YYYY')}
         </span>
@@ -298,7 +298,7 @@ const InvoicePage = () => {
               value={totalRevenue}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <Text type="secondary">Paid invoices</Text>
           </Card>
@@ -310,7 +310,7 @@ const InvoicePage = () => {
               value={pendingAmount}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <Text type="secondary">Awaiting payment</Text>
           </Card>
@@ -322,7 +322,7 @@ const InvoicePage = () => {
               value={overdueAmount}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-error)' }}
+              valueStyle={{ color: 'var(--orako-error)' }}
             />
             <Text type="secondary">Past due date</Text>
           </Card>
@@ -332,7 +332,7 @@ const InvoicePage = () => {
             <Statistic
               title="Total Invoices"
               value={invoiceData.length}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <Text type="secondary">All time</Text>
           </Card>

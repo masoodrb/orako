@@ -297,7 +297,7 @@ const AccountingPage = () => {
       render: (date) => {
         const isOverdue = dayjs(date).isBefore(dayjs());
         return (
-          <span style={{ color: isOverdue ? 'var(--oracle-error)' : 'inherit' }}>
+          <span style={{ color: isOverdue ? 'var(--orako-error)' : 'inherit' }}>
             {dayjs(date).format('MMM DD, YYYY')}
           </span>
         );
@@ -369,7 +369,7 @@ const AccountingPage = () => {
       render: (date) => {
         const isOverdue = dayjs(date).isBefore(dayjs());
         return (
-          <span style={{ color: isOverdue ? 'var(--oracle-error)' : 'inherit' }}>
+          <span style={{ color: isOverdue ? 'var(--orako-error)' : 'inherit' }}>
             {dayjs(date).format('MMM DD, YYYY')}
           </span>
         );
@@ -521,7 +521,7 @@ const AccountingPage = () => {
         <Space>
           <RiseOutlined />
           <span>Accounts Receivable</span>
-          <Badge count="$214K" style={{ backgroundColor: 'var(--oracle-secondary)' }} />
+          <Badge count="$214K" style={{ backgroundColor: 'var(--orako-secondary)' }} />
         </Space>
       ),
       children: (
@@ -575,7 +575,7 @@ const AccountingPage = () => {
         <Space>
           <FallOutlined />
           <span>Accounts Payable</span>
-          <Badge count="$17.5K" style={{ backgroundColor: 'var(--oracle-warning)' }} />
+          <Badge count="$17.5K" style={{ backgroundColor: 'var(--orako-warning)' }} />
         </Space>
       ),
       children: (
@@ -654,7 +654,7 @@ const AccountingPage = () => {
                 {renderBalanceSheetItem('Total Fixed Assets', totalFixedAssets, 0)}
               </div>
               
-              <Divider style={{ borderColor: 'var(--oracle-primary)' }} />
+              <Divider style={{ borderColor: 'var(--orako-primary)' }} />
               {renderBalanceSheetItem('TOTAL ASSETS', totalAssets, 0)}
             </Card>
           </Col>
@@ -686,7 +686,7 @@ const AccountingPage = () => {
                 {renderBalanceSheetItem('Total Equity', totalEquity, 0)}
               </div>
               
-              <Divider style={{ borderColor: 'var(--oracle-primary)' }} />
+              <Divider style={{ borderColor: 'var(--orako-primary)' }} />
               {renderBalanceSheetItem('TOTAL LIAB. & EQUITY', totalLiabilities + totalEquity, 0)}
             </Card>
           </Col>
@@ -737,14 +737,14 @@ const AccountingPage = () => {
                     prefix={<DollarOutlined />}
                     precision={0}
                     valueStyle={{ 
-                      color: netIncome > 0 ? 'var(--oracle-success)' : 'var(--oracle-error)',
+                      color: netIncome > 0 ? 'var(--orako-success)' : 'var(--orako-error)',
                       fontSize: '32px',
                       fontWeight: 700
                     }}
                   />
                   <div style={{ textAlign: 'center', marginTop: '8px' }}>
                     <span style={{ 
-                      color: 'var(--oracle-text-secondary)',
+                      color: 'var(--orako-text-secondary)',
                       fontSize: '14px'
                     }}>
                       For the period ending {dayjs().format('MMMM YYYY')}
@@ -776,11 +776,11 @@ const AccountingPage = () => {
               value={totalRevenue}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <RiseOutlined style={{ color: 'var(--oracle-success)' }} />
-              <span style={{ color: 'var(--oracle-success)', marginLeft: '4px' }}>
+              <RiseOutlined style={{ color: 'var(--orako-success)' }} />
+              <span style={{ color: 'var(--orako-success)', marginLeft: '4px' }}>
                 +15.2% YoY
               </span>
             </div>
@@ -793,10 +793,10 @@ const AccountingPage = () => {
               value={netIncome}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 Profit Margin: {((netIncome / totalRevenue) * 100).toFixed(1)}%
               </span>
             </div>
@@ -809,10 +809,10 @@ const AccountingPage = () => {
               value={214000}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 3 outstanding invoices
               </span>
             </div>
@@ -825,10 +825,10 @@ const AccountingPage = () => {
               value={17500}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 2 bills due soon
               </span>
             </div>

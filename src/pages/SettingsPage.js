@@ -199,10 +199,10 @@ const SettingsPage = () => {
       key: 'device',
       render: (_, record) => (
         <Space>
-          <Avatar icon={<MobileOutlined />} style={{ backgroundColor: 'var(--oracle-secondary)' }} />
+          <Avatar icon={<MobileOutlined />} style={{ backgroundColor: 'var(--orako-secondary)' }} />
           <div>
             <div style={{ fontWeight: 600 }}>{record.device}</div>
-            <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
               {record.browser}
             </div>
           </div>
@@ -267,7 +267,7 @@ const SettingsPage = () => {
       render: (_, record) => (
         <div>
           <div style={{ fontWeight: 600 }}>{record.name}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.description}
           </div>
         </div>
@@ -619,7 +619,7 @@ const SettingsPage = () => {
                       ]}
                     >
                       <List.Item.Meta
-                        avatar={<Avatar icon={<MailOutlined />} style={{ backgroundColor: 'var(--oracle-secondary)' }} />}
+                        avatar={<Avatar icon={<MailOutlined />} style={{ backgroundColor: 'var(--orako-secondary)' }} />}
                         title={item.title}
                         description={item.description}
                       />
@@ -660,7 +660,7 @@ const SettingsPage = () => {
                       ]}
                     >
                       <List.Item.Meta
-                        avatar={<Avatar icon={<BellOutlined />} style={{ backgroundColor: 'var(--oracle-warning)' }} />}
+                        avatar={<Avatar icon={<BellOutlined />} style={{ backgroundColor: 'var(--orako-warning)' }} />}
                         title={item.title}
                         description={item.description}
                       />
@@ -747,7 +747,7 @@ const SettingsPage = () => {
                     >
                       <List.Item.Meta
                         avatar={
-                          <Avatar style={{ backgroundColor: 'var(--oracle-primary)' }}>
+                          <Avatar style={{ backgroundColor: 'var(--orako-primary)' }}>
                             {item.avatar}
                           </Avatar>
                         }

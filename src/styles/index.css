@@ -1,46 +1,46 @@
 /* Oracle Cloud ERP Professional Theme */
 :root {
-  --oracle-primary: #ff0000;
-  --oracle-primary-dark: #cc0000;
-  --oracle-primary-light: #ff3333;
-  /* --oracle-primary: #d63384;
-  --oracle-primary-dark: #b02a5b;
-  --oracle-primary-light: #e85aad; */
-  --oracle-secondary: #0572ce;
-  --oracle-secondary-dark: #043d73;
-  --oracle-secondary-light: #1976d2;
-  --oracle-neutral-900: #1c1e21;
-  --oracle-neutral-800: #2c2f33;
-  --oracle-neutral-700: #454a52;
-  --oracle-neutral-600: #5c6570;
-  --oracle-neutral-500: #73808e;
-  --oracle-neutral-400: #8a9aac;
-  --oracle-neutral-300: #a1b5ca;
-  --oracle-neutral-200: #b8cfe8;
-  --oracle-neutral-100: #d0e4ff;
-  --oracle-neutral-50: #e7f3ff;
-  --oracle-background: #f7f9fc;
-  --oracle-surface: #ffffff;
-  --oracle-surface-secondary: #f5f7fa;
-  --oracle-surface-tertiary: #eef2f7;
-  --oracle-border: #d6dbe7;
-  --oracle-border-light: #e2e8f0;
-  --oracle-text-primary: #1c1e21;
-  --oracle-text-secondary: #454a52;
-  --oracle-text-disabled: #8a9aac;
-  --oracle-success: #00875a;
-  --oracle-warning: #ff8b00;
-  --oracle-error: #de350b;
-  --oracle-info: #0065ff;
-  --oracle-shadow-xs: 0 1px 2px 0 rgba(28, 30, 33, 0.08);
-  --oracle-shadow-sm: 0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06);
-  --oracle-shadow-md: 0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06);
-  --oracle-shadow-lg: 0 10px 15px -3px rgba(28, 30, 33, 0.1), 0 4px 6px -2px rgba(28, 30, 33, 0.05);
-  --oracle-shadow-xl: 0 20px 25px -5px rgba(28, 30, 33, 0.1), 0 10px 10px -5px rgba(28, 30, 33, 0.04);
-  --oracle-radius-sm: 4px;
-  --oracle-radius-md: 6px;
-  --oracle-radius-lg: 8px;
-  --oracle-radius-xl: 12px;
+  --orako-primary: #ff0000;
+  --orako-primary-dark: #cc0000;
+  --orako-primary-light: #ff3333;
+  /* --orako-primary: #d63384;
+  --orako-primary-dark: #b02a5b;
+  --orako-primary-light: #e85aad; */
+  --orako-secondary: #0572ce;
+  --orako-secondary-dark: #043d73;
+  --orako-secondary-light: #1976d2;
+  --orako-neutral-900: #1c1e21;
+  --orako-neutral-800: #2c2f33;
+  --orako-neutral-700: #454a52;
+  --orako-neutral-600: #5c6570;
+  --orako-neutral-500: #73808e;
+  --orako-neutral-400: #8a9aac;
+  --orako-neutral-300: #a1b5ca;
+  --orako-neutral-200: #b8cfe8;
+  --orako-neutral-100: #d0e4ff;
+  --orako-neutral-50: #e7f3ff;
+  --orako-background: #f7f9fc;
+  --orako-surface: #ffffff;
+  --orako-surface-secondary: #f5f7fa;
+  --orako-surface-tertiary: #eef2f7;
+  --orako-border: #d6dbe7;
+  --orako-border-light: #e2e8f0;
+  --orako-text-primary: #1c1e21;
+  --orako-text-secondary: #454a52;
+  --orako-text-disabled: #8a9aac;
+  --orako-success: #00875a;
+  --orako-warning: #ff8b00;
+  --orako-error: #de350b;
+  --orako-info: #0065ff;
+  --orako-shadow-xs: 0 1px 2px 0 rgba(28, 30, 33, 0.08);
+  --orako-shadow-sm: 0 1px 3px 0 rgba(28, 30, 33, 0.1), 0 1px 2px 0 rgba(28, 30, 33, 0.06);
+  --orako-shadow-md: 0 4px 6px -1px rgba(28, 30, 33, 0.1), 0 2px 4px -1px rgba(28, 30, 33, 0.06);
+  --orako-shadow-lg: 0 10px 15px -3px rgba(28, 30, 33, 0.1), 0 4px 6px -2px rgba(28, 30, 33, 0.05);
+  --orako-shadow-xl: 0 20px 25px -5px rgba(28, 30, 33, 0.1), 0 10px 10px -5px rgba(28, 30, 33, 0.04);
+  --orako-radius-sm: 4px;
+  --orako-radius-md: 6px;
+  --orako-radius-lg: 8px;
+  --orako-radius-xl: 12px;
 }
 
 body {
@@ -50,26 +50,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  background-color: var(--oracle-background);
-  color: var(--oracle-text-primary);
+  background-color: var(--orako-background);
+  color: var(--orako-text-primary);
   line-height: 1.5;
 }
 
 /* Global Ant Design overrides for Oracle theme */
 .ant-layout {
-  background-color: var(--oracle-background) !important;
+  background-color: var(--orako-background) !important;
 }
 
 .ant-layout-sider {
-  background-color: var(--oracle-surface) !important;
-  border-right: 1px solid var(--oracle-border) !important;
-  box-shadow: var(--oracle-shadow-sm);
+  background-color: var(--orako-surface) !important;
+  border-right: 1px solid var(--orako-border) !important;
+  box-shadow: var(--orako-shadow-sm);
 }
 
 .ant-layout-header {
-  background-color: var(--oracle-surface) !important;
-  border-bottom: 1px solid var(--oracle-border) !important;
-  box-shadow: var(--oracle-shadow-sm);
+  background-color: var(--orako-surface) !important;
+  border-bottom: 1px solid var(--orako-border) !important;
+  box-shadow: var(--orako-shadow-sm);
 }
 
 .ant-menu {
@@ -80,40 +80,40 @@ body {
 }
 
 .ant-menu-item {
-  color: var(--oracle-text-secondary) !important;
+  color: var(--orako-text-secondary) !important;
   padding-left: 24px;
   margin: 4px 16px;
-  border-radius: var(--oracle-radius-sm);
+  border-radius: var(--orako-radius-sm);
   height: 40px;
   line-height: 40px;
   transition: all 0.15s ease;
 }
 
 .ant-menu-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-  color: var(--oracle-text-primary) !important;
+  background-color: var(--orako-surface-secondary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 .ant-menu-item-selected {
-  background-color: var(--oracle-secondary) !important;
+  background-color: var(--orako-secondary) !important;
   color: white !important;
   font-weight: 600;
 }
 
 .ant-menu-item-selected:hover {
-  background-color: var(--oracle-secondary-dark) !important;
+  background-color: var(--orako-secondary-dark) !important;
   color: white !important;
 }
 
 /* Fix for collapsed sidebar - ensure selected items remain visible */
 .ant-layout-sider-collapsed .ant-menu-item-selected {
-  background-color: var(--oracle-secondary) !important;
+  background-color: var(--orako-secondary) !important;
   color: white !important;
   font-weight: 600;
 }
 
 .ant-layout-sider-collapsed .ant-menu-item-selected:hover {
-  background-color: var(--oracle-secondary-dark) !important;
+  background-color: var(--orako-secondary-dark) !important;
   color: white !important;
 }
 
@@ -122,36 +122,36 @@ body {
 }
 
 .ant-layout-sider-collapsed .ant-menu-item:hover .anticon {
-  color: var(--oracle-text-primary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 /* Force proper visibility for collapsed sidebar */
 .ant-layout-sider-collapsed .ant-menu-inline.ant-menu-root .ant-menu-item-selected {
-  background-color: var(--oracle-secondary) !important;
+  background-color: var(--orako-secondary) !important;
   color: white !important;
-  border-right: 3px solid var(--oracle-primary);
+  border-right: 3px solid var(--orako-primary);
 }
 
 .ant-layout-sider-collapsed .ant-menu-inline.ant-menu-root .ant-menu-item-selected::after {
-  border-right: 3px solid var(--oracle-primary);
+  border-right: 3px solid var(--orako-primary);
 }
 
 /* Override any white backgrounds that might be applied */
 .ant-layout-sider-collapsed .ant-menu-item-selected,
 .ant-layout-sider-collapsed .ant-menu-submenu-selected > .ant-menu-submenu-title {
-  background-color: var(--oracle-secondary) !important;
+  background-color: var(--orako-secondary) !important;
   color: white !important;
 }
 
 /* Ensure tooltip text is visible when hovering collapsed items */
 .ant-tooltip-inner {
-  background-color: var(--oracle-neutral-800) !important;
+  background-color: var(--orako-neutral-800) !important;
   color: white !important;
 }
 
 /* Additional collapsed sidebar fixes */
 .ant-layout-sider-collapsed .ant-menu-submenu-selected > .ant-menu-submenu-title {
-  background-color: var(--oracle-secondary) !important;
+  background-color: var(--orako-secondary) !important;
   color: white !important;
 }
 
@@ -160,21 +160,21 @@ body {
 }
 
 .ant-layout-sider-collapsed .ant-menu-submenu:hover > .ant-menu-submenu-title {
-  background-color: var(--oracle-surface-secondary) !important;
-  color: var(--oracle-text-primary) !important;
+  background-color: var(--orako-surface-secondary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 .ant-layout-sider-collapsed .ant-menu-submenu:hover > .ant-menu-submenu-title .anticon {
-  color: var(--oracle-text-primary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 /* Ensure menu items are always readable in collapsed state */
 .ant-layout-sider-collapsed .ant-menu-item {
-  color: var(--oracle-text-secondary) !important;
+  color: var(--orako-text-secondary) !important;
 }
 
 .ant-layout-sider-collapsed .ant-menu-item .anticon {
-  color: var(--oracle-text-secondary) !important;
+  color: var(--orako-text-secondary) !important;
 }
 
 /* High-priority override for collapsed sidebar selected items */
@@ -182,7 +182,7 @@ body {
 .ant-layout-sider-collapsed .ant-menu-item-selected:hover,
 .ant-layout-sider-collapsed .ant-menu-submenu-selected > .ant-menu-submenu-title,
 .ant-layout-sider-collapsed .ant-menu-submenu-selected > .ant-menu-submenu-title:hover {
-  background-color: var(--oracle-secondary) !important;
+  background-color: var(--orako-secondary) !important;
   color: white !important;
   font-weight: 600;
 }
@@ -196,43 +196,43 @@ body {
 /* Ensure normal menu items in collapsed state have proper contrast */
 .ant-layout-sider-collapsed .ant-menu-item:not(.ant-menu-item-selected) {
   background-color: transparent;
-  color: var(--oracle-text-secondary) !important;
+  color: var(--orako-text-secondary) !important;
 }
 
 .ant-layout-sider-collapsed .ant-menu-item:not(.ant-menu-item-selected):hover {
-  background-color: var(--oracle-surface-secondary) !important;
-  color: var(--oracle-text-primary) !important;
+  background-color: var(--orako-surface-secondary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 /* Fix Primary Button Text Color */
 .ant-btn-primary {
-  background-color: var(--oracle-primary) !important;
-  border-color: var(--oracle-primary) !important;
+  background-color: var(--orako-primary) !important;
+  border-color: var(--orako-primary) !important;
   color: white !important;
 }
 
 .ant-btn-primary:hover {
-  background-color: var(--oracle-primary-dark) !important;
-  border-color: var(--oracle-primary-dark) !important;
+  background-color: var(--orako-primary-dark) !important;
+  border-color: var(--orako-primary-dark) !important;
   color: white !important;
 }
 
 .ant-btn-primary:focus {
-  background-color: var(--oracle-primary) !important;
-  border-color: var(--oracle-primary) !important;
+  background-color: var(--orako-primary) !important;
+  border-color: var(--orako-primary) !important;
   color: white !important;
 }
 
 .ant-btn-primary:active {
-  background-color: var(--oracle-primary-dark) !important;
-  border-color: var(--oracle-primary-dark) !important;
+  background-color: var(--orako-primary-dark) !important;
+  border-color: var(--orako-primary-dark) !important;
   color: white !important;
 }
 
 .ant-btn-primary[disabled] {
-  background-color: var(--oracle-neutral-300) !important;
-  border-color: var(--oracle-neutral-300) !important;
-  color: var(--oracle-neutral-500) !important;
+  background-color: var(--orako-neutral-300) !important;
+  border-color: var(--orako-neutral-300) !important;
+  color: var(--orako-neutral-500) !important;
 }
 
 /* Fix primary button icon color */
@@ -241,7 +241,7 @@ body {
 }
 
 .ant-btn-primary[disabled] .anticon {
-  color: var(--oracle-neutral-500) !important;
+  color: var(--orako-neutral-500) !important;
 }
 
 /* Chat page specific send button fixes */
@@ -262,16 +262,16 @@ body {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 700;
-  color: var(--oracle-text-primary);
+  color: var(--orako-text-primary);
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--oracle-primary);
+  border-bottom: 2px solid var(--orako-primary);
 }
 
 .demo-section h3 {
   margin: 24px 0 16px 0;
   font-size: 18px;
   font-weight: 600;
-  color: var(--oracle-text-secondary);
+  color: var(--orako-text-secondary);
 }
 
 .demo-grid {
@@ -283,16 +283,16 @@ body {
 
 .demo-item {
   padding: 20px;
-  border: 1px solid var(--oracle-border);
-  border-radius: var(--oracle-radius-md);
-  background: var(--oracle-surface);
-  box-shadow: var(--oracle-shadow-sm);
+  border: 1px solid var(--orako-border);
+  border-radius: var(--orako-radius-md);
+  background: var(--orako-surface);
+  box-shadow: var(--orako-shadow-sm);
   transition: all 0.2s ease;
 }
 
 .demo-item:hover {
-  box-shadow: var(--oracle-shadow-md);
-  border-color: var(--oracle-secondary);
+  box-shadow: var(--orako-shadow-md);
+  border-color: var(--orako-secondary);
   transform: translateY(-1px);
 }
 
@@ -300,7 +300,7 @@ body {
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 700;
-  color: var(--oracle-primary);
+  color: var(--orako-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -327,80 +327,80 @@ body {
 
 .content-area {
   padding: 24px;
-  background: var(--oracle-background);
+  background: var(--orako-background);
   min-height: calc(100vh - 64px - 48px);
 }
 
 .page-header {
   margin-bottom: 32px;
   padding: 24px;
-  background: var(--oracle-surface);
-  border-radius: var(--oracle-radius-lg);
-  border: 1px solid var(--oracle-border);
-  box-shadow: var(--oracle-shadow-sm);
+  background: var(--orako-surface);
+  border-radius: var(--orako-radius-lg);
+  border: 1px solid var(--orako-border);
+  box-shadow: var(--orako-shadow-sm);
 }
 
 .page-header h1 {
   margin: 0 0 8px 0;
   font-size: 28px;
   font-weight: 700;
-  color: var(--oracle-text-primary);
+  color: var(--orako-text-primary);
 }
 
 .page-header p {
   margin: 0;
-  color: var(--oracle-text-secondary);
+  color: var(--orako-text-secondary);
   font-size: 16px;
   line-height: 1.6;
 }
 
 /* Oracle-style Card and Surface Styling */
 .ant-card {
-  border: 1px solid var(--oracle-border) !important;
-  border-radius: var(--oracle-radius-md);
-  box-shadow: var(--oracle-shadow-sm);
+  border: 1px solid var(--orako-border) !important;
+  border-radius: var(--orako-radius-md);
+  box-shadow: var(--orako-shadow-sm);
   transition: all 0.2s ease;
 }
 
 .ant-card:hover {
-  box-shadow: var(--oracle-shadow-md);
+  box-shadow: var(--orako-shadow-md);
 }
 
 .ant-card-head {
-  background-color: var(--oracle-surface-secondary) !important;
-  border-bottom: 1px solid var(--oracle-border);
-  border-radius: var(--oracle-radius-md) var(--oracle-radius-md) 0 0;
+  background-color: var(--orako-surface-secondary) !important;
+  border-bottom: 1px solid var(--orako-border);
+  border-radius: var(--orako-radius-md) var(--orako-radius-md) 0 0;
 }
 
 .ant-card-head-title {
-  color: var(--oracle-text-primary) !important;
+  color: var(--orako-text-primary) !important;
   font-weight: 600;
   font-size: 16px;
 }
 
 /* Professional Table Styling */
 .ant-table {
-  background-color: var(--oracle-surface) !important;
-  border-radius: var(--oracle-radius-md);
+  background-color: var(--orako-surface) !important;
+  border-radius: var(--orako-radius-md);
   overflow: hidden;
 }
 
 .ant-table-thead > tr > th {
-  background-color: var(--oracle-surface-secondary) !important;
-  color: var(--oracle-text-primary) !important;
+  background-color: var(--orako-surface-secondary) !important;
+  color: var(--orako-text-primary) !important;
   font-weight: 600;
-  border-bottom: 1px solid var(--oracle-border);
+  border-bottom: 1px solid var(--orako-border);
   font-size: 14px;
 }
 
 .ant-table-tbody > tr:hover > td {
-  background-color: var(--oracle-surface-tertiary) !important;
+  background-color: var(--orako-surface-tertiary) !important;
 }
 
 /* Enhanced Form Controls */
 .ant-input {
-  border-color: var(--oracle-border) !important;
-  border-radius: var(--oracle-radius-sm);
+  border-color: var(--orako-border) !important;
+  border-radius: var(--orako-radius-sm);
   padding: 8px 12px;
   font-size: 14px;
   transition: all 0.2s ease;
@@ -408,16 +408,16 @@ body {
 
 .ant-input:focus,
 .ant-input-focused {
-  border-color: var(--oracle-secondary) !important;
+  border-color: var(--orako-secondary) !important;
   box-shadow: 0 0 0 2px rgba(5, 114, 206, 0.1) !important;
 }
 
 .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
-  border-color: var(--oracle-secondary) !important;
+  border-color: var(--orako-secondary) !important;
 }
 
 .ant-select-focused .ant-select-selector {
-  border-color: var(--oracle-secondary) !important;
+  border-color: var(--orako-secondary) !important;
   box-shadow: 0 0 0 2px rgba(5, 114, 206, 0.1) !important;
 }
 
@@ -432,26 +432,26 @@ body {
   padding: 0 16px;
   height: 64px;
   line-height: 64px;
-  color: var(--oracle-text-secondary) !important;
+  color: var(--orako-text-secondary) !important;
   transition: all 0.2s ease;
 }
 
 .ant-menu-horizontal > .ant-menu-item:hover {
-  color: var(--oracle-primary) !important;
-  border-bottom-color: var(--oracle-primary);
+  color: var(--orako-primary) !important;
+  border-bottom-color: var(--orako-primary);
 }
 
 .ant-menu-horizontal > .ant-menu-item-selected {
-  color: var(--oracle-primary) !important;
-  border-bottom-color: var(--oracle-primary);
+  color: var(--orako-primary) !important;
+  border-bottom-color: var(--orako-primary);
   background-color: transparent !important;
 }
 
 /* Profile dropdown styling */
 .ant-dropdown-menu {
-  border-radius: var(--oracle-radius-md) !important;
-  box-shadow: var(--oracle-shadow-lg) !important;
-  border: 1px solid var(--oracle-border) !important;
+  border-radius: var(--orako-radius-md) !important;
+  box-shadow: var(--orako-shadow-lg) !important;
+  border: 1px solid var(--orako-border) !important;
 }
 
 .ant-dropdown-menu-item {
@@ -460,17 +460,17 @@ body {
 }
 
 .ant-dropdown-menu-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
+  background-color: var(--orako-surface-secondary) !important;
 }
 
 /* Search input in header */
 .ant-input-search {
-  border-radius: var(--oracle-radius-sm) !important;
+  border-radius: var(--orako-radius-sm) !important;
 }
 
 .ant-input-search .ant-input {
-  border-color: var(--oracle-border) !important;
-  background-color: var(--oracle-surface-secondary) !important;
+  border-color: var(--orako-border) !important;
+  background-color: var(--orako-surface-secondary) !important;
   height: 32px;
   line-height: 32px;
 }
@@ -481,18 +481,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-color: var(--oracle-border) !important;
-  background-color: var(--oracle-surface) !important;
+  border-color: var(--orako-border) !important;
+  background-color: var(--orako-surface) !important;
 }
 
 .ant-input-search .ant-input-search-button:hover {
-  background-color: var(--oracle-primary) !important;
-  border-color: var(--oracle-primary) !important;
+  background-color: var(--orako-primary) !important;
+  border-color: var(--orako-primary) !important;
   color: white !important;
 }
 
 .ant-input-search .ant-input:focus {
-  border-color: var(--oracle-primary) !important;
+  border-color: var(--orako-primary) !important;
   box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
 }
 
@@ -613,7 +613,7 @@ body {
 }
 
 .mailbox-sidebar .ant-input-search .ant-input-search-button {
-  border-left: 1px solid var(--oracle-border);
+  border-left: 1px solid var(--orako-border);
   flex-shrink: 0;
   width: 32px;
   min-width: 32px;
@@ -654,16 +654,16 @@ body {
 }
 
 .emoji-picker-popover .ant-popover-inner {
-  border-radius: var(--oracle-radius-md) !important;
-  box-shadow: var(--oracle-shadow-lg) !important;
+  border-radius: var(--orako-radius-md) !important;
+  box-shadow: var(--orako-shadow-lg) !important;
 }
 
 .emoji-picker-popover .ant-popover-title {
-  background-color: var(--oracle-surface-secondary) !important;
-  border-bottom: 1px solid var(--oracle-border);
+  background-color: var(--orako-surface-secondary) !important;
+  border-bottom: 1px solid var(--orako-border);
   font-size: 14px;
   font-weight: 600;
-  color: var(--oracle-text-primary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 /* Emoji picker button hover effects */
@@ -673,7 +673,7 @@ body {
   font-size: 20px;
   padding: 6px;
   cursor: pointer;
-  border-radius: var(--oracle-radius-sm);
+  border-radius: var(--orako-radius-sm);
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -683,13 +683,13 @@ body {
 }
 
 .emoji-button:hover {
-  background-color: var(--oracle-surface-secondary);
+  background-color: var(--orako-surface-secondary);
   transform: scale(1.1);
 }
 
 .emoji-button:active {
   transform: scale(0.95);
-  background-color: var(--oracle-primary);
+  background-color: var(--orako-primary);
   color: white;
 }
 
@@ -707,17 +707,17 @@ body {
 }
 
 .emoji-picker-container::-webkit-scrollbar-track {
-  background-color: var(--oracle-surface-secondary);
+  background-color: var(--orako-surface-secondary);
   border-radius: 3px;
 }
 
 .emoji-picker-container::-webkit-scrollbar-thumb {
-  background-color: var(--oracle-neutral-400);
+  background-color: var(--orako-neutral-400);
   border-radius: 3px;
 }
 
 .emoji-picker-container::-webkit-scrollbar-thumb:hover {
-  background-color: var(--oracle-neutral-500);
+  background-color: var(--orako-neutral-500);
 }
 
 /* Emoji grid layout */
@@ -729,24 +729,24 @@ body {
 
 /* ReactQuill Rich Text Editor Styling */
 .ql-toolbar {
-  border: 1px solid var(--oracle-border) !important;
+  border: 1px solid var(--orako-border) !important;
   border-bottom: none !important;
-  border-radius: var(--oracle-radius-sm) var(--oracle-radius-sm) 0 0 !important;
-  background-color: var(--oracle-surface-secondary) !important;
+  border-radius: var(--orako-radius-sm) var(--orako-radius-sm) 0 0 !important;
+  background-color: var(--orako-surface-secondary) !important;
   font-family: inherit !important;
 }
 
 .ql-container {
-  border: 1px solid var(--oracle-border) !important;
+  border: 1px solid var(--orako-border) !important;
   border-top: none !important;
-  border-radius: 0 0 var(--oracle-radius-sm) var(--oracle-radius-sm) !important;
-  background-color: var(--oracle-surface) !important;
+  border-radius: 0 0 var(--orako-radius-sm) var(--orako-radius-sm) !important;
+  background-color: var(--orako-surface) !important;
   font-family: inherit !important;
   font-size: 14px !important;
 }
 
 .ql-editor {
-  color: var(--oracle-text-primary) !important;
+  color: var(--orako-text-primary) !important;
   font-family: inherit !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
@@ -754,61 +754,61 @@ body {
 }
 
 .ql-editor.ql-blank::before {
-  color: var(--oracle-text-disabled) !important;
+  color: var(--orako-text-disabled) !important;
   font-style: normal;
   font-family: inherit !important;
 }
 
 .ql-toolbar .ql-stroke {
-  stroke: var(--oracle-text-secondary) !important;
+  stroke: var(--orako-text-secondary) !important;
 }
 
 .ql-toolbar .ql-fill {
-  fill: var(--oracle-text-secondary) !important;
+  fill: var(--orako-text-secondary) !important;
 }
 
 .ql-toolbar .ql-picker-label {
-  color: var(--oracle-text-secondary) !important;
+  color: var(--orako-text-secondary) !important;
 }
 
 .ql-toolbar button:hover .ql-stroke,
 .ql-toolbar button:focus .ql-stroke,
 .ql-toolbar button.ql-active .ql-stroke {
-  stroke: var(--oracle-primary) !important;
+  stroke: var(--orako-primary) !important;
 }
 
 .ql-toolbar button:hover .ql-fill,
 .ql-toolbar button:focus .ql-fill,
 .ql-toolbar button.ql-active .ql-fill {
-  fill: var(--oracle-primary) !important;
+  fill: var(--orako-primary) !important;
 }
 
 .ql-toolbar button:hover,
 .ql-toolbar button:focus,
 .ql-toolbar button.ql-active {
-  background-color: var(--oracle-primary-light) !important;
-  border-radius: var(--oracle-radius-sm);
+  background-color: var(--orako-primary-light) !important;
+  border-radius: var(--orako-radius-sm);
 }
 
 .ql-picker-options {
-  background-color: var(--oracle-surface) !important;
-  border: 1px solid var(--oracle-border) !important;
-  border-radius: var(--oracle-radius-sm) !important;
-  box-shadow: var(--oracle-shadow-md) !important;
+  background-color: var(--orako-surface) !important;
+  border: 1px solid var(--orako-border) !important;
+  border-radius: var(--orako-radius-sm) !important;
+  box-shadow: var(--orako-shadow-md) !important;
 }
 
 .ql-picker-item {
-  color: var(--oracle-text-primary) !important;
+  color: var(--orako-text-primary) !important;
 }
 
 .ql-picker-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
-  color: var(--oracle-primary) !important;
+  background-color: var(--orako-surface-secondary) !important;
+  color: var(--orako-primary) !important;
 }
 
 /* Focus state for the entire editor */
 .ql-container.ql-snow {
-  border-color: var(--oracle-border) !important;
+  border-color: var(--orako-border) !important;
 }
 
 .ql-editor:focus {
@@ -818,7 +818,7 @@ body {
 /* Custom focus styling for the entire editor */
 .react-quill-focused .ql-toolbar,
 .react-quill-focused .ql-container {
-  border-color: var(--oracle-primary) !important;
+  border-color: var(--orako-primary) !important;
   box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
 }
 
@@ -827,7 +827,7 @@ body {
 .ant-dropdown-menu,
 .topbar-menu .ant-dropdown-menu,
 .topbar-menu .ant-menu-submenu-popup {
-  background-color: var(--oracle-surface) !important;
+  background-color: var(--orako-surface) !important;
   opacity: 1;
 }
 
@@ -835,7 +835,7 @@ body {
 .ant-dropdown-menu .ant-menu-item,
 .topbar-menu .ant-dropdown-menu .ant-menu-item,
 topbar-menu .ant-menu-submenu-popup .ant-menu-item {
-  background-color: var(--oracle-surface) !important;
+  background-color: var(--orako-surface) !important;
   opacity: 1;
 }
 
@@ -843,7 +843,7 @@ topbar-menu .ant-menu-submenu-popup .ant-menu-item {
 .ant-dropdown-menu .ant-menu-item:hover,
 .topbar-menu .ant-dropdown-menu .ant-menu-item:hover,
 topbar-menu .ant-menu-submenu-popup .ant-menu-item:hover {
-  background-color: var(--oracle-surface-secondary) !important;
+  background-color: var(--orako-surface-secondary) !important;
   opacity: 1;
 }
 

@@ -100,7 +100,7 @@ const ReportsPage = () => {
       render: (text, record) => (
         <div>
           <div style={{ fontWeight: 500 }}>{text}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.description}
           </div>
         </div>
@@ -295,14 +295,14 @@ const ReportsPage = () => {
             </div>
             <div style={{ 
               height: '400px', 
-              background: 'var(--oracle-bg-secondary)', 
+              background: 'var(--orako-bg-secondary)', 
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '1px solid var(--oracle-border)'
+              border: '1px solid var(--orako-border)'
             }}>
-              <div style={{ textAlign: 'center', color: 'var(--oracle-text-secondary)' }}>
+              <div style={{ textAlign: 'center', color: 'var(--orako-text-secondary)' }}>
                 <FileTextOutlined style={{ fontSize: '64px', marginBottom: '16px' }} />
                 <div style={{ fontSize: '18px', marginBottom: '8px' }}>Report Preview</div>
                 <div>In a real application, this would show the actual report content</div>

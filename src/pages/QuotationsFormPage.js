@@ -422,7 +422,7 @@ const QuotationsFormPage = () => {
             key: 'amount',
             width: 120,
             render: (_, record) => (
-              <Text strong style={{ color: 'var(--oracle-success)' }}>
+              <Text strong style={{ color: 'var(--orako-success)' }}>
                 ${record.amount?.toLocaleString() || '0.00'}
               </Text>
             ),
@@ -466,7 +466,7 @@ const QuotationsFormPage = () => {
                   <Text strong style={{ fontSize: '16px' }}>Total Amount</Text>
                 </Table.Summary.Cell>
                 <Table.Summary.Cell index={4}>
-                  <Text strong style={{ fontSize: '16px', color: 'var(--oracle-success)' }}>
+                  <Text strong style={{ fontSize: '16px', color: 'var(--orako-success)' }}>
                     ${total.toLocaleString()}
                   </Text>
                 </Table.Summary.Cell>
@@ -594,7 +594,7 @@ const QuotationsFormPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <Title level={1}>
-          <FormOutlined style={{ marginRight: '12px', color: 'var(--oracle-primary)' }} />
+          <FormOutlined style={{ marginRight: '12px', color: 'var(--orako-primary)' }} />
           Create Quotation
         </Title>
         <Paragraph>
@@ -621,7 +621,7 @@ const QuotationsFormPage = () => {
             <div style={{ textAlign: 'right' }}>
               <Text type="secondary">Current Total</Text>
               <br />
-              <Text strong style={{ fontSize: '24px', color: 'var(--oracle-success)' }}>
+              <Text strong style={{ fontSize: '24px', color: 'var(--orako-success)' }}>
                 ${total.toLocaleString()}
               </Text>
             </div>
@@ -718,7 +718,7 @@ const QuotationsFormPage = () => {
             <div style={{ textAlign: 'center' }}>
               <Text type="secondary">Calculated Total</Text>
               <br />
-              <Text strong style={{ fontSize: '20px', color: 'var(--oracle-success)' }}>
+              <Text strong style={{ fontSize: '20px', color: 'var(--orako-success)' }}>
                 $0.00
               </Text>
             </div>

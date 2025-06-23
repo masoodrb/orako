@@ -564,8 +564,8 @@ const KanbanPage = () => {
       style={{ 
         marginBottom: 12,
         borderRadius: 8,
-        boxShadow: 'var(--oracle-shadow-sm)',
-        border: '1px solid var(--oracle-border)',
+        boxShadow: 'var(--orako-shadow-sm)',
+        border: '1px solid var(--orako-border)',
         cursor: 'pointer',
         transition: 'all 0.3s ease'
       }}
@@ -608,7 +608,7 @@ const KanbanPage = () => {
         style={{ 
           marginBottom: 12, 
           fontSize: '12px', 
-          color: 'var(--oracle-text-secondary)',
+          color: 'var(--orako-text-secondary)',
           lineHeight: '16px'
         }}
         ellipsis={{ rows: 2 }}
@@ -619,7 +619,7 @@ const KanbanPage = () => {
       {task.progress > 0 && (
         <div style={{ marginBottom: 12 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-            <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+            <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
               Progress
             </Text>
             <Text style={{ fontSize: '11px', fontWeight: 500 }}>
@@ -629,7 +629,7 @@ const KanbanPage = () => {
           <Progress 
             percent={task.progress} 
             size="small" 
-            strokeColor="var(--oracle-primary)"
+            strokeColor="var(--orako-primary)"
             showInfo={false}
           />
         </div>
@@ -643,7 +643,7 @@ const KanbanPage = () => {
               src={task.assignee?.avatar}
               icon={!task.assignee?.avatar ? <UserOutlined /> : undefined}
               style={{ 
-                backgroundColor: task.assignee?.avatar ? 'transparent' : 'var(--oracle-primary)',
+                backgroundColor: task.assignee?.avatar ? 'transparent' : 'var(--orako-primary)',
                 fontSize: '12px'
               }}
             >
@@ -668,8 +668,8 @@ const KanbanPage = () => {
           {task.comments > 0 && (
             <Tooltip title={`${task.comments} comments`}>
               <Space size={2}>
-                <CommentOutlined style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }} />
-                <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                <CommentOutlined style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }} />
+                <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                   {task.comments}
                 </Text>
               </Space>
@@ -679,8 +679,8 @@ const KanbanPage = () => {
           {task.attachments > 0 && (
             <Tooltip title={`${task.attachments} attachments`}>
               <Space size={2}>
-                <PaperClipOutlined style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }} />
-                <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                <PaperClipOutlined style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }} />
+                <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                   {task.attachments}
                 </Text>
               </Space>
@@ -690,10 +690,10 @@ const KanbanPage = () => {
       </div>
 
       {(task.timeSpent > 0 || task.estimatedHours > 0) && (
-        <div style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--oracle-border)' }}>
+        <div style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--orako-border)' }}>
           <Space>
-            <ClockCircleOutlined style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }} />
-            <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+            <ClockCircleOutlined style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }} />
+            <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
               {task.timeSpent || 0}h / {task.estimatedHours || 0}h
             </Text>
             {task.estimatedHours > 0 && (
@@ -760,10 +760,10 @@ const KanbanPage = () => {
         ref={setNodeRef}
         style={{ 
           flex: '0 0 300px',
-          backgroundColor: isOver ? 'rgba(24, 144, 255, 0.05)' : 'var(--oracle-background)',
+          backgroundColor: isOver ? 'rgba(24, 144, 255, 0.05)' : 'var(--orako-background)',
           borderRadius: 8,
           padding: 16,
-          border: isOver ? '2px solid #1890ff' : '1px solid var(--oracle-border)',
+          border: isOver ? '2px solid #1890ff' : '1px solid var(--orako-border)',
           minHeight: 500,
           transition: 'all 0.2s ease',
         }}
@@ -797,7 +797,7 @@ const KanbanPage = () => {
             size="small" 
             icon={<PlusOutlined />}
             onClick={handleAddTask}
-            style={{ color: 'var(--oracle-text-secondary)' }}
+            style={{ color: 'var(--orako-text-secondary)' }}
           />
         </div>
 
@@ -813,11 +813,11 @@ const KanbanPage = () => {
             {column.tasks.length === 0 && (
               <div style={{ 
                 textAlign: 'center', 
-                color: 'var(--oracle-text-secondary)',
+                color: 'var(--orako-text-secondary)',
                 padding: '40px 20px',
-                backgroundColor: 'var(--oracle-surface)',
+                backgroundColor: 'var(--orako-surface)',
                 borderRadius: 8,
-                border: '2px dashed var(--oracle-border)'
+                border: '2px dashed var(--orako-border)'
               }}>
                 <Text>No tasks in this column</Text>
                 <br />
@@ -845,10 +845,10 @@ const KanbanPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <div style={{ flex: 1 }}>
-          <Title level={2} style={{ margin: 0, color: 'var(--oracle-text-primary)' }}>
+          <Title level={2} style={{ margin: 0, color: 'var(--orako-text-primary)' }}>
             Kanban Board
           </Title>
-          <Text style={{ color: 'var(--oracle-text-secondary)', fontSize: '16px' }}>
+          <Text style={{ color: 'var(--orako-text-secondary)', fontSize: '16px' }}>
             Manage your projects with visual task boards and workflows - Drag and drop to organize tasks
           </Text>
         </div>

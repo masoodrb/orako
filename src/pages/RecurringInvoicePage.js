@@ -212,7 +212,7 @@ const RecurringInvoicePage = () => {
       dataIndex: 'amount',
       key: 'amount',
       render: (amount, record) => (
-        <Text strong style={{ color: 'var(--oracle-success)' }}>
+        <Text strong style={{ color: 'var(--orako-success)' }}>
           {record.currency} ${amount.toLocaleString()}
         </Text>
       ),
@@ -250,7 +250,7 @@ const RecurringInvoicePage = () => {
           <Progress 
             percent={rate} 
             size="small" 
-            strokeColor={rate >= 95 ? 'var(--oracle-success)' : rate >= 80 ? 'var(--oracle-warning)' : 'var(--oracle-error)'}
+            strokeColor={rate >= 95 ? 'var(--orako-success)' : rate >= 80 ? 'var(--orako-warning)' : 'var(--orako-error)'}
             format={(percent) => `${percent}%`}
           />
         );
@@ -263,7 +263,7 @@ const RecurringInvoicePage = () => {
       key: 'nextInvoice',
       render: (date) => date ? (
         <span style={{ 
-          color: dayjs(date).isBefore(dayjs().add(7, 'days')) ? 'var(--oracle-warning)' : 'inherit' 
+          color: dayjs(date).isBefore(dayjs().add(7, 'days')) ? 'var(--orako-warning)' : 'inherit' 
         }}>
           {dayjs(date).format('MMM DD, YYYY')}
         </span>
@@ -370,7 +370,7 @@ const RecurringInvoicePage = () => {
               value={totalRecurringValue}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <Text type="secondary">Active templates</Text>
           </Card>
@@ -380,7 +380,7 @@ const RecurringInvoicePage = () => {
             <Statistic
               title="Active Templates"
               value={activeTemplates}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <Text type="secondary">Currently running</Text>
           </Card>
@@ -390,7 +390,7 @@ const RecurringInvoicePage = () => {
             <Statistic
               title="Total Invoices Generated"
               value={totalInvoicesGenerated}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
             <Text type="secondary">All time</Text>
           </Card>
@@ -402,7 +402,7 @@ const RecurringInvoicePage = () => {
               value={overallSuccessRate}
               suffix="%"
               precision={1}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <Text type="secondary">Successful deliveries</Text>
           </Card>

@@ -29,9 +29,9 @@ const DashboardPage = () => {
               title="Total Revenue"
               value={112893}
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
               prefix={<DollarOutlined />}
-              suffix={<ArrowUpOutlined style={{ color: 'var(--oracle-success)' }} />}
+              suffix={<ArrowUpOutlined style={{ color: 'var(--orako-success)' }} />}
             />
           </Card>
         </Col>
@@ -40,9 +40,9 @@ const DashboardPage = () => {
             <Statistic
               title="Active Users"
               value={1128}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
               prefix={<UserOutlined />}
-              suffix={<ArrowUpOutlined style={{ color: 'var(--oracle-success)' }} />}
+              suffix={<ArrowUpOutlined style={{ color: 'var(--orako-success)' }} />}
             />
           </Card>
         </Col>
@@ -51,9 +51,9 @@ const DashboardPage = () => {
             <Statistic
               title="Orders"
               value={93}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
               prefix={<ShoppingCartOutlined />}
-              suffix={<ArrowDownOutlined style={{ color: 'var(--oracle-error)' }} />}
+              suffix={<ArrowDownOutlined style={{ color: 'var(--orako-error)' }} />}
             />
           </Card>
         </Col>
@@ -63,7 +63,7 @@ const DashboardPage = () => {
               title="Page Views"
               value={11280}
               prefix={<EyeOutlined />}
-              suffix={<ArrowUpOutlined style={{ color: 'var(--oracle-success)' }} />}
+              suffix={<ArrowUpOutlined style={{ color: 'var(--orako-success)' }} />}
             />
           </Card>
         </Col>
@@ -76,7 +76,7 @@ const DashboardPage = () => {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <Paragraph style={{ margin: 0, fontWeight: 500 }}>CPU Usage</Paragraph>
-                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--oracle-warning)' }}>75%</span>
+                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--orako-warning)' }}>75%</span>
                 </div>
                 <Progress 
                   percent={75} 
@@ -91,7 +91,7 @@ const DashboardPage = () => {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <Paragraph style={{ margin: 0, fontWeight: 500 }}>Memory Usage</Paragraph>
-                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--oracle-primary)' }}>45%</span>
+                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--orako-primary)' }}>45%</span>
                 </div>
                 <Progress 
                   percent={45} 
@@ -102,7 +102,7 @@ const DashboardPage = () => {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <Paragraph style={{ margin: 0, fontWeight: 500 }}>Disk Usage</Paragraph>
-                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--oracle-error)' }}>85%</span>
+                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--orako-error)' }}>85%</span>
                 </div>
                 <Progress 
                   percent={85} 
@@ -114,7 +114,7 @@ const DashboardPage = () => {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <Paragraph style={{ margin: 0, fontWeight: 500 }}>Network I/O</Paragraph>
-                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--oracle-success)' }}>30%</span>
+                  <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--orako-success)' }}>30%</span>
                 </div>
                 <Progress 
                   percent={30} 

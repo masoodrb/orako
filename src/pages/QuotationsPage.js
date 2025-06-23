@@ -312,7 +312,7 @@ const QuotationsPage = () => {
       width: 140,
       render: (text, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-primary)' }}>{text}</Text>
+          <Text strong style={{ color: 'var(--orako-primary)' }}>{text}</Text>
           <br />
           <Text type="secondary" style={{ fontSize: '12px' }}>
             {dayjs(record.createdDate).format('MMM DD, YYYY')}
@@ -360,7 +360,7 @@ const QuotationsPage = () => {
       width: 120,
       render: (amount, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-success)', fontSize: '16px' }}>
+          <Text strong style={{ color: 'var(--orako-success)', fontSize: '16px' }}>
             ${amount.toLocaleString()}
           </Text>
           <br />
@@ -392,7 +392,7 @@ const QuotationsPage = () => {
           <Progress 
             percent={record.probability} 
             size="small" 
-            strokeColor={record.probability > 70 ? 'var(--oracle-success)' : record.probability > 40 ? 'var(--oracle-warning)' : 'var(--oracle-error)'}
+            strokeColor={record.probability > 70 ? 'var(--orako-success)' : record.probability > 40 ? 'var(--orako-warning)' : 'var(--orako-error)'}
           />
           <Text type="secondary" style={{ fontSize: '11px' }}>Win Rate: {record.probability}%</Text>
         </div>
@@ -405,7 +405,7 @@ const QuotationsPage = () => {
       width: 110,
       render: (date) => (
         <Text style={{ 
-          color: dayjs(date).isBefore(dayjs()) ? 'var(--oracle-error)' : 'var(--oracle-text-primary)' 
+          color: dayjs(date).isBefore(dayjs()) ? 'var(--orako-error)' : 'var(--orako-text-primary)' 
         }}>
           {dayjs(date).format('MMM DD, YYYY')}
         </Text>
@@ -485,7 +485,7 @@ const QuotationsPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <Title level={1}>
-          <FileSearchOutlined style={{ marginRight: '12px', color: 'var(--oracle-primary)' }} />
+          <FileSearchOutlined style={{ marginRight: '12px', color: 'var(--orako-primary)' }} />
           Quotations Management
         </Title>
         <Paragraph>
@@ -501,7 +501,7 @@ const QuotationsPage = () => {
               title="Total Quotations"
               value={statisticsData.totalQuotations}
               prefix={<FileSearchOutlined />}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
           </Card>
         </Col>
@@ -512,7 +512,7 @@ const QuotationsPage = () => {
               value={statisticsData.totalValue}
               prefix="$"
               precision={0}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -523,7 +523,7 @@ const QuotationsPage = () => {
               value={statisticsData.winRate}
               suffix="%"
               prefix={<TrophyOutlined />}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
           </Card>
         </Col>
@@ -534,7 +534,7 @@ const QuotationsPage = () => {
               value={statisticsData.avgQuotationValue}
               prefix="$"
               precision={0}
-              valueStyle={{ color: 'var(--oracle-info)' }}
+              valueStyle={{ color: 'var(--orako-info)' }}
             />
           </Card>
         </Col>
@@ -693,7 +693,7 @@ const QuotationsPage = () => {
               <Descriptions.Item label="Email">{selectedQuotation.email}</Descriptions.Item>
               <Descriptions.Item label="Phone">{selectedQuotation.phone}</Descriptions.Item>
               <Descriptions.Item label="Total Amount">
-                <Text strong style={{ color: 'var(--oracle-success)', fontSize: '16px' }}>
+                <Text strong style={{ color: 'var(--orako-success)', fontSize: '16px' }}>
                   ${selectedQuotation.totalAmount.toLocaleString()} {selectedQuotation.currency}
                 </Text>
               </Descriptions.Item>

@@ -166,10 +166,10 @@ const EstimatesPage = () => {
   };
 
   const getProbabilityColor = (probability) => {
-    if (probability >= 80) return 'var(--oracle-success)';
-    if (probability >= 60) return 'var(--oracle-warning)';
-    if (probability >= 40) return 'var(--oracle-secondary)';
-    return 'var(--oracle-error)';
+    if (probability >= 80) return 'var(--orako-success)';
+    if (probability >= 60) return 'var(--orako-warning)';
+    if (probability >= 40) return 'var(--orako-secondary)';
+    return 'var(--orako-error)';
   };
 
   const columns = [
@@ -196,7 +196,7 @@ const EstimatesPage = () => {
       dataIndex: 'amount',
       key: 'amount',
       render: (amount, record) => (
-        <Text strong style={{ color: 'var(--oracle-success)' }}>
+        <Text strong style={{ color: 'var(--orako-success)' }}>
           {record.currency} ${amount.toLocaleString()}
         </Text>
       ),
@@ -235,7 +235,7 @@ const EstimatesPage = () => {
       key: 'validUntil',
       render: (date) => (
         <span style={{ 
-          color: dayjs(date).isBefore(dayjs()) ? 'var(--oracle-error)' : 'inherit' 
+          color: dayjs(date).isBefore(dayjs()) ? 'var(--orako-error)' : 'inherit' 
         }}>
           {dayjs(date).format('MMM DD, YYYY')}
         </span>
@@ -339,7 +339,7 @@ const EstimatesPage = () => {
               value={totalEstimateValue}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <Text type="secondary">All estimates</Text>
           </Card>
@@ -351,7 +351,7 @@ const EstimatesPage = () => {
               value={acceptedValue}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <Text type="secondary">Won estimates</Text>
           </Card>
@@ -363,7 +363,7 @@ const EstimatesPage = () => {
               value={pendingValue}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <Text type="secondary">Awaiting response</Text>
           </Card>
@@ -375,7 +375,7 @@ const EstimatesPage = () => {
               value={winRate}
               suffix="%"
               precision={1}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
             <Text type="secondary">Success rate</Text>
           </Card>

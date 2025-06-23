@@ -284,11 +284,11 @@ const BestSellingItemsPage = () => {
             src={record.image} 
             size={50}
             shape="square"
-            style={{ backgroundColor: 'var(--oracle-color-bg-container)' }}
+            style={{ backgroundColor: 'var(--orako-color-bg-container)' }}
           />
           <div>
-            <div style={{ fontWeight: 600, color: 'var(--oracle-color-text)' }}>{name}</div>
-            <div style={{ fontSize: '12px', color: 'var(--oracle-color-text-secondary)' }}>
+            <div style={{ fontWeight: 600, color: 'var(--orako-color-text)' }}>{name}</div>
+            <div style={{ fontSize: '12px', color: 'var(--orako-color-text-secondary)' }}>
               SKU: {record.sku}
             </div>
             <div style={{ marginTop: '4px' }}>
@@ -320,7 +320,7 @@ const BestSellingItemsPage = () => {
       key: 'unitsSold',
       sorter: (a, b) => a.unitsSold - b.unitsSold,
       render: (unitsSold) => (
-        <Text strong style={{ color: 'var(--oracle-color-primary)' }}>
+        <Text strong style={{ color: 'var(--orako-color-primary)' }}>
           {unitsSold.toLocaleString()}
         </Text>
       )
@@ -331,7 +331,7 @@ const BestSellingItemsPage = () => {
       key: 'revenue',
       sorter: (a, b) => a.revenue - b.revenue,
       render: (revenue) => (
-        <Text strong style={{ color: 'var(--oracle-color-success)' }}>
+        <Text strong style={{ color: 'var(--orako-color-success)' }}>
           ${revenue.toLocaleString()}
         </Text>
       )
@@ -385,7 +385,7 @@ const BestSellingItemsPage = () => {
       render: (rating, record) => (
         <div>
           <Rate disabled value={rating} style={{ fontSize: '14px' }} />
-          <div style={{ fontSize: '12px', color: 'var(--oracle-color-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-color-text-secondary)' }}>
             {rating} ({record.reviews} reviews)
           </div>
         </div>
@@ -450,11 +450,11 @@ const BestSellingItemsPage = () => {
   };
 
   return (
-    <div style={{ padding: '24px', backgroundColor: 'var(--oracle-color-bg-layout)' }}>
+    <div style={{ padding: '24px', backgroundColor: 'var(--orako-color-bg-layout)' }}>
       {/* Header */}
       <div style={{ marginBottom: '24px' }}>
-        <Title level={2} style={{ margin: 0, color: 'var(--oracle-color-text)' }}>
-          <FireOutlined style={{ marginRight: '12px', color: 'var(--oracle-color-primary)' }} />
+        <Title level={2} style={{ margin: 0, color: 'var(--orako-color-text)' }}>
+          <FireOutlined style={{ marginRight: '12px', color: 'var(--orako-color-primary)' }} />
           Best Selling Items
         </Title>
         <Text type="secondary">Track and analyze your top performing products</Text>
@@ -467,8 +467,8 @@ const BestSellingItemsPage = () => {
             <Statistic
               title="Total Revenue"
               value={totalRevenue}
-              prefix={<DollarOutlined style={{ color: 'var(--oracle-color-success)' }} />}
-              valueStyle={{ color: 'var(--oracle-color-success)' }}
+              prefix={<DollarOutlined style={{ color: 'var(--orako-color-success)' }} />}
+              valueStyle={{ color: 'var(--orako-color-success)' }}
               formatter={(value) => `$${value.toLocaleString()}`}
             />
           </Card>
@@ -478,8 +478,8 @@ const BestSellingItemsPage = () => {
             <Statistic
               title="Total Units Sold"
               value={totalUnitsSold}
-              prefix={<ShoppingCartOutlined style={{ color: 'var(--oracle-color-primary)' }} />}
-              valueStyle={{ color: 'var(--oracle-color-primary)' }}
+              prefix={<ShoppingCartOutlined style={{ color: 'var(--orako-color-primary)' }} />}
+              valueStyle={{ color: 'var(--orako-color-primary)' }}
               formatter={(value) => value.toLocaleString()}
             />
           </Card>
@@ -489,10 +489,10 @@ const BestSellingItemsPage = () => {
             <Statistic
               title="Avg Profit Margin"
               value={avgProfitMargin}
-              prefix={<BarChartOutlined style={{ color: 'var(--oracle-color-warning)' }} />}
+              prefix={<BarChartOutlined style={{ color: 'var(--orako-color-warning)' }} />}
               suffix="%"
               precision={1}
-              valueStyle={{ color: 'var(--oracle-color-warning)' }}
+              valueStyle={{ color: 'var(--orako-color-warning)' }}
             />
           </Card>
         </Col>
@@ -501,8 +501,8 @@ const BestSellingItemsPage = () => {
             <Statistic
               title="Categories"
               value={topCategories.length}
-              prefix={<TagOutlined style={{ color: 'var(--oracle-color-info)' }} />}
-              valueStyle={{ color: 'var(--oracle-color-info)' }}
+              prefix={<TagOutlined style={{ color: 'var(--orako-color-info)' }} />}
+              valueStyle={{ color: 'var(--orako-color-info)' }}
             />
           </Card>
         </Col>
@@ -592,7 +592,7 @@ const BestSellingItemsPage = () => {
             onChange: setSelectedRowKeys,
           }}
           summary={(pageData) => (
-            <Table.Summary.Row style={{ backgroundColor: 'var(--oracle-color-bg-container)' }}>
+            <Table.Summary.Row style={{ backgroundColor: 'var(--orako-color-bg-container)' }}>
               <Table.Summary.Cell colSpan={3}>
                 <Text strong>Page Total</Text>
               </Table.Summary.Cell>
@@ -838,7 +838,7 @@ const BestSellingItemsPage = () => {
 
               <TabPane tab="Performance" key="3">
                 <div style={{ textAlign: 'center', padding: '40px' }}>
-                  <BarChartOutlined style={{ fontSize: '48px', color: 'var(--oracle-color-text-secondary)' }} />
+                  <BarChartOutlined style={{ fontSize: '48px', color: 'var(--orako-color-text-secondary)' }} />
                   <div style={{ marginTop: '16px' }}>
                     <Text type="secondary">Performance charts and analytics would be displayed here</Text>
                   </div>

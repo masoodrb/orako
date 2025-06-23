@@ -227,7 +227,7 @@ const SalesMarketingPage = () => {
         <Space>
           <Avatar 
             src={record.avatar}
-            style={{ backgroundColor: 'var(--oracle-primary)' }}
+            style={{ backgroundColor: 'var(--orako-primary)' }}
             icon={!record.avatar ? undefined : undefined}
           >
             {!record.avatar && name.split(' ').map(n => n[0]).join('')}
@@ -247,7 +247,7 @@ const SalesMarketingPage = () => {
           <div>
             <Progress 
               percent={percentage} 
-              strokeColor={percentage >= 100 ? 'var(--oracle-success)' : 'var(--oracle-warning)'}
+              strokeColor={percentage >= 100 ? 'var(--orako-success)' : 'var(--orako-warning)'}
               format={() => `${percentage.toFixed(1)}%`}
             />
             <div style={{ fontSize: '12px', marginTop: '4px' }}>
@@ -261,7 +261,7 @@ const SalesMarketingPage = () => {
       title: 'Deals',
       dataIndex: 'deals',
       key: 'deals',
-      render: (deals) => <Badge count={deals} style={{ backgroundColor: 'var(--oracle-secondary)' }} />,
+      render: (deals) => <Badge count={deals} style={{ backgroundColor: 'var(--orako-secondary)' }} />,
     },
     {
       title: 'Avg Deal Size',
@@ -306,7 +306,7 @@ const SalesMarketingPage = () => {
       render: (_, record) => (
         <div>
           <div style={{ fontWeight: 600 }}>{record.name}</div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             {record.type} • {record.channel}
           </div>
         </div>
@@ -321,7 +321,7 @@ const SalesMarketingPage = () => {
           <div>
             <Progress 
               percent={spentPercentage} 
-              strokeColor="var(--oracle-warning)"
+              strokeColor="var(--orako-warning)"
               format={() => `${spentPercentage.toFixed(1)}%`}
             />
             <div style={{ fontSize: '12px', marginTop: '4px' }}>
@@ -335,13 +335,13 @@ const SalesMarketingPage = () => {
       title: 'Leads',
       dataIndex: 'leads',
       key: 'leads',
-      render: (leads) => <span style={{ color: 'var(--oracle-secondary)' }}>{leads.toLocaleString()}</span>,
+      render: (leads) => <span style={{ color: 'var(--orako-secondary)' }}>{leads.toLocaleString()}</span>,
     },
     {
       title: 'Conversions',
       dataIndex: 'conversions',
       key: 'conversions',
-      render: (conversions) => <span style={{ color: 'var(--oracle-success)' }}>{conversions}</span>,
+      render: (conversions) => <span style={{ color: 'var(--orako-success)' }}>{conversions}</span>,
     },
     {
       title: 'Revenue',
@@ -353,7 +353,7 @@ const SalesMarketingPage = () => {
       title: 'ROI',
       dataIndex: 'roi',
       key: 'roi',
-      render: (roi) => <span style={{ color: 'var(--oracle-success)' }}>{roi}%</span>,
+      render: (roi) => <span style={{ color: 'var(--orako-success)' }}>{roi}%</span>,
     },
     {
       title: 'Status',
@@ -389,14 +389,14 @@ const SalesMarketingPage = () => {
         <Space>
           <Avatar 
             src={record.avatar}
-            style={{ backgroundColor: 'var(--oracle-primary)' }}
+            style={{ backgroundColor: 'var(--orako-primary)' }}
             icon={!record.avatar ? undefined : undefined}
           >
             {!record.avatar && record.name.split(' ').map(n => n[0]).join('')}
           </Avatar>
           <div>
             <div style={{ fontWeight: 600 }}>{record.name}</div>
-            <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
               {record.company}
             </div>
           </div>
@@ -417,7 +417,7 @@ const SalesMarketingPage = () => {
         <Progress 
           percent={score} 
           size="small" 
-          strokeColor="var(--oracle-primary)"
+          strokeColor="var(--orako-primary)"
           format={percent => `${percent}`}
         />
       ),
@@ -501,7 +501,7 @@ const SalesMarketingPage = () => {
       render: (_, record) => {
         const isPositive = record.trend === 'up';
         const icon = isPositive ? <RiseOutlined /> : <FallOutlined />;
-        const color = isPositive ? 'var(--oracle-success)' : 'var(--oracle-error)';
+        const color = isPositive ? 'var(--orako-success)' : 'var(--orako-error)';
         
         return (
           <span style={{ color }}>
@@ -592,7 +592,7 @@ const SalesMarketingPage = () => {
         <Space>
           <SoundOutlined />
           <span>Marketing Campaigns</span>
-          <Badge count={campaignsData.filter(c => c.status === 'Active').length} style={{ backgroundColor: 'var(--oracle-secondary)' }} />
+          <Badge count={campaignsData.filter(c => c.status === 'Active').length} style={{ backgroundColor: 'var(--orako-secondary)' }} />
         </Space>
       ),
       children: (
@@ -749,11 +749,11 @@ const SalesMarketingPage = () => {
               value={428000}
               prefix={<DollarOutlined />}
               precision={0}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <RiseOutlined style={{ color: 'var(--oracle-success)' }} />
-              <span style={{ color: 'var(--oracle-success)', marginLeft: '4px' }}>
+              <RiseOutlined style={{ color: 'var(--orako-success)' }} />
+              <span style={{ color: 'var(--orako-success)', marginLeft: '4px' }}>
                 +18.5% vs target
               </span>
             </div>
@@ -766,10 +766,10 @@ const SalesMarketingPage = () => {
               value={96.2}
               suffix="%"
               prefix={<TrophyOutlined />}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 Average target achievement
               </span>
             </div>
@@ -782,11 +782,11 @@ const SalesMarketingPage = () => {
               value={1532}
               suffix="%"
               prefix={<ThunderboltOutlined />}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <RiseOutlined style={{ color: 'var(--oracle-success)' }} />
-              <span style={{ color: 'var(--oracle-success)', marginLeft: '4px' }}>
+              <RiseOutlined style={{ color: 'var(--orako-success)' }} />
+              <span style={{ color: 'var(--orako-success)', marginLeft: '4px' }}>
                 +245% from last quarter
               </span>
             </div>
@@ -798,10 +798,10 @@ const SalesMarketingPage = () => {
               title="Active Campaigns"
               value={8}
               prefix={<SoundOutlined />}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
             <div style={{ marginTop: '8px' }}>
-              <span style={{ color: 'var(--oracle-text-secondary)' }}>
+              <span style={{ color: 'var(--orako-text-secondary)' }}>
                 $82K total budget
               </span>
             </div>
@@ -833,7 +833,7 @@ const SalesMarketingPage = () => {
                     </div>
                     <div style={{ 
                       fontSize: '12px', 
-                      color: 'var(--oracle-text-secondary)',
+                      color: 'var(--orako-text-secondary)',
                       marginTop: '4px'
                     }}>
                       {activity.user} • {activity.time}

@@ -238,7 +238,7 @@ const ProposalsPage = () => {
       width: 130,
       render: (text, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-primary)' }}>{text}</Text>
+          <Text strong style={{ color: 'var(--orako-primary)' }}>{text}</Text>
           <br />
           <Text type="secondary" style={{ fontSize: '12px' }}>
             {dayjs(record.createdDate).format('MMM DD, YYYY')}
@@ -284,7 +284,7 @@ const ProposalsPage = () => {
       width: 100,
       render: (amount, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-success)' }}>
+          <Text strong style={{ color: 'var(--orako-success)' }}>
             ${amount.toLocaleString()}
           </Text>
           <br />
@@ -316,7 +316,7 @@ const ProposalsPage = () => {
           <Progress 
             percent={record.probability} 
             size="small" 
-            strokeColor={record.probability > 70 ? 'var(--oracle-success)' : record.probability > 40 ? 'var(--oracle-warning)' : 'var(--oracle-error)'}
+            strokeColor={record.probability > 70 ? 'var(--orako-success)' : record.probability > 40 ? 'var(--orako-warning)' : 'var(--orako-error)'}
           />
           <Text type="secondary" style={{ fontSize: '11px' }}>Win Rate: {record.probability}%</Text>
         </div>
@@ -329,7 +329,7 @@ const ProposalsPage = () => {
       width: 100,
       render: (date) => (
         <Text style={{ 
-          color: dayjs(date).isBefore(dayjs()) ? 'var(--oracle-error)' : 'var(--oracle-text-primary)' 
+          color: dayjs(date).isBefore(dayjs()) ? 'var(--orako-error)' : 'var(--orako-text-primary)' 
         }}>
           {dayjs(date).format('MMM DD, YYYY')}
         </Text>
@@ -409,7 +409,7 @@ const ProposalsPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <Title level={1}>
-          <FileTextOutlined style={{ marginRight: '12px', color: 'var(--oracle-primary)' }} />
+          <FileTextOutlined style={{ marginRight: '12px', color: 'var(--orako-primary)' }} />
           Proposals Management
         </Title>
         <Paragraph>
@@ -425,7 +425,7 @@ const ProposalsPage = () => {
               title="Total Proposals"
               value={statisticsData.totalProposals}
               prefix={<FileTextOutlined />}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
           </Card>
         </Col>
@@ -436,7 +436,7 @@ const ProposalsPage = () => {
               value={statisticsData.totalValue}
               prefix="$"
               precision={0}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -447,7 +447,7 @@ const ProposalsPage = () => {
               value={statisticsData.winRate}
               suffix="%"
               prefix={<TrophyOutlined />}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
           </Card>
         </Col>
@@ -458,7 +458,7 @@ const ProposalsPage = () => {
               value={statisticsData.avgProposalValue}
               prefix="$"
               precision={0}
-              valueStyle={{ color: 'var(--oracle-info)' }}
+              valueStyle={{ color: 'var(--orako-info)' }}
             />
           </Card>
         </Col>

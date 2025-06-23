@@ -320,7 +320,7 @@ const QuotationsListPage = () => {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
             <span style={{ fontSize: '16px', marginRight: '8px' }}>{record.clientLogo}</span>
-            <Text strong style={{ color: 'var(--oracle-primary)' }}>{record.quotationNumber}</Text>
+            <Text strong style={{ color: 'var(--orako-primary)' }}>{record.quotationNumber}</Text>
           </div>
           <Text>{record.title}</Text>
           <br />
@@ -350,7 +350,7 @@ const QuotationsListPage = () => {
       width: 120,
       render: (_, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-success)', fontSize: '16px' }}>
+          <Text strong style={{ color: 'var(--orako-success)', fontSize: '16px' }}>
             ${record.totalAmount.toLocaleString()}
           </Text>
           <br />
@@ -382,9 +382,9 @@ const QuotationsListPage = () => {
             percent={record.probability} 
             size="small" 
             strokeColor={
-              record.probability > 70 ? 'var(--oracle-success)' : 
-              record.probability > 40 ? 'var(--oracle-warning)' : 
-              'var(--oracle-error)'
+              record.probability > 70 ? 'var(--orako-success)' : 
+              record.probability > 40 ? 'var(--orako-warning)' : 
+              'var(--orako-error)'
             }
           />
           <Text type="secondary" style={{ fontSize: '11px' }}>
@@ -527,7 +527,7 @@ const QuotationsListPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <Title level={1}>
-          <UnorderedListOutlined style={{ marginRight: '12px', color: 'var(--oracle-primary)' }} />
+          <UnorderedListOutlined style={{ marginRight: '12px', color: 'var(--orako-primary)' }} />
           Quotations List
         </Title>
         <Paragraph>
@@ -542,7 +542,7 @@ const QuotationsListPage = () => {
             <Statistic
               title="Total"
               value={stats.total}
-              valueStyle={{ fontSize: '20px', color: 'var(--oracle-primary)' }}
+              valueStyle={{ fontSize: '20px', color: 'var(--orako-primary)' }}
             />
           </Card>
         </Col>
@@ -551,7 +551,7 @@ const QuotationsListPage = () => {
             <Statistic
               title="Sent"
               value={stats.sent}
-              valueStyle={{ fontSize: '20px', color: 'var(--oracle-info)' }}
+              valueStyle={{ fontSize: '20px', color: 'var(--orako-info)' }}
             />
           </Card>
         </Col>
@@ -560,7 +560,7 @@ const QuotationsListPage = () => {
             <Statistic
               title="Approved"
               value={stats.approved}
-              valueStyle={{ fontSize: '20px', color: 'var(--oracle-success)' }}
+              valueStyle={{ fontSize: '20px', color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -569,7 +569,7 @@ const QuotationsListPage = () => {
             <Statistic
               title="Under Review"
               value={stats.underReview}
-              valueStyle={{ fontSize: '20px', color: 'var(--oracle-warning)' }}
+              valueStyle={{ fontSize: '20px', color: 'var(--orako-warning)' }}
             />
           </Card>
         </Col>
@@ -579,7 +579,7 @@ const QuotationsListPage = () => {
               title="Win Rate"
               value={stats.winRate}
               suffix="%"
-              valueStyle={{ fontSize: '20px', color: 'var(--oracle-secondary)' }}
+              valueStyle={{ fontSize: '20px', color: 'var(--orako-secondary)' }}
             />
           </Card>
         </Col>
@@ -590,7 +590,7 @@ const QuotationsListPage = () => {
               value={stats.totalValue}
               prefix="$"
               precision={0}
-              valueStyle={{ fontSize: '20px', color: 'var(--oracle-success)' }}
+              valueStyle={{ fontSize: '20px', color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -665,7 +665,7 @@ const QuotationsListPage = () => {
 
         {/* Bulk Actions */}
         {selectedRowKeys.length > 0 && (
-          <div style={{ marginTop: '16px', padding: '12px', background: 'var(--oracle-surface-secondary)', borderRadius: '6px' }}>
+          <div style={{ marginTop: '16px', padding: '12px', background: 'var(--orako-surface-secondary)', borderRadius: '6px' }}>
             <Space>
               <Text strong>{selectedRowKeys.length} quotations selected</Text>
               <Button size="small" onClick={() => handleBulkAction('Send')}>
@@ -744,7 +744,7 @@ const QuotationsListPage = () => {
               <Descriptions.Item label="Industry">{selectedQuotation.industry}</Descriptions.Item>
               <Descriptions.Item label="Region">{selectedQuotation.region}</Descriptions.Item>
               <Descriptions.Item label="Total Amount">
-                <Text strong style={{ color: 'var(--oracle-success)', fontSize: '16px' }}>
+                <Text strong style={{ color: 'var(--orako-success)', fontSize: '16px' }}>
                   ${selectedQuotation.totalAmount.toLocaleString()} {selectedQuotation.currency}
                 </Text>
               </Descriptions.Item>

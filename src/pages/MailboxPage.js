@@ -345,7 +345,7 @@ IT Support Team`,
           style={{
             padding: '16px 20px',
             cursor: 'pointer',
-            borderBottom: '1px solid var(--oracle-border)',
+            borderBottom: '1px solid var(--orako-border)',
             backgroundColor: selectedEmail?.id === email.id ? 'rgba(255, 77, 79, 0.08)' : 'transparent'
           }}
           onClick={() => handleEmailSelect(email)}
@@ -416,7 +416,7 @@ IT Support Team`,
               <Avatar 
                 src={email.from.avatar}
                 icon={!email.from.avatar ? <UserOutlined /> : undefined}
-                style={{ backgroundColor: email.from.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+                style={{ backgroundColor: email.from.avatar ? 'transparent' : 'var(--orako-primary)' }}
               >
                 {!email.from.avatar && email.from.name.charAt(0)}
               </Avatar>
@@ -438,14 +438,14 @@ IT Support Team`,
                   )}
                   {email.attachments.length > 0 && (
                     <PaperClipOutlined style={{ 
-                      color: 'var(--oracle-text-secondary)', 
+                      color: 'var(--orako-text-secondary)', 
                       fontSize: '12px' 
                     }} />
                   )}
                 </div>
                 <Text style={{ 
                   fontSize: '12px', 
-                  color: 'var(--oracle-text-secondary)'
+                  color: 'var(--orako-text-secondary)'
                 }}>
                   {dayjs(email.date).format('MMM DD')}
                 </Text>
@@ -463,7 +463,7 @@ IT Support Team`,
                   {email.subject}
                 </Text>
                 <Text style={{ 
-                  color: 'var(--oracle-text-secondary)', 
+                  color: 'var(--orako-text-secondary)', 
                   fontSize: '12px',
                   lineHeight: '16px'
                 }}>
@@ -512,10 +512,10 @@ IT Support Team`,
           justifyContent: 'center', 
           height: '100%',
           flexDirection: 'column',
-          color: 'var(--oracle-text-secondary)'
+          color: 'var(--orako-text-secondary)'
         }}>
           <MailOutlined style={{ fontSize: 64, marginBottom: 16 }} />
-          <Title level={4} style={{ color: 'var(--oracle-text-secondary)' }}>
+          <Title level={4} style={{ color: 'var(--orako-text-secondary)' }}>
             Select an email to read
           </Title>
         </div>
@@ -527,8 +527,8 @@ IT Support Team`,
         {/* Email Header */}
         <div style={{ 
           padding: '20px 24px', 
-          borderBottom: '1px solid var(--oracle-border)',
-          backgroundColor: 'var(--oracle-surface)'
+          borderBottom: '1px solid var(--orako-border)',
+          backgroundColor: 'var(--orako-surface)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div style={{ flex: 1 }}>
@@ -540,21 +540,21 @@ IT Support Team`,
                   <Avatar 
                     src={selectedEmail.from.avatar}
                     icon={!selectedEmail.from.avatar ? <UserOutlined /> : undefined}
-                    style={{ backgroundColor: selectedEmail.from.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+                    style={{ backgroundColor: selectedEmail.from.avatar ? 'transparent' : 'var(--orako-primary)' }}
                   >
                     {!selectedEmail.from.avatar && selectedEmail.from.name.charAt(0)}
                   </Avatar>
                   <div>
                     <Text strong>{selectedEmail.from.name}</Text>
                     <br />
-                    <Text style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                    <Text style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
                       {selectedEmail.from.email}
                     </Text>
                   </div>
                 </Space>
                 <Divider type="vertical" />
                 <div>
-                  <Text style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+                  <Text style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
                     {dayjs(selectedEmail.date).format('MMM DD, YYYY [at] h:mm A')}
                   </Text>
                 </div>
@@ -622,17 +622,17 @@ IT Support Team`,
                       size="small"
                       style={{ 
                         borderRadius: 6,
-                        border: '1px solid var(--oracle-border)'
+                        border: '1px solid var(--orako-border)'
                       }}
                       bodyStyle={{ padding: 12 }}
                     >
                       <Space>
-                        <FileTextOutlined style={{ fontSize: 20, color: 'var(--oracle-primary)' }} />
+                        <FileTextOutlined style={{ fontSize: 20, color: 'var(--orako-primary)' }} />
                         <div>
                           <Text strong style={{ fontSize: '12px', display: 'block' }}>
                             {attachment.name}
                           </Text>
-                          <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                          <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                             {attachment.size}
                           </Text>
                         </div>
@@ -648,8 +648,8 @@ IT Support Team`,
         {/* Reply Actions */}
         <div style={{ 
           padding: '16px 24px', 
-          borderTop: '1px solid var(--oracle-border)',
-          backgroundColor: 'var(--oracle-surface)'
+          borderTop: '1px solid var(--orako-border)',
+          backgroundColor: 'var(--orako-surface)'
         }}>
           <Space>
             <Button type="primary" icon={<RollbackOutlined />}>
@@ -672,10 +672,10 @@ IT Support Team`,
       {/* Page Header */}
       <div className="page-header" style={{ marginBottom: 24 }}>
         <div style={{ flex: 1 }}>
-          <Title level={2} style={{ margin: 0, color: 'var(--oracle-text-primary)' }}>
+          <Title level={2} style={{ margin: 0, color: 'var(--orako-text-primary)' }}>
             Mailbox
           </Title>
-          <Text style={{ color: 'var(--oracle-text-secondary)', fontSize: '16px' }}>
+          <Text style={{ color: 'var(--orako-text-secondary)', fontSize: '16px' }}>
             Manage your business communications efficiently
           </Text>
         </div>
@@ -695,13 +695,13 @@ IT Support Team`,
         {/* Sidebar */}
         <div className="mailbox-sidebar" style={{ 
           width: 260, 
-          borderRight: '1px solid var(--oracle-border)',
-          backgroundColor: 'var(--oracle-surface)',
+          borderRight: '1px solid var(--orako-border)',
+          backgroundColor: 'var(--orako-surface)',
           display: 'flex',
           flexDirection: 'column'
         }}>
           {/* Search */}
-          <div className="mailbox-search-container" style={{ padding: '16px 14px', borderBottom: '1px solid var(--oracle-border)' }}>
+          <div className="mailbox-search-container" style={{ padding: '16px 14px', borderBottom: '1px solid var(--orako-border)' }}>
             <Search
               placeholder="Search emails..."
               value={searchTerm}
@@ -723,8 +723,8 @@ IT Support Team`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: selectedFolder === folder.key ? 'var(--oracle-primary-light)' : 'transparent',
-                    borderLeft: selectedFolder === folder.key ? '3px solid var(--oracle-primary)' : '3px solid transparent'
+                    backgroundColor: selectedFolder === folder.key ? 'var(--orako-primary-light)' : 'transparent',
+                    borderLeft: selectedFolder === folder.key ? '3px solid var(--orako-primary)' : '3px solid transparent'
                   }}
                   onClick={() => setSelectedFolder(folder.key)}
                 >
@@ -752,7 +752,7 @@ IT Support Team`,
           </div>
 
           {/* Compose Button for Mobile */}
-          <div style={{ padding: 16, borderTop: '1px solid var(--oracle-border)' }}>
+          <div style={{ padding: 16, borderTop: '1px solid var(--orako-border)' }}>
             <Button type="primary" block icon={<PlusOutlined />} onClick={handleCompose}>
               Compose Email
             </Button>
@@ -762,16 +762,16 @@ IT Support Team`,
         {/* Email List */}
         <div style={{ 
           width: 400, 
-          borderRight: '1px solid var(--oracle-border)',
-          backgroundColor: 'var(--oracle-background)',
+          borderRight: '1px solid var(--orako-border)',
+          backgroundColor: 'var(--orako-background)',
           display: 'flex',
           flexDirection: 'column'
         }}>
           {/* List Header */}
           <div style={{ 
             padding: '16px 20px', 
-            borderBottom: '1px solid var(--oracle-border)',
-            backgroundColor: 'var(--oracle-surface)',
+            borderBottom: '1px solid var(--orako-border)',
+            backgroundColor: 'var(--orako-surface)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
@@ -780,7 +780,7 @@ IT Support Team`,
               <Text strong>
                 {folders.find(f => f.key === selectedFolder)?.label || 'Emails'}
               </Text>
-              <Text style={{ marginLeft: 8, color: 'var(--oracle-text-secondary)' }}>
+              <Text style={{ marginLeft: 8, color: 'var(--orako-text-secondary)' }}>
                 ({getFilteredEmails().length})
               </Text>
             </div>
@@ -831,7 +831,7 @@ IT Support Team`,
                 justifyContent: 'center', 
                 height: '100%',
                 flexDirection: 'column',
-                color: 'var(--oracle-text-secondary)'
+                color: 'var(--orako-text-secondary)'
               }}>
                 <InboxOutlined style={{ fontSize: 48, marginBottom: 16 }} />
                 <Text>No emails found</Text>
@@ -843,7 +843,7 @@ IT Support Team`,
         {/* Email Detail */}
         <div style={{ 
           flex: 1, 
-          backgroundColor: 'var(--oracle-background)'
+          backgroundColor: 'var(--orako-background)'
         }}>
           <EmailDetail />
         </div>

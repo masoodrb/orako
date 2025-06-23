@@ -310,7 +310,7 @@ const TeamsPage = () => {
               size={40} 
               src={member.avatar}
               icon={!member.avatar ? <UserOutlined /> : undefined}
-              style={{ backgroundColor: member.avatar ? 'transparent' : 'var(--oracle-primary)' }}
+              style={{ backgroundColor: member.avatar ? 'transparent' : 'var(--orako-primary)' }}
             >
               {!member.avatar && member.name.charAt(0)}
             </Avatar>
@@ -327,7 +327,7 @@ const TeamsPage = () => {
           <div>
             <Text strong>{member.name}</Text>
             <br />
-            <Text style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+            <Text style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
               {member.role}
             </Text>
           </div>
@@ -340,11 +340,11 @@ const TeamsPage = () => {
       render: (_, member) => (
         <div>
           <div style={{ marginBottom: 4 }}>
-            <MailOutlined style={{ marginRight: 8, color: 'var(--oracle-text-secondary)' }} />
+            <MailOutlined style={{ marginRight: 8, color: 'var(--orako-text-secondary)' }} />
             <Text style={{ fontSize: '12px' }}>{member.email}</Text>
           </div>
           <div>
-            <PhoneOutlined style={{ marginRight: 8, color: 'var(--oracle-text-secondary)' }} />
+            <PhoneOutlined style={{ marginRight: 8, color: 'var(--orako-text-secondary)' }} />
             <Text style={{ fontSize: '12px' }}>{member.phone}</Text>
           </div>
         </div>
@@ -543,14 +543,14 @@ const TeamsPage = () => {
                   size={64} 
                   src={team.manager.avatar}
                   icon={!team.manager.avatar ? <UserOutlined /> : undefined}
-                  style={{ backgroundColor: team.manager.avatar ? 'transparent' : 'var(--oracle-primary)', marginBottom: 12 }}
+                  style={{ backgroundColor: team.manager.avatar ? 'transparent' : 'var(--orako-primary)', marginBottom: 12 }}
                 >
                   {!team.manager.avatar && team.manager.name.charAt(0)}
                 </Avatar>
                 <Title level={5} style={{ margin: 0, marginBottom: 4 }}>
                   {team.manager.name}
                 </Title>
-                <Text style={{ color: 'var(--oracle-text-secondary)' }}>
+                <Text style={{ color: 'var(--orako-text-secondary)' }}>
                   Team Manager
                 </Text>
                 <Divider />
@@ -577,14 +577,14 @@ const TeamsPage = () => {
                 renderItem={(item) => (
                   <List.Item>
                     <List.Item.Meta
-                      avatar={<ClockCircleOutlined style={{ color: 'var(--oracle-text-secondary)' }} />}
+                      avatar={<ClockCircleOutlined style={{ color: 'var(--orako-text-secondary)' }} />}
                       title={<Text style={{ fontSize: '12px' }}>{item.action}</Text>}
                       description={
                         <div>
-                          <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                          <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                             {item.user}
                           </Text>
-                          <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)', marginLeft: 8 }}>
+                          <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)', marginLeft: 8 }}>
                             {item.time}
                           </Text>
                         </div>
@@ -635,7 +635,7 @@ const TeamsPage = () => {
               <Title level={4} style={{ margin: 0, marginBottom: 4 }}>
                 {team.name}
               </Title>
-              <Text style={{ color: 'var(--oracle-text-secondary)' }}>
+              <Text style={{ color: 'var(--orako-text-secondary)' }}>
                 {team.description}
               </Text>
             </div>
@@ -673,7 +673,7 @@ const TeamsPage = () => {
                   <Text style={{ fontSize: '12px', display: 'block' }}>
                     {team.manager.name}
                   </Text>
-                  <Text style={{ fontSize: '11px', color: 'var(--oracle-text-secondary)' }}>
+                  <Text style={{ fontSize: '11px', color: 'var(--orako-text-secondary)' }}>
                     Manager
                   </Text>
                 </div>
@@ -693,10 +693,10 @@ const TeamsPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <div style={{ flex: 1 }}>
-          <Title level={2} style={{ margin: 0, color: 'var(--oracle-text-primary)' }}>
+          <Title level={2} style={{ margin: 0, color: 'var(--orako-text-primary)' }}>
             Teams & Collaboration
           </Title>
-          <Text style={{ color: 'var(--oracle-text-secondary)', fontSize: '16px' }}>
+          <Text style={{ color: 'var(--orako-text-secondary)', fontSize: '16px' }}>
             Manage teams, members, and foster collaboration across departments
           </Text>
         </div>

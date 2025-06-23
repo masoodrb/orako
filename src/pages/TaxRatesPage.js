@@ -275,7 +275,7 @@ const TaxRatesPage = () => {
       width: 120,
       render: (text, record) => (
         <div>
-          <Text strong style={{ color: 'var(--oracle-primary)' }}>{text}</Text>
+          <Text strong style={{ color: 'var(--orako-primary)' }}>{text}</Text>
           <br />
           <Tag color={getTaxTypeColor(record.taxType)} size="small">
             {record.taxType}
@@ -312,7 +312,7 @@ const TaxRatesPage = () => {
         <div style={{ textAlign: 'center' }}>
           <Text strong style={{ 
             fontSize: '16px', 
-            color: rate === 0 ? 'var(--oracle-info)' : 'var(--oracle-success)' 
+            color: rate === 0 ? 'var(--orako-info)' : 'var(--orako-success)' 
           }}>
             {rate.toFixed(2)}%
           </Text>
@@ -414,7 +414,7 @@ const TaxRatesPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <Title level={1}>
-          <PercentageOutlined style={{ marginRight: '12px', color: 'var(--oracle-primary)' }} />
+          <PercentageOutlined style={{ marginRight: '12px', color: 'var(--orako-primary)' }} />
           Tax Rates Management
         </Title>
         <Paragraph>
@@ -440,7 +440,7 @@ const TaxRatesPage = () => {
               title="Total Tax Rates"
               value={statisticsData.totalTaxRates}
               prefix={<PercentageOutlined />}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
           </Card>
         </Col>
@@ -450,7 +450,7 @@ const TaxRatesPage = () => {
               title="Active Rates"
               value={statisticsData.activeTaxRates}
               prefix={<CheckCircleOutlined />}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -461,7 +461,7 @@ const TaxRatesPage = () => {
               value={statisticsData.avgTaxRate}
               suffix="%"
               prefix={<CalculatorOutlined />}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
           </Card>
         </Col>
@@ -471,7 +471,7 @@ const TaxRatesPage = () => {
               title="Countries/Regions"
               value={statisticsData.uniqueCountries}
               prefix={<GlobalOutlined />}
-              valueStyle={{ color: 'var(--oracle-info)' }}
+              valueStyle={{ color: 'var(--orako-info)' }}
             />
           </Card>
         </Col>

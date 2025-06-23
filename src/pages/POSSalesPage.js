@@ -219,8 +219,8 @@ const POSSalesPage = () => {
         <Badge 
           count={stock} 
           style={{ 
-            backgroundColor: stock > 50 ? 'var(--oracle-success)' : 
-                           stock > 20 ? 'var(--oracle-warning)' : 'var(--oracle-error)' 
+            backgroundColor: stock > 50 ? 'var(--orako-success)' : 
+                           stock > 20 ? 'var(--orako-warning)' : 'var(--orako-error)' 
           }} 
         />
       ),
@@ -401,7 +401,7 @@ const POSSalesPage = () => {
               value={1247.50}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -410,7 +410,7 @@ const POSSalesPage = () => {
             <Statistic
               title="Transactions"
               value={23}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
           </Card>
         </Col>
@@ -421,7 +421,7 @@ const POSSalesPage = () => {
               value={54.24}
               prefix="$"
               precision={2}
-              valueStyle={{ color: 'var(--oracle-secondary)' }}
+              valueStyle={{ color: 'var(--orako-secondary)' }}
             />
           </Card>
         </Col>
@@ -430,7 +430,7 @@ const POSSalesPage = () => {
             <Statistic
               title="Items Sold"
               value={89}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
           </Card>
         </Col>
@@ -464,7 +464,7 @@ const POSSalesPage = () => {
           >
             {cart.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                <ShoppingCartOutlined style={{ fontSize: '48px', color: 'var(--oracle-text-secondary)' }} />
+                <ShoppingCartOutlined style={{ fontSize: '48px', color: 'var(--orako-text-secondary)' }} />
                 <div style={{ marginTop: '16px' }}>
                   <Text type="secondary">Cart is empty</Text>
                 </div>
@@ -492,7 +492,7 @@ const POSSalesPage = () => {
                   <Divider style={{ margin: '8px 0' }} />
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Text strong>Total:</Text>
-                    <Text strong style={{ fontSize: '18px', color: 'var(--oracle-primary)' }}>
+                    <Text strong style={{ fontSize: '18px', color: 'var(--orako-primary)' }}>
                       ${calculateTotal().toFixed(2)}
                     </Text>
                   </div>

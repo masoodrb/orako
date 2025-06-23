@@ -408,7 +408,7 @@ const App = () => {
           <div style={{ fontWeight: 500, marginBottom: '4px' }}>
             {notification.title}
           </div>
-          <div style={{ fontSize: '12px', color: 'var(--oracle-text-secondary)' }}>
+          <div style={{ fontSize: '12px', color: 'var(--orako-text-secondary)' }}>
             2 minutes ago
           </div>
         </div>
@@ -595,12 +595,12 @@ const App = () => {
         <div style={{ 
           padding: '20px 16px', 
           textAlign: 'center', 
-          borderBottom: '1px solid var(--oracle-border)',
-          background: 'var(--oracle-surface)'
+          borderBottom: '1px solid var(--orako-border)',
+          background: 'var(--orako-surface)'
         }}>
           <Title level={4} style={{ 
             margin: 0, 
-            color: 'var(--oracle-primary)',
+            color: 'var(--orako-primary)',
             fontSize: '18px', 
             fontWeight: 700,
             letterSpacing: '0.3px'
@@ -621,9 +621,9 @@ const App = () => {
         {/* Top Header with Navigation */}
         <Header style={{ 
           padding: isMobile ? '0 12px' : '0 24px', 
-          background: 'var(--oracle-surface)', 
-          borderBottom: '1px solid var(--oracle-border)',
-          boxShadow: 'var(--oracle-shadow-sm)', 
+          background: 'var(--orako-surface)', 
+          borderBottom: '1px solid var(--orako-border)',
+          boxShadow: 'var(--orako-shadow-sm)', 
           height: '64px',
           display: 'flex',
           alignItems: 'center',
@@ -653,7 +653,7 @@ const App = () => {
             />
             <Title level={4} style={{ 
               margin: '0', 
-              color: 'var(--oracle-text-primary)',
+              color: 'var(--orako-text-primary)',
               fontSize: isMobile ? '16px' : '18px',
               fontWeight: 700,
               marginRight: isMobile ? '8px' : collapsed ? '24px' : '32px',
@@ -795,7 +795,7 @@ const App = () => {
                     src={userProfile.avatar}
                     icon={!userProfile.avatar ? <UserOutlined /> : undefined}
                     style={{ 
-                      backgroundColor: userProfile.avatar ? 'transparent' : 'var(--oracle-primary)',
+                      backgroundColor: userProfile.avatar ? 'transparent' : 'var(--orako-primary)',
                       marginRight: isMobile ? '4px' : '8px'
                     }}
                   >
@@ -807,14 +807,14 @@ const App = () => {
                       <div style={{ 
                         fontSize: '14px', 
                         fontWeight: 600,
-                        color: 'var(--oracle-text-primary)'
+                        color: 'var(--orako-text-primary)'
                       }}>
                         {isTablet ? 'J. Smith' : userProfile.name}
                       </div>
                       {!isTablet && (
                         <div style={{ 
                           fontSize: '12px',
-                          color: 'var(--oracle-text-secondary)'
+                          color: 'var(--orako-text-secondary)'
                         }}>
                           {userProfile.role}
                         </div>
@@ -830,8 +830,8 @@ const App = () => {
 
         {/* Secondary Navigation/Breadcrumb Bar */}
         <div style={{
-          background: 'var(--oracle-surface-secondary)',
-          borderBottom: '1px solid var(--oracle-border-light)',
+          background: 'var(--orako-surface-secondary)',
+          borderBottom: '1px solid var(--orako-border-light)',
           padding: '8px 24px',
           fontSize: '14px'
         }}>
@@ -891,8 +891,8 @@ const App = () => {
         <Drawer
           title={
             <Space>
-              <CloudOutlined style={{ color: 'var(--oracle-primary)' }} />
-              <span style={{ color: 'var(--oracle-text-primary)', fontWeight: 600 }}>
+              <CloudOutlined style={{ color: 'var(--orako-primary)' }} />
+              <span style={{ color: 'var(--orako-text-primary)', fontWeight: 600 }}>
                 Navigation Menu
               </span>
             </Space>
@@ -902,12 +902,12 @@ const App = () => {
           onClose={() => setMobileMenuVisible(false)}
           width={280}
           headerStyle={{
-            background: 'var(--oracle-surface)',
-            borderBottom: '1px solid var(--oracle-border)'
+            background: 'var(--orako-surface)',
+            borderBottom: '1px solid var(--orako-border)'
           }}
           bodyStyle={{
             padding: 0,
-            background: 'var(--oracle-surface)'
+            background: 'var(--orako-surface)'
           }}
         >
           <Menu
@@ -928,11 +928,11 @@ const App = () => {
           onClose={() => setMobileSearchVisible(false)}
           height={200}
           headerStyle={{
-            background: 'var(--oracle-surface)',
-            borderBottom: '1px solid var(--oracle-border)'
+            background: 'var(--orako-surface)',
+            borderBottom: '1px solid var(--orako-border)'
           }}
           bodyStyle={{
-            background: 'var(--oracle-surface)',
+            background: 'var(--orako-surface)',
             padding: '24px'
           }}
         >
@@ -949,7 +949,7 @@ const App = () => {
           <div style={{ 
             marginTop: '16px', 
             fontSize: '13px', 
-            color: 'var(--oracle-text-secondary)' 
+            color: 'var(--orako-text-secondary)' 
           }}>
             Search across modules, reports, documents, and more...
           </div>

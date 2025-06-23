@@ -357,7 +357,7 @@ const ClientAwardPointsPage = () => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Avatar 
             size={40} 
-            style={{ marginRight: '12px', backgroundColor: 'var(--oracle-primary)' }}
+            style={{ marginRight: '12px', backgroundColor: 'var(--orako-primary)' }}
           >
             {record.clientLogo}
           </Avatar>
@@ -378,7 +378,7 @@ const ClientAwardPointsPage = () => {
       render: (_, record) => (
         <div>
           <div style={{ marginBottom: '8px' }}>
-            <Text strong style={{ color: 'var(--oracle-success)', fontSize: '16px' }}>
+            <Text strong style={{ color: 'var(--orako-success)', fontSize: '16px' }}>
               {record.availablePoints.toLocaleString()}
             </Text>
             <Text type="secondary"> / {record.totalPoints.toLocaleString()}</Text>
@@ -386,7 +386,7 @@ const ClientAwardPointsPage = () => {
           <Progress 
             percent={Math.round((record.availablePoints / record.totalPoints) * 100)} 
             size="small" 
-            strokeColor="var(--oracle-primary)"
+            strokeColor="var(--orako-primary)"
           />
           <Text type="secondary" style={{ fontSize: '11px' }}>
             Used: {record.usedPoints.toLocaleString()} points
@@ -500,7 +500,7 @@ const ClientAwardPointsPage = () => {
       {/* Page Header */}
       <div className="page-header">
         <Title level={1}>
-          <TrophyOutlined style={{ marginRight: '12px', color: 'var(--oracle-primary)' }} />
+          <TrophyOutlined style={{ marginRight: '12px', color: 'var(--orako-primary)' }} />
           Client Award Points
         </Title>
         <Paragraph>
@@ -516,7 +516,7 @@ const ClientAwardPointsPage = () => {
               title="Total Clients"
               value={statisticsData.totalClients}
               prefix={<TeamOutlined />}
-              valueStyle={{ color: 'var(--oracle-primary)' }}
+              valueStyle={{ color: 'var(--orako-primary)' }}
             />
           </Card>
         </Col>
@@ -526,7 +526,7 @@ const ClientAwardPointsPage = () => {
               title="Points Issued"
               value={statisticsData.totalPointsIssued}
               prefix={<StarOutlined />}
-              valueStyle={{ color: 'var(--oracle-success)' }}
+              valueStyle={{ color: 'var(--orako-success)' }}
             />
           </Card>
         </Col>
@@ -536,7 +536,7 @@ const ClientAwardPointsPage = () => {
               title="Points Redeemed"
               value={statisticsData.totalPointsRedeemed}
               prefix={<GiftOutlined />}
-              valueStyle={{ color: 'var(--oracle-warning)' }}
+              valueStyle={{ color: 'var(--orako-warning)' }}
             />
           </Card>
         </Col>
@@ -546,7 +546,7 @@ const ClientAwardPointsPage = () => {
               title="Avg Points/Client"
               value={statisticsData.avgPointsPerClient}
               prefix={<TrophyOutlined />}
-              valueStyle={{ color: 'var(--oracle-info)' }}
+              valueStyle={{ color: 'var(--orako-info)' }}
             />
           </Card>
         </Col>
@@ -677,7 +677,7 @@ const ClientAwardPointsPage = () => {
                     ]}
                   >
                     <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                      <GiftOutlined style={{ fontSize: '32px', color: 'var(--oracle-primary)' }} />
+                      <GiftOutlined style={{ fontSize: '32px', color: 'var(--orako-primary)' }} />
                     </div>
                     <Card.Meta
                       title={reward.name}
@@ -686,7 +686,7 @@ const ClientAwardPointsPage = () => {
                     <Divider />
                     <Row gutter={[16, 16]}>
                       <Col span={12}>
-                        <Text strong style={{ color: 'var(--oracle-success)' }}>
+                        <Text strong style={{ color: 'var(--orako-success)' }}>
                           {reward.pointsCost} pts
                         </Text>
                       </Col>
@@ -699,7 +699,7 @@ const ClientAwardPointsPage = () => {
                         <Progress 
                           percent={reward.popularity} 
                           size="small" 
-                          strokeColor="var(--oracle-primary)"
+                          strokeColor="var(--orako-primary)"
                           format={percent => `${percent}% popular`}
                         />
                       </Col>
@@ -857,7 +857,7 @@ const ClientAwardPointsPage = () => {
         {selectedClient && (
           <div>
             <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-              <Avatar size={80} style={{ backgroundColor: 'var(--oracle-primary)' }}>
+              <Avatar size={80} style={{ backgroundColor: 'var(--orako-primary)' }}>
                 {selectedClient.clientLogo}
               </Avatar>
               <br />
@@ -897,7 +897,7 @@ const ClientAwardPointsPage = () => {
                 <Statistic
                   title="Available"
                   value={selectedClient.availablePoints}
-                  valueStyle={{ color: 'var(--oracle-success)' }}
+                  valueStyle={{ color: 'var(--orako-success)' }}
                   suffix="pts"
                 />
               </Col>
@@ -905,7 +905,7 @@ const ClientAwardPointsPage = () => {
                 <Statistic
                   title="Total Earned"
                   value={selectedClient.totalPoints}
-                  valueStyle={{ color: 'var(--oracle-primary)' }}
+                  valueStyle={{ color: 'var(--orako-primary)' }}
                   suffix="pts"
                 />
               </Col>
@@ -913,7 +913,7 @@ const ClientAwardPointsPage = () => {
                 <Statistic
                   title="Redeemed"
                   value={selectedClient.usedPoints}
-                  valueStyle={{ color: 'var(--oracle-warning)' }}
+                  valueStyle={{ color: 'var(--orako-warning)' }}
                   suffix="pts"
                 />
               </Col>
@@ -938,8 +938,8 @@ const ClientAwardPointsPage = () => {
                 <Timeline.Item
                   key={index}
                   dot={transaction.type === 'Earned' ? 
-                    <PlusOutlined style={{ color: 'var(--oracle-success)' }} /> : 
-                    <GiftOutlined style={{ color: 'var(--oracle-warning)' }} />
+                    <PlusOutlined style={{ color: 'var(--orako-success)' }} /> : 
+                    <GiftOutlined style={{ color: 'var(--orako-warning)' }} />
                   }
                 >
                   <div>
@@ -970,7 +970,7 @@ const ClientAwardPointsPage = () => {
                 <Statistic
                   title="Total Orders"
                   value={selectedClient.totalOrders}
-                  valueStyle={{ color: 'var(--oracle-info)' }}
+                  valueStyle={{ color: 'var(--orako-info)' }}
                 />
               </Col>
               <Col span={8}>
@@ -978,7 +978,7 @@ const ClientAwardPointsPage = () => {
                   title="Total Spent"
                   value={selectedClient.totalSpent}
                   prefix="$"
-                  valueStyle={{ color: 'var(--oracle-success)' }}
+                  valueStyle={{ color: 'var(--orako-success)' }}
                 />
               </Col>
               <Col span={8}>
@@ -986,7 +986,7 @@ const ClientAwardPointsPage = () => {
                   title="Avg Order"
                   value={selectedClient.avgOrderValue}
                   prefix="$"
-                  valueStyle={{ color: 'var(--oracle-secondary)' }}
+                  valueStyle={{ color: 'var(--orako-secondary)' }}
                 />
               </Col>
             </Row>
