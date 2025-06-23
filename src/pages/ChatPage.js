@@ -479,6 +479,7 @@ const ChatPage = () => {
               items={tabItems}
               size="small"
               style={{ height: '100%' }}
+              tabBarStyle={{ marginLeft: '20px' }}
             />
           </Card>
         </Col>

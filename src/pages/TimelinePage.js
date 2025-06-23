@@ -675,6 +675,7 @@ const TimelinePage = () => {
                 <Search
                   placeholder="Search activities..."
                   value={searchTerm}
+                  style={{ paddingRight: '20px' }}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   size="small"
                 />
