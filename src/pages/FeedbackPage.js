@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { 
-  Card, 
-  Typography, 
-  Alert, 
-  Button, 
-  Modal, 
-  Drawer, 
-  Popconfirm, 
-  Progress, 
-  Spin, 
-  Skeleton, 
-  Result, 
-  notification, 
+import React, { useState } from "react";
+import {
+  Card,
+  Typography,
+  Alert,
+  Button,
+  Modal,
+  Drawer,
+  Popconfirm,
+  Progress,
+  Spin,
+  Skeleton,
+  Result,
+  notification,
   message,
   Space,
-  Divider
-} from 'antd';
+  Divider,
+} from "antd";
 import {
   InfoCircleOutlined,
   CheckCircleOutlined,
@@ -27,7 +27,7 @@ import {
   ReloadOutlined,
   PrinterOutlined,
   CloudServerOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 const { Title, Paragraph } = Typography;
 
@@ -58,33 +58,33 @@ const FeedbackPage = () => {
 
   const openNotification = (type) => {
     notification[type]({
-      message: 'Notification Title',
+      message: "Notification Title",
       description:
-        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+        "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
     });
   };
 
   const showMessage = (type) => {
-    message[type]('This is a message of ' + type);
+    message[type]("This is a message of " + type);
   };
 
   const confirm = () => {
     Modal.confirm({
-      title: 'Do you Want to delete these items?',
+      title: "Do you Want to delete these items?",
       icon: <ExclamationCircleOutlined />,
-      content: 'Some descriptions',
+      content: "Some descriptions",
       onOk() {
-        console.log('OK');
+        console.log("OK");
       },
       onCancel() {
-        console.log('Cancel');
+        console.log("Cancel");
       },
     });
   };
 
   const info = () => {
     Modal.info({
-      title: 'This is a notification message',
+      title: "This is a notification message",
       content: (
         <div>
           <p>some messages...some messages...</p>
@@ -97,21 +97,21 @@ const FeedbackPage = () => {
 
   const success = () => {
     Modal.success({
-      content: 'some messages...some messages...',
+      content: "some messages...some messages...",
     });
   };
 
   const error = () => {
     Modal.error({
-      title: 'This is an error message',
-      content: 'some messages...some messages...',
+      title: "This is an error message",
+      content: "some messages...some messages...",
     });
   };
 
   const warning = () => {
     Modal.warning({
-      title: 'This is a warning message',
-      content: 'some messages...some messages...',
+      title: "This is a warning message",
+      content: "some messages...some messages...",
     });
   };
 
@@ -120,7 +120,7 @@ const FeedbackPage = () => {
       <div className="page-header">
         <Title level={1}>Feedback Components</Title>
         <Paragraph>
-          Components for providing feedback to users including alerts, modals, 
+          Components for providing feedback to users including alerts, modals,
           notifications, and loading states.
         </Paragraph>
       </div>
@@ -134,7 +134,7 @@ const FeedbackPage = () => {
         <div className="demo-grid">
           <div className="demo-item">
             <Title level={4}>Basic Alerts</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Alert message="Success Tips" type="success" showIcon />
               <Alert message="Informational Notes" type="info" showIcon />
               <Alert message="Warning" type="warning" showIcon />
@@ -144,12 +144,12 @@ const FeedbackPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Closable Alerts</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Alert
                 message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
                 type="warning"
                 closable
-                onClose={() => console.log('Alert closed')}
+                onClose={() => console.log("Alert closed")}
               />
               <Alert
                 message="Error Text"
@@ -162,7 +162,7 @@ const FeedbackPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Alert with Description</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Alert
                 message="Success"
                 description="Detailed description and advice about successful copywriting."
@@ -193,7 +193,7 @@ const FeedbackPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Alert with Action</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Alert
                 message="Success Tips"
                 type="success"
@@ -225,9 +225,7 @@ const FeedbackPage = () => {
 
       <div className="demo-section">
         <Title level={2}>Modal</Title>
-        <Paragraph>
-          Modal dialogs for user feedback and confirmation.
-        </Paragraph>
+        <Paragraph>Modal dialogs for user feedback and confirmation.</Paragraph>
 
         <div className="demo-grid">
           <div className="demo-item">
@@ -270,10 +268,18 @@ const FeedbackPage = () => {
               visible={confirmModalVisible}
               onCancel={() => setConfirmModalVisible(false)}
               footer={[
-                <Button key="back" onClick={() => setConfirmModalVisible(false)}>
+                <Button
+                  key="back"
+                  onClick={() => setConfirmModalVisible(false)}
+                >
                   Return
                 </Button>,
-                <Button key="submit" type="primary" loading={false} onClick={() => setConfirmModalVisible(false)}>
+                <Button
+                  key="submit"
+                  type="primary"
+                  loading={false}
+                  onClick={() => setConfirmModalVisible(false)}
+                >
                   Submit
                 </Button>,
               ]}
@@ -289,8 +295,8 @@ const FeedbackPage = () => {
             <Space>
               <Popconfirm
                 title="Are you sure to delete this task?"
-                onConfirm={() => message.success('Clicked on Yes.')}
-                onCancel={() => message.error('Clicked on No.')}
+                onConfirm={() => message.success("Clicked on Yes.")}
+                onCancel={() => message.error("Clicked on No.")}
                 okText="Yes"
                 cancelText="No"
               >
@@ -298,8 +304,8 @@ const FeedbackPage = () => {
               </Popconfirm>
               <Popconfirm
                 title="Are you sure？"
-                icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
-                onConfirm={() => message.success('Confirmed')}
+                icon={<QuestionCircleOutlined style={{ color: "red" }} />}
+                onConfirm={() => message.success("Confirmed")}
               >
                 <Button>Confirm</Button>
               </Popconfirm>
@@ -337,25 +343,34 @@ const FeedbackPage = () => {
           <div className="demo-item">
             <Title level={4}>Drawer Placements</Title>
             <Space>
-              <Button type="primary" onClick={() => {
-                setDrawerVisible(true);
-              }}>
+              <Button
+                type="primary"
+                onClick={() => {
+                  setDrawerVisible(true);
+                }}
+              >
                 Right
               </Button>
-              <Button onClick={() => {
-                // For demo, using same drawer but with different placement
-                setDrawerVisible(true);
-              }}>
+              <Button
+                onClick={() => {
+                  // For demo, using same drawer but with different placement
+                  setDrawerVisible(true);
+                }}
+              >
                 Left
               </Button>
-              <Button onClick={() => {
-                setDrawerVisible(true);
-              }}>
+              <Button
+                onClick={() => {
+                  setDrawerVisible(true);
+                }}
+              >
                 Top
               </Button>
-              <Button onClick={() => {
-                setDrawerVisible(true);
-              }}>
+              <Button
+                onClick={() => {
+                  setDrawerVisible(true);
+                }}
+              >
                 Bottom
               </Button>
             </Space>
@@ -371,10 +386,13 @@ const FeedbackPage = () => {
           Display the current progress of an operation flow.
         </Paragraph>
 
-        <div className="demo-grid">
+        <div
+          className="demo-grid"
+          style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
+        >
           <div className="demo-item">
             <Title level={4}>Progress Bar</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Progress percent={30} />
               <Progress percent={50} status="active" />
               <Progress percent={70} status="exception" />
@@ -394,7 +412,7 @@ const FeedbackPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Mini Progress</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Progress size="small" percent={30} />
               <Progress size="small" percent={50} status="active" />
               <Progress size="small" percent={70} status="exception" />
@@ -420,17 +438,23 @@ const FeedbackPage = () => {
           Components for indicating loading states and placeholder content.
         </Paragraph>
 
-        <div className="demo-grid">
+        <div
+          className="demo-grid"
+          style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
+        >
           <div className="demo-item">
             <Title level={4}>Spin</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Spin size="small" />
               <Spin />
               <Spin size="large" />
               <Button onClick={handleSpin}>Start Spinning</Button>
               <Spin spinning={spinning} tip="Loading...">
-                <div style={{ padding: '50px', background: 'rgba(0, 0, 0, 0.05)' }}>
-                  Content here will be covered by the spinning indicator when loading.
+                <div
+                  style={{ padding: "50px", background: "rgba(0, 0, 0, 0.05)" }}
+                >
+                  Content here will be covered by the spinning indicator when
+                  loading.
                 </div>
               </Spin>
             </Space>
@@ -439,8 +463,14 @@ const FeedbackPage = () => {
           <div className="demo-item">
             <Title level={4}>Custom Spin</Title>
             <Space direction="vertical">
-              <Spin indicator={<ReloadOutlined style={{ fontSize: 24 }} spin />} />
-              <Spin indicator={<CloudServerOutlined style={{ fontSize: 24 }} spin />} />
+              <Spin
+                indicator={<ReloadOutlined style={{ fontSize: 24 }} spin />}
+              />
+              <Spin
+                indicator={
+                  <CloudServerOutlined style={{ fontSize: 24 }} spin />
+                }
+              />
             </Space>
           </div>
 
@@ -451,7 +481,7 @@ const FeedbackPage = () => {
 
           <div className="demo-item">
             <Title level={4}>Skeleton Variants</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
               <Skeleton avatar paragraph={{ rows: 4 }} />
               <Skeleton.Button active size="large" shape="round" />
               <Skeleton.Button active size="small" />
@@ -469,37 +499,45 @@ const FeedbackPage = () => {
           Global feedback components for displaying messages and notifications.
         </Paragraph>
 
-        <div className="demo-grid">
+        <div
+          className="demo-grid"
+          style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
+        >
           <div className="demo-item">
             <Title level={4}>Notification</Title>
             <Space wrap>
-              <Button onClick={() => openNotification('success')}>Success</Button>
-              <Button onClick={() => openNotification('info')}>Info</Button>
-              <Button onClick={() => openNotification('warning')}>Warning</Button>
-              <Button onClick={() => openNotification('error')}>Error</Button>
+              <Button onClick={() => openNotification("success")}>
+                Success
+              </Button>
+              <Button onClick={() => openNotification("info")}>Info</Button>
+              <Button onClick={() => openNotification("warning")}>
+                Warning
+              </Button>
+              <Button onClick={() => openNotification("error")}>Error</Button>
             </Space>
           </div>
 
           <div className="demo-item">
             <Title level={4}>Message</Title>
             <Space wrap>
-              <Button onClick={() => showMessage('success')}>Success</Button>
-              <Button onClick={() => showMessage('info')}>Info</Button>
-              <Button onClick={() => showMessage('warning')}>Warning</Button>
-              <Button onClick={() => showMessage('error')}>Error</Button>
-              <Button onClick={() => showMessage('loading')}>Loading</Button>
+              <Button onClick={() => showMessage("success")}>Success</Button>
+              <Button onClick={() => showMessage("info")}>Info</Button>
+              <Button onClick={() => showMessage("warning")}>Warning</Button>
+              <Button onClick={() => showMessage("error")}>Error</Button>
+              <Button onClick={() => showMessage("loading")}>Loading</Button>
             </Space>
           </div>
 
           <div className="demo-item">
             <Title level={4}>Custom Notification</Title>
-            <Button 
-              type="primary" 
+            <Button
+              type="primary"
               onClick={() => {
                 notification.open({
-                  message: 'Custom Notification',
-                  description: 'This is a custom notification with icon and action.',
-                  icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+                  message: "Custom Notification",
+                  description:
+                    "This is a custom notification with icon and action.",
+                  icon: <SmileOutlined style={{ color: "#108ee9" }} />,
                   btn: (
                     <Button type="primary" size="small">
                       Confirm
@@ -515,10 +553,19 @@ const FeedbackPage = () => {
           <div className="demo-item">
             <Title level={4}>Message Duration</Title>
             <Space wrap>
-              <Button onClick={() => message.success('This success message will last 10 seconds', 10)}>
+              <Button
+                onClick={() =>
+                  message.success(
+                    "This success message will last 10 seconds",
+                    10
+                  )
+                }
+              >
                 Long Success
               </Button>
-              <Button onClick={() => message.loading('Action in progress..', 0)}>
+              <Button
+                onClick={() => message.loading("Action in progress..", 0)}
+              >
                 Loading (No auto close)
               </Button>
             </Space>
