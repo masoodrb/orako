@@ -74,7 +74,7 @@ const QuotationsFormPage = () => {
 
   // Sample data for dropdowns
   const clients = [
-    { value: 'oracle-corp', label: 'Oracle Corporation', email: 'contact@oracle.com', phone: '+1-555-0123' },
+    { value: 'orako-corp', label: 'Oracle Corporation', email: 'contact@oracle.com', phone: '+1-555-0123' },
     { value: 'microsoft', label: 'Microsoft Corporation', email: 'contact@microsoft.com', phone: '+1-555-0124' },
     { value: 'google', label: 'Google LLC', email: 'contact@google.com', phone: '+1-555-0125' },
     { value: 'amazon', label: 'Amazon Web Services', email: 'contact@aws.com', phone: '+1-555-0126' },
@@ -603,7 +603,7 @@ const QuotationsFormPage = () => {
       </div>
 
       {/* Progress Summary */}
-      <Card className="oracle-shadow-sm" style={{ marginBottom: '24px' }}>
+      <Card className="orako-shadow-sm" style={{ marginBottom: '24px' }}>
         <Row gutter={[24, 24]} align="middle">
           <Col xs={24} lg={16}>
             <Steps current={currentStep} size="small">
@@ -630,7 +630,7 @@ const QuotationsFormPage = () => {
       </Card>
 
       {/* Main Form */}
-      <Card className="oracle-shadow-sm">
+      <Card className="orako-shadow-sm">
         <Form
           form={form}
           layout="vertical"

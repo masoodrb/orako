@@ -193,7 +193,7 @@ const ReportsPage = () => {
       <div className="page-header">
         <Title level={1}>Reports</Title>
         <Paragraph>
-          Generate, view, and manage comprehensive business reports for your Oracle Cloud ERP system.
+          Generate, view, and manage comprehensive business reports for your Orako Cloud ERP system.
           Access financial reports, analytics, compliance documents, and custom reports.
         </Paragraph>
       </div>

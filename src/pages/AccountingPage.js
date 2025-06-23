@@ -634,7 +634,7 @@ const AccountingPage = () => {
       children: (
         <Row gutter={[24, 24]}>
           <Col xs={24} lg={12}>
-            <Card title="Assets" className="oracle-shadow-md">
+            <Card title="Assets" className="orako-shadow-md">
               <div style={{ marginBottom: '16px' }}>
                 <Title level={5}>Current Assets</Title>
                 {renderBalanceSheetItem('Cash', balanceSheetData.assets.currentAssets.cash, 1)}
@@ -660,7 +660,7 @@ const AccountingPage = () => {
           </Col>
           
           <Col xs={24} lg={12}>
-            <Card title="Liabilities & Equity" className="oracle-shadow-md">
+            <Card title="Liabilities & Equity" className="orako-shadow-md">
               <div style={{ marginBottom: '16px' }}>
                 <Title level={5}>Current Liabilities</Title>
                 {renderBalanceSheetItem('Accounts Payable', balanceSheetData.liabilities.currentLiabilities.accountsPayable, 1)}
@@ -704,7 +704,7 @@ const AccountingPage = () => {
       children: (
         <Row gutter={[24, 24]}>
           <Col xs={24} lg={12}>
-            <Card title="Revenue" className="oracle-shadow-md">
+            <Card title="Revenue" className="orako-shadow-md">
               {renderBalanceSheetItem('Sales Revenue', profitLossData.revenue.salesRevenue, 1)}
               {renderBalanceSheetItem('Service Revenue', profitLossData.revenue.serviceRevenue, 1)}
               {renderBalanceSheetItem('Other Revenue', profitLossData.revenue.otherRevenue, 1)}
@@ -714,7 +714,7 @@ const AccountingPage = () => {
           </Col>
           
           <Col xs={24} lg={12}>
-            <Card title="Expenses" className="oracle-shadow-md">
+            <Card title="Expenses" className="orako-shadow-md">
               {renderBalanceSheetItem('Cost of Goods Sold', profitLossData.expenses.costOfGoodsSold, 1)}
               {renderBalanceSheetItem('Salaries & Benefits', profitLossData.expenses.salaries, 1)}
               {renderBalanceSheetItem('Rent', profitLossData.expenses.rent, 1)}
@@ -728,7 +728,7 @@ const AccountingPage = () => {
           </Col>
           
           <Col span={24}>
-            <Card className="oracle-shadow-md">
+            <Card className="orako-shadow-md">
               <Row justify="center">
                 <Col>
                   <Statistic

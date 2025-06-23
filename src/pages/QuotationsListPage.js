@@ -538,7 +538,7 @@ const QuotationsListPage = () => {
       {/* Quick Stats */}
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
         <Col xs={12} sm={8} md={6} lg={4}>
-          <Card size="small" className="oracle-shadow-sm">
+          <Card size="small" className="orako-shadow-sm">
             <Statistic
               title="Total"
               value={stats.total}
@@ -547,7 +547,7 @@ const QuotationsListPage = () => {
           </Card>
         </Col>
         <Col xs={12} sm={8} md={6} lg={4}>
-          <Card size="small" className="oracle-shadow-sm">
+          <Card size="small" className="orako-shadow-sm">
             <Statistic
               title="Sent"
               value={stats.sent}
@@ -556,7 +556,7 @@ const QuotationsListPage = () => {
           </Card>
         </Col>
         <Col xs={12} sm={8} md={6} lg={4}>
-          <Card size="small" className="oracle-shadow-sm">
+          <Card size="small" className="orako-shadow-sm">
             <Statistic
               title="Approved"
               value={stats.approved}
@@ -565,7 +565,7 @@ const QuotationsListPage = () => {
           </Card>
         </Col>
         <Col xs={12} sm={8} md={6} lg={4}>
-          <Card size="small" className="oracle-shadow-sm">
+          <Card size="small" className="orako-shadow-sm">
             <Statistic
               title="Under Review"
               value={stats.underReview}
@@ -574,7 +574,7 @@ const QuotationsListPage = () => {
           </Card>
         </Col>
         <Col xs={12} sm={8} md={6} lg={4}>
-          <Card size="small" className="oracle-shadow-sm">
+          <Card size="small" className="orako-shadow-sm">
             <Statistic
               title="Win Rate"
               value={stats.winRate}
@@ -584,7 +584,7 @@ const QuotationsListPage = () => {
           </Card>
         </Col>
         <Col xs={12} sm={8} md={6} lg={4}>
-          <Card size="small" className="oracle-shadow-sm">
+          <Card size="small" className="orako-shadow-sm">
             <Statistic
               title="Total Value"
               value={stats.totalValue}
@@ -597,7 +597,7 @@ const QuotationsListPage = () => {
       </Row>
 
       {/* Filters and Controls */}
-      <Card className="oracle-shadow-sm" style={{ marginBottom: '24px' }}>
+      <Card className="orako-shadow-sm" style={{ marginBottom: '24px' }}>
         <Row gutter={[16, 16]} align="middle">
           <Col xs={24} sm={12} md={8} lg={6}>
             <Search
@@ -686,7 +686,7 @@ const QuotationsListPage = () => {
       </Card>
 
       {/* Quotations Table */}
-      <Card className="oracle-shadow-sm">
+      <Card className="orako-shadow-sm">
         <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Text strong>
             Showing {sortedData.length} of {quotationsData.length} quotations

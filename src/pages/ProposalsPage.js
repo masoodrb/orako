@@ -420,7 +420,7 @@ const ProposalsPage = () => {
       {/* Statistics Cards */}
       <Row gutter={[24, 24]} style={{ marginBottom: '24px' }}>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Total Proposals"
               value={statisticsData.totalProposals}
@@ -430,7 +430,7 @@ const ProposalsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Total Value"
               value={statisticsData.totalValue}
@@ -441,7 +441,7 @@ const ProposalsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Win Rate"
               value={statisticsData.winRate}
@@ -452,7 +452,7 @@ const ProposalsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Avg Proposal Value"
               value={statisticsData.avgProposalValue}
@@ -465,7 +465,7 @@ const ProposalsPage = () => {
       </Row>
 
       {/* Main Content */}
-      <Card className="oracle-shadow-sm">
+      <Card className="orako-shadow-sm">
         <Tabs activeKey={activeTab} onChange={setActiveTab}>
           <Tabs.TabPane tab="All Proposals" key="proposals">
             {/* Filters and Actions */}
@@ -526,21 +526,21 @@ const ProposalsPage = () => {
           <Tabs.TabPane tab="Analytics" key="analytics">
             <Row gutter={[24, 24]}>
               <Col xs={24} lg={12}>
-                <Card title="Proposal Status Distribution" className="oracle-shadow-sm">
+                <Card title="Proposal Status Distribution" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Status distribution chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24} lg={12}>
-                <Card title="Monthly Proposal Trends" className="oracle-shadow-sm">
+                <Card title="Monthly Proposal Trends" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Monthly trends chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24}>
-                <Card title="Top Performing Proposals" className="oracle-shadow-sm">
+                <Card title="Top Performing Proposals" className="orako-shadow-sm">
                   <Table
                     dataSource={proposalsData.filter(p => p.status === 'Accepted').slice(0, 5)}
                     columns={[

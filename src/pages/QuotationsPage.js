@@ -496,7 +496,7 @@ const QuotationsPage = () => {
       {/* Statistics Cards */}
       <Row gutter={[24, 24]} style={{ marginBottom: '24px' }}>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Total Quotations"
               value={statisticsData.totalQuotations}
@@ -506,7 +506,7 @@ const QuotationsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Total Value"
               value={statisticsData.totalValue}
@@ -517,7 +517,7 @@ const QuotationsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Win Rate"
               value={statisticsData.winRate}
@@ -528,7 +528,7 @@ const QuotationsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Avg Quotation Value"
               value={statisticsData.avgQuotationValue}
@@ -541,7 +541,7 @@ const QuotationsPage = () => {
       </Row>
 
       {/* Main Content */}
-      <Card className="oracle-shadow-sm">
+      <Card className="orako-shadow-sm">
         <Tabs activeKey={activeTab} onChange={setActiveTab}>
           <Tabs.TabPane tab="All Quotations" key="quotations">
             {/* Filters and Actions */}
@@ -602,21 +602,21 @@ const QuotationsPage = () => {
           <Tabs.TabPane tab="Analytics" key="analytics">
             <Row gutter={[24, 24]}>
               <Col xs={24} lg={12}>
-                <Card title="Quotation Status Distribution" className="oracle-shadow-sm">
+                <Card title="Quotation Status Distribution" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Status distribution chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24} lg={12}>
-                <Card title="Monthly Quotation Trends" className="oracle-shadow-sm">
+                <Card title="Monthly Quotation Trends" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Monthly trends chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24}>
-                <Card title="Top Performing Quotations" className="oracle-shadow-sm">
+                <Card title="Top Performing Quotations" className="orako-shadow-sm">
                   <Table
                     dataSource={quotationsData.filter(q => q.status === 'Approved').slice(0, 5)}
                     columns={[

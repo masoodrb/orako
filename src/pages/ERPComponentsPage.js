@@ -213,7 +213,7 @@ const ERPComponentsPage = () => {
       dataIndex: 'orderId',
       key: 'orderId',
       sorter: true,
-      render: (text) => <Text strong className="oracle-primary-text">{text}</Text>
+      render: (text) => <Text strong className="orako-primary-text">{text}</Text>
     },
     {
       title: 'Customer',
@@ -516,7 +516,7 @@ const ERPComponentsPage = () => {
         <Row gutter={[20, 20]} style={{ marginBottom: '24px' }}>
           {kpiData.map((kpi, index) => (
             <Col xs={24} sm={12} md={6} key={index}>
-              <Card className="oracle-shadow-sm">
+              <Card className="orako-shadow-sm">
                 <Statistic
                   title={kpi.title}
                   value={kpi.value}
@@ -551,7 +551,7 @@ const ERPComponentsPage = () => {
             tab={<span><ShoppingCartOutlined />Sales & CRM</span>} 
             key="1"
           >
-            <Card title="Sales Orders Management" className="oracle-shadow-sm">
+            <Card title="Sales Orders Management" className="orako-shadow-sm">
               <Space style={{ marginBottom: '16px' }} wrap>
                 <Button type="primary" icon={<PlusOutlined />}>New Order</Button>
                 <Button icon={<ExportOutlined />} onClick={showMessage}>Export</Button>
@@ -590,7 +590,7 @@ const ERPComponentsPage = () => {
           >
             <Row gutter={[16, 16]}>
               <Col xs={24} lg={16}>
-                <Card title="Chart of Accounts" className="oracle-shadow-sm">
+                <Card title="Chart of Accounts" className="orako-shadow-sm">
                   <Table
                     columns={financialColumns}
                     dataSource={financialData}
@@ -600,7 +600,7 @@ const ERPComponentsPage = () => {
                 </Card>
               </Col>
               <Col xs={24} lg={8}>
-                <Card title="Quick Actions" className="oracle-shadow-sm">
+                <Card title="Quick Actions" className="orako-shadow-sm">
                   <Space direction="vertical" style={{ width: '100%' }}>
                     <Button block icon={<FileTextOutlined />}>Create Invoice</Button>
                     <Button block icon={<BankOutlined />}>Record Payment</Button>
@@ -623,7 +623,7 @@ const ERPComponentsPage = () => {
             tab={<span><TeamOutlined />Human Resources</span>} 
             key="3"
           >
-            <Card title="Employee Management" className="oracle-shadow-sm">
+            <Card title="Employee Management" className="orako-shadow-sm">
               <Space style={{ marginBottom: '16px' }} wrap>
                 <Button type="primary" icon={<PlusOutlined />}>Add Employee</Button>
                 <Button icon={<ContactsOutlined />}>Directory</Button>
@@ -656,7 +656,7 @@ const ERPComponentsPage = () => {
           >
             <Row gutter={[16, 16]}>
               <Col xs={24} lg={14}>
-                <Card title="Project Timeline" className="oracle-shadow-sm">
+                <Card title="Project Timeline" className="orako-shadow-sm">
                   <Timeline
                     items={[
                       {
@@ -712,7 +712,7 @@ const ERPComponentsPage = () => {
                 </Card>
               </Col>
               <Col xs={24} lg={10}>
-                <Card title="Project Resources" className="oracle-shadow-sm">
+                <Card title="Project Resources" className="orako-shadow-sm">
                   <Space direction="vertical" style={{ width: '100%' }}>
                     <div>
                       <Text strong>Budget Utilization</Text>
@@ -763,7 +763,7 @@ const ERPComponentsPage = () => {
         
         <Row gutter={[16, 16]}>
           <Col xs={24} lg={16}>
-            <Card title="Expense Report Approval Workflow" className="oracle-shadow-sm">
+            <Card title="Expense Report Approval Workflow" className="orako-shadow-sm">
               <Steps current={currentStep} direction="vertical">
                 {workflowSteps.map((step, index) => (
                   <Step
@@ -792,7 +792,7 @@ const ERPComponentsPage = () => {
             </Card>
           </Col>
           <Col xs={24} lg={8}>
-            <Card title="Audit Trail" className="oracle-shadow-sm">
+            <Card title="Audit Trail" className="orako-shadow-sm">
               <Timeline
                 mode="left"
                 items={auditTrail.map(item => ({
@@ -820,7 +820,7 @@ const ERPComponentsPage = () => {
         
         <Row gutter={[16, 16]}>
           <Col xs={24} md={12}>
-            <Card title="Real-time Notifications" className="oracle-shadow-sm">
+            <Card title="Real-time Notifications" className="orako-shadow-sm">
               <Space direction="vertical" style={{ width: '100%' }}>
                 <Alert
                   message="System Maintenance Scheduled"
@@ -860,7 +860,7 @@ const ERPComponentsPage = () => {
             </Card>
           </Col>
           <Col xs={24} md={12}>
-            <Card title="Integration Status" className="oracle-shadow-sm">
+            <Card title="Integration Status" className="orako-shadow-sm">
               <List
                 dataSource={[
                   { system: 'CRM (Salesforce)', status: 'Connected', lastSync: '2 minutes ago', color: 'success' },
@@ -895,7 +895,7 @@ const ERPComponentsPage = () => {
         
         <Row gutter={[16, 16]}>
           <Col xs={24} md={8}>
-            <Card title="Document Management" className="oracle-shadow-sm">
+            <Card title="Document Management" className="orako-shadow-sm">
               <Space direction="vertical" style={{ width: '100%' }}>
                 <Button block icon={<UploadOutlined />}>Upload Document</Button>
                 <Button block icon={<FileTextOutlined />}>Generate Contract</Button>
@@ -921,7 +921,7 @@ const ERPComponentsPage = () => {
             </Card>
           </Col>
           <Col xs={24} md={8}>
-            <Card title="Business Intelligence" className="oracle-shadow-sm">
+            <Card title="Business Intelligence" className="orako-shadow-sm">
               <Space direction="vertical" style={{ width: '100%' }}>
                 <div>
                   <Text strong>Sales Trend</Text>
@@ -945,7 +945,7 @@ const ERPComponentsPage = () => {
             </Card>
           </Col>
           <Col xs={24} md={8}>
-            <Card title="Quick Actions" className="oracle-shadow-sm">
+            <Card title="Quick Actions" className="orako-shadow-sm">
               <Space direction="vertical" style={{ width: '100%' }}>
                 <Button 
                   block 

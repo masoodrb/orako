@@ -511,7 +511,7 @@ const ClientAwardPointsPage = () => {
       {/* Statistics Cards */}
       <Row gutter={[24, 24]} style={{ marginBottom: '24px' }}>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Total Clients"
               value={statisticsData.totalClients}
@@ -521,7 +521,7 @@ const ClientAwardPointsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Points Issued"
               value={statisticsData.totalPointsIssued}
@@ -531,7 +531,7 @@ const ClientAwardPointsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Points Redeemed"
               value={statisticsData.totalPointsRedeemed}
@@ -541,7 +541,7 @@ const ClientAwardPointsPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Avg Points/Client"
               value={statisticsData.avgPointsPerClient}
@@ -553,7 +553,7 @@ const ClientAwardPointsPage = () => {
       </Row>
 
       {/* Tier Distribution */}
-      <Card className="oracle-shadow-sm" style={{ marginBottom: '24px' }}>
+      <Card className="orako-shadow-sm" style={{ marginBottom: '24px' }}>
         <Title level={4}>Tier Distribution</Title>
         <Row gutter={[16, 16]}>
           <Col xs={6}>
@@ -596,7 +596,7 @@ const ClientAwardPointsPage = () => {
       </Card>
 
       {/* Main Content */}
-      <Card className="oracle-shadow-sm">
+      <Card className="orako-shadow-sm">
         <Tabs activeKey={activeTab} onChange={setActiveTab}>
           <Tabs.TabPane tab="Client Points" key="clients">
             {/* Filters and Actions */}
@@ -670,7 +670,7 @@ const ClientAwardPointsPage = () => {
               {rewardsData.map(reward => (
                 <Col xs={24} sm={12} lg={8} key={reward.key}>
                   <Card
-                    className="oracle-shadow-sm"
+                    className="orako-shadow-sm"
                     actions={[
                       <Button type="link" icon={<EditOutlined />}>Edit</Button>,
                       <Button type="link" icon={<EyeOutlined />}>View</Button>
@@ -713,21 +713,21 @@ const ClientAwardPointsPage = () => {
           <Tabs.TabPane tab="Analytics" key="analytics">
             <Row gutter={[24, 24]}>
               <Col xs={24} lg={12}>
-                <Card title="Points Distribution" className="oracle-shadow-sm">
+                <Card title="Points Distribution" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Points distribution chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24} lg={12}>
-                <Card title="Redemption Trends" className="oracle-shadow-sm">
+                <Card title="Redemption Trends" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Redemption trends chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24}>
-                <Card title="Top Performers" className="oracle-shadow-sm">
+                <Card title="Top Performers" className="orako-shadow-sm">
                   <Table
                     dataSource={clientPointsData.sort((a, b) => b.totalPoints - a.totalPoints).slice(0, 5)}
                     columns={[

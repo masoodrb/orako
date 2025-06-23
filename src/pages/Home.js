@@ -122,7 +122,7 @@ const Home = () => {
 
       <Row gutter={[24, 24]} style={{ marginBottom: '40px' }}>
         <Col xs={24} sm={12} md={8}>
-          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
+          <Card className="orako-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
             <Statistic
               title="Total Components"
               value={85}
@@ -136,7 +136,7 @@ const Home = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
+          <Card className="orako-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
             <Statistic
               title="Business Modules"
               value={11}
@@ -149,7 +149,7 @@ const Home = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card className="oracle-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
+          <Card className="orako-shadow-sm" style={{ borderRadius: 'var(--orako-radius-md)' }}>
             <Statistic
               title="Platform Version"
               value="18.2"
@@ -163,7 +163,7 @@ const Home = () => {
         </Col>
       </Row>
 
-      <Title level={2} className="oracle-primary-text" style={{ 
+      <Title level={2} className="orako-primary-text" style={{ 
         marginBottom: '32px', 
         fontSize: '24px', 
         fontWeight: 700,
@@ -177,7 +177,7 @@ const Home = () => {
           <Col xs={24} sm={12} lg={8} key={index}>
             <Card
               hoverable
-              className="oracle-shadow-sm"
+              className="orako-shadow-sm"
               style={{ 
                 height: '100%', 
                 borderRadius: 'var(--orako-radius-md)',
@@ -225,7 +225,7 @@ const Home = () => {
                     </Paragraph>
                     <Button 
                       type="primary" 
-                      className="oracle-shadow-xs"
+                      className="orako-shadow-xs"
                       style={{ 
                         fontSize: '14px', 
                         height: '40px',
@@ -245,7 +245,7 @@ const Home = () => {
         ))}
       </Row>
 
-      <Title level={2} className="oracle-primary-text" style={{ 
+      <Title level={2} className="orako-primary-text" style={{ 
         marginBottom: '32px', 
         fontSize: '24px', 
         fontWeight: 700,
@@ -259,7 +259,7 @@ const Home = () => {
           <Col xs={24} sm={12} lg={6} key={index}>
             <Card
               hoverable
-              className="oracle-shadow-sm"
+              className="orako-shadow-sm"
               style={{ 
                 height: '100%', 
                 borderRadius: 'var(--orako-radius-md)',
@@ -309,7 +309,7 @@ const Home = () => {
                     </Paragraph>
                     <Button 
                       type="primary" 
-                      className="oracle-shadow-xs"
+                      className="orako-shadow-xs"
                       style={{ 
                         fontSize: '14px', 
                         height: '40px',
@@ -330,14 +330,14 @@ const Home = () => {
       </Row>
 
       <Card 
-        className="oracle-shadow-md" 
+        className="orako-shadow-md" 
         style={{ 
           marginTop: '40px',
           borderRadius: 'var(--orako-radius-lg)',
           border: '1px solid var(--orako-border)'
         }}
       >
-        <Title level={3} className="oracle-primary-text" style={{ 
+        <Title level={3} className="orako-primary-text" style={{ 
           fontSize: '20px', 
           fontWeight: 700,
           marginBottom: '20px'

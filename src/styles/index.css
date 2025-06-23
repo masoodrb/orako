@@ -1,4 +1,4 @@
-/* Oracle Cloud ERP Professional Theme */
+/* Orako Cloud ERP Professional Theme */
 :root {
   --orako-primary: #ff0000;
   --orako-primary-dark: #cc0000;
@@ -55,7 +55,7 @@ body {
   line-height: 1.5;
 }
 
-/* Global Ant Design overrides for Oracle theme */
+/* Global Ant Design overrides for Orako theme */
 .ant-layout {
   background-color: var(--orako-background) !important;
 }
@@ -354,7 +354,7 @@ body {
   line-height: 1.6;
 }
 
-/* Oracle-style Card and Surface Styling */
+/* Orako-style Card and Surface Styling */
 .ant-card {
   border: 1px solid var(--orako-border) !important;
   border-radius: var(--orako-radius-md);

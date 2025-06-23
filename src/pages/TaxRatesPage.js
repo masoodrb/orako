@@ -435,7 +435,7 @@ const TaxRatesPage = () => {
       {/* Statistics Cards */}
       <Row gutter={[24, 24]} style={{ marginBottom: '24px' }}>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Total Tax Rates"
               value={statisticsData.totalTaxRates}
@@ -445,7 +445,7 @@ const TaxRatesPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Active Rates"
               value={statisticsData.activeTaxRates}
@@ -455,7 +455,7 @@ const TaxRatesPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Average Rate"
               value={statisticsData.avgTaxRate}
@@ -466,7 +466,7 @@ const TaxRatesPage = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card className="oracle-shadow-sm">
+          <Card className="orako-shadow-sm">
             <Statistic
               title="Countries/Regions"
               value={statisticsData.uniqueCountries}
@@ -478,7 +478,7 @@ const TaxRatesPage = () => {
       </Row>
 
       {/* Main Content */}
-      <Card className="oracle-shadow-sm">
+      <Card className="orako-shadow-sm">
         <Tabs activeKey={activeTab} onChange={setActiveTab}>
           <Tabs.TabPane tab="Tax Rates" key="tax-rates">
             {/* Filters and Actions */}
@@ -551,7 +551,7 @@ const TaxRatesPage = () => {
           <Tabs.TabPane tab="Tax Calculator" key="calculator">
             <Row gutter={[24, 24]}>
               <Col xs={24} lg={12}>
-                <Card title="Tax Calculator" className="oracle-shadow-sm">
+                <Card title="Tax Calculator" className="orako-shadow-sm">
                   <Form layout="vertical">
                     <Form.Item label="Base Amount">
                       <InputNumber
@@ -580,7 +580,7 @@ const TaxRatesPage = () => {
                 </Card>
               </Col>
               <Col xs={24} lg={12}>
-                <Card title="Calculation Result" className="oracle-shadow-sm">
+                <Card title="Calculation Result" className="orako-shadow-sm">
                   <div style={{ textAlign: 'center', padding: '40px 20px' }}>
                     <Text type="secondary">Enter amount and select tax rate to calculate</Text>
                   </div>
@@ -592,21 +592,21 @@ const TaxRatesPage = () => {
           <Tabs.TabPane tab="Reports" key="reports">
             <Row gutter={[24, 24]}>
               <Col xs={24} lg={12}>
-                <Card title="Tax Rate Usage" className="oracle-shadow-sm">
+                <Card title="Tax Rate Usage" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Tax rate usage chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24} lg={12}>
-                <Card title="Regional Tax Distribution" className="oracle-shadow-sm">
+                <Card title="Regional Tax Distribution" className="orako-shadow-sm">
                   <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Text type="secondary">Regional distribution chart would be displayed here</Text>
                   </div>
                 </Card>
               </Col>
               <Col xs={24}>
-                <Card title="Most Used Tax Rates" className="oracle-shadow-sm">
+                <Card title="Most Used Tax Rates" className="orako-shadow-sm">
                   <Table
                     dataSource={taxRatesData.sort((a, b) => b.usageCount - a.usageCount).slice(0, 5)}
                     columns={[
